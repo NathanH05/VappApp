@@ -1,0 +1,166 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#424e57"
+    tools:context="com.example.myfirstapp.FullscreenActivity">
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="5dp">
+
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/drinks"
+        android:id="@+id/coffee"
+
+        />
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="5dp"
+        android:background="@drawable/gold_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="115dp"
+        android:id="@+id/goldbarCoffee"
+
+        />
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="130dp"
+        android:background="@drawable/shopping"
+        android:id="@+id/shopping"
+        />
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="5dp"
+        android:background="@drawable/gold_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="115dp"
+        android:id="@+id/goldbarShopping"
+
+        />
+
+    <ImageButton
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:background="@drawable/fooddining"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="250dp"
+        android:id="@+id/fastfoods"
+
+        />
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="5dp"
+        android:background="@drawable/gold_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="115dp"
+        android:id="@+id/goldbarFastfoods"
+
+        />
+
+
+</RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="200dp"
+    android:layout_marginLeft="5dp">
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/movies"
+        android:id="@+id/movies"
+
+
+        />
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="5dp"
+        android:background="@drawable/gold_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="115dp"
+        android:id="@+id/goldbarMovies"
+
+        />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:id="@+id/tech"
+        android:layout_height="100dp"
+        android:background="@drawable/accomodation"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="130dp"
+
+        />
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="5dp"
+        android:background="@drawable/gold_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="115dp"
+        android:id="@+id/goldbarTech"
+
+        />
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/attractions"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="254dp"
+        android:id="@+id/beverages"
+
+        />
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="5dp"
+        android:background="@drawable/gold_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="115dp"
+        android:id="@+id/goldbarBeverages"
+
+        />
+
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+    </FrameLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Done"
+        android:id="@+id/filter"
+        android:layout_marginTop="345dp"
+        />
+
+</FrameLayout>

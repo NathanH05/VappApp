@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/settings"
+        android:title="Settings" />
+    <item
+        android:id="@+id/emptyspace"
+        android:title="" />
+    <group>
+        <item
+            android:id="@+id/coupons"
+            android:icon="@drawable/coupon"
+            android:title="Coupons" />
+        <item
+            android:id="@+id/emptyspace2"
+            android:title=""
+            />
+        <item
+            android:id="@+id/help"
+            android:icon="@drawable/ic_help_icon"
+            android:title="Help"
+            />
+        <item
+            android:id="@+id/emptyspace3"
+            android:title="" />
+        <item
+            android:id="@+id/loginlogout"
+            android:icon="@drawable/logout"
+            android:title="Login/logout " />
+        <item
+            android:id="@+id/emptyspace4"
+            android:title="" />
+        <item
+            android:id="@+id/payment"
+            android:icon="@drawable/payment_icon"
+            android:title="Payment" />
+
+    </group>
+
+
+</menu>
+

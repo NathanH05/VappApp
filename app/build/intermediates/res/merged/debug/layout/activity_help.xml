@@ -1,0 +1,324 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.google.samples.quickstart.signin.couponsDash">
+
+
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controls"
+        style="?metaButtonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="#f4f4f4"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="23sp"
+            android:layout_margin="10dp"
+            android:text="FAQ:"/>
+        <ScrollView
+            android:layout_height="wrap_content"
+            android:id="@+id/faqScroll"
+            android:layout_width="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/content2dy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/sharp_corner"
+                    >
+                    <LinearLayout
+                        android:id="@+id/content3y"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="7dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/retailerNamesy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="How do I add an offer (Retailer): " />
+                                <TextView
+                                    android:id="@+id/retailerStoredName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/offerDetail"
+                                android:layout_width="175dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Once logged in, you are prompted with the post offer page" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/content2dz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/sharp_corner"
+                    >
+                    <LinearLayout
+                        android:id="@+id/content3z"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="10dp"
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/retailerNamesz"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="How do I redeem my coupons (user): "/>
+                                <TextView
+                                    android:id="@+id/retailerStoredNamez"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="" />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/offerDetailz"
+                                android:layout_width="175dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text='Coupons can be redeemed in store within the valid date'  />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/content2dx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/sharp_corner"
+                    >
+                    <LinearLayout
+                        android:id="@+id/content3x"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="10dp"
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/retailerNamesb"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="Do I have to be near the offer to get the deals?"/>
+
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/offerDetailb"
+                                android:layout_width="175dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Users must go into stores for all deals within the specified time where coupons are not available" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/content2da"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/sharp_corner"
+                    >
+                    <LinearLayout
+                        android:id="@+id/content3a"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="10dp"
+                        >
+
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/retailerNamesa"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="How long are offers lasting for? "/>
+                                <TextView
+                                    android:id="@+id/retailerStoredNamea"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp" />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/offerDetaila"
+                                android:layout_width="175dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Retailers may only list offers with durations between 20 minutes and 90 minutes" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/content2dc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/sharp_corner"
+                    >
+                    <LinearLayout
+                        android:id="@+id/content3c"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="10dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/retailerNamesc"
+                                    android:layout_width="300dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="I'm worried the retailer won't have the same offer again."
+/>
+                                <TextView
+                                    android:id="@+id/retailerStoredNamec"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+/>
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/offerDetailc"
+                                android:layout_width="175dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Retailers are able to list an offer more than twice " />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+</FrameLayout>

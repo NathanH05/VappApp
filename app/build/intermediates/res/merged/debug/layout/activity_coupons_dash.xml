@@ -1,0 +1,394 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.google.samples.quickstart.signin.couponsDash">
+
+
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="#f4f4f4"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="23sp"
+                android:layout_margin="10dp"
+                android:text="Your saved coupons:"/>
+        <ScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/content2dy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sharp_corner"
+                >
+                <LinearLayout
+                    android:id="@+id/content3y"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="7dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:id="@+id/qr"
+                        android:layout_height="80dp"
+                        android:paddingLeft="5dp"
+                        android:src="@drawable/qrcode"
+                        />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/retailerNamesy"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:padding="5dp"
+                        android:text="Retailer: " />
+                    <TextView
+                        android:id="@+id/retailerStoredName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:padding="5dp"
+                        android:text="BP Nationwide " />
+                        </LinearLayout>
+                    <TextView
+                        android:id="@+id/offerDetail"
+                        android:layout_width="175dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:padding="5dp"
+                        android:text="With every 2l of milk, get a free chocolate muffin from Wild Bean" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/share"
+                        android:id="@+id/share"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/content2dz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sharp_corner"
+                >
+                <LinearLayout
+                    android:id="@+id/content3z"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:paddingLeft="5dp"
+                        android:id="@+id/qrz"
+                        android:src="@drawable/qrcode"
+                        />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/retailerNamesz"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Retailer: " />
+                            <TextView
+                                android:id="@+id/retailerStoredNamez"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Beaurepairs\nWaitakere" />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/offerDetailz"
+                            android:layout_width="175dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:padding="5dp"
+                            android:text='15" and 18" alloys 40% off'  />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/share"
+                        android:id="@+id/sharez"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/content2dx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/sharp_corner"
+                    >
+                    <LinearLayout
+                        android:id="@+id/content3x"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="10dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:paddingLeft="5dp"
+                            android:id="@+id/qry"
+                            android:src="@drawable/qrcode"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/retailerNamesb"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="Retailer: " />
+                                <TextView
+                                    android:id="@+id/retailerStoredNameb"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:padding="5dp"
+                                    android:text="West Wave " />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/offerDetailb"
+                                android:layout_width="175dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Children free with every paying adult" />
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/share"
+                            android:id="@+id/sharex"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+        <LinearLayout
+                android:id="@+id/content2da"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sharp_corner"
+                >
+                <LinearLayout
+                    android:id="@+id/content3a"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:paddingLeft="5dp"
+                        android:id="@+id/qra"
+                        android:src="@drawable/qrcode"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/retailerNamesa"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Retailer: " />
+                            <TextView
+                                android:id="@+id/retailerStoredNamea"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Animates\nHenderson " />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/offerDetaila"
+                            android:layout_width="175dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:padding="5dp"
+                            android:text="All cats pet feed 40% off" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/share"
+                        android:id="@+id/sharea"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        <LinearLayout
+                android:id="@+id/content2dc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sharp_corner"
+                >
+                <LinearLayout
+                    android:id="@+id/content3c"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:paddingLeft="5dp"
+                        android:id="@+id/qrc"
+                        android:src="@drawable/qrcode"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/retailerNamesc"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Retailer: " />
+                            <TextView
+                                android:id="@+id/retailerStoredNamec"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000000"
+                                android:padding="5dp"
+                                android:text="Briscoes\nWaitakere" />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/offerDetailc"
+                            android:layout_width="175dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:padding="5dp"
+                            android:text="Duvets and pillows half price" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/share"
+                        android:id="@+id/sharec"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            </LinearLayout>
+            </ScrollView>
+</LinearLayout>
+
+
+</FrameLayout>
