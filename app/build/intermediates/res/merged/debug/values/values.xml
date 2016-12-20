@@ -1000,6 +1000,7 @@
     <string name="auth_code_fmt">Auth Code: %s</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="businessTypePrompt">Business Type</string>
+    <string name="cancel">Cancel</string>
     <string name="cast_ad_label">Ad</string>
     <string name="cast_casting_to_device">Casting to %1$s</string>
     <string name="cast_closed_captions">Closed captions</string>
@@ -1235,8 +1236,9 @@
     <string name="google_app_id" translatable="false">1:180332685904:android:27d689d63f1b7a06</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBtBXWNv6DXxRK4SHLWqJfBK2lkefwAuIk</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
-        AIzaSyAW98Anflmq1Edxwf0IyNAq2ycUFGNUjGA
+        AIzaSyCVCQs8Q614s8LkD00AMOq3SuDm3NsQZMo
     </string>
+    <string name="gps_network_not_enabled">Please enable gps on your device</string>
     <string name="hello_world">Hello world!</string>
     <string name="ic_drawer">Close navigation drawer</string>
     <string name="id_token_fmt">ID Token: %s</string>
@@ -1264,6 +1266,7 @@
     <string name="name_sign_in_activity">SignInActivity</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="open_location_settings">Please enable location settings</string>
     <string name="place_autocomplete_clear_button">Clear search</string>
     <string name="place_autocomplete_search_hint">Search</string>
     <string name="play_services_error_fmt">Google Play Services Error: %i</string>

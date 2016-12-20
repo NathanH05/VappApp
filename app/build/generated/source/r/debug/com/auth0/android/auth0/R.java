@@ -615,10 +615,10 @@ public final class R {
 		public static final int abc_shareactionprovider_share_with = 0x7f090010;
 		public static final int abc_shareactionprovider_share_with_application = 0x7f090011;
 		public static final int abc_toolbar_collapse_description = 0x7f090012;
-		public static final int com_auth0_webauth_network_error = 0x7f090101;
-		public static final int com_auth0_webauth_permission_missing_description = 0x7f090102;
-		public static final int com_auth0_webauth_permission_missing_title = 0x7f090103;
-		public static final int com_auth0_webauth_webview_loading_retry = 0x7f090104;
+		public static final int com_auth0_webauth_network_error = 0x7f090102;
+		public static final int com_auth0_webauth_permission_missing_description = 0x7f090103;
+		public static final int com_auth0_webauth_permission_missing_title = 0x7f090104;
+		public static final int com_auth0_webauth_webview_loading_retry = 0x7f090105;
 		public static final int status_bar_notification_info_overflow = 0x7f090071;
 	}
 	public static final class style {

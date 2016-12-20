@@ -475,8 +475,8 @@ public final class R {
 		public static final int cast_forward_10 = 0x7f09001e;
 		public static final int cast_forward_30 = 0x7f09001f;
 		public static final int cast_intro_overlay_button_text = 0x7f090020;
-		public static final int cast_invalid_stream_duration_text = 0x7f09008d;
-		public static final int cast_invalid_stream_position_text = 0x7f09008e;
+		public static final int cast_invalid_stream_duration_text = 0x7f09008e;
+		public static final int cast_invalid_stream_position_text = 0x7f09008f;
 		public static final int cast_mute = 0x7f090021;
 		public static final int cast_notification_connected_message = 0x7f090022;
 		public static final int cast_notification_connecting_message = 0x7f090023;
@@ -520,20 +520,20 @@ public final class R {
 		public static final int common_open_on_phone = 0x7f09005a;
 		public static final int common_signin_button_text = 0x7f09005b;
 		public static final int common_signin_button_text_long = 0x7f09005c;
-		public static final int create_calendar_message = 0x7f09010e;
-		public static final int create_calendar_title = 0x7f09010f;
-		public static final int debug_menu_ad_information = 0x7f090110;
-		public static final int debug_menu_creative_preview = 0x7f090111;
-		public static final int debug_menu_title = 0x7f090112;
-		public static final int debug_menu_troubleshooting = 0x7f090113;
-		public static final int decline = 0x7f090114;
+		public static final int create_calendar_message = 0x7f09010f;
+		public static final int create_calendar_title = 0x7f090110;
+		public static final int debug_menu_ad_information = 0x7f090111;
+		public static final int debug_menu_creative_preview = 0x7f090112;
+		public static final int debug_menu_title = 0x7f090113;
+		public static final int debug_menu_troubleshooting = 0x7f090114;
+		public static final int decline = 0x7f090115;
 		public static final int place_autocomplete_clear_button = 0x7f09006e;
 		public static final int place_autocomplete_search_hint = 0x7f09006f;
-		public static final int store_picture_message = 0x7f090149;
-		public static final int store_picture_title = 0x7f09014a;
-		public static final int tagmanager_preview_dialog_button = 0x7f09014b;
-		public static final int tagmanager_preview_dialog_message = 0x7f09014c;
-		public static final int tagmanager_preview_dialog_title = 0x7f09014d;
+		public static final int store_picture_message = 0x7f09014c;
+		public static final int store_picture_title = 0x7f09014d;
+		public static final int tagmanager_preview_dialog_button = 0x7f09014e;
+		public static final int tagmanager_preview_dialog_message = 0x7f09014f;
+		public static final int tagmanager_preview_dialog_title = 0x7f090150;
 		public static final int wallet_buy_button_place_holder = 0x7f090072;
 	}
 	public static final class style {

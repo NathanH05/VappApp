@@ -16,6 +16,9 @@
     <string name="loading">Loading…</string>
     <string name="auth_code_fmt">Auth Code: %s</string>
     <string name="id_token_fmt">ID Token: %s</string>
+    <string name="gps_network_not_enabled">Please enable gps on your device</string>
+    <string name="open_location_settings">Please enable location settings</string>
+    <string name="cancel">Cancel</string>
 
 
     <string name="auth0_client_id">Sf0CBuMqWDM0jwMgc9UD78UZqxPVt8ix</string>

@@ -97,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="58154bf00d2ce660766c9b6495f991944e246556">
+        sha1="1b496e1c8bc1b611e91c3ef3527d9e18d5ec0484">
         <dex dex="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ccf92a28fb38feed069a157e92434485df2dbc26/classes.dex" />
     </item>
     <item
@@ -511,7 +511,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="54255b5bb70ed39bcf3e1bb6ea93c5b2b36d1b3d">
+        sha1="29d736e1a49b70c6c36959e78cc5d3be4b293168">
         <dex dex="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f296b695290d57adda3a40de479749ad2a9b5e60/classes.dex" />
     </item>
     <item

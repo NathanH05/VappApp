@@ -1,18 +1,22 @@
 package com.example.myfirstapp;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.location.LocationManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -40,6 +44,9 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -86,6 +93,8 @@ public class SignInActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     StringBuffer response = new StringBuffer();
+    static final int MY_PERMISSIONS_REQUEST_FINELOC =1;
+    static final int MY_PERMISSIONS_REQUEST_CAMERA =2;
 
     CallbackManager callbackManager;
     private static final String TAG = "SignInActivity";
@@ -101,12 +110,71 @@ public class SignInActivity extends AppCompatActivity implements
     String g ="";
     String emailString ="";
     Boolean exists = null;
-
     StringBuilder sb = new StringBuilder();
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_FINELOC: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+
+                } else {
+
+
+                }
+                return;
+            }
+            case MY_PERMISSIONS_REQUEST_CAMERA:{
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                }  else{
+
+                }
+                return;
+
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("SignIn Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(mGoogleApiClient, getIndexApiAction());
+        mGoogleApiClient.disconnect();
     }
 
 
@@ -139,9 +207,19 @@ public class SignInActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("onCreate");
+
+        ActivityCompat.requestPermissions(SignInActivity.this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA},
+                MY_PERMISSIONS_REQUEST_FINELOC);
+
+
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         callbackManager = CallbackManager.Factory.create();
+        final Context context = this;
+        LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        boolean gps_enabled = false;
+        boolean network_enabled = false;
 
 
         TwitterAuthConfig authConfig =
@@ -152,9 +230,7 @@ public class SignInActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
 
-
-
-        if (android.os.Build.VERSION.SDK_INT > 9) {
+        if (Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
@@ -186,7 +262,7 @@ public class SignInActivity extends AppCompatActivity implements
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
 
         // Inflate the custom layout/view
-        View customView = inflater.inflate(R.layout.email_layout,null);
+        View customView = inflater.inflate(R.layout.email_layout, null);
 
 
         final Button createAccountButton = (Button) findViewById(R.id.createAccount);
@@ -259,9 +335,9 @@ public class SignInActivity extends AppCompatActivity implements
                         String data = null;
 
                         try {
-                            data ="";
+                            data = "";
                             data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
-                                    + "\"" + URLEncoder.encode(userEmail, "UTF-8") + "\"" ;
+                                    + "\"" + URLEncoder.encode(userEmail, "UTF-8") + "\"";
                             System.out.println("ha");
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
@@ -269,7 +345,7 @@ public class SignInActivity extends AppCompatActivity implements
 
                         try {
                             data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
-                                    + ":" + "\"" +URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
+                                    + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
                             System.out.println("ho");
                             System.out.println(data);
                         } catch (UnsupportedEncodingException e) {
@@ -299,8 +375,8 @@ public class SignInActivity extends AppCompatActivity implements
                             String line = null;
 
                             line = reader.readLine();
-                                // Append server response in string
-                                sb.append(line + "\n");
+                            // Append server response in string
+                            sb.append(line + "\n");
                             String f = line;
                             g = f.replace("\\", "").trim();
 
@@ -323,7 +399,7 @@ public class SignInActivity extends AppCompatActivity implements
 
 
                         try {
-                            my_json=jsonParser.parse(g);
+                            my_json = jsonParser.parse(g);
                             JSONObject obj = new JSONObject(g);
                             emailString = obj.getString("email");
                             exists = obj.getBoolean("exists");
@@ -333,7 +409,7 @@ public class SignInActivity extends AppCompatActivity implements
                             e.printStackTrace();
                         }
 
-                        if (exists != false){
+                        if (exists != false) {
 //                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
 //
 //                            // Inflate the custom layout/view
@@ -342,15 +418,10 @@ public class SignInActivity extends AppCompatActivity implements
                             TextView validator = (TextView) customView.findViewById(R.id.validator);
                             validator.setVisibility(View.VISIBLE);
 
-                        }
-                        else {
+                        } else {
                             mPopupWindow.dismiss();
 
                         }
-
-
-
-
 
 
 //                        Gson gson = new Gson();
@@ -626,10 +697,12 @@ public class SignInActivity extends AppCompatActivity implements
         // [START build_client]
         // Build a GoogleApiClient with access to the Google Sign-In API and the
         // options specified by gso.
+        // ATTENTION: This "addApi(AppIndex.API)"was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
+                .addApi(AppIndex.API).build();
         // [END build_client]
 
         // [START customize_button]
@@ -656,7 +729,9 @@ public class SignInActivity extends AppCompatActivity implements
 
     @Override
     public void onStart() {
-        super.onStart();
+        super.onStart();// ATTENTION: This was auto-generated to implement the App Indexing API.
+// See https://g.co/AppIndexing/AndroidStudio for more information.
+        mGoogleApiClient.connect();
         System.out.println("onStart");
 
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
@@ -679,6 +754,9 @@ public class SignInActivity extends AppCompatActivity implements
                 }
             });
         }
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.start(mGoogleApiClient, getIndexApiAction());
     }
 
 //    @Override
