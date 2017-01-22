@@ -68,6 +68,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/layout/messenger_button_send_white_small.xml"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/activity_fragment_three.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/layout/activity_fragment_three.xml"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/notification_template_big_media_custom.xml"
     },
@@ -158,6 +162,10 @@
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/second_layout.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/layout/second_layout.xml"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/activity_fragment_two.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/layout/activity_fragment_two.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
@@ -360,6 +368,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/layout/place_autocomplete_progress.xml"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/activity_swiping.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/layout/activity_swiping.xml"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_action_menu_layout.xml"
     },
@@ -538,6 +550,10 @@
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/app_bar_main4.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/layout/app_bar_main4.xml"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/activity_fragment_one.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/layout/activity_fragment_one.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",

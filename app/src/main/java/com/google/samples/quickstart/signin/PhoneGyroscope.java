@@ -53,7 +53,7 @@ public class PhoneGyroscope extends FragmentActivity {
             textZ.setText("Z : " + (int)z + " rad/s");
 */
             if ((int)x != 0){
-                Intent intent = new Intent(PhoneGyroscope.this, Main2Activity.class);
+                Intent intent = new Intent(PhoneGyroscope.this, ArActivity.class);
                 startActivity(intent);
 
             }

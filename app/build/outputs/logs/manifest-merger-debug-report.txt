@@ -299,7 +299,7 @@ ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/m
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:108:13-44
 	android:name
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:105:13-79
-activity#com.google.samples.quickstart.signin.Main2Activity
+activity#com.google.samples.quickstart.signin.ArActivity
 ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:109:9-127:20
 	android:label
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:113:13-29
@@ -310,7 +310,7 @@ ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/m
 	android:theme
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:114:13-63
 	android:name
-		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:110:13-78
+		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:110:13-75
 activity#com.google.samples.quickstart.signin.MapsActivity
 ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:128:9-141:20
 	android:label
@@ -354,13 +354,13 @@ ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/m
 	android:label
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:157:13-60
 	android:parentActivityName
-		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:158:13-92
+		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:158:13-89
 	android:name
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:156:13-45
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:159:13-161:86
+ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:159:13-161:83
 	android:value
-		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:161:17-83
+		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:161:17-80
 	android:name
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:160:17-63
 activity#com.example.myfirstapp.couponActivity

@@ -640,12 +640,12 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-hdpi-v4/com_auth0_lock_ic_social_amazon.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_cast_grey.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-hdpi-v4/ic_cast_grey.png"
-    },
-    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_auth0_lock_ic_phone.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-hdpi-v4/com_auth0_lock_ic_phone.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/ic_cast_grey.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-hdpi-v4/ic_cast_grey.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png",

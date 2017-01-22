@@ -16,6 +16,11 @@
     <color name="orange">#FFAE50</color>
     <color name="gold">#DAC27C</color>
 
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#00FFFFFF</color>
+    <color name="navigationBarColor">#00FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="colorAccent">#c8e8ff</color>
 
 
 </resources>

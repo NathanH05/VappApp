@@ -12,27 +12,27 @@ public final class R {
 		public static final int tw__image_dimension_to_adjust = 0x7f0101db;
 	}
 	public static final class color {
-		public static final int tw__blue_default = 0x7f0e00c5;
-		public static final int tw__blue_pressed = 0x7f0e00c6;
-		public static final int tw__blue_pressed_light = 0x7f0e00c7;
-		public static final int tw__light_gray = 0x7f0e00c8;
-		public static final int tw__medium_gray = 0x7f0e00c9;
-		public static final int tw__solid_white = 0x7f0e00ca;
-		public static final int tw__transparent = 0x7f0e00cb;
+		public static final int tw__blue_default = 0x7f0e00c9;
+		public static final int tw__blue_pressed = 0x7f0e00ca;
+		public static final int tw__blue_pressed_light = 0x7f0e00cb;
+		public static final int tw__light_gray = 0x7f0e00cc;
+		public static final int tw__medium_gray = 0x7f0e00cd;
+		public static final int tw__solid_white = 0x7f0e00ce;
+		public static final int tw__transparent = 0x7f0e00cf;
 	}
 	public static final class dimen {
-		public static final int tw__btn_bar_margin_left = 0x7f0a010a;
-		public static final int tw__btn_bar_margin_right = 0x7f0a010b;
+		public static final int tw__btn_bar_margin_left = 0x7f0a010e;
+		public static final int tw__btn_bar_margin_right = 0x7f0a010f;
 		public static final int tw__login_btn_drawable_padding = 0x7f0a0001;
 		public static final int tw__login_btn_height = 0x7f0a0002;
 		public static final int tw__login_btn_left_padding = 0x7f0a0003;
-		public static final int tw__login_btn_radius = 0x7f0a010c;
+		public static final int tw__login_btn_radius = 0x7f0a0110;
 		public static final int tw__login_btn_right_padding = 0x7f0a0004;
 		public static final int tw__login_btn_text_size = 0x7f0a0005;
 		public static final int tw__padding_permission_horizontal_container = 0x7f0a005a;
-		public static final int tw__padding_permission_vertical_container = 0x7f0a010d;
-		public static final int tw__permission_description_text_size = 0x7f0a010e;
-		public static final int tw__permission_title_text_size = 0x7f0a010f;
+		public static final int tw__padding_permission_vertical_container = 0x7f0a0111;
+		public static final int tw__permission_description_text_size = 0x7f0a0112;
+		public static final int tw__permission_title_text_size = 0x7f0a0113;
 	}
 	public static final class drawable {
 		public static final int tw__ic_logo_default = 0x7f020252;
@@ -49,17 +49,17 @@ public final class R {
 	}
 	public static final class id {
 		public static final int height = 0x7f10009a;
-		public static final int imageView = 0x7f100269;
-		public static final int tw__allow_btn = 0x7f10028b;
-		public static final int tw__not_now_btn = 0x7f10028a;
-		public static final int tw__share_email_desc = 0x7f100289;
-		public static final int tw__spinner = 0x7f100288;
-		public static final int tw__web_view = 0x7f100287;
+		public static final int imageView = 0x7f10028d;
+		public static final int tw__allow_btn = 0x7f1002af;
+		public static final int tw__not_now_btn = 0x7f1002ae;
+		public static final int tw__share_email_desc = 0x7f1002ad;
+		public static final int tw__spinner = 0x7f1002ac;
+		public static final int tw__web_view = 0x7f1002ab;
 		public static final int width = 0x7f10009b;
 	}
 	public static final class layout {
-		public static final int tw__activity_oauth = 0x7f04008e;
-		public static final int tw__activity_share_email = 0x7f04008f;
+		public static final int tw__activity_oauth = 0x7f040092;
+		public static final int tw__activity_share_email = 0x7f040093;
 	}
 	public static final class raw {
 		public static final int tw__cacerts = 0x7f080019;
@@ -73,12 +73,12 @@ public final class R {
 		public static final int tw__share_email_title = 0x7f090077;
 	}
 	public static final class style {
-		public static final int tw__Button = 0x7f0b020a;
-		public static final int tw__ButtonBar = 0x7f0b020c;
-		public static final int tw__Button_Light = 0x7f0b020b;
-		public static final int tw__Permission_Container = 0x7f0b020d;
-		public static final int tw__Permission_Description = 0x7f0b020e;
-		public static final int tw__Permission_Title = 0x7f0b020f;
+		public static final int tw__Button = 0x7f0b020c;
+		public static final int tw__ButtonBar = 0x7f0b020e;
+		public static final int tw__Button_Light = 0x7f0b020d;
+		public static final int tw__Permission_Container = 0x7f0b020f;
+		public static final int tw__Permission_Description = 0x7f0b0210;
+		public static final int tw__Permission_Title = 0x7f0b0211;
 	}
 	public static final class styleable {
 		public static final int[] tw__AspectRatioImageView = { 0x7f0101da, 0x7f0101db };

@@ -1,3 +1,7 @@
+<!--KEY:
+'ofsd' at the beggining of layout items stands for 'Offer Slide Drawer'
+'nod' at the begginng of layout items stands for 'Nearby Offers Drawer'-->
+
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,7 +10,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
-
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/mapsy"
@@ -31,87 +34,87 @@
             map:cameraZoom="15.5"
             tools:context="com.google.samples.quickstart.signin.MapsActivity" />
 
-        <!--    <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="520dp"
-                android:layout_marginLeft="90dp"
-                android:src="@drawable/burgericon2"
-                android:onClick="hideBurgers"
+        <!--&lt;!&ndash;    <ImageView-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginTop="520dp"-->
+                <!--android:layout_marginLeft="90dp"-->
+                <!--android:src="@drawable/burgericon2"-->
+                <!--android:onClick="hideBurgers"-->
 
-                />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="520dp"
-                android:src="@drawable/shoppingbag3"
-                android:onClick="hideShopping"
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="520dp"-->
+                <!--android:src="@drawable/shoppingbag3"-->
+                <!--android:onClick="hideShopping"-->
 
-                />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="200dp"
-                android:layout_marginTop="520dp"
-                android:src="@drawable/coffeeicon"
-                android:onClick="hideCoffee"
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginLeft="200dp"-->
+                <!--android:layout_marginTop="520dp"-->
+                <!--android:src="@drawable/coffeeicon"-->
+                <!--android:onClick="hideCoffee"-->
 
-                />
-       -->
-        <!--<ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="false"
-        android:max="10"
-        android:minHeight="50dp"
-        android:minWidth="200dp"
-        android:progress="0"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-        <LinearLayout
-            android:layout_width="400dp"
-            android:layout_height="100dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Start Timer"
-                android:id="@+id/buttonXYZ" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Stop Timer"
-                android:id="@+id/button2"
-                android:layout_below="@id/progressBar" />
-
-
-
-
-        </LinearLayout>
-        -->
-
-
-        <!--<ImageView-->
-        <!--android:id="@+id/imgView3"-->
-        <!--android:layout_width="40dp"-->
-        <!--android:layout_height="40dp"-->
+                <!--/>-->
+       <!--&ndash;&gt;-->
+        <!--&lt;!&ndash;<ProgressBar-->
+        <!--android:id="@+id/progressBar"-->
+        <!--style="?android:attr/progressBarStyleHorizontal"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:indeterminate="false"-->
+        <!--android:max="10"-->
+        <!--android:minHeight="50dp"-->
+        <!--android:minWidth="200dp"-->
+        <!--android:progress="0"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
         <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_marginTop="570dp"-->
-        <!--android:onClick="searchFunc"-->
-        <!--android:src="@drawable/searchy_icon" />-->
+        <!--android:layout_alignParentStart="true" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="400dp"-->
+            <!--android:layout_height="100dp">-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Start Timer"-->
+                <!--android:id="@+id/buttonXYZ" />-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Stop Timer"-->
+                <!--android:id="@+id/button2"-->
+                <!--android:layout_below="@id/progressBar" />-->
+
+
+
+
+        <!--</LinearLayout>-->
+        <!--&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/imgView3"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="40dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="40dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_alignParentLeft="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="570dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:onClick="searchFunc"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:src="@drawable/searchy_icon" />&ndash;&gt;-->
 
         <SearchView
-            android:id="@+id/sv"
+            android:id="@+id/searchView"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginLeft="40dp"
@@ -128,7 +131,7 @@
             android:layout_height="60dp" />
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar2"
+            android:id="@+id/nearbyOffersToolbar"
             android:layout_width="345dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -141,17 +144,16 @@
             app:theme="@style/ThemeToolbar">
 
             <ImageView
-                android:id="@+id/drawer3"
+                android:id="@+id/leftGreyCircle"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="120dp"
-                android:onClick="openFilter"
                 android:src="@drawable/greycricl" />
 
             <ImageView
-                android:id="@+id/drawer2"
+                android:id="@+id/whiteCircle"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:layout_alignParentRight="true"
@@ -160,7 +162,7 @@
                 android:src="@drawable/whitcirc" />
 
             <ImageView
-                android:id="@+id/drawer4"
+                android:id="@+id/rightGreyCircle"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:layout_alignParentRight="true"
@@ -169,7 +171,7 @@
                 android:src="@drawable/greycricl" />
 
             <ImageView
-                android:id="@+id/drawer"
+                android:id="@+id/filterButton"
                 android:layout_width="27dp"
                 android:layout_height="35dp"
                 android:layout_alignParentRight="true"
@@ -183,7 +185,7 @@
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout
-            android:id="@+id/slidingDrawer2"
+            android:id="@+id/filterSlideDrawer"
             android:layout_width="match_parent"
             android:layout_height="370dp"
             android:layout_alignParentBottom="true"
@@ -373,7 +375,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/slidingDrawer1"
+            android:id="@+id/offerSlideDrawer"
             android:layout_width="match_parent"
             android:layout_height="1200dp"
             android:layout_alignParentBottom="true"
@@ -384,7 +386,7 @@
 
 
             <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/scrolly"
+                android:id="@+id/ofsdScroll"
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:descendantFocusability="beforeDescendants"
@@ -393,7 +395,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/contenty"
+                    android:id="@+id/ofsdLayout"
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -410,7 +412,7 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/closeButtn"
+                            android:id="@+id/multiAndSingleOfferClose"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="290dp"
@@ -425,17 +427,17 @@
                         android:layout_gravity="center_horizontal">
 
                         <ImageView
-                            android:id="@+id/iconImageBg4"
+                            android:id="@+id/ofsdSemiCircBg"
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginBottom="50dp"
                             android:layout_marginTop="51dp"
                             android:src="@drawable/greyoutfulldeal"
-                            android:visibility="visible" />
+                            android:visibility="gone" />
 
                         <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-                            android:id="@+id/iconImageBg3"
+                            android:id="@+id/ofsdSemiCirc1"
                             android:layout_width="380dp"
                             android:layout_height="200dp"
                             android:layout_marginLeft="66dp"
@@ -443,7 +445,7 @@
                             android:visibility="gone" />
 
                         <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-                            android:id="@+id/semicirc2"
+                            android:id="@+id/ofsdSemiCirc2"
                             android:layout_width="380dp"
                             android:layout_height="200dp"
                             android:layout_marginLeft="66dp"
@@ -451,7 +453,7 @@
                             android:visibility="gone" />
 
                         <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-                            android:id="@+id/semicirc3"
+                            android:id="@+id/ofsdSemiCirc3"
                             android:layout_width="380dp"
                             android:layout_height="200dp"
                             android:layout_marginLeft="66dp"
@@ -459,7 +461,7 @@
                             android:visibility="gone" />
 
                         <ImageView
-                            android:id="@+id/iconImage"
+                            android:id="@+id/ofsdIconImage"
                             android:layout_width="90dp"
                             android:layout_height="90dp"
                             android:layout_gravity="center_horizontal"
@@ -468,7 +470,7 @@
                             android:src="@drawable/drinks" />
 
                         <ImageView
-                            android:id="@+id/starsoverlay"
+                            android:id="@+id/ofsdStarsOverlay"
                             android:layout_width="210dp"
                             android:layout_height="210dp"
                             android:layout_gravity="center_horizontal"
@@ -480,7 +482,7 @@
                     </FrameLayout>
 
                     <TextView
-                        android:id="@+id/retailerName"
+                        android:id="@+id/ofsdRetailerName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -494,7 +496,7 @@
 
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/content2"
+                        android:id="@+id/multiOffer1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
@@ -506,7 +508,7 @@
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:id="@+id/content2dy"
+                                android:id="@+id/multiOffer1Layout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="35dp"
@@ -527,7 +529,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/retailerNamesy"
+                                    android:id="@+id/multiOfferRet1Name"
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="left"
@@ -560,7 +562,7 @@
                             </LinearLayout>
 
                             <ProgressBar
-                                android:id="@+id/firstBar"
+                                android:id="@+id/multiOfferProgressBar1"
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -573,7 +575,7 @@
                     </FrameLayout>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/content3"
+                        android:id="@+id/multiOffer2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
@@ -587,7 +589,7 @@
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:id="@+id/content3dy"
+                                android:id="@+id/multiOffer2Layout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|top"
@@ -608,7 +610,7 @@
                                 <!--android:layout_marginTop="10dp"-->
                                 <!--android:orientation="horizontal">-->
                                 <TextView
-                                    android:id="@+id/retailerNamesy3"
+                                    android:id="@+id/multiOfferRet2Name"
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="left"
@@ -640,7 +642,7 @@
                             </LinearLayout>
 
                             <ProgressBar
-                                android:id="@+id/secondBar"
+                                android:id="@+id/multiOfferProgressBar2"
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -654,7 +656,7 @@
                     </FrameLayout>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/content4"
+                        android:id="@+id/multiOffer3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="0dp">
@@ -666,7 +668,7 @@
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:id="@+id/content4dy"
+                                android:id="@+id/multiOffer3Layout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
@@ -688,7 +690,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/retailerNamesy4"
+                                    android:id="@+id/multiOfferRet3Name"
                                     android:layout_width="120dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="left"
@@ -721,7 +723,7 @@
                             </LinearLayout>
 
                             <ProgressBar
-                                android:id="@+id/thirdBar"
+                                android:id="@+id/multiOfferProgressBar3"
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -735,7 +737,7 @@
                     </FrameLayout>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/content28"
+                        android:id="@+id/ofsdCoupOffer1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -752,7 +754,7 @@
 
 
                         <ImageView
-                            android:id="@+id/share"
+                            android:id="@+id/ofsdShare1"
                             android:layout_width="27dp"
                             android:layout_height="27dp"
                             android:layout_gravity="center|top"
@@ -769,7 +771,7 @@
                             android:src="@drawable/qrcode" />
 
                         <LinearLayout
-                            android:id="@+id/content2dy8"
+                            android:id="@+id/ofsdOfferLayout1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
@@ -789,7 +791,7 @@
 
 
                             <TextView
-                                android:id="@+id/retailerNamesy8"
+                                android:id="@+id/singleCouponOfferText1"
                                 android:layout_width="170dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -817,7 +819,7 @@
                     </FrameLayout>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/content2z"
+                        android:id="@+id/ofsdCoupOffer2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -833,7 +835,7 @@
                             android:src="@drawable/couponimg" />
 
                         <ImageView
-                            android:id="@+id/shareButton2"
+                            android:id="@+id/ofsdShare2"
                             android:layout_width="27dp"
                             android:layout_height="27dp"
                             android:layout_gravity="center|top"
@@ -850,6 +852,7 @@
                             android:src="@drawable/qrcode" />
 
                         <LinearLayout
+                            android:id="@+id/ofsdCoupOffer2Layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
@@ -869,7 +872,7 @@
 
 
                             <TextView
-                                android:id="@+id/retailerNamesz"
+                                android:id="@+id/singleCouponOfferText2"
                                 android:layout_width="170dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -897,7 +900,7 @@
                     </FrameLayout>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/content2d"
+                        android:id="@+id/ofsdCoupOffer3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -913,7 +916,7 @@
                             android:src="@drawable/couponimg" />
 
                         <ImageView
-                            android:id="@+id/shareButton3"
+                            android:id="@+id/ofsdShare3"
                             android:layout_width="27dp"
                             android:layout_height="27dp"
                             android:layout_gravity="center|top"
@@ -930,7 +933,7 @@
                             android:src="@drawable/qrcode" />
 
                         <LinearLayout
-                            android:id="@+id/content2de"
+                            android:id="@+id/ofsdOfferLayout3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
@@ -950,7 +953,7 @@
 
 
                             <TextView
-                                android:id="@+id/retailerNamesd"
+                                android:id="@+id/singleCouponOfferText3"
                                 android:layout_width="170dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -1033,7 +1036,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/slidingDrawer3"
+            android:id="@+id/nearbyOffersDrawer"
             android:layout_width="match_parent"
             android:layout_height="1200dp"
             android:layout_alignParentBottom="true"
@@ -1044,7 +1047,7 @@
 
 
             <LinearLayout
-                android:id="@+id/contenty2"
+                android:id="@+id/nearbyOffersUpperLayout"
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -1061,7 +1064,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/closeButtn2"
+                        android:id="@+id/nearbyOffersClose"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="290dp"
@@ -1076,17 +1079,17 @@
                     android:layout_gravity="center_horizontal">
 
                     <ImageView
-                        android:id="@+id/iconImageBg42"
+                        android:id="@+id/nodSemiCircBg"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="50dp"
                         android:layout_marginTop="5dp"
                         android:src="@drawable/greyoutfulldeal"
-                        android:visibility="visible" />
+                        android:visibility="gone" />
 
                     <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-                        android:id="@+id/iconImageBg32"
+                        android:id="@+id/nodSemiCirc1"
                         android:layout_width="380dp"
                         android:layout_height="200dp"
                         android:layout_marginLeft="66dp"
@@ -1094,7 +1097,7 @@
                         android:visibility="gone" />
 
                     <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-                        android:id="@+id/semicirc22"
+                        android:id="@+id/nodSemiCirc2"
                         android:layout_width="380dp"
                         android:layout_height="200dp"
                         android:layout_marginLeft="66dp"
@@ -1102,7 +1105,7 @@
                         android:visibility="gone" />
 
                     <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-                        android:id="@+id/semicirc32"
+                        android:id="@+id/nodSemiCirc3"
                         android:layout_width="380dp"
                         android:layout_height="200dp"
                         android:layout_marginLeft="66dp"
@@ -1110,7 +1113,7 @@
                         android:visibility="gone" />
 
                     <ImageView
-                        android:id="@+id/iconImage2"
+                        android:id="@+id/nodIconImage"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
                         android:layout_gravity="center_horizontal"
@@ -1119,7 +1122,7 @@
                         android:src="@drawable/drinks" />
 
                     <ImageView
-                        android:id="@+id/starsoverlay2"
+                        android:id="@+id/nodStarsOverlay"
                         android:layout_width="210dp"
                         android:layout_height="210dp"
                         android:layout_gravity="center_horizontal"
@@ -1131,7 +1134,7 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/retailerName2"
+                    android:id="@+id/nodRetailerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -1145,7 +1148,7 @@
 
 
                 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:id="@+id/scrolly2"
+                    android:id="@+id/nodScrollView"
                     android:layout_width="match_parent"
                     android:layout_height="395dp"
                     android:descendantFocusability="beforeDescendants"
@@ -1159,7 +1162,7 @@
                         android:orientation="vertical">
 
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby"
+                            android:id="@+id/nearbyOffer1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -1172,7 +1175,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/contentNearbyLin"
+                                    android:id="@+id/nearbyOffer1Layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
@@ -1193,7 +1196,7 @@
 
 
                                     <TextView
-                                        android:id="@+id/retName"
+                                        android:id="@+id/nearbyOffer1RetName"
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="left"
@@ -1207,7 +1210,7 @@
                                     <!--</LinearLayout>-->
 
                                     <ImageView
-                                        android:id="@+id/multiOffersStars4"
+                                        android:id="@+id/nearbyOffer1Stars"
                                         android:layout_width="80dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="right"
@@ -1226,7 +1229,7 @@
                                 </LinearLayout>
 
                                 <ProgressBar
-                                    android:id="@+id/fourthBar"
+                                    android:id="@+id/nearbyOfferProgressBar1"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1239,7 +1242,7 @@
                         </FrameLayout>
 
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby2"
+                            android:id="@+id/nearbyOffer2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -1252,7 +1255,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/contentNearbyLin2"
+                                    android:id="@+id/nearbyOffer2Layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
@@ -1273,7 +1276,7 @@
 
 
                                     <TextView
-                                        android:id="@+id/retName2"
+                                        android:id="@+id/nearbyOffer2RetName"
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="left"
@@ -1287,7 +1290,7 @@
                                     <!--</LinearLayout>-->
 
                                     <ImageView
-                                        android:id="@+id/multiOffersStars5"
+                                        android:id="@+id/nearbyOffer2Stars"
                                         android:layout_width="80dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="right"
@@ -1306,7 +1309,7 @@
                                 </LinearLayout>
 
                                 <ProgressBar
-                                    android:id="@+id/fifthBar"
+                                    android:id="@+id/nearbyOfferProgressBar2"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1319,7 +1322,7 @@
                         </FrameLayout>
 
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby3"
+                            android:id="@+id/nearbyOffer3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -1332,7 +1335,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/contentNearbyLin3"
+                                    android:id="@+id/nearbyOffer3Layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
@@ -1353,7 +1356,7 @@
 
 
                                     <TextView
-                                        android:id="@+id/retName3"
+                                        android:id="@+id/nearbyOffer3RetName"
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="left"
@@ -1367,7 +1370,7 @@
                                     <!--</LinearLayout>-->
 
                                     <ImageView
-                                        android:id="@+id/multiOffersStars6"
+                                        android:id="@+id/nearbyOffer3Stars"
                                         android:layout_width="80dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="right"
@@ -1386,7 +1389,7 @@
                                 </LinearLayout>
 
                                 <ProgressBar
-                                    android:id="@+id/sixthBar"
+                                    android:id="@+id/nearbyOfferProgressBar3"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1398,7 +1401,7 @@
                             </LinearLayout>
                         </FrameLayout>
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby4"
+                            android:id="@+id/nearbyOffer4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -1411,7 +1414,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/contentNearbyLin4"
+                                    android:id="@+id/nearbyOffer4Layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
@@ -1432,7 +1435,7 @@
 
 
                                     <TextView
-                                        android:id="@+id/retName4"
+                                        android:id="@+id/nearbyOffer4RetName"
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="left"
@@ -1446,7 +1449,7 @@
                                     <!--</LinearLayout>-->
 
                                     <ImageView
-                                        android:id="@+id/multiOffersStars7"
+                                        android:id="@+id/nearbyOffer4Stars"
                                         android:layout_width="80dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="right"
@@ -1465,7 +1468,7 @@
                                 </LinearLayout>
 
                                 <ProgressBar
-                                    android:id="@+id/seventhBar"
+                                    android:id="@+id/nearbyOfferProgressBar4"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1477,7 +1480,7 @@
                             </LinearLayout>
                         </FrameLayout>
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby5"
+                            android:id="@+id/nearbyOffer5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -1490,7 +1493,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/contentNearbyLin5"
+                                    android:id="@+id/nearbyOffer5Layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
@@ -1511,7 +1514,7 @@
 
 
                                     <TextView
-                                        android:id="@+id/retName5"
+                                        android:id="@+id/nearbyOffer5RetName"
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="left"
@@ -1525,7 +1528,7 @@
                                     <!--</LinearLayout>-->
 
                                     <ImageView
-                                        android:id="@+id/multiOffersStars8"
+                                        android:id="@+id/nearbyOffer5Stars"
                                         android:layout_width="80dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="right"
@@ -1544,87 +1547,7 @@
                                 </LinearLayout>
 
                                 <ProgressBar
-                                    android:id="@+id/eightthBar"
-                                    style="?android:attr/progressBarStyleHorizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center|top"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                   />
-                            </LinearLayout>
-                        </FrameLayout>
-
-                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-                            android:padding="0dp"
-                            android:visibility="gone">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:id="@+id/contentNearbyLin6"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginRight="25dp"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_weight="0.6"
-                                    android:orientation="horizontal">
-
-                                    <!--<LinearLayout-->
-                                    <!--android:id="@+id/content3y"-->
-                                    <!--android:layout_width="300dp"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:layout_gravity="center|top"-->
-                                    <!--android:layout_marginBottom="0dp"-->
-                                    <!--android:layout_marginRight="10dp"-->
-                                    <!--android:layout_marginTop="10dp"-->
-                                    <!--android:orientation="horizontal">-->
-
-
-                                    <TextView
-                                        android:id="@+id/retName6"
-                                        android:layout_width="150dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="left"
-                                        android:fontFamily="sans-serif-smallcaps"
-                                        android:gravity="left"
-                                        android:text=""
-                                        android:textColor="#ffffff"
-
-                                        android:textSize="13sp" />
-
-                                    <!--</LinearLayout>-->
-
-                                    <ImageView
-                                        android:id="@+id/multiOffersStars9"
-                                        android:layout_width="80dp"
-                                        android:layout_height="20dp"
-                                        android:layout_gravity="right"
-                                        android:layout_weight="0.3"
-                                        android:paddingLeft="70dp" />
-
-                                    <ImageView
-                                        android:layout_width="35dp"
-                                        android:layout_height="35dp"
-                                        android:layout_gravity="right"
-                                        android:layout_weight="0.1"
-                                        android:paddingRight="8dp"
-                                        android:src="@drawable/couponwhite" />
-
-
-                                </LinearLayout>
-
-                                <ProgressBar
-                                    android:id="@+id/ninthBar"
+                                    android:id="@+id/nearbyOfferProgressBar5"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1637,7 +1560,7 @@
                         </FrameLayout>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby7"
+                            android:id="@+id/nearbyOffer6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -1650,7 +1573,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/contentNearbyLin7"
+                                    android:id="@+id/nearbyOffer6Layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
@@ -1671,7 +1594,7 @@
 
 
                                     <TextView
-                                        android:id="@+id/retName7"
+                                        android:id="@+id/nearbyOffer6RetName"
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="left"
@@ -1685,7 +1608,7 @@
                                     <!--</LinearLayout>-->
 
                                     <ImageView
-                                        android:id="@+id/multiOffersStars10"
+                                        android:id="@+id/nearbyOffer6Stars"
                                         android:layout_width="80dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="right"
@@ -1704,7 +1627,7 @@
                                 </LinearLayout>
 
                                 <ProgressBar
-                                    android:id="@+id/tenthBar"
+                                    android:id="@+id/nearbyOfferProgressBar6"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1717,7 +1640,7 @@
                         </FrameLayout>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/contentNearby8"
+                            android:id="@+id/nearbyOffer7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="30dp"
@@ -1730,7 +1653,7 @@
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/contentNearbyLin8"
+                                    android:id="@+id/nearbyOffer7Layout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="35dp"
@@ -1751,7 +1674,7 @@
 
 
                                     <TextView
-                                        android:id="@+id/retName8"
+                                        android:id="@+id/nearbyOffer7RetName"
                                         android:layout_width="150dp"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="left"
@@ -1765,7 +1688,7 @@
                                     <!--</LinearLayout>-->
 
                                     <ImageView
-                                        android:id="@+id/multiOffersStars11"
+                                        android:id="@+id/nearbyOffer7Stars"
                                         android:layout_width="80dp"
                                         android:layout_height="20dp"
                                         android:layout_gravity="right"
@@ -1784,7 +1707,87 @@
                                 </LinearLayout>
 
                                 <ProgressBar
-                                    android:id="@+id/eleventhBar"
+                                    android:id="@+id/nearbyOfferProgressBar7"
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center|top"
+                                    android:layout_marginLeft="35dp"
+                                    android:layout_marginRight="35dp"
+                                    android:layout_marginTop="0dp"
+                                   />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:id="@+id/nearbyOffer8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:padding="0dp"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/nearbyOffer8Layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="35dp"
+                                    android:layout_marginRight="25dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_weight="0.6"
+                                    android:orientation="horizontal">
+
+                                    <!--<LinearLayout-->
+                                    <!--android:id="@+id/content3y"-->
+                                    <!--android:layout_width="300dp"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_gravity="center|top"-->
+                                    <!--android:layout_marginBottom="0dp"-->
+                                    <!--android:layout_marginRight="10dp"-->
+                                    <!--android:layout_marginTop="10dp"-->
+                                    <!--android:orientation="horizontal">-->
+
+
+                                    <TextView
+                                        android:id="@+id/nearbyOffer8RetName"
+                                        android:layout_width="150dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="left"
+                                        android:fontFamily="sans-serif-smallcaps"
+                                        android:gravity="left"
+                                        android:text=""
+                                        android:textColor="#ffffff"
+
+                                        android:textSize="13sp" />
+
+                                    <!--</LinearLayout>-->
+
+                                    <ImageView
+                                        android:id="@+id/nearbyOffer8Stars"
+                                        android:layout_width="80dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="right"
+                                        android:layout_weight="0.3"
+                                        android:paddingLeft="70dp" />
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:layout_gravity="right"
+                                        android:layout_weight="0.1"
+                                        android:paddingRight="8dp"
+                                        android:src="@drawable/couponwhite" />
+
+
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:id="@+id/nearbyOfferProgressBar8"
                                     style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1796,7 +1799,7 @@
                             </LinearLayout>
                         </FrameLayout>
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/content28s3"
+                            android:id="@+id/nodCoupOffer1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -1814,7 +1817,7 @@
 
 
                             <ImageView
-                                android:id="@+id/shares3"
+                                android:id="@+id/nodShare1"
                                 android:layout_width="27dp"
                                 android:layout_height="27dp"
                                 android:layout_gravity="center|top"
@@ -1831,7 +1834,7 @@
                                 android:src="@drawable/qrcode" />
 
                             <LinearLayout
-                                android:id="@+id/content2dy8s3"
+                                android:id="@+id/nodOfferLayout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|top"
@@ -1851,7 +1854,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/retailerNamesy8s3"
+                                    android:id="@+id/nodSingleCouponOffer1Text"
                                     android:layout_width="170dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -1879,7 +1882,7 @@
                         </FrameLayout>
 
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/content2zs3"
+                            android:id="@+id/nodCoupOffer2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -1897,7 +1900,7 @@
                                 android:src="@drawable/couponimg" />
 
                             <ImageView
-                                android:id="@+id/shareButton2s3"
+                                android:id="@+id/nodShare2"
                                 android:layout_width="27dp"
                                 android:layout_height="27dp"
                                 android:layout_gravity="center|top"
@@ -1914,6 +1917,7 @@
                                 android:src="@drawable/qrcode" />
 
                             <LinearLayout
+                                android:id="@+id/nodOffer2Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|top"
@@ -1933,7 +1937,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/retailerNameszs3"
+                                    android:id="@+id/nodSingleCouponOffer2Text"
                                     android:layout_width="170dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -1961,7 +1965,7 @@
                         </FrameLayout>
 
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/content2ds3"
+                            android:id="@+id/nodCoupOffer3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -1978,7 +1982,7 @@
                                 android:src="@drawable/couponimg" />
 
                             <ImageView
-                                android:id="@+id/shareButton3s3"
+                                android:id="@+id/nodShare3"
                                 android:layout_width="27dp"
                                 android:layout_height="27dp"
                                 android:layout_gravity="center|top"
@@ -1995,7 +1999,7 @@
                                 android:src="@drawable/qrcode" />
 
                             <LinearLayout
-                                android:id="@+id/content2des3"
+                                android:id="@+id/nodOffer3Layout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|top"
@@ -2015,7 +2019,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/retailerNamesds3"
+                                    android:id="@+id/nodSingleCouponOffer3Text"
                                     android:layout_width="170dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -2098,7 +2102,7 @@
 
 
                 <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar3"
+                    android:id="@+id/nearbyOffersNavCirclesToolbar"
                     android:layout_width="345dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -2118,7 +2122,6 @@
                         android:layout_alignParentRight="true"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="20dp"
-                        android:onClick="openFilter"
                         android:src="@drawable/whitcirc" />
 
                     <ImageView
@@ -2210,4 +2213,3 @@
             android:src="@drawable/viewprofile" />
     </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
-

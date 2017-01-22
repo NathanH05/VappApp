@@ -123,7 +123,7 @@
             android:hardwareAccelerated="false"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.google.samples.quickstart.signin.Main2Activity"
+            android:name="com.google.samples.quickstart.signin.ArActivity"
             android:configChanges="keyboard|orientation|locale|fontScale|screenLayout|screenSize|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
             android:hardwareAccelerated="false"
             android:label=""
@@ -171,10 +171,10 @@
         <activity
             android:name="com.example.myfirstapp.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.google.samples.quickstart.signin.Main2Activity" >
+            android:parentActivityName="com.google.samples.quickstart.signin.ArActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.google.samples.quickstart.signin.Main2Activity" />
+                android:value="com.google.samples.quickstart.signin.ArActivity" />
         </activity>
         <activity
             android:name="com.example.myfirstapp.couponActivity"

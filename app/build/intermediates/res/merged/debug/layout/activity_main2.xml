@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:clickable="true"
         android:onClick="hideSlider"
-        tools:context="com.google.samples.quickstart.signin.Main2Activity">
+        tools:context="com.google.samples.quickstart.signin.ArActivity">
 
         <!---
         <TextView
