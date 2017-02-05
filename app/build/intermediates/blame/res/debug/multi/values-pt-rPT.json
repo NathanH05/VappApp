@@ -1075,7 +1075,7 @@
                     "endOffset": 6049
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1094,7 +1094,7 @@
                     "endOffset": 6173
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -1113,7 +1113,7 @@
                     "endOffset": 6321
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1132,7 +1132,7 @@
                     "endOffset": 6415
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1151,7 +1151,7 @@
                     "endOffset": 6481
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -1170,7 +1170,7 @@
                     "endOffset": 6550
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -1189,7 +1189,7 @@
                     "endOffset": 6611
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -1208,7 +1208,7 @@
                     "endOffset": 6685
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -1227,7 +1227,7 @@
                     "endOffset": 6765
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -1242,17 +1242,17 @@
                     "startLine": 67,
                     "startColumn": 4,
                     "startOffset": 6770,
-                    "endColumn": 99,
-                    "endOffset": 6865
+                    "endColumn": 98,
+                    "endOffset": 6864
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
                         "startOffset": 931,
-                        "endColumn": 99,
-                        "endOffset": 1026
+                        "endColumn": 98,
+                        "endOffset": 1025
                     }
                 }
             },
@@ -1260,18 +1260,18 @@
                 "to": {
                     "startLine": 68,
                     "startColumn": 4,
-                    "startOffset": 6870,
-                    "endColumn": 81,
-                    "endOffset": 6947
+                    "startOffset": 6869,
+                    "endColumn": 99,
+                    "endOffset": 6964
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1031,
-                        "endColumn": 81,
-                        "endOffset": 1108
+                        "startOffset": 1030,
+                        "endColumn": 99,
+                        "endOffset": 1125
                     }
                 }
             },
@@ -1279,18 +1279,18 @@
                 "to": {
                     "startLine": 69,
                     "startColumn": 4,
-                    "startOffset": 6952,
+                    "startOffset": 6969,
                     "endColumn": 81,
-                    "endOffset": 7029
+                    "endOffset": 7046
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1113,
+                        "startOffset": 1130,
                         "endColumn": 81,
-                        "endOffset": 1190
+                        "endOffset": 1207
                     }
                 }
             },
@@ -1298,18 +1298,18 @@
                 "to": {
                     "startLine": 70,
                     "startColumn": 4,
-                    "startOffset": 7034,
-                    "endColumn": 94,
-                    "endOffset": 7124
+                    "startOffset": 7051,
+                    "endColumn": 81,
+                    "endOffset": 7128
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1195,
-                        "endColumn": 94,
-                        "endOffset": 1285
+                        "startOffset": 1212,
+                        "endColumn": 81,
+                        "endOffset": 1289
                     }
                 }
             },
@@ -1317,18 +1317,18 @@
                 "to": {
                     "startLine": 71,
                     "startColumn": 4,
-                    "startOffset": 7129,
-                    "endColumn": 115,
-                    "endOffset": 7240
+                    "startOffset": 7133,
+                    "endColumn": 94,
+                    "endOffset": 7223
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1290,
-                        "endColumn": 115,
-                        "endOffset": 1401
+                        "startOffset": 1294,
+                        "endColumn": 94,
+                        "endOffset": 1384
                     }
                 }
             },
@@ -1336,18 +1336,18 @@
                 "to": {
                     "startLine": 72,
                     "startColumn": 4,
-                    "startOffset": 7245,
-                    "endColumn": 64,
-                    "endOffset": 7305
+                    "startOffset": 7228,
+                    "endColumn": 115,
+                    "endOffset": 7339
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1406,
-                        "endColumn": 64,
-                        "endOffset": 1466
+                        "startOffset": 1389,
+                        "endColumn": 115,
+                        "endOffset": 1500
                     }
                 }
             },
@@ -1355,18 +1355,18 @@
                 "to": {
                     "startLine": 73,
                     "startColumn": 4,
-                    "startOffset": 7310,
-                    "endColumn": 68,
-                    "endOffset": 7374
+                    "startOffset": 7344,
+                    "endColumn": 64,
+                    "endOffset": 7404
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1471,
-                        "endColumn": 68,
-                        "endOffset": 1535
+                        "startOffset": 1505,
+                        "endColumn": 64,
+                        "endOffset": 1565
                     }
                 }
             },
@@ -1374,18 +1374,18 @@
                 "to": {
                     "startLine": 74,
                     "startColumn": 4,
-                    "startOffset": 7379,
-                    "endColumn": 147,
-                    "endOffset": 7522
+                    "startOffset": 7409,
+                    "endColumn": 68,
+                    "endOffset": 7473
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1540,
-                        "endColumn": 147,
-                        "endOffset": 1683
+                        "startOffset": 1570,
+                        "endColumn": 68,
+                        "endOffset": 1634
                     }
                 }
             },
@@ -1393,9 +1393,28 @@
                 "to": {
                     "startLine": 75,
                     "startColumn": 4,
-                    "startOffset": 7527,
+                    "startOffset": 7478,
+                    "endColumn": 131,
+                    "endOffset": 7605
+                },
+                "from": {
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1639,
+                        "endColumn": 131,
+                        "endOffset": 1766
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 76,
+                    "startColumn": 4,
+                    "startOffset": 7610,
                     "endColumn": 106,
-                    "endOffset": 7629
+                    "endOffset": 7712
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1410,11 +1429,11 @@
             },
             {
                 "to": {
-                    "startLine": 76,
+                    "startLine": 77,
                     "startColumn": 4,
-                    "startOffset": 7634,
+                    "startOffset": 7717,
                     "endColumn": 194,
-                    "endOffset": 7824
+                    "endOffset": 7907
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1429,11 +1448,11 @@
             },
             {
                 "to": {
-                    "startLine": 77,
+                    "startLine": 78,
                     "startColumn": 4,
-                    "startOffset": 7829,
+                    "startOffset": 7912,
                     "endColumn": 129,
-                    "endOffset": 7954
+                    "endOffset": 8037
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1448,11 +1467,11 @@
             },
             {
                 "to": {
-                    "startLine": 78,
+                    "startLine": 79,
                     "startColumn": 4,
-                    "startOffset": 7959,
+                    "startOffset": 8042,
                     "endColumn": 109,
-                    "endOffset": 8064
+                    "endOffset": 8147
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1467,11 +1486,11 @@
             },
             {
                 "to": {
-                    "startLine": 79,
+                    "startLine": 80,
                     "startColumn": 4,
-                    "startOffset": 8069,
+                    "startOffset": 8152,
                     "endColumn": 230,
-                    "endOffset": 8295
+                    "endOffset": 8378
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1486,11 +1505,11 @@
             },
             {
                 "to": {
-                    "startLine": 80,
+                    "startLine": 81,
                     "startColumn": 4,
-                    "startOffset": 8300,
+                    "startOffset": 8383,
                     "endColumn": 228,
-                    "endOffset": 8524
+                    "endOffset": 8607
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1505,11 +1524,11 @@
             },
             {
                 "to": {
-                    "startLine": 81,
+                    "startLine": 82,
                     "startColumn": 4,
-                    "startOffset": 8529,
+                    "startOffset": 8612,
                     "endColumn": 129,
-                    "endOffset": 8654
+                    "endOffset": 8737
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1524,11 +1543,11 @@
             },
             {
                 "to": {
-                    "startLine": 82,
+                    "startLine": 83,
                     "startColumn": 4,
-                    "startOffset": 8659,
+                    "startOffset": 8742,
                     "endColumn": 137,
-                    "endOffset": 8792
+                    "endOffset": 8875
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1543,11 +1562,11 @@
             },
             {
                 "to": {
-                    "startLine": 83,
+                    "startLine": 84,
                     "startColumn": 4,
-                    "startOffset": 8797,
+                    "startOffset": 8880,
                     "endColumn": 260,
-                    "endOffset": 9053
+                    "endOffset": 9136
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/res/values-pt-rPT/values.xml",
@@ -1562,11 +1581,11 @@
             },
             {
                 "to": {
-                    "startLine": 84,
+                    "startLine": 85,
                     "startColumn": 4,
-                    "startOffset": 9058,
+                    "startOffset": 9141,
                     "endColumn": 273,
-                    "endOffset": 9327
+                    "endOffset": 9410
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1581,11 +1600,11 @@
             },
             {
                 "to": {
-                    "startLine": 85,
+                    "startLine": 86,
                     "startColumn": 4,
-                    "startOffset": 9332,
+                    "startOffset": 9415,
                     "endColumn": 126,
-                    "endOffset": 9454
+                    "endOffset": 9537
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1600,11 +1619,11 @@
             },
             {
                 "to": {
-                    "startLine": 86,
+                    "startLine": 87,
                     "startColumn": 4,
-                    "startOffset": 9459,
+                    "startOffset": 9542,
                     "endColumn": 109,
-                    "endOffset": 9564
+                    "endOffset": 9647
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1619,11 +1638,11 @@
             },
             {
                 "to": {
-                    "startLine": 87,
+                    "startLine": 88,
                     "startColumn": 4,
-                    "startOffset": 9569,
+                    "startOffset": 9652,
                     "endColumn": 200,
-                    "endOffset": 9765
+                    "endOffset": 9848
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1638,11 +1657,11 @@
             },
             {
                 "to": {
-                    "startLine": 88,
+                    "startLine": 89,
                     "startColumn": 4,
-                    "startOffset": 9770,
+                    "startOffset": 9853,
                     "endColumn": 132,
-                    "endOffset": 9898
+                    "endOffset": 9981
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1657,11 +1676,11 @@
             },
             {
                 "to": {
-                    "startLine": 89,
+                    "startLine": 90,
                     "startColumn": 4,
-                    "startOffset": 9903,
+                    "startOffset": 9986,
                     "endColumn": 217,
-                    "endOffset": 10116
+                    "endOffset": 10199
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1676,11 +1695,11 @@
             },
             {
                 "to": {
-                    "startLine": 90,
+                    "startLine": 91,
                     "startColumn": 4,
-                    "startOffset": 10121,
+                    "startOffset": 10204,
                     "endColumn": 139,
-                    "endOffset": 10256
+                    "endOffset": 10339
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1695,11 +1714,11 @@
             },
             {
                 "to": {
-                    "startLine": 91,
+                    "startLine": 92,
                     "startColumn": 4,
-                    "startOffset": 10261,
+                    "startOffset": 10344,
                     "endColumn": 207,
-                    "endOffset": 10464
+                    "endOffset": 10547
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1714,11 +1733,11 @@
             },
             {
                 "to": {
-                    "startLine": 92,
+                    "startLine": 93,
                     "startColumn": 4,
-                    "startOffset": 10469,
+                    "startOffset": 10552,
                     "endColumn": 97,
-                    "endOffset": 10562
+                    "endOffset": 10645
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1733,11 +1752,11 @@
             },
             {
                 "to": {
-                    "startLine": 93,
+                    "startLine": 94,
                     "startColumn": 4,
-                    "startOffset": 10567,
+                    "startOffset": 10650,
                     "endColumn": 98,
-                    "endOffset": 10661
+                    "endOffset": 10744
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1752,11 +1771,11 @@
             },
             {
                 "to": {
-                    "startLine": 94,
+                    "startLine": 95,
                     "startColumn": 4,
-                    "startOffset": 10666,
+                    "startOffset": 10749,
                     "endColumn": 115,
-                    "endOffset": 10777
+                    "endOffset": 10860
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/values-pt-rPT/values.xml",
@@ -1771,30 +1790,30 @@
             },
             {
                 "to": {
-                    "startLine": 95,
+                    "startLine": 96,
                     "startColumn": 4,
-                    "startOffset": 10782,
+                    "startOffset": 10865,
                     "endColumn": 61,
-                    "endOffset": 10839
+                    "endOffset": 10922
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/values-pt-rPT/values-pt-rPT.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 1688,
+                        "startOffset": 1771,
                         "endColumn": 61,
-                        "endOffset": 1745
+                        "endOffset": 1828
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 96,
+                    "startLine": 97,
                     "startColumn": 4,
-                    "startOffset": 10844,
+                    "startOffset": 10927,
                     "endColumn": 104,
-                    "endOffset": 10944
+                    "endOffset": 11027
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1809,11 +1828,11 @@
             },
             {
                 "to": {
-                    "startLine": 97,
+                    "startLine": 98,
                     "startColumn": 4,
-                    "startOffset": 10949,
+                    "startOffset": 11032,
                     "endColumn": 103,
-                    "endOffset": 11048
+                    "endOffset": 11131
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1828,11 +1847,11 @@
             },
             {
                 "to": {
-                    "startLine": 98,
+                    "startLine": 99,
                     "startColumn": 4,
-                    "startOffset": 11053,
+                    "startOffset": 11136,
                     "endColumn": 89,
-                    "endOffset": 11138
+                    "endOffset": 11221
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1847,11 +1866,11 @@
             },
             {
                 "to": {
-                    "startLine": 99,
+                    "startLine": 100,
                     "startColumn": 4,
-                    "startOffset": 11143,
+                    "startOffset": 11226,
                     "endColumn": 97,
-                    "endOffset": 11236
+                    "endOffset": 11319
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1866,11 +1885,11 @@
             },
             {
                 "to": {
-                    "startLine": 100,
+                    "startLine": 101,
                     "startColumn": 4,
-                    "startOffset": 11241,
+                    "startOffset": 11324,
                     "endColumn": 106,
-                    "endOffset": 11343
+                    "endOffset": 11426
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1885,11 +1904,11 @@
             },
             {
                 "to": {
-                    "startLine": 101,
+                    "startLine": 102,
                     "startColumn": 4,
-                    "startOffset": 11348,
+                    "startOffset": 11431,
                     "endColumn": 96,
-                    "endOffset": 11440
+                    "endOffset": 11523
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1904,11 +1923,11 @@
             },
             {
                 "to": {
-                    "startLine": 102,
+                    "startLine": 103,
                     "startColumn": 4,
-                    "startOffset": 11445,
+                    "startOffset": 11528,
                     "endColumn": 94,
-                    "endOffset": 11535
+                    "endOffset": 11618
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1923,11 +1942,11 @@
             },
             {
                 "to": {
-                    "startLine": 103,
+                    "startLine": 104,
                     "startColumn": 4,
-                    "startOffset": 11540,
+                    "startOffset": 11623,
                     "endColumn": 94,
-                    "endOffset": 11630
+                    "endOffset": 11713
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1942,11 +1961,11 @@
             },
             {
                 "to": {
-                    "startLine": 104,
+                    "startLine": 105,
                     "startColumn": 4,
-                    "startOffset": 11635,
+                    "startOffset": 11718,
                     "endColumn": 93,
-                    "endOffset": 11724
+                    "endOffset": 11807
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1961,11 +1980,11 @@
             },
             {
                 "to": {
-                    "startLine": 105,
+                    "startLine": 106,
                     "startColumn": 4,
-                    "startOffset": 11729,
+                    "startOffset": 11812,
                     "endColumn": 119,
-                    "endOffset": 11844
+                    "endOffset": 11927
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1980,11 +1999,11 @@
             },
             {
                 "to": {
-                    "startLine": 106,
+                    "startLine": 107,
                     "startColumn": 4,
-                    "startOffset": 11849,
+                    "startOffset": 11932,
                     "endColumn": 127,
-                    "endOffset": 11972
+                    "endOffset": 12055
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -1999,11 +2018,11 @@
             },
             {
                 "to": {
-                    "startLine": 107,
+                    "startLine": 108,
                     "startColumn": 4,
-                    "startOffset": 11977,
+                    "startOffset": 12060,
                     "endColumn": 89,
-                    "endOffset": 12062
+                    "endOffset": 12145
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -2018,11 +2037,11 @@
             },
             {
                 "to": {
-                    "startLine": 108,
+                    "startLine": 109,
                     "startColumn": 4,
-                    "startOffset": 12067,
+                    "startOffset": 12150,
                     "endColumn": 86,
-                    "endOffset": 12149
+                    "endOffset": 12232
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -2037,11 +2056,11 @@
             },
             {
                 "to": {
-                    "startLine": 109,
+                    "startLine": 110,
                     "startColumn": 4,
-                    "startOffset": 12154,
+                    "startOffset": 12237,
                     "endColumn": 102,
-                    "endOffset": 12252
+                    "endOffset": 12335
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -2056,11 +2075,11 @@
             },
             {
                 "to": {
-                    "startLine": 110,
+                    "startLine": 111,
                     "startColumn": 4,
-                    "startOffset": 12257,
+                    "startOffset": 12340,
                     "endColumn": 86,
-                    "endOffset": 12339
+                    "endOffset": 12422
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -2075,11 +2094,11 @@
             },
             {
                 "to": {
-                    "startLine": 111,
+                    "startLine": 112,
                     "startColumn": 4,
-                    "startOffset": 12344,
+                    "startOffset": 12427,
                     "endColumn": 98,
-                    "endOffset": 12438
+                    "endOffset": 12521
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -2094,11 +2113,11 @@
             },
             {
                 "to": {
-                    "startLine": 112,
+                    "startLine": 113,
                     "startColumn": 4,
-                    "startOffset": 12443,
+                    "startOffset": 12526,
                     "endColumn": 105,
-                    "endOffset": 12544
+                    "endOffset": 12627
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-pt-rPT/values.xml",
@@ -2113,11 +2132,11 @@
             },
             {
                 "to": {
-                    "startLine": 113,
+                    "startLine": 114,
                     "startColumn": 4,
-                    "startOffset": 12549,
+                    "startOffset": 12632,
                     "endColumn": 98,
-                    "endOffset": 12643
+                    "endOffset": 12726
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/values-pt-rPT/values.xml",
@@ -2132,11 +2151,11 @@
             },
             {
                 "to": {
-                    "startLine": 114,
+                    "startLine": 115,
                     "startColumn": 4,
-                    "startOffset": 12648,
+                    "startOffset": 12731,
                     "endColumn": 84,
-                    "endOffset": 12728
+                    "endOffset": 12811
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -2151,11 +2170,11 @@
             },
             {
                 "to": {
-                    "startLine": 115,
+                    "startLine": 116,
                     "startColumn": 4,
-                    "startOffset": 12733,
+                    "startOffset": 12816,
                     "endColumn": 100,
-                    "endOffset": 12829
+                    "endOffset": 12912
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/values-pt-rPT/values-pt-rPT.xml",
@@ -2170,11 +2189,11 @@
             },
             {
                 "to": {
-                    "startLine": 116,
+                    "startLine": 117,
                     "startColumn": 4,
-                    "startOffset": 12834,
+                    "startOffset": 12917,
                     "endColumn": 108,
-                    "endOffset": 12938
+                    "endOffset": 13021
                 },
                 "from": {
                     "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/res/values-pt-rPT/values.xml",

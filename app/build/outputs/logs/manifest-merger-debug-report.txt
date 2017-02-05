@@ -19,18 +19,18 @@ uses-permission#android.permission.INTERNET
 ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:5:5-67
 MERGED from [com.google.android.gms:play-services-ads-lite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.6.1/AndroidManifest.xml:19:5-66
 MERGED from [com.google.android.gms:play-services-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.6.1/AndroidManifest.xml:20:5-66
-MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-appinvite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.6.1/AndroidManifest.xml:18:5-66
-MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:20:5-66
-MERGED from [com.google.android.gms:play-services-maps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:18:5-66
-MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:20:5-66
-MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-gcm:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/AndroidManifest.xml:21:5-66
 MERGED from [com.google.android.gms:play-services-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-maps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/AndroidManifest.xml:20:5-66
 MERGED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:25:5-67
 MERGED from [io.fabric.sdk.android:fabric:1.3.10] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.10/AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:20:5-66
 	android:name
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
@@ -45,13 +45,13 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:8:5-79
 MERGED from [com.google.android.gms:play-services-ads-lite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.6.1/AndroidManifest.xml:20:5-78
 MERGED from [com.google.android.gms:play-services-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.6.1/AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-nearby:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.6.1/AndroidManifest.xml:4:5-78
 MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:19:5-78
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-maps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/AndroidManifest.xml:19:5-78
 MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:21:5-78
 MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:21:5-78
-MERGED from [com.google.android.gms:play-services-nearby:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.6.1/AndroidManifest.xml:4:5-78
-MERGED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:19:5-78
 	android:name
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:8:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
@@ -128,64 +128,64 @@ ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/m
 MERGED from [:wikitudesdk:] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/wikitudesdk/AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.android.gms:play-services:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/9.6.1/AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-ads-lite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.6.1/AndroidManifest.xml:23:5-27:19
-MERGED from [com.google.android.gms:play-services-basement:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-tasks:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.6.1/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-clearcut:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.6.1/AndroidManifest.xml:18:5-19
-MERGED from [com.google.android.gms:play-services-gass:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.6.1/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.6.1/AndroidManifest.xml:26:5-19
-MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:26:5-19
 MERGED from [com.google.android.gms:play-services-appinvite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.6.1/AndroidManifest.xml:19:5-26:19
-MERGED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/AndroidManifest.xml:19:5-25:19
 MERGED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:4:5-8:19
 MERGED from [com.google.android.gms:play-services-cast:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/AndroidManifest.xml:18:5-19
 MERGED from [com.android.support:mediarouter-v7:24.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:palette-v7:24.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:appcompat-v7:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.6.1/AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-config:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/9.6.1/AndroidManifest.xml:18:5-19
-MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:28:5-50:19
-MERGED from [com.google.firebase:firebase-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.6.1/AndroidManifest.xml:4:5-7:19
 MERGED from [com.google.android.gms:play-services-awareness:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/9.6.1/AndroidManifest.xml:18:5-19
-MERGED from [com.google.android.gms:play-services-location:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.6.1/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-places:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/AndroidManifest.xml:18:5-19
-MERGED from [com.google.android.gms:play-services-maps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/AndroidManifest.xml:24:5-19
 MERGED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:22:5-28:19
-MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:24:5-33:19
-MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:24:5-28:19
-MERGED from [com.google.android.gms:play-services-drive:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.6.1/AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.6.1/AndroidManifest.xml:19:5-20:19
 MERGED from [com.google.firebase:firebase-auth-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.6.1/AndroidManifest.xml:19:5-20:19
 MERGED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:19:5-29:19
 MERGED from [com.google.android.gms:play-services-fitness:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.6.1/AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-games:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.6.1/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-drive:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.6.1/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-gass:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.6.1/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-gcm:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/AndroidManifest.xml:23:5-19
-MERGED from [com.google.android.gms:play-services-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/AndroidManifest.xml:23:5-19
 MERGED from [com.google.android.gms:play-services-appindexing:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.6.1/AndroidManifest.xml:18:5-19
-MERGED from [com.google.android.gms:play-services-identity:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.6.1/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-location:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.6.1/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-nearby:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.6.1/AndroidManifest.xml:5:5-19
 MERGED from [com.google.android.gms:play-services-panorama:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.6.1/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-places:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-plus:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.6.1/AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-safetynet:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.6.1/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:26:5-19
 MERGED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:23:5-33:19
 MERGED from [com.google.android.gms:play-services-vision:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.6.1/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-identity:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.6.1/AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-maps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/AndroidManifest.xml:24:5-19
 MERGED from [com.google.android.gms:play-services-wearable:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.6.1/AndroidManifest.xml:18:5-19
 MERGED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:27:5-40:19
 MERGED from [io.fabric.sdk.android:fabric:1.3.10] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.10/AndroidManifest.xml:27:5-20
 MERGED from [com.android.support:percent:24.2.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/percent/24.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:18:5-20:19
 MERGED from [com.android.support:design:24.2.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:22:5-20
-MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/AndroidManifest.xml:28:5-38:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:28:5-48:19
+MERGED from [com.android.support:appcompat-v7:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:cardview-v7:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:customtabs:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.maps.android:android-maps-utils:0.4.4] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4.4/AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.firebase:firebase-core:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-core/9.6.1/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:24:5-33:19
+MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:28:5-50:19
+MERGED from [com.google.firebase:firebase-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.6.1/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.6.1/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/AndroidManifest.xml:25:5-20
 	android:label
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:42:9-41
 	android:supportsRtl
@@ -270,21 +270,20 @@ ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/m
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:83:13-70
 activity#com.facebook.CustomTabActivity
 ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:86:9-97:20
-MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/AndroidManifest.xml:33:9-36:20
 	android:exported
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:88:13-36
 	android:name
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:87:13-58
 activity#com.facebook.FacebookActivity
 ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:98:9-103:45
-MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:29:9-32:66
 	android:label
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:101:13-45
 	android:configChanges
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:100:13-96
 	android:theme
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:102:13-72
-		REJECTED from [com.facebook.android:facebook-android-sdk:4.18.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/AndroidManifest.xml:32:13-63
+		REJECTED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:32:13-63
 	tools:replace
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:103:13-42
 	android:name
@@ -333,8 +332,8 @@ ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/m
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:136:17-66
 meta-data#com.google.android.gms.version
 ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:138:13-140:73
-MERGED from [com.google.android.gms:play-services-basement:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/AndroidManifest.xml:20:9-121
 MERGED from [com.google.maps.android:android-maps-utils:0.4.4] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4.4/AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.android.gms:play-services-basement:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/AndroidManifest.xml:20:9-121
 	android:value
 		ADDED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml:140:17-70
 	android:name
@@ -411,78 +410,78 @@ MERGED from [:wikitudesdk:] /Users/nathanhampshire/AndroidStudioProjects/VappApp
 MERGED from [com.google.android.gms:play-services:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/9.6.1/AndroidManifest.xml:4:5-42
 MERGED from [com.google.android.gms:play-services-ads:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-ads-lite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.6.1/AndroidManifest.xml:22:5-42
-MERGED from [com.google.android.gms:play-services-basement:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.android.support:support-v4:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/AndroidManifest.xml:21:5-23:60
-MERGED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-tasks:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.6.1/AndroidManifest.xml:3:5-42
-MERGED from [com.google.android.gms:play-services-clearcut:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-gass:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-appinvite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-auth-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.6.1/AndroidManifest.xml:4:5-42
 MERGED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-cast:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.android.support:mediarouter-v7:24.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:palette-v7:24.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/palette-v7/24.0.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:animated-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-config:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-awareness:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-awareness/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-location:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.6.1/AndroidManifest.xml:3:5-42
-MERGED from [com.google.android.gms:play-services-places:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-maps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/AndroidManifest.xml:23:5-42
 MERGED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:20:5-42
-MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-drive:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-auth-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-auth-module:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.6.1/AndroidManifest.xml:3:5-42
-MERGED from [com.google.firebase:firebase-database-connection:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.firebase:firebase-database:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.6.1/AndroidManifest.xml:3:5-42
+MERGED from [com.google.firebase:firebase-database-connection:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.firebase:firebase-storage:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.firebase:firebase-storage-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-fitness:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-games:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-drive:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-gass:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-gcm:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-appindexing:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-identity:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-instantapps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-instantapps/9.6.1/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-location:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-nearby:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-panorama:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-places:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-plus:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-safetynet:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.6.1/AndroidManifest.xml:17:5-42
-MERGED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-tagmanager:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-vision:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.6.1/AndroidManifest.xml:3:5-42
 MERGED from [com.google.android.gms:play-services-wallet:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.6.1/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-identity:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-maps:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/AndroidManifest.xml:23:5-42
 MERGED from [com.google.android.gms:play-services-wearable:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.6.1/AndroidManifest.xml:17:5-42
 MERGED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:23:5-43
 MERGED from [io.fabric.sdk.android:fabric:1.3.10] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.3.10/AndroidManifest.xml:23:5-43
 MERGED from [com.auth0.android:lock:2.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:percent:24.2.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/percent/24.2.1/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:24.2.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:design:24.2.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43
 MERGED from [com.auth0.android:auth0:1.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/auth0/1.0.0/AndroidManifest.xml:31:5-33:41
-MERGED from [com.facebook.android:facebook-android-sdk:4.18.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-auth-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.6.1/AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:design:24.2.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:24.2.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:appcompat-v7:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:cardview-v7:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:customtabs:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.maps.android:android-maps-utils:0.4.4] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4.4/AndroidManifest.xml:5:5-43
 MERGED from [com.google.firebase:firebase-core:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-core/9.6.1/AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.google.firebase:firebase-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.6.1/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-tasks:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.6.1/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.0/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.0/AndroidManifest.xml:23:9-51
+		ADDED from [com.android.support:appcompat-v7:25.0.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/AndroidManifest.xml
@@ -507,20 +506,12 @@ ADDED from [com.google.android.gms:play-services-ads-lite:9.6.1] /Users/nathanha
 		ADDED from [com.google.android.gms:play-services-ads-lite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.6.1/AndroidManifest.xml:26:92-129
 	android:name
 		ADDED from [com.google.android.gms:play-services-ads-lite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.6.1/AndroidManifest.xml:26:19-91
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:9-172
-	android:exported
-		ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:146-170
-	android:theme
-		ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:86-145
-	android:name
-		ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:19-85
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.android.gms:play-services-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.6.1/AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.6.1/AndroidManifest.xml:24:5-67
-MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:21:5-67
 MERGED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:21:5-67
 	android:name
 		ADDED from [com.google.android.gms:play-services-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.6.1/AndroidManifest.xml:24:22-65
 activity#com.google.android.gms.appinvite.PreviewActivity
@@ -537,6 +528,88 @@ action#com.google.android.gms.appinvite.ACTION_PREVIEW
 ADDED from [com.google.android.gms:play-services-appinvite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.6.1/AndroidManifest.xml:22:17-89
 	android:name
 		ADDED from [com.google.android.gms:play-services-appinvite:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.6.1/AndroidManifest.xml:22:25-87
+receiver#com.google.android.gms.cast.framework.media.MediaIntentReceiver
+ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:5:9-99
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:5:19-97
+service#com.google.android.gms.cast.framework.media.MediaNotificationService
+ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:6:9-103
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:6:18-101
+service#com.google.android.gms.cast.framework.ReconnectionService
+ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:7:9-92
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:7:18-90
+service#com.google.firebase.crash.internal.service.FirebaseCrashReceiverService
+ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:24:9-117
+	android:process
+		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:24:80-115
+	android:name
+		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:24:18-79
+service#com.google.firebase.crash.internal.service.FirebaseCrashSenderService
+ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:26:9-115
+	android:process
+		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:26:78-113
+	android:name
+		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:26:18-77
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:23:9-27:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:23:88-111
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:23:18-87
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:24:13-26:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:24:28-51
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:25:25-75
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/AndroidManifest.xml:20:5-81
+MERGED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/AndroidManifest.xml:20:22-79
+service#com.google.android.gms.tagmanager.TagManagerService
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:9-134
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:110-132
+	android:exported
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:85-109
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:18-84
+activity#com.google.android.gms.tagmanager.TagManagerPreviewActivity
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:25:9-32:20
+	android:noHistory
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:25:94-118
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:25:19-93
+activity#com.twitter.sdk.android.core.identity.OAuthActivity
+ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:28:9-32:40
+	android:excludeFromRecents
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:31:13-46
+	android:exported
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:32:13-37
+	android:configChanges
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:30:13-59
+	android:name
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:29:13-79
+activity#com.twitter.sdk.android.core.identity.ShareEmailActivity
+ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:33:9-39:48
+	android:label
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:39:13-45
+	android:excludeFromRecents
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:36:13-46
+	android:exported
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:37:13-37
+	android:configChanges
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:35:13-59
+	android:icon
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:38:13-53
+	android:name
+		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:34:13-84
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/AndroidManifest.xml:20:9-189
 	android:excludeFromRecents
@@ -555,24 +628,58 @@ ADDED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampsh
 		ADDED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/AndroidManifest.xml:24:88-182
 	android:name
 		ADDED from [com.google.android.gms:play-services-auth:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.6.1/AndroidManifest.xml:24:18-63
-receiver#com.google.android.gms.cast.framework.media.MediaIntentReceiver
-ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:5:9-99
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:86-145
 	android:name
-		ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:5:19-97
-service#com.google.android.gms.cast.framework.media.MediaNotificationService
-ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:6:9-103
+		ADDED from [com.google.android.gms:play-services-base:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/AndroidManifest.xml:19:19-85
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:33:9-71
 	android:name
-		ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:6:18-101
-service#com.google.android.gms.cast.framework.ReconnectionService
-ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:7:9-92
+		ADDED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:33:19-68
+provider#com.facebook.internal.FacebookInitProvider
+ADDED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:44:9-47:40
+	android:authorities
+		ADDED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:46:13-72
+	android:exported
+		ADDED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:47:13-37
 	android:name
-		ADDED from [com.google.android.gms:play-services-cast-framework:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/AndroidManifest.xml:7:18-90
-uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:22:5-81
-MERGED from [com.google.android.gms:play-services-gcm:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.6.1/AndroidManifest.xml:20:5-81
-MERGED from [com.google.android.gms:play-services-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.6.1/AndroidManifest.xml:20:5-81
+		ADDED from [com.facebook.android:facebook-android-sdk:4.19.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/AndroidManifest.xml:45:13-70
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:113-137
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:22:22-79
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:162-184
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:16-87
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.google.firebase:firebase-iid:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/AndroidManifest.xml:24:5-109
 	android:protectionLevel
@@ -635,103 +742,3 @@ ADDED from [com.google.firebase:firebase-common:9.6.1] /Users/nathanhampshire/An
 		ADDED from [com.google.firebase:firebase-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.6.1/AndroidManifest.xml:6:150-173
 	android:name
 		ADDED from [com.google.firebase:firebase-common:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.6.1/AndroidManifest.xml:6:79-124
-service#com.google.firebase.crash.internal.service.FirebaseCrashReceiverService
-ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:24:9-117
-	android:process
-		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:24:80-115
-	android:name
-		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:24:18-79
-service#com.google.firebase.crash.internal.service.FirebaseCrashSenderService
-ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:26:9-115
-	android:process
-		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:26:78-113
-	android:name
-		ADDED from [com.google.firebase:firebase-crash:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.6.1/AndroidManifest.xml:26:18-77
-receiver#com.google.android.gms.measurement.AppMeasurementReceiver
-ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:7-26:18
-MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:25:7-26:18
-	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:90-112
-	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:113-137
-	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:25:17-89
-receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
-ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:7-31:18
-	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:162-184
-	android:permission
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:105-161
-	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:27:17-104
-intent-filter#com.android.vending.INSTALL_REFERRER
-ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:28:11-30:27
-action#com.android.vending.INSTALL_REFERRER
-ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:29:15-76
-	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:29:23-74
-service#com.google.android.gms.measurement.AppMeasurementService
-ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:7-137
-MERGED from [com.google.firebase:firebase-analytics-impl:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/AndroidManifest.xml:27:7-137
-	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:88-110
-	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:111-135
-	android:name
-		ADDED from [com.google.firebase:firebase-analytics:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/AndroidManifest.xml:32:16-87
-service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:23:9-27:19
-	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:23:88-111
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:23:18-87
-intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:24:13-26:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:24:28-51
-action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:25:17-77
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.6.1/AndroidManifest.xml:25:25-75
-service#com.google.android.gms.tagmanager.TagManagerService
-ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:9-134
-	android:enabled
-		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:110-132
-	android:exported
-		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:85-109
-	android:name
-		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:24:18-84
-activity#com.google.android.gms.tagmanager.TagManagerPreviewActivity
-ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:25:9-32:20
-	android:noHistory
-		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:25:94-118
-	android:name
-		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.6.1] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.6.1/AndroidManifest.xml:25:19-93
-activity#com.twitter.sdk.android.core.identity.OAuthActivity
-ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:28:9-32:40
-	android:excludeFromRecents
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:31:13-46
-	android:exported
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:32:13-37
-	android:configChanges
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:30:13-59
-	android:name
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:29:13-79
-activity#com.twitter.sdk.android.core.identity.ShareEmailActivity
-ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:33:9-39:48
-	android:label
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:39:13-45
-	android:excludeFromRecents
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:36:13-46
-	android:exported
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:37:13-37
-	android:configChanges
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:35:13-59
-	android:icon
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:38:13-53
-	android:name
-		ADDED from [com.twitter.sdk.android:twitter-core:1.6.3] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/AndroidManifest.xml:34:13-84
-activity#com.facebook.CustomTabMainActivity
-ADDED from [com.facebook.android:facebook-android-sdk:4.18.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/AndroidManifest.xml:37:9-71
-	android:name
-		ADDED from [com.facebook.android:facebook-android-sdk:4.18.0] /Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/AndroidManifest.xml:37:19-68

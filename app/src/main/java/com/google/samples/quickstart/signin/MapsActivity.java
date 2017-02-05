@@ -47,6 +47,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -290,7 +291,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         System.out.println("onCreate");
 
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 //        firstSurbmit = true;
         //Initiate the sensor that wil be used to listen for vertical 'flickups' of the device to switch to AR activity
@@ -1137,6 +1139,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Register the sensor gyro again
         sensorManager.registerListener(gyroListener, sensor,
                 SensorManager.SENSOR_DELAY_NORMAL);
+
+
     }
 
     public void onStop() {
@@ -1854,6 +1858,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         }
+
         // If the nearby offer drawer is visible close the drawer
         if (nearbyOffersDrawer.getVisibility() == View.VISIBLE && nodCoupOffer1.getVisibility() != View.VISIBLE) {
             Animation bottomDown = AnimationUtils.loadAnimation(MapsActivity.this,
@@ -1873,10 +1878,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         final FrameLayout ofsdCoupOffer2 = (FrameLayout) findViewById(R.id.ofsdCoupOffer2);
         final FrameLayout ofsdCoupOffer3 = (FrameLayout) findViewById(R.id.ofsdCoupOffer3);
-        final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer1);
+        final FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
+        final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
 
-        final FrameLayout content3 = (FrameLayout) findViewById(R.id.multiOffer2);
-        final FrameLayout content4 = (FrameLayout) findViewById(R.id.multiOffer3);
+        final FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
         FrameLayout lin2 = (FrameLayout) findViewById(R.id.ofsdCoupOffer2);
         FrameLayout lin3 = (FrameLayout) findViewById(R.id.ofsdCoupOffer3);
 
@@ -1944,15 +1949,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             semiCirc3.setVisibility(View.GONE);
 
             lin2.setVisibility(FrameLayout.GONE);
+            multiOffer1.setVisibility(View.VISIBLE);
             multiOffer2.setVisibility(View.VISIBLE);
-            content3.setVisibility(View.VISIBLE);
+            multiOffer3.setVisibility(View.VISIBLE);
             ImageView catIcon = (ImageView) findViewById(R.id.ofsdIconImage);
             catIcon.setVisibility(View.VISIBLE);
             if (dealOffer3Text.equals("offer 3 empty")) {
-                content4.setVisibility(View.GONE);
+                multiOffer3.setVisibility(View.GONE);
 
             } else {
-                content4.setVisibility(View.VISIBLE);
+                multiOffer3.setVisibility(View.VISIBLE);
             }
             nodCoupOffer1.setVisibility(View.GONE);
             nearbyOffer2.setVisibility(View.GONE);
@@ -1962,6 +1968,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             starsOverlay.setVisibility(View.GONE);
 
 
+        }
+        FrameLayout ofsdCoupOffer1 = (FrameLayout) findViewById(R.id.ofsdCoupOffer1);
+        if(ofsdCoupOffer1.getVisibility() == (View.VISIBLE) && !dealOffer2Text.equals("offer 2 empty")){
+            ofsdCoupOffer1.setVisibility(View.GONE);
+
+            multiOffer1.setVisibility(View.VISIBLE);
+            multiOffer2.setVisibility(View.VISIBLE);
         }
         // Hide the search view on back button pressed
         searchView.setVisibility(View.GONE);
@@ -2362,6 +2375,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         TextView multiOfferRet1Name = (TextView) findViewById(R.id.multiOfferRet1Name);
                         multiOfferRet1Name.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
 
+                        System.out.println("onClusterItemClicked");
+                        System.out.println(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
+
                         TextView tvn = (TextView) findViewById(R.id.singleCouponOfferText1);
                         tvn.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
                         dealOffer1Text = appClusterItem.mSnippet.split(Pattern.quote("|"))[0];
@@ -2532,13 +2548,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //                        e1.printStackTrace();
 //                    }
 
-                        final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer1);
+                        final FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
 
-                        final FrameLayout content3 = (FrameLayout) findViewById(R.id.multiOffer2);
-                        final FrameLayout content4 = (FrameLayout) findViewById(R.id.multiOffer3);
-                        final FrameLayout nodCoupOffer1 = (FrameLayout) findViewById(R.id.ofsdCoupOffer1);
-                        final FrameLayout couponOffer2 = (FrameLayout) findViewById(R.id.ofsdCoupOffer2);
-                        final FrameLayout couponOffer3 = (FrameLayout) findViewById(R.id.ofsdCoupOffer3);
+                        final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                        final FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+                        final FrameLayout ofsdCoupOffer1 = (FrameLayout) findViewById(R.id.ofsdCoupOffer1);
+                        final FrameLayout ofsdCoupOffer2 = (FrameLayout) findViewById(R.id.ofsdCoupOffer2);
+                        final FrameLayout ofsdCoupOffer3 = (FrameLayout) findViewById(R.id.ofsdCoupOffer3);
 
                         final ImageView ofsdSemiCircBg = (ImageView) findViewById(R.id.ofsdSemiCircBg);
                         final SemiCircleProgressBarView semiCirc = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
@@ -2549,11 +2565,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         if (appClusterItem.mSnippet.split(Pattern.quote("|"))[1].equals("offer 2 empty")) {
                             lin2.setVisibility(FrameLayout.GONE);
+                            multiOffer1.setVisibility(View.GONE);
                             multiOffer2.setVisibility(View.GONE);
-                            content3.setVisibility(View.GONE);
-                            content4.setVisibility(View.GONE);
-                            nodCoupOffer1.setVisibility(View.VISIBLE);
-                            couponOffer2.setVisibility(View.GONE);
+                            multiOffer3.setVisibility(View.GONE);
+                            tvn.setVisibility(View.VISIBLE);
+                            tvn.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
+
+                            ofsdCoupOffer1.setVisibility(View.VISIBLE);
+                            ofsdCoupOffer2.setVisibility(View.GONE);
                             System.out.println("offer2 is empty");
                             ofsdSemiCircBg.setVisibility(View.VISIBLE);
                             semiCirc.setVisibility(View.VISIBLE);
@@ -2562,30 +2581,40 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         if (!appClusterItem.mSnippet.split(Pattern.quote("|"))[1].equals("offer 2 empty")) {
                             multiOffer2.setVisibility(View.VISIBLE);
                             backpressed = true;
-                            content3.setVisibility(View.VISIBLE);
-                            couponOffer2.setVisibility(View.GONE);
-                            nodCoupOffer1.setVisibility(View.GONE);
-                            couponOffer3.setVisibility(View.GONE);
+                            multiOffer2.setVisibility(View.VISIBLE);
+                            ofsdCoupOffer2.setVisibility(View.GONE);
+                            ofsdCoupOffer1.setVisibility(View.GONE);
+                            ofsdCoupOffer3.setVisibility(View.GONE);
 
                             ofsdSemiCircBg.setVisibility(View.GONE);
                             semiCirc.setVisibility(View.GONE);
+                            semiCirc2.setVisibility(View.GONE);
+                            semiCirc3.setVisibility(View.GONE);
+
                             starsOverlay.setVisibility(View.GONE);
                         }
                         if (appClusterItem.mSnippet.split(Pattern.quote("|"))[4].equals("offer 3 empty")) {
                             System.out.println("offer3 is empty");
-                            content4.setVisibility(View.GONE);
-                            couponOffer3.setVisibility(View.GONE);
+                            multiOffer3.setVisibility(View.GONE);
+                            ofsdCoupOffer3.setVisibility(View.GONE);
 
                         }
                         if (!appClusterItem.mSnippet.split(Pattern.quote("|"))[4].equals("offer 3 empty")) {
-                            content4.setVisibility(View.VISIBLE);
-                            couponOffer3.setVisibility(View.GONE);
-                            couponOffer2.setVisibility(View.GONE);
-                            nodCoupOffer1.setVisibility(View.GONE);
+                            multiOffer3.setVisibility(View.VISIBLE);
+                            ofsdCoupOffer3.setVisibility(View.GONE);
+                            ofsdCoupOffer2.setVisibility(View.GONE);
+                            ofsdCoupOffer1.setVisibility(View.GONE);
+                            semiCirc.setVisibility(View.GONE);
+                            semiCirc2.setVisibility(View.GONE);
+                            semiCirc3.setVisibility(View.GONE);
                         }
+                        final TextView singleCouponOfferText1 = (TextView)findViewById(R.id.singleCouponOfferText1);
+                        final TextView singleCouponOfferText2 = (TextView)findViewById(R.id.singleCouponOfferText2);
+                        final TextView singleCouponOfferText3 = (TextView)findViewById(R.id.singleCouponOfferText3);
+
 
                         final String SingleOfferString = singleOfferString;
-                        multiOffer2.setOnClickListener(new View.OnClickListener() {
+                        multiOffer1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 backStack = true;
@@ -2593,16 +2622,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 semiCirc.setVisibility(View.VISIBLE);
                                 starsOverlay.setVisibility(View.VISIBLE);
 
-//
                                 semiCirc2.setVisibility(View.GONE);
                                 semiCirc3.setVisibility(View.GONE);
 
+                                multiOffer1.setVisibility(View.GONE);
                                 multiOffer2.setVisibility(View.GONE);
-                                content3.setVisibility(View.GONE);
-                                content4.setVisibility(View.GONE);
-                                nodCoupOffer1.setVisibility(View.VISIBLE);
-                                couponOffer2.setVisibility(View.GONE);
-                                couponOffer3.setVisibility(View.GONE);
+                                multiOffer3.setVisibility(View.GONE);
+                                ofsdCoupOffer1.setVisibility(View.VISIBLE);
+                                ofsdCoupOffer2.setVisibility(View.GONE);
+                                ofsdCoupOffer3.setVisibility(View.GONE);
+
+                                singleCouponOfferText1.setVisibility(View.VISIBLE);
+                                singleCouponOfferText2.setVisibility(View.GONE);
+                                singleCouponOfferText3.setVisibility(View.GONE);
                                 System.out.println("multiOffer2");
 
 
@@ -2631,13 +2663,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             }
                         });
                         final String SingleOfferString2 = singleOfferString;
-                        content3.setOnClickListener(new View.OnClickListener() {
+                        multiOffer2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 backStack = true;
-                                System.out.println("content3");
+                                System.out.println("multiOffer2");
                                 ofsdSemiCircBg.setVisibility(View.VISIBLE);
                                 starsOverlay.setVisibility(View.VISIBLE);
+
+                                singleCouponOfferText1.setVisibility(View.GONE);
+                                singleCouponOfferText2.setVisibility(View.VISIBLE);
+                                singleCouponOfferText3.setVisibility(View.GONE);
+
                                 if (multiOffersStars2.getTag().equals("one")) {
                                     starsOverlay.setImageResource(R.drawable.starone);
                                     System.out.println("one");
@@ -2664,33 +2701,39 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 semiCirc2.setVisibility(View.VISIBLE);
                                 semiCirc3.setVisibility(View.GONE);
 
+                                multiOffer1.setVisibility(View.GONE);
                                 multiOffer2.setVisibility(View.GONE);
-                                content3.setVisibility(View.GONE);
-                                content4.setVisibility(View.GONE);
-                                nodCoupOffer1.setVisibility(View.GONE);
-                                couponOffer2.setVisibility(View.VISIBLE);
-                                couponOffer3.setVisibility(View.GONE);
+                                multiOffer3.setVisibility(View.GONE);
+                                ofsdCoupOffer1.setVisibility(View.GONE);
+                                ofsdCoupOffer2.setVisibility(View.VISIBLE);
+
+                                ofsdCoupOffer3.setVisibility(View.GONE);
 
                             }
                         });
-                        content4.setOnClickListener(new View.OnClickListener() {
+
+
+                        multiOffer3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 backStack = true;
-                                System.out.println("content4");
+                                System.out.println("multiOffer3");
                                 ofsdSemiCircBg.setVisibility(View.VISIBLE);
                                 starsOverlay.setVisibility(View.VISIBLE);
+                                singleCouponOfferText1.setVisibility(View.GONE);
+                                singleCouponOfferText2.setVisibility(View.GONE);
+                                singleCouponOfferText3.setVisibility(View.VISIBLE);
 
                                 semiCirc.setVisibility(View.GONE);
                                 semiCirc2.setVisibility(View.GONE);
                                 semiCirc3.setVisibility(View.GONE);
 
+                                multiOffer1.setVisibility(View.GONE);
                                 multiOffer2.setVisibility(View.GONE);
-                                content3.setVisibility(View.GONE);
-                                content4.setVisibility(View.GONE);
-                                nodCoupOffer1.setVisibility(View.GONE);
-                                couponOffer2.setVisibility(View.GONE);
-                                couponOffer3.setVisibility(View.VISIBLE);
+                                multiOffer3.setVisibility(View.GONE);
+                                ofsdCoupOffer1.setVisibility(View.GONE);
+                                ofsdCoupOffer2.setVisibility(View.GONE);
+                                ofsdCoupOffer3.setVisibility(View.VISIBLE);
 
 
                                 if (multiOffersStars3.getTag().equals("one")) {
@@ -3312,11 +3355,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         System.out.println(offEndTime2);
         System.out.println(offEndTime3);
 
-        String str = "2013-09-29T18:46:19Z";
-        String currentTime = "2014-09-29T18:46:19Z";
 
-
-        SimpleDateFormat df = new SimpleDateFormat("MMM dd yyyy HH:mm:ss.SSS zzz");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         SimpleDateFormat sde = new SimpleDateFormat("yyyyMMddHHmmss");
         sdf.setTimeZone(TimeZone.getTimeZone("Pacific/Auckland"));
@@ -3326,10 +3365,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         dateFormat.setTimeZone(TimeZone.getTimeZone("Pacific/Auckland"));
 
         Calendar cal = Calendar.getInstance();
+        cal.setTimeZone(TimeZone.getTimeZone("GMT+13:00"));
 //        System.out.println(sdf.format(cal));
 //        System.out.println(dateFormat);
 //        System.out.println(dateFormat.format(cal));
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(cal.getTime());
 
 //        final ImageView timerBar = (ImageView) findViewById(R.id.iconImageBg2);
 
@@ -3349,10 +3389,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         epochDif = epoch - epoch3;
         System.out.println(epochDif);
 
-        Date dater = new Date(epochDif);
+        Date dater = new Date(epoch3);
         DateFormat formatter = new SimpleDateFormat("HH:mm:ss:SSS");
         String dateFormatted = formatter.format(dater);
+
+        Date dater2 = new Date(epoch);
+        DateFormat formatter2 = new SimpleDateFormat("HH:mm:ss:SSS");
+        String dateFormatted2 = formatter2.format(dater2);
+
+
         System.out.println(dateFormatted);
+        System.out.println(dateFormatted2);
 
         int grey = R.drawable.greycircl;
         int orange = R.drawable.orangecircl;
@@ -3874,10 +3921,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     final FrameLayout nearbyOffer7 = (FrameLayout) findViewById(R.id.nearbyOffer7);
                     final FrameLayout nearbyOffer8 = (FrameLayout) findViewById(R.id.nearbyOffer8);
 
-                    final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer1);
+                    final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
 
-                    final FrameLayout content3 = (FrameLayout) findViewById(R.id.multiOffer2);
-                    final FrameLayout content4 = (FrameLayout) findViewById(R.id.multiOffer3);
+                    final FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
                     final FrameLayout nodCoupOffer1 = (FrameLayout) findViewById(R.id.nodCoupOffer1);
                     final FrameLayout nodCoupOffer2 = (FrameLayout) findViewById(R.id.nodCoupOffer2);
                     final FrameLayout nodCoupOffer3 = (FrameLayout) findViewById(R.id.nodCoupOffer3);
@@ -3904,9 +3950,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     nodCoupOffer1.setVisibility(View.GONE);
                     nodCoupOffer2.setVisibility(View.GONE);
                     nodCoupOffer3.setVisibility(View.GONE);
-                    singleCouponOfferText1.setVisibility(View.GONE);
-                    singleCouponOfferText2.setVisibility(View.GONE);
-                    singleCouponOfferText3.setVisibility(View.GONE);
+//                    singleCouponOfferText1.setVisibility(View.GONE);
+//                    singleCouponOfferText2.setVisibility(View.GONE);
+//                    singleCouponOfferText3.setVisibility(View.GONE);
                     nodSingleCouponOffer3Text.setVisibility(View.GONE);
                     nodSingleCouponOffer2Text.setVisibility(View.GONE);
                     nodSingleCouponOffer1Text.setVisibility(View.GONE);

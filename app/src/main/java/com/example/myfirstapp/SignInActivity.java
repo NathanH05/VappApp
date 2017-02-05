@@ -26,6 +26,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -206,6 +208,9 @@ public class SignInActivity extends AppCompatActivity implements
     @Nullable
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         System.out.println("onCreate");
 
         ActivityCompat.requestPermissions(SignInActivity.this,
@@ -563,25 +568,8 @@ public class SignInActivity extends AppCompatActivity implements
         myLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginButton2 = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
-                loginButton2.setCallback(new Callback<TwitterSession>() {
-                    @Override
-                    public void success(Result<TwitterSession> result) {
-                        // The TwitterSession is also available through:
-                        // Twitter.getInstance().core.getSessionManager().getActiveSession()
-                        TwitterSession session = result.data;
-                        // TODO: Remove toast and use the TwitterSession's userID
-                        // with your app's user model
-                        String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
-                        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void failure(TwitterException exception) {
-                        Log.d("TwitterKit", "Login with Twitter failure", exception);
-                    }
-                });
-                loginButton2.performClick();
+                Intent intent = new Intent(SignInActivity.this, retailerSignUpLogin.class);
+                startActivity(intent);
             }
         });
         loginButton2 = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
@@ -724,6 +712,7 @@ public class SignInActivity extends AppCompatActivity implements
     public void onResume() {
         super.onResume();
         System.out.println("onResume");
+
     }
 
 

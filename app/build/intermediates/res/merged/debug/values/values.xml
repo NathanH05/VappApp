@@ -204,6 +204,7 @@
     <color name="com_facebook_button_background_color_pressed">#2f477a</color>
     <color name="com_facebook_button_background_color_selected">#7c8fc8</color>
     <color name="com_facebook_button_border_color_focused">#dedee6</color>
+    <color name="com_facebook_button_login_background_color">#4267b2</color>
     <color name="com_facebook_button_login_silver_background_color">#f4f6f8</color>
     <color name="com_facebook_button_login_silver_background_color_pressed">#e9eaf0</color>
     <color name="com_facebook_button_send_background_color">@color/com_facebook_messenger_blue</color>
@@ -810,6 +811,7 @@
     <dimen name="com_facebook_auth_dialog_corner_radius">2dp</dimen>
     <dimen name="com_facebook_auth_dialog_corner_radius_oversized">4dp</dimen>
     <dimen name="com_facebook_button_corner_radius">2dp</dimen>
+    <dimen name="com_facebook_button_login_corner_radius">3dp</dimen>
     <dimen name="com_facebook_likeboxcountview_border_radius">3dp</dimen>
     <dimen name="com_facebook_likeboxcountview_border_width">1dp</dimen>
     <dimen name="com_facebook_likeboxcountview_caret_height">3dp</dimen>
@@ -1178,6 +1180,7 @@
     <string name="com_facebook_loading">Loading…</string>
     <string name="com_facebook_loginview_cancel_action">Cancel</string>
     <string name="com_facebook_loginview_log_in_button">Log in</string>
+    <string name="com_facebook_loginview_log_in_button_continue">Continue with Facebook</string>
     <string name="com_facebook_loginview_log_in_button_long">Log in with Facebook</string>
     <string name="com_facebook_loginview_log_out_action">Log out</string>
     <string name="com_facebook_loginview_log_out_button">Log out</string>
@@ -1193,7 +1196,7 @@
     <string name="com_facebook_smart_login_confirmation_cancel">Not you?</string>
     <string name="com_facebook_smart_login_confirmation_continue_as">Continue as %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Confirm Login</string>
-    <string name="com_facebook_tooltip_default">New! You\'re in control - choose what info you want to share with apps.</string>
+    <string name="com_facebook_tooltip_default">You\'re in control - choose what info you want to share with apps.</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -3615,7 +3618,11 @@
         <item name="android:text">@string/com_facebook_share_button_text</item>
     </style>
     <style name="com_facebook_loginview_default_style" parent="com_facebook_button">
-        <item name="android:drawableLeft">@drawable/com_facebook_button_icon</item>
+        <item name="android:background">@drawable/com_facebook_button_login_background</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:textSize">13.0dp</item>
     </style>
     <style name="com_facebook_loginview_silver_style" parent="com_facebook_loginview_default_style">
         <item name="android:background">@drawable/com_facebook_button_login_silver_background</item>
