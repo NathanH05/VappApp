@@ -10,6 +10,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/mapsy"
@@ -35,35 +36,35 @@
             tools:context="com.google.samples.quickstart.signin.MapsActivity" />
 
         <!--&lt;!&ndash;    <ImageView-->
-                <!--android:layout_width="40dp"-->
-                <!--android:layout_height="40dp"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_marginTop="520dp"-->
-                <!--android:layout_marginLeft="90dp"-->
-                <!--android:src="@drawable/burgericon2"-->
-                <!--android:onClick="hideBurgers"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="520dp"-->
+        <!--android:layout_marginLeft="90dp"-->
+        <!--android:src="@drawable/burgericon2"-->
+        <!--android:onClick="hideBurgers"-->
 
-                <!--/>-->
-            <!--<ImageView-->
-                <!--android:layout_width="40dp"-->
-                <!--android:layout_height="40dp"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_marginTop="520dp"-->
-                <!--android:src="@drawable/shoppingbag3"-->
-                <!--android:onClick="hideShopping"-->
+        <!--/>-->
+        <!--<ImageView-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="520dp"-->
+        <!--android:src="@drawable/shoppingbag3"-->
+        <!--android:onClick="hideShopping"-->
 
-                <!--/>-->
-            <!--<ImageView-->
-                <!--android:layout_width="40dp"-->
-                <!--android:layout_height="40dp"-->
-                <!--android:layout_marginLeft="200dp"-->
-                <!--android:layout_marginTop="520dp"-->
-                <!--android:src="@drawable/coffeeicon"-->
-                <!--android:onClick="hideCoffee"-->
+        <!--/>-->
+        <!--<ImageView-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_marginLeft="200dp"-->
+        <!--android:layout_marginTop="520dp"-->
+        <!--android:src="@drawable/coffeeicon"-->
+        <!--android:onClick="hideCoffee"-->
 
-                <!--/>-->
-       <!--&ndash;&gt;-->
+        <!--/>-->
+        <!--&ndash;&gt;-->
         <!--&lt;!&ndash;<ProgressBar-->
         <!--android:id="@+id/progressBar"-->
         <!--style="?android:attr/progressBarStyleHorizontal"-->
@@ -81,23 +82,21 @@
         <!--android:layout_alignParentStart="true" />-->
 
         <!--<LinearLayout-->
-            <!--android:layout_width="400dp"-->
-            <!--android:layout_height="100dp">-->
+        <!--android:layout_width="400dp"-->
+        <!--android:layout_height="100dp">-->
 
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Start Timer"-->
-                <!--android:id="@+id/buttonXYZ" />-->
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Start Timer"-->
+        <!--android:id="@+id/buttonXYZ" />-->
 
-            <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Stop Timer"-->
-                <!--android:id="@+id/button2"-->
-                <!--android:layout_below="@id/progressBar" />-->
-
-
+        <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Stop Timer"-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_below="@id/progressBar" />-->
 
 
         <!--</LinearLayout>-->
@@ -432,7 +431,7 @@
                             android:layout_height="120dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginBottom="50dp"
-                            android:layout_marginTop="51dp"
+                            android:layout_marginTop="41dp"
                             android:src="@drawable/greyoutfulldeal"
                             android:visibility="gone" />
 
@@ -441,7 +440,7 @@
                             android:layout_width="380dp"
                             android:layout_height="200dp"
                             android:layout_marginLeft="66dp"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="4dp"
                             android:visibility="gone" />
 
                         <com.google.samples.quickstart.signin.SemiCircleProgressBarView
@@ -449,7 +448,7 @@
                             android:layout_width="380dp"
                             android:layout_height="200dp"
                             android:layout_marginLeft="66dp"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="4dp"
                             android:visibility="gone" />
 
                         <com.google.samples.quickstart.signin.SemiCircleProgressBarView
@@ -457,7 +456,7 @@
                             android:layout_width="380dp"
                             android:layout_height="200dp"
                             android:layout_marginLeft="66dp"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="4dp"
                             android:visibility="gone" />
 
                         <ImageView
@@ -465,7 +464,7 @@
                             android:layout_width="90dp"
                             android:layout_height="90dp"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="66dp"
+                            android:layout_marginTop="56dp"
                             android:padding="0dp"
                             android:src="@drawable/drinks" />
 
@@ -473,8 +472,8 @@
                             android:id="@+id/ofsdStarsOverlay"
                             android:layout_width="210dp"
                             android:layout_height="210dp"
+                            android:layout_marginTop="-4dp"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="5dp"
                             android:paddingBottom="6dp"
                             android:paddingLeft="2dp"
                             android:src="@drawable/starfive"
@@ -486,9 +485,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="-20dp"
                         android:fontFamily="sans-serif-smallcaps"
                         android:gravity="top"
-                        android:paddingTop="0dp"
                         android:text="Roost"
                         android:textAllCaps="true"
                         android:textColor="#ffffff"
@@ -497,8 +496,23 @@
                     <ImageView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-android:layout_marginLeft="80dp"
-                        android:src="@drawable/phonecompmsg"/>
+                        android:layout_marginLeft="80dp"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="7dp"
+                        android:src="@drawable/phonecompmsg" />
+
+                    <TextView
+                        android:layout_width="250dp"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:layout_height="wrap_content"
+                        android:text="42 Franklin Road, Ponsonby, Auckland"
+                        android:textAllCaps="true"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="15dp"/>
 
                     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                         android:id="@+id/multiOffer1"
@@ -746,24 +760,24 @@ android:layout_marginLeft="80dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:padding="0dp">
-                        <ImageView
-                            android:layout_width="450dp"
-                            android:layout_height="300dp"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="-45dp"
-                            android:onClick="openQR"
-                            android:src="@drawable/emptycoupon"
-                            />
+                        <!--<ImageView-->
+                        <!--android:layout_width="450dp"-->
+                        <!--android:layout_height="300dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginTop="-45dp"-->
+                        <!--android:onClick="openQR"-->
+                        <!--android:src="@drawable/emptycoupon"-->
+                        <!--/>-->
 
 
-
-                        <LinearLayout
+                        <RelativeLayout
                             android:id="@+id/ofsdOfferLayout1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="350dp"
+                            android:layout_height="300dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginBottom="8dp"
-                            android:layout_marginTop="0dp"
+                            android:layout_marginTop="-80dp"
+                            android:background="@drawable/emptycoupon"
                             android:orientation="vertical">
 
                             <!--<LinearLayout-->
@@ -781,14 +795,15 @@ android:layout_marginLeft="80dp"
                                 android:id="@+id/singleCouponOfferText1"
                                 android:layout_width="170dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="95dp"
                                 android:fontFamily="sans-serif-smallcaps"
                                 android:gravity="center"
-                                android:layout_marginTop="40dp"
                                 android:text="Free cupcake with every flatwhite "
                                 android:textAlignment="center"
-                                android:textColor="#ffffff"
-                                android:textSize="20sp" />
+                                android:textColor="#585858"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
 
                             <!--</LinearLayout>-->
 
@@ -796,43 +811,39 @@ android:layout_marginLeft="80dp"
                                 android:id="@+id/countdown"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginBottom="8dp"
-                                android:gravity="center"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="90dp"
                                 android:text="Remaining:\n 05:30"
-                                android:textColor="#ffffff" />
+                                android:textColor="#585858" />
 
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_gravity="center|top"
-                                android:onClick="openQR"
-                                android:layout_marginTop="15dp"
+                            <!--<ImageView-->
+                            <!--android:layout_width="50dp"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:layout_gravity="center|top"-->
+                            <!--android:onClick="openQR"-->
+                            <!--android:layout_marginTop="15dp"-->
 
-                                android:src="@drawable/qrcode" />
+                            <!--android:src="@drawable/qrcode" />-->
 
-                            <ImageView
-                                android:id="@+id/ofsdShare1"
-                                android:layout_width="130dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|top"
-                                android:layout_marginLeft="0dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="-10dp"
-                                android:src="@drawable/sharefbtwitter" />
 
-                        </LinearLayout>
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:id="@+id/ofsdShare1"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="130dp"
+                            android:src="@drawable/sharefbtwitter" />
                         <!--<ImageView-->
-                            <!--android:layout_width="290dp"-->
-                            <!--android:layout_height="275dp"-->
-                            <!--android:layout_gravity="center"-->
-                            <!--android:adjustViewBounds="true"-->
-                            <!--android:padding="0dp"-->
-                            <!--android:scaleType="fitXY"-->
-                            <!--android:src="@drawable/couponimg"/>-->
-
-
-
+                        <!--android:layout_width="290dp"-->
+                        <!--android:layout_height="275dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:adjustViewBounds="true"-->
+                        <!--android:padding="0dp"-->
+                        <!--android:scaleType="fitXY"-->
+                        <!--android:src="@drawable/couponimg"/>-->
 
 
                     </FrameLayout>
@@ -950,7 +961,6 @@ android:layout_marginLeft="80dp"
                             android:layout_marginTop="50dp"
                             android:onClick="openQR"
                             android:src="@drawable/qrcode" />
-
 
 
                         <LinearLayout
@@ -1257,8 +1267,7 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                              />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
 
@@ -1337,8 +1346,7 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                    />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
 
@@ -1417,10 +1425,10 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                   />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
+
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/nearbyOffer4"
                             android:layout_width="match_parent"
@@ -1496,11 +1504,11 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                   />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
-                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+                        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/nearbyOffer5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1575,12 +1583,11 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                   />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
 
-                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/nearbyOffer6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1655,12 +1662,11 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                   />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
 
-                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/nearbyOffer7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1735,12 +1741,11 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                   />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
 
-                    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/nearbyOffer8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1815,17 +1820,17 @@ android:layout_marginLeft="80dp"
                                     android:layout_gravity="center|top"
                                     android:layout_marginLeft="35dp"
                                     android:layout_marginRight="35dp"
-                                    android:layout_marginTop="0dp"
-                                   />
+                                    android:layout_marginTop="0dp" />
                             </LinearLayout>
                         </FrameLayout>
+
                         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/nodCoupOffer1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:visibility="gone"
-                            android:padding="0dp">
+                            android:padding="0dp"
+                            android:visibility="gone">
 
                             <ImageView
                                 android:layout_width="290dp"
@@ -1907,9 +1912,9 @@ android:layout_marginLeft="80dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:visibility="gone"
+                            android:padding="0dp"
 
-                            android:padding="0dp">
+                            android:visibility="gone">
 
                             <ImageView
                                 android:layout_width="290dp"
@@ -1990,8 +1995,8 @@ android:layout_marginLeft="80dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:visibility="gone"
-                            android:padding="0dp">
+                            android:padding="0dp"
+                            android:visibility="gone">
 
                             <ImageView
                                 android:layout_width="290dp"

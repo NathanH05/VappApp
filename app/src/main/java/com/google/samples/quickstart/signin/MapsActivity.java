@@ -315,6 +315,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             //Define the main layout for this activity
             setContentView(R.layout.activity_maps);
 
+
             System.out.println("ready to map");
             // Retnames are the 8 potential text views where nearby offers can populate.
             // Note: when 8 offers are not nearby only those that are, will populate the text views here
@@ -2354,6 +2355,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         }
 
+
+
+
 //            markerManager.getCollection("1").addMarker(new MarkerOptions()
 //                    .title((((allOffersArray.get(i)).split(Pattern.quote("|"))[2])))
 //                    .position(new LatLng(Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[7])), Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[6]))))
@@ -2528,6 +2532,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         } catch (ParseException e1) {
                             e1.printStackTrace();
                         }
+
 
 //                    try {
 //                        if (timersInitialized != false){
