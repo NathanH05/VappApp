@@ -70,27 +70,28 @@ public class retailerSignUpLogin extends AppCompatActivity {
     Window window = null;
     Boolean b = null;
 
-    String strtName ="";
     Boolean exists = false;
-
     int year;
+
     int month;
     int day;
     int progress = 30;
     int progress2 = 50;
     StringBuilder sb = new StringBuilder();
     private Spinner spinner1, spinner2;
-    String passw="";
     private Context mContext;
     private Activity mActivity;
-
     private RelativeLayout mRelativeLayout;
+
     private ImageView mImageView;
     private ImageView mImageView2;
     String lat ="";
     String lng ="";
     String streetName ="";
+    String strtName ="";
     String streetName2 ="";
+    String passw="";
+
     String categoryString ="";
     String retailerName ="";
     private PopupWindow mPopupWindow;
@@ -123,7 +124,7 @@ public class retailerSignUpLogin extends AppCompatActivity {
         if(signup.getVisibility() == View.VISIBLE){
             retailerSignUpLogin.this.finish();
         }
-        if(rl3.getVisibility() == View.VISIBLE || rl2.getVisibility() == View.VISIBLE || rl.getVisibility()==View.VISIBLE){
+        else if(rl3.getVisibility() == View.VISIBLE || rl2.getVisibility() == View.VISIBLE || rl.getVisibility()==View.VISIBLE){
             rl3.setVisibility(View.GONE);
             mPopupWindow.dismiss();
             rl2.setVisibility(View.GONE);
@@ -170,6 +171,8 @@ public class retailerSignUpLogin extends AppCompatActivity {
 
         return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
+
+
     public void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(

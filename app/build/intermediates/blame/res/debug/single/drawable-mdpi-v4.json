@@ -336,12 +336,12 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/com_auth0_lock_ic_social_salesforce.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-mdpi-v4/com_auth0_lock_ic_social_salesforce.png"
-    },
-    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/common_google_signin_btn_icon_dark_focused.9.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/drawable-mdpi-v4/common_google_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/com_auth0_lock_ic_social_salesforce.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-mdpi-v4/com_auth0_lock_ic_social_salesforce.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/quantum_ic_volume_up_white_36.png",
@@ -824,12 +824,12 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable-mdpi-v4/quantum_ic_cast_connected_white_24.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/com_auth0_lock_ic_social_auth0.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-mdpi-v4/com_auth0_lock_ic_social_auth0.png"
-    },
-    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/messenger_bubble_large_blue.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/drawable-mdpi-v4/messenger_bubble_large_blue.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/com_auth0_lock_ic_social_auth0.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-mdpi-v4/com_auth0_lock_ic_social_auth0.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/quantum_ic_stop_grey600_48.png",

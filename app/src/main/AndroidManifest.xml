@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myfirstapp">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -54,11 +55,7 @@
             android:name=".SignInActivity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- Auth0 Lock -->
         <activity
@@ -162,8 +159,8 @@
         </activity>
         <activity
             android:name=".couponActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:hardwareAccelerated="false"/>
+            android:hardwareAccelerated="false"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".retailerPostOffer"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -175,11 +172,22 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_coupons_dash"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".help"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".paymentscreen"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".help"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".paymentscreen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.google.samples.quickstart.signin.login_activity"
+            android:label="@string/title_activity_login_activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
-

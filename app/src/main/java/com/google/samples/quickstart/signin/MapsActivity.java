@@ -114,7 +114,8 @@ import ch.hsr.geohash.GeoHash;
 import static com.example.myfirstapp.R.id.map;
 import static com.example.myfirstapp.R.layout.loggedout;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {    TextView textX, textY, textZ;
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+    TextView textX, textY, textZ;
     SensorManager sensorManager;
     Sensor sensor;
     Boolean firstSubmit;
@@ -214,7 +215,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        
+
     }
 
     //Setup the Cluster Markers for google maps
@@ -989,6 +990,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+
     // This function opens the website for a user
     public void openRetailerSite(View view) {
         TextView website = (TextView) findViewById(R.id.website);
@@ -1304,7 +1306,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         // If the filter is already selected, clear all the items from the cluster and only add those markers for the categorys that
         // have been clicked. No markers will be added if none are clicked
-         else {
+        else {
             if (moviesIsClicked == true || attractionsIsClicked == true || accomodationIsClicked == true || foodDiningIsClicked == true || drinksIsClicked == true || shoppingIsClicked == true) {
                 mClusterManager.clearItems();
 
@@ -1342,9 +1344,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     } else {
                     }
                 }
-            }
-
-            else {
+            } else {
                 mClusterManager.clearItems();
             }
             mClusterManager.cluster();
@@ -1439,9 +1439,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     } else {
                     }
                 }
-            }
-
-            else {
+            } else {
                 mClusterManager.clearItems();
             }
             mClusterManager.cluster();
@@ -1500,7 +1498,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         // If the filter is already selected, clear all the items from the cluster and only add those markers for the categorys that
         // have been clicked. No markers will be added if none are clicked
-         else {
+        else {
             if (moviesIsClicked == true || attractionsIsClicked == true || accomodationIsClicked == true || foodDiningIsClicked == true || drinksIsClicked == true || shoppingIsClicked == true) {
                 mClusterManager.clearItems();
 
@@ -1538,9 +1536,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     } else {
                     }
                 }
-            }
-
-            else {
+            } else {
                 mClusterManager.clearItems();
             }
             mClusterManager.cluster();
@@ -1971,7 +1967,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
         FrameLayout ofsdCoupOffer1 = (FrameLayout) findViewById(R.id.ofsdCoupOffer1);
-        if(ofsdCoupOffer1.getVisibility() == (View.VISIBLE) && !dealOffer2Text.equals("offer 2 empty")){
+        if (ofsdCoupOffer1.getVisibility() == (View.VISIBLE) && !dealOffer2Text.equals("offer 2 empty")) {
             ofsdCoupOffer1.setVisibility(View.GONE);
 
             multiOffer1.setVisibility(View.VISIBLE);
@@ -2356,8 +2352,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
 
 
-
-
 //            markerManager.getCollection("1").addMarker(new MarkerOptions()
 //                    .title((((allOffersArray.get(i)).split(Pattern.quote("|"))[2])))
 //                    .position(new LatLng(Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[7])), Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[6]))))
@@ -2450,7 +2444,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             starIcon.setImageResource(R.drawable.starfour);
                             multiOffersStars.setImageResource(R.drawable.fourstr);
                             multiOffersStars.setTag("four");
-
+                            starIcon.setMaxWidth(100);
+                            starIcon.getLayoutParams().width = 10;
+                            starIcon.requestLayout();
 
                             System.out.println("goo");
 
@@ -2610,12 +2606,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             ofsdCoupOffer2.setVisibility(View.GONE);
                             ofsdCoupOffer1.setVisibility(View.GONE);
                             semiCirc.setVisibility(View.GONE);
+
                             semiCirc2.setVisibility(View.GONE);
                             semiCirc3.setVisibility(View.GONE);
                         }
-                        final TextView singleCouponOfferText1 = (TextView)findViewById(R.id.singleCouponOfferText1);
-                        final TextView singleCouponOfferText2 = (TextView)findViewById(R.id.singleCouponOfferText2);
-                        final TextView singleCouponOfferText3 = (TextView)findViewById(R.id.singleCouponOfferText3);
+                        final TextView singleCouponOfferText1 = (TextView) findViewById(R.id.singleCouponOfferText1);
+                        final TextView singleCouponOfferText2 = (TextView) findViewById(R.id.singleCouponOfferText2);
+                        final TextView singleCouponOfferText3 = (TextView) findViewById(R.id.singleCouponOfferText3);
 
 
                         final String SingleOfferString = singleOfferString;
@@ -3327,9 +3324,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         System.out.println("ENDTIME PRINTED");
 
     }
+
     public void callBackDataFromAsyncTask(String address) {
         System.out.println(address);
     }
+
     private void startTimers(String offEndTime, String offEndTime2, String offEndTime3) throws ParseException {
         final TextView textCountdown1 = (TextView) findViewById(R.id.countdown);
         final TextView textCountdown2 = (TextView) findViewById(R.id.countdown2);
@@ -3339,17 +3338,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         textCountdown3.setText("");
         if (timer != null) {
             timer.cancel();
-            textCountdown1.setTextColor(Color.parseColor("#ffffff"));
+            textCountdown1.setTextColor(Color.parseColor("#585858"));
             textCountdown1.clearAnimation();
         }
         if (timer2 != null) {
             timer2.cancel();
-            textCountdown2.setTextColor(Color.parseColor("#ffffff"));
+            textCountdown2.setTextColor(Color.parseColor("#585858"));
             textCountdown2.clearAnimation();
         }
         if (timer3 != null) {
             timer.cancel();
-            textCountdown3.setTextColor(Color.parseColor("#ffffff"));
+            textCountdown3.setTextColor(Color.parseColor("#585858"));
             textCountdown3.clearAnimation();
         }
 //        System.out.println((((allOffersArray.get(0)).split(Pattern.quote("|"))[3])));
@@ -3408,7 +3407,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         int grey = R.drawable.greycircl;
         int orange = R.drawable.orangecircl;
-        int green = R.drawable.greencircl;
+        int green = R.drawable.greencirc;
 
 //        timerBar.setImageResource(R.drawable.threequartertime);
         semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
@@ -3430,7 +3429,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             String colourBar = "green";
             semiCircleProgressBarView.setBitMap(colourBar);
         }
-        semiCircleProgressBarView.setClipping(timerBarValue);
+
+        if(timerBarValue>90){
+            semiCircleProgressBarView.setClipping(90);
+
+        }
+        else{
+            semiCircleProgressBarView.setClipping(timerBarValue);
+
+        }
+
         multiOfferProgressBar1.setProgress((int) timerBarValue);
 
 
@@ -3495,9 +3503,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                     // 300,000 millis is 5 minutes so display one quarter bar
+if(x>90){
+    semiCircleProgressBarView.setClipping(90);
 
-                    semiCircleProgressBarView.setClipping(x);
-
+}
+                    else{
+    semiCircleProgressBarView.setClipping(x);
+}
 
                 }
             }
@@ -4014,7 +4026,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 semiCirc.setVisibility(View.VISIBLE);
                                 starsOverlay.setVisibility(View.VISIBLE);
 
-System.out.println("Nearby 2");
+                                System.out.println("Nearby 2");
                                 semiCirc2.setVisibility(View.GONE);
                                 semiCirc3.setVisibility(View.GONE);
 

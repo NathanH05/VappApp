@@ -80,6 +80,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/orangecircl.png"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/username.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/username.xml"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/cast_ic_mini_controller_stop_large.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_ic_mini_controller_stop_large.xml"
     },
@@ -94,6 +98,14 @@
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/usericongreen.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/usericongreen.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/loginbg.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/loginbg.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/onestr.png",
@@ -128,16 +140,16 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/tech_icon.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/phonecompmsg.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/phonecompmsg.png"
-    },
-    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/tw__login_btn_default.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/res/drawable/tw__login_btn_default.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/cast_ic_notification_disconnect.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_ic_notification_disconnect.xml"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/phonecompmsg.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/phonecompmsg.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/ic_notifications_black_24dp.xml",
@@ -194,6 +206,10 @@
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/beverages.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/beverages.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/twitter.jpg",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/twitter.jpg"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
@@ -256,12 +272,12 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable/abc_seekbar_tick_mark_material.xml"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/movies.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/movies.png"
-    },
-    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/borderback.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/borderback.xml"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/movies.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/movies.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/mr_ic_cast_light.xml",
@@ -428,6 +444,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/drawable/navigation_empty_icon.xml"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/padlockgreen.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/padlockgreen.png"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/cast_expanded_controller_actionbar_bg_gradient_light.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_expanded_controller_actionbar_bg_gradient_light.xml"
     },
@@ -576,6 +596,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/fooddining.png"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/loginbgtwo.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/loginbgtwo.png"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/drawable/common_google_signin_btn_icon_dark.xml"
     },
@@ -672,6 +696,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/ic_menu_gallery.xml"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/crossgreen.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/crossgreen.png"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/cast_ic_expanded_controller_play.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_ic_expanded_controller_play.xml"
     },
@@ -702,6 +730,10 @@
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/cast_ic_notification_forward.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable/cast_ic_notification_forward.xml"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/tickorange.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/tickorange.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/dealshopping.png",
@@ -796,6 +828,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/moviesgrey.png"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/edit_text_shape.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/edit_text_shape.xml"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/sharp_corner.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/sharp_corner.xml"
     },
@@ -812,20 +848,28 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/side_nav_bar.xml"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/tw__transparent.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/res/drawable/tw__transparent.xml"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/dealaccom.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/dealaccom.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/tw__transparent.xml",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/res/drawable/tw__transparent.xml"
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/dotted.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/dotted.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/threequartertime.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/threequartertime.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/dotted.xml",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/dotted.xml"
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/login_divide_line.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/login_divide_line.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/fb.jpg",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/drawable/fb.jpg"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable/fivestar.png",

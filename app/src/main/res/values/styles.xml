@@ -8,6 +8,7 @@
         <item name="android:actionButtonStyle">@style/MyActionButtonStyle</item>
 
     </style>
+
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
@@ -18,12 +19,13 @@
 
 
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-            <item name="android:windowContentTransitions">true</item>
-            <item name="android:windowAllowEnterTransitionOverlap">true</item>
-            <item name="android:windowAllowReturnTransitionOverlap">true</item>
-            <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
-            <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
-        </style>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+    </style>
+
 
 
     <!-- Activity with no Title -->
@@ -42,18 +44,18 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowTitleSize">0dp</item>
     </style>
+
     <style name="NavigationTheme">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#ffffffff</item>
         <item name="android:layout_marginBottom">02dp</item>
     </style>
+
     <style name="iconGen">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#ffffff</item>
     </style>
-
-
 
 
     <style name="MyActionButtonStyle">

@@ -70,11 +70,6 @@
             android:name="com.example.myfirstapp.SignInActivity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- Auth0 Lock -->
         <activity
@@ -196,6 +191,16 @@
         <activity
             android:name="com.example.myfirstapp.paymentscreen"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.google.samples.quickstart.signin.login_activity"
+            android:label="@string/title_activity_login_activity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.wikitude.architect.BrowserActivity" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

@@ -88,6 +88,10 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/activity_login_activity.xml",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/src/main/res/layout/activity_login_activity.xml"
+    },
+    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout/tw__activity_share_email.xml",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/res/layout/tw__activity_share_email.xml"
     },

@@ -1315,6 +1315,7 @@
     <string name="tagmanager_preview_dialog_title">Preview</string>
     <string name="title_activity_coupons_dash">couponsDash</string>
     <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="title_activity_login_activity">login_activity</string>
     <string name="title_activity_main3">Main3Activity</string>
     <string name="title_activity_maps"/>
     <string name="title_activity_settings">Settings</string>
@@ -2876,12 +2877,12 @@
         <item name="android:paddingTop">50dp</item>
     </style>
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-            <item name="android:windowContentTransitions">true</item>
-            <item name="android:windowAllowEnterTransitionOverlap">true</item>
-            <item name="android:windowAllowReturnTransitionOverlap">true</item>
-            <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
-            <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
-        </style>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+    </style>
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>

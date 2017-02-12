@@ -51,8 +51,8 @@ public class SemiCircleProgressBarView extends View {
         //Adjust the image size to support different screen sizes
         Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.greencircl);
 
-        int imageWidth = (int) (getScreenGridUnit() * 30 -2165);
-        int imageHeight = (int) (getScreenGridUnit() * 30-2150);
+        int imageWidth = (int) (getScreenGridUnit() * 30 -2442);
+        int imageHeight = (int) (getScreenGridUnit() * 30-2400);
         mBitmap = Bitmap.createScaledBitmap(bitmap, imageWidth, imageHeight, false);
     }
 
@@ -96,16 +96,16 @@ public class SemiCircleProgressBarView extends View {
              //Adjust the image size to support different screen sizes
              Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.greycircl);
 
-             int imageWidth = (int) (getScreenGridUnit() * 30 -2165);
-             int imageHeight = (int) (getScreenGridUnit() * 30-2150);
+             int imageWidth = (int) (getScreenGridUnit() * 30 -2442);
+             int imageHeight = (int) (getScreenGridUnit() * 30-2400);
              mBitmap = Bitmap.createScaledBitmap(bitmap, imageWidth, imageHeight, false);
 
          }
          else if(barColour.equals("orange")){
              //Adjust the image size to support different screen sizes
              Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.orangecircl);
-             int imageWidth = (int) (getScreenGridUnit() * 30 -2165);
-             int imageHeight = (int) (getScreenGridUnit() * 30-2150);
+             int imageWidth = (int) (getScreenGridUnit() * 30 -2442);
+             int imageHeight = (int) (getScreenGridUnit() * 30-2400);
              mBitmap = Bitmap.createScaledBitmap(bitmap, imageWidth, imageHeight, false);
 
          }
@@ -113,8 +113,8 @@ public class SemiCircleProgressBarView extends View {
              //Adjust the image size to support different screen sizes
              Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.greencircl);
 
-             int imageWidth = (int) (getScreenGridUnit() * 30 -2165);
-             int imageHeight = (int) (getScreenGridUnit() * 30-2150);
+             int imageWidth = (int) (getScreenGridUnit() * 30 -2442);
+             int imageHeight = (int) (getScreenGridUnit() * 30-2400);
              mBitmap = Bitmap.createScaledBitmap(bitmap, imageWidth, imageHeight, false);
 
          }

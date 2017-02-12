@@ -33,9 +33,9 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +63,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.samples.quickstart.signin.MapsActivity;
+import com.google.samples.quickstart.signin.login_activity;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -426,135 +427,14 @@ public class SignInActivity extends AppCompatActivity implements
                         } else {
                             mPopupWindow.dismiss();
 
+
                         }
 
-
-//                        Gson gson = new Gson();
-//                        JsonReader reader = new JsonReader(new StringReader(result1));
-//                        reader.setLenient(true);
-//                        Userinfo userinfo1 = gson.fromJson(reader, Userinfo.class);
-
-//                        Object obj = jsonParser.parse(my_json);
-//                        JSONArray array = (JSONArray)obj;
-//
-//                        System.out.println("The 2nd element of array");
-//                        try {
-//                            System.out.println(array.get(1));
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-
-
-//                        response.delete(0, response.length());
-//                            //My task is called in the onRequestData method and passes it the url of our AWS GET request API
-//                            String url = "https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/geo-email-login";
-//                            URL obj = null;
-//                            try {
-//                                obj = new URL(url);
-//                            } catch (MalformedURLException e) {
-//                                e.printStackTrace();
-//                            }
-//                            HttpsURLConnection con = null;
-//                            try {
-//                                con = (HttpsURLConnection) obj.openConnection();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                            final String userEmail = email.getText().toString();
-//                            final String userPassword = password.getText().toString();
-//                            //add request header
-//                            try {
-//                                con.setRequestMethod("POST");
-//                            } catch (ProtocolException e) {
-//                                e.printStackTrace();
-//                            }
-//                            con.setRequestProperty("User-Agent", "Mozilla/5.0");
-//                            con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-//
-//                           System.out.println("{\"email\": \"nathan.hampshire5@gmail.com\",\"password\": \"soccer05.\"}\n");
-//                            String urlParameters = "{\"email\": " + "\""+userEmail+ "\"" + ",\"password\":" + "\""+ userPassword+ "\""+ "}";
-//                            // Send post request
-//                            con.setDoOutput(true);
-//                            DataOutputStream wr = null;
-//                            try {
-//                                wr = new DataOutputStream(con.getOutputStream());
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                            try {
-//                                wr.writeBytes(urlParameters);
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                            try {
-//                                wr.flush();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                            try {
-//                                wr.close();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//                            int responseCode = 0;
-//                            try {
-//                                responseCode = con.getResponseCode();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                            System.out.println("\nSending 'POST' request to URL : " + url);
-//                            System.out.println("Post parameters : " + urlParameters);
-//                            System.out.println("Response Code : " + responseCode);
-//
-//                            BufferedReader in = null;
-//                            System.out.println("String printed");
-//
-//                            try {
-//                                in = new BufferedReader(
-//                                        new InputStreamReader(con.getInputStream()));
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-//                            String inputLine;
-//                            System.out.println("StringA printed");
-//
-//
-//                            System.out.println("StringB printed");
-//
-//                            try {
-//                                    while ((inputLine = in.readLine()) != null) {
-//                                    response.append(inputLine);
-//                                    System.out.println(response);
-//                                    System.out.println(inputLine.toString());
-//                                    System.out.println("input line just printed");
-//                                        in.close();
-//
-//                                    if (response.equals(null) || response == null) {
-//                                        System.out.println("it equalled null so window shouldn't dismiss");
-//                                        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
-//
-//                                        // Inflate the custom layout/view
-//                                        View customView = inflater.inflate(R.layout.email_layout, null);
-//
-//                                        TextView validator = (TextView) customView.findViewById(R.id.validator);
-//                                        validator.setVisibility(View.VISIBLE);
-//                                    }
-//                                    else {
-//                                        // Dismiss the popup window
-//                                        mPopupWindow.dismiss();
-//                                    }
-//                                }
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                            }
-
-                        //print result
 
 
                     }
                 });
-                mLinearLayout = (ScrollView) findViewById(R.id.main_layout);
+                mLinearLayout = (LinearLayout) findViewById(R.id.main_layout);
 
                 mPopupWindow.showAtLocation(mLinearLayout, Gravity.CENTER, 0, 0);
                 mPopupWindow.update(1300, 1000);
@@ -714,7 +594,10 @@ public class SignInActivity extends AppCompatActivity implements
         System.out.println("onResume");
 
     }
-
+public void login(View v){
+    Intent intent = new Intent(SignInActivity.this, login_activity.class);
+    startActivity(intent);
+}
 
     @Override
     public void onStart() {
