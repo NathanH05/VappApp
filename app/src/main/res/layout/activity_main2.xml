@@ -749,7 +749,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:theme="@style/NavigationTheme"
-        android:background="#585858"
+        android:background="#a4b92d"
         app:itemTextColor="#ffffff"
         android:paddingTop="10dp"
         android:fitsSystemWindows="true"

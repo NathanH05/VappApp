@@ -1,4 +1,3 @@
-
 package com.google.samples.quickstart.signin;
 
 import android.Manifest;
@@ -291,6 +290,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("onCreate");
+        System.getProperty("java.vm.version");
+        String sysprop = SYSTEM_HEALTH_SERVICE;
+        System.out.println("onCreate");
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -315,6 +317,57 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (servicesOK()) {
             //Define the main layout for this activity
             setContentView(R.layout.activity_maps);
+
+            ImageView phone = (ImageView) findViewById(R.id.phone);
+            phone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+64273581288"));
+                    if (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
+                    startActivity(intent);
+
+                }
+            });
+            ImageView email = (ImageView)findViewById(R.id.email);
+            email.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    TextView messagetv = (TextView)findViewById(R.id.singleCouponOfferText1);
+
+                    String message = messagetv.getText().toString();
+
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("message/rfc822");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                    intent.putExtra(Intent.EXTRA_TEXT, message);
+                    Intent mailer = Intent.createChooser(intent, null);
+                    startActivity(mailer);
+
+                }
+            });
+            ImageView websitey = (ImageView)findViewById(R.id.websitey);
+            websitey.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String url = "http://" + individualOfferDetsArray[11];
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+
+
+                }
+            });
 
 
             System.out.println("ready to map");
@@ -951,6 +1004,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
             });
+
+
 
             // Set up the toggling of the menu(payment, help, coupons etc.) open and close in maps view
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -2241,9 +2296,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Bitmap h = bitmapdraw8.getBitmap();
         final Bitmap smallMarker8 = Bitmap.createScaledBitmap(h, width, height, false);
 
-        BitmapDrawable bitmapdraw9 = (BitmapDrawable) getResources().getDrawable(R.drawable.accomodation);
-        Bitmap j = bitmapdraw9.getBitmap();
-        Bitmap smallMarker9 = Bitmap.createScaledBitmap(j, width, height, false);
+
 
         final Bitmap[] markerIcon = {smallMarker10};
         String category = null;
@@ -3430,11 +3483,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             semiCircleProgressBarView.setBitMap(colourBar);
         }
 
-        if(timerBarValue>90){
+        if (timerBarValue > 90) {
             semiCircleProgressBarView.setClipping(90);
 
-        }
-        else{
+        } else {
             semiCircleProgressBarView.setClipping(timerBarValue);
 
         }
@@ -3503,13 +3555,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                     // 300,000 millis is 5 minutes so display one quarter bar
-if(x>90){
-    semiCircleProgressBarView.setClipping(90);
+                    if (x > 90) {
+                        semiCircleProgressBarView.setClipping(90);
 
-}
-                    else{
-    semiCircleProgressBarView.setClipping(x);
-}
+                    } else {
+                        semiCircleProgressBarView.setClipping(x);
+                    }
 
                 }
             }
@@ -3867,10 +3918,17 @@ if(x>90){
         System.out.println(singleCouponOfferText1.getText().toString());
         intent.putExtra("retailer", retailerName.getText().toString());
         intent.putExtra("offerDesc1", singleCouponOfferText1.getText().toString());
+        startActivity(intent);
+        singleCouponOfferText1.setText("PLEASE LEAVE STAR RATING BELOW");
 //    intent.putExtra("offerDesc2",tvr.getText().toString());
 //    intent.putExtra("offerDesc3",tvr.getText().toString());
+        TextView countdown = (TextView) findViewById(R.id.countdown);
+        countdown.setVisibility(View.GONE);
+        ImageView starrating = (ImageView) findViewById(R.id.starrating);
+        starrating.setVisibility(View.VISIBLE);
+        TextView redemn = (TextView) findViewById(R.id.redemn);
+        redemn.setVisibility(View.GONE);
 
-        startActivity(intent);
     }
 
 
@@ -4192,9 +4250,9 @@ if(x>90){
 
         // Show the option to go to your current location on the map
         mMap.setMyLocationEnabled(true);
-
         // Populate map with markers and their icons, text, titles etc.
-        setupOfferMapIcons();
+
+            setupOfferMapIcons();
 
 
     }

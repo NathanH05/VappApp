@@ -1315,7 +1315,7 @@
     <string name="tagmanager_preview_dialog_title">Preview</string>
     <string name="title_activity_coupons_dash">couponsDash</string>
     <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="title_activity_login_activity">login_activity</string>
+    <string name="title_activity_login_activity">Find My Deal</string>
     <string name="title_activity_main3">Main3Activity</string>
     <string name="title_activity_maps"/>
     <string name="title_activity_settings">Settings</string>

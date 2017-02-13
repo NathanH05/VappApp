@@ -114,40 +114,7 @@ public class SignInActivity extends AppCompatActivity implements
     String emailString ="";
     Boolean exists = null;
     StringBuilder sb = new StringBuilder();
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_FINELOC: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    // permission was granted, yay! Do the
-                    // contacts-related task you need to do.
-
-
-                } else {
-
-
-                }
-                return;
-            }
-            case MY_PERMISSIONS_REQUEST_CAMERA:{
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                }  else{
-
-                }
-                return;
-
-            }
-
-            // other 'case' lines to check for other
-            // permissions this app might request
-        }
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

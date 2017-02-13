@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
@@ -50,11 +51,23 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <activity
+            android:name="com.google.samples.quickstart.signin.login_activity"
+            android:configChanges="keyboard|locale|fontScale|screenLayout|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
 
+            android:label="@string/title_activity_login_activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".SignInActivity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
 
         </activity>
         <!-- Auth0 Lock -->
@@ -126,6 +139,8 @@
             android:name="com.google.samples.quickstart.signin.MapsActivity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|screenSize|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
             android:hardwareAccelerated="false"
+
+            android:largeHeap="true"
             android:label="@string/title_activity_maps"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden">
@@ -160,6 +175,7 @@
         <activity
             android:name=".couponActivity"
             android:hardwareAccelerated="false"
+            android:largeHeap="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".retailerPostOffer"
@@ -178,16 +194,7 @@
         <activity
             android:name=".paymentscreen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.google.samples.quickstart.signin.login_activity"
-            android:label="@string/title_activity_login_activity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

@@ -1,13 +1,19 @@
 package com.google.samples.quickstart.signin;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.support.annotation.ColorInt;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -35,6 +41,9 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -64,6 +73,14 @@ import java.nio.charset.Charset;
 import io.fabric.sdk.android.Fabric;
 
 public class login_activity extends AppCompatActivity {
+
+    private static final String TAG = "SignInActivity";
+    private static final int RC_SIGN_IN = 9001;
+    private GoogleApiClient mGoogleApiClient;
+    private TextView mStatusTextView;
+    private ProgressDialog mProgressDialog;
+    LoginButton loginButton;
+
     CallbackManager callbackManager;
     private TwitterLoginButton loginButton2;
     PopupWindow mPopupWindow;
@@ -80,6 +97,11 @@ Context mContext;
     String streetName ="";
     String strtName ="";
 
+    StringBuffer response = new StringBuffer();
+    static final int MY_PERMISSIONS_REQUEST_FINELOC =1;
+    static final int MY_PERMISSIONS_REQUEST_CAMERA =2;
+
+
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {
@@ -91,6 +113,42 @@ Context mContext;
             is.close();
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_FINELOC: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+
+
+                } else {
+
+
+                }
+                return;
+            }
+            case MY_PERMISSIONS_REQUEST_CAMERA:{
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                }  else{
+
+                }
+                return;
+
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -100,6 +158,32 @@ Context mContext;
         return sb.toString();
     }
 
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//
+//        // ATTENTION: This was auto-generated to implement the App Indexing API.
+//        // See https://g.co/AppIndexing/AndroidStudio for more information.
+//        AppIndex.AppIndexApi.end(mGoogleApiClient, getIndexApiAction());
+//        mGoogleApiClient.disconnect();
+//    }
+
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("SignIn Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +191,16 @@ Context mContext;
 //        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 //        getActionBar().hide();
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        ActivityCompat.requestPermissions(login_activity.this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA},
+                MY_PERMISSIONS_REQUEST_FINELOC);
+        if (Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         TwitterAuthConfig authConfig =
                 new TwitterAuthConfig("9u57HOuYQfeqenEjeNSGqSAtM",
                         "FPoyVBcbEVA6OJUSzOiMgOVfu1dQU0HOPn54MPL3Y4qPtzVDAm");
@@ -543,9 +637,8 @@ Context mContext;
             System.out.println(userEmail);
             String userPassword = password.getText().toString();
             System.out.println(password.getText().toString());
+            System.out.println(password.getText().toString());
             String data = null;
-
-            String retailerID2 ="thisISaLogin,RETID unknown ";
 
             try {
                 data = "";
@@ -558,20 +651,14 @@ Context mContext;
 
             try {
                 data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
-                        + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" ;
+                        + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
                 System.out.println("ho");
                 System.out.println(data);
             } catch (UnsupportedEncodingException e) {
+                System.out.println("Error");
                 e.printStackTrace();
             }
-            try {
-                data += "," + "\"" + URLEncoder.encode("retailerID", "UTF-8") + "\""
-                        + ":" + "\"" + URLEncoder.encode(retailerID2, "UTF-8") + "\"" + "}";
-                System.out.println("ho");
-                System.out.println(data);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
+            System.out.println("Error2");
 
             String text = "";
             BufferedReader reader = null;
@@ -583,17 +670,21 @@ Context mContext;
                 URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/standard-user-login");
 
                 // Send POST data request
+                System.out.println("Error3");
 
                 URLConnection conn = url.openConnection();
                 conn.setDoOutput(true);
                 OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
                 wr.write(data);
                 wr.flush();
+                System.out.println("Error4");
 
                 // Get the server response
 
                 reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 String line = null;
+                System.out.println("Error5");
+
 
                 line = reader.readLine();
                 // Append server response in string
@@ -601,11 +692,11 @@ Context mContext;
                 String f = line;
                 g = f.replace("\\", "").trim();
 
-
             } catch (Exception ex) {
 
             } finally {
                 try {
+
                     reader.close();
                 } catch (Exception ex) {
                 }
@@ -625,44 +716,7 @@ Context mContext;
                 emailString = obj.getString("email");
                 exists = obj.getBoolean("exists");
                 passw = obj.getString("password");
-                try{
-//                    String address = obj.getString("address");
-//                    String urlAddress = address;
-//                    String urlAddress2 = urlAddress.replace(" ", "+");
-//                    System.out.println(urlAddress2);
-//                    JSONObject json = readJsonFromUrl("http://maps.googleapis.com/maps/api/geocode/json?address=" + urlAddress2);
-//                    System.out.println(json.toString());
-//                    System.out.println(json.get("results"));
-//                    JSONArray arr = json.getJSONArray("results");
-//
-//
-//                    JSONObject startofAddrCmpo = arr.getJSONObject(0);
-//
-//                    JSONArray arr3 = startofAddrCmpo.getJSONArray("address_components");
-//                                JSONObject arr2 = arr.getJSONObject(0);
-//                    JSONObject firstLngNmeSet = arr3.getJSONObject(0);
-//                    String by2 = firstLngNmeSet.toString();
-//                    System.out.println(firstLngNmeSet);
-//
-//                    JSONObject streetNameSection = arr3.getJSONObject(1);
-//                    strtName = streetNameSection.getString("long_name");
-//                    streetName = streetNameSection.getString("long_name");
-//                    System.out.println(strtName);
-//                    System.out.println("Street name printed, line 656");
-//
-//                    JSONObject geometry = startofAddrCmpo.getJSONObject("geometry");
-//                    JSONObject location = geometry.getJSONObject("location");
-//                    lat = location.getString("lat");
-//                    lng = location.getString("lng");
-
-
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-
                 System.out.println(emailString);
-//                System.out.println(lat);
-//                System.out.println(lng);
                 System.out.println(exists);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -679,17 +733,20 @@ Context mContext;
                 if(!passw.equals(userPassword)){
                     TextView validator = (TextView) findViewById(R.id.validator);
                     validator.setVisibility(View.VISIBLE);
+
                     System.out.println(passw);
                     System.out.println(userPassword);
                 }
                 else {
+
+
+                    loadingPanel.setVisibility(View.GONE);
                     TextView validator = (TextView) findViewById(R.id.validator);
                     validator.setVisibility(View.GONE);
                     Intent intent = new Intent(login_activity.this, MapsActivity.class);
                     startActivity(intent);
                     Toast.makeText(login_activity.this,"You are now logged in as "+email.getText().toString(),Toast.LENGTH_LONG).show();
                     email.setText("");
-
 //                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
 //                    rl4.setVisibility(View.GONE);
 //                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
@@ -700,10 +757,10 @@ Context mContext;
 
                 }
             } else {
-                loadingPanel.setVisibility(View.GONE);
-
                 TextView validator = (TextView) findViewById(R.id.validator);
                 validator.setVisibility(View.VISIBLE);
+//                TextView validator = (TextView) findViewById(R.id.validator);
+//                validator.setVisibility(View.VISIBLE);
 
             }
 
