@@ -3,6 +3,7 @@ package com.google.samples.quickstart.signin;
 import android.Manifest;
 import android.app.Dialog;
 import android.app.FragmentManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +39,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.text.Html;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -145,6 +149,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     SemiCircleProgressBarView semiCircleProgressBarView;
+    SemiCircleProgressBarView semiCircleProgressBarView1;
     SemiCircleProgressBarView semiCircleProgressBarView2;
     SemiCircleProgressBarView semiCircleProgressBarView3;
     private boolean mVisible;
@@ -184,6 +189,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     View nearbyOffersDrawer;
     ArrayList<String[]> parent = new ArrayList<>();
     static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+    static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1;
 
     // Once a user has responded to the popup boxes asking for app permission to use the
     // gps and camera, grant the intended permissions
@@ -337,12 +343,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 }
             });
-            ImageView email = (ImageView)findViewById(R.id.email);
+            ImageView email = (ImageView) findViewById(R.id.email);
             email.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    TextView messagetv = (TextView)findViewById(R.id.singleCouponOfferText1);
+                    TextView messagetv = (TextView) findViewById(R.id.singleCouponOfferText1);
 
                     String message = messagetv.getText().toString();
 
@@ -355,7 +361,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 }
             });
-            ImageView websitey = (ImageView)findViewById(R.id.websitey);
+            ImageView websitey = (ImageView) findViewById(R.id.websitey);
             websitey.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -844,9 +850,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     ViewGroup offerSlideDrawer = (ViewGroup) findViewById(R.id.nearbyOffersDrawer);
                     offerSlideDrawer.setVisibility(View.VISIBLE);
+                    if (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
 
                     TextView tv = (TextView) findViewById(R.id.nodRetailerName);
                     tv.setText("Your nearby offers");
+                    LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                    nodContactDets.setVisibility(View.GONE);
+                    TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                    nodAddress.setVisibility(View.GONE);
 
                     overridePendingTransition(R.anim.slide_left, R.anim.slide_left);
                     // Set this boolean so that when the back button is pressed the drawer will
@@ -1004,7 +1025,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
             });
-
 
 
             // Set up the toggling of the menu(payment, help, coupons etc.) open and close in maps view
@@ -1858,6 +1878,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         final FrameLayout nearbyOffer7 = (FrameLayout) findViewById(R.id.nearbyOffer7);
         final FrameLayout nearbyOffer8 = (FrameLayout) findViewById(R.id.nearbyOffer8);
 
+        ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+
         SemiCircleProgressBarView semiCirc = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
         SemiCircleProgressBarView semiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc2);
         SemiCircleProgressBarView semiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc3);
@@ -2001,9 +2023,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             semiCirc3.setVisibility(View.GONE);
 
             lin2.setVisibility(FrameLayout.GONE);
+            LinearLayout ofsdContactsDets = (LinearLayout) findViewById(R.id.ofsdContactsDets);
+            TextView ofsdAddress = (TextView) findViewById(R.id.ofsdAddress);
+            ofsdContactsDets.setVisibility(View.GONE);
+            ofsdAddress.setVisibility(View.GONE);
+            nodStarsOverlay.setVisibility(View.GONE);
             multiOffer1.setVisibility(View.VISIBLE);
             multiOffer2.setVisibility(View.VISIBLE);
             multiOffer3.setVisibility(View.VISIBLE);
+            LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+            nodContactDets.setVisibility(View.GONE);
+            TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+            nodAddress.setVisibility(View.GONE);
+            TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+            nodRetailerName.setVisibility(View.GONE);
+            SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+            SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+            SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
+            nodSemiCirc1.setVisibility(View.GONE);
             ImageView catIcon = (ImageView) findViewById(R.id.ofsdIconImage);
             catIcon.setVisibility(View.VISIBLE);
             if (dealOffer3Text.equals("offer 3 empty")) {
@@ -2134,6 +2171,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         @Override
         protected void onPostExecute(String result) {
+
+            final FrameLayout nearbyOffer1 = (FrameLayout) findViewById(R.id.nearbyOffer1);
+            final FrameLayout nodCoupOffer1 = (FrameLayout) findViewById(R.id.nodCoupOffer1);
+            final FrameLayout nodCoupOffer2 = (FrameLayout) findViewById(R.id.nodCoupOffer2);
+            final FrameLayout nodCoupOffer3 = (FrameLayout) findViewById(R.id.nodCoupOffer3);
+            nearbyOffer1.setVisibility(View.GONE);
+            nodCoupOffer1.setVisibility(View.GONE);
+            nodCoupOffer2.setVisibility(View.GONE);
+            nodCoupOffer3.setVisibility(View.GONE);
+//            if (nearbyOffer1.getVisibility() == View.GONE && nodCoupOffer1.getVisibility() ==
+//                    View.GONE && nodCoupOffer2.getVisibility() == View.GONE && nodCoupOffer3.getVisibility() == View.GONE ) {
+//System.out.println("onPost ran");
             // Once we send the GET request we have the result passed into this method with all the offers in the app
             try {
                 // Put our JSON string of offers returned from the GET request into a JSON array
@@ -2215,6 +2264,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+
         }
 
         @Override
@@ -2249,6 +2299,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         Toast toast = Toast.makeText(MapsActivity.this, "Be careful crossing the road with Vapp App", Toast.LENGTH_SHORT);
         toast.show();
+        System.out.println("On Map Ready running");
         System.out.println("Map started");
 
         mMap.setPadding(0, 250, 0, 0);
@@ -2295,7 +2346,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         BitmapDrawable bitmapdraw8 = (BitmapDrawable) getResources().getDrawable(R.drawable.activities);
         Bitmap h = bitmapdraw8.getBitmap();
         final Bitmap smallMarker8 = Bitmap.createScaledBitmap(h, width, height, false);
-
 
 
         final Bitmap[] markerIcon = {smallMarker10};
@@ -3386,6 +3436,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         final TextView textCountdown1 = (TextView) findViewById(R.id.countdown);
         final TextView textCountdown2 = (TextView) findViewById(R.id.countdown2);
         final TextView textCountdown3 = (TextView) findViewById(R.id.countdown3);
+        final TextView nodcountdown = (TextView) findViewById(R.id.nodcountdown);
+        final TextView nodcountdown2 = (TextView) findViewById(R.id.nodcountdown2);
+        final TextView nodcountdown3 = (TextView) findViewById(R.id.nodcountdown3);
         textCountdown1.setText("");
         textCountdown2.setText("");
         textCountdown3.setText("");
@@ -3393,134 +3446,163 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             timer.cancel();
             textCountdown1.setTextColor(Color.parseColor("#585858"));
             textCountdown1.clearAnimation();
+            nodcountdown.setTextColor(Color.parseColor("#585858"));
+            nodcountdown.clearAnimation();
         }
         if (timer2 != null) {
             timer2.cancel();
             textCountdown2.setTextColor(Color.parseColor("#585858"));
             textCountdown2.clearAnimation();
+            nodcountdown2.setTextColor(Color.parseColor("#585858"));
+            nodcountdown2.clearAnimation();
         }
         if (timer3 != null) {
             timer.cancel();
             textCountdown3.setTextColor(Color.parseColor("#585858"));
             textCountdown3.clearAnimation();
-        }
-//        System.out.println((((allOffersArray.get(0)).split(Pattern.quote("|"))[3])));
-//        String offerTime = (((allOffersArray.get(0)).split(Pattern.quote("|"))[3]));
+            nodcountdown3.setTextColor(Color.parseColor("#585858"));
+            nodcountdown3.clearAnimation();
+        }//        System.out.println((((allOffersArray.get(0)).split(Pattern.quote("|"))[3])));
 
-//        offerTime = offerTime.substring(0,8);
-        System.out.println(offEndTime);
-        System.out.println(offEndTime2);
-        System.out.println(offEndTime3);
-
-
+        // String offerTime = (((allOffersArray.get(0)).split(Pattern.quote("|"))[3]));//
+        // offerTime = offerTime.substring(0,8);        System.out.println(offEndTime);
+        // System.out.println(offEndTime2);        System.out.println(offEndTime3);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         SimpleDateFormat sde = new SimpleDateFormat("yyyyMMddHHmmss");
         sdf.setTimeZone(TimeZone.getTimeZone("Pacific/Auckland"));
         sde.setTimeZone(TimeZone.getTimeZone("Pacific/Auckland"));
-
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         dateFormat.setTimeZone(TimeZone.getTimeZone("Pacific/Auckland"));
-
         Calendar cal = Calendar.getInstance();
         cal.setTimeZone(TimeZone.getTimeZone("GMT+13:00"));
-//        System.out.println(sdf.format(cal));
-//        System.out.println(dateFormat);
+//        System.out.println(sdf.format(cal));//        System.out.println(dateFormat);//
 //        System.out.println(dateFormat.format(cal));
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(cal.getTime());
-
-//        final ImageView timerBar = (ImageView) findViewById(R.id.iconImageBg2);
-
+        //        final ImageView timerBar = (ImageView) findViewById(R.id.iconImageBg2);
         System.out.println(offEndTime);
         Date date = sde.parse(offEndTime);
         long epoch = date.getTime();
         System.out.println(epoch); // 1055545912454
-
         Date date2 = sde.parse(offEndTime);
         long epoch2 = date2.getTime();
         System.out.println(epoch2); // 1055545912454
-
         Date date3 = sde.parse(timeStamp);
         long epoch3 = date3.getTime();
         System.out.println(epoch3); // 1055545912454
-
         epochDif = epoch - epoch3;
         System.out.println(epochDif);
-
         Date dater = new Date(epoch3);
         DateFormat formatter = new SimpleDateFormat("HH:mm:ss:SSS");
         String dateFormatted = formatter.format(dater);
-
         Date dater2 = new Date(epoch);
         DateFormat formatter2 = new SimpleDateFormat("HH:mm:ss:SSS");
         String dateFormatted2 = formatter2.format(dater2);
-
-
         System.out.println(dateFormatted);
         System.out.println(dateFormatted2);
-
         int grey = R.drawable.greycircl;
         int orange = R.drawable.orangecircl;
         int green = R.drawable.greencirc;
-
-//        timerBar.setImageResource(R.drawable.threequartertime);
+        final SemiCircleProgressBarView nodSemiCirc1;
+        final SemiCircleProgressBarView nodSemiCirc2;
+        final SemiCircleProgressBarView nodSemiCirc3;//        timerBar.setImageResource(R.drawable.threequartertime);
         semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
-
+        semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
+        semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
+        semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
         semiCircleProgressBarView = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
+        semiCircleProgressBarView1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+        semiCircleProgressBarView2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+        semiCircleProgressBarView3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
+        nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+        nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+        nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
         semiCircleProgressBarView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-
         semiCircleProgressBarView.setClipping(100);
         long timerBarValue = epochDif / 60000;
-
         if (epochDif == 0 || epochDif < 0) {
             String colourBar = "grey";
             timerBarValue = 0;
             semiCircleProgressBarView.setBitMap(colourBar);
+            nodSemiCirc1.setBitMap(colourBar);
+            semiCircleProgressBarView2.setBitMap(colourBar);
+            nodSemiCirc2.setBitMap(colourBar);
+            semiCircleProgressBarView3.setBitMap(colourBar);
+            nodSemiCirc3.setBitMap(colourBar);
         } else if (epochDif < 900000) {
             String colourBar = "orange";
             semiCircleProgressBarView.setBitMap(colourBar);
+            nodSemiCirc1.setBitMap(colourBar);
+            semiCircleProgressBarView2.setBitMap(colourBar);
+            nodSemiCirc2.setBitMap(colourBar);
+            semiCircleProgressBarView3.setBitMap(colourBar);
+            nodSemiCirc3.setBitMap(colourBar);
         } else if (epochDif > 900000) {
             String colourBar = "green";
             semiCircleProgressBarView.setBitMap(colourBar);
+            nodSemiCirc1.setBitMap(colourBar);
+            semiCircleProgressBarView2.setBitMap(colourBar);
+            nodSemiCirc2.setBitMap(colourBar);
+            semiCircleProgressBarView3.setBitMap(colourBar);
+            nodSemiCirc3.setBitMap(colourBar);
         }
-
         if (timerBarValue > 90) {
             semiCircleProgressBarView.setClipping(90);
-
+            nodSemiCirc1.setClipping(90);
+            semiCircleProgressBarView2.setClipping(90);
+            nodSemiCirc2.setClipping(90);
+            semiCircleProgressBarView2.setClipping(90);
+            nodSemiCirc3.setClipping(90);
         } else {
             semiCircleProgressBarView.setClipping(timerBarValue);
-
+            nodSemiCirc1.setClipping(timerBarValue);
+            semiCircleProgressBarView2.setClipping(timerBarValue);
+            nodSemiCirc2.setClipping(timerBarValue);
+            semiCircleProgressBarView2.setClipping(timerBarValue);
+            nodSemiCirc3.setClipping(timerBarValue);
         }
-
         multiOfferProgressBar1.setProgress((int) timerBarValue);
-
-
         final long finalTimerBarValue = timerBarValue;
         final long finalTimerBarValue1 = timerBarValue;
         timer = new CountDownTimer(epochDif, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 Date date = new Date();
-                long x = epochDif / 60000;
-
-//here you can have your logic to set text to edittext
+                long x = epochDif / 60000;//here you can have your logic to set text to edittext
                 textCountdown1.setText("" + String.format(String.valueOf(FORMAT),
                         TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
                                 TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
                                 TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                //here you can have your logic to set text to edittext
+                nodcountdown.setText("" + String.format(String.valueOf(FORMAT),
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                //here you can have your logic to set text to edittext
+                nodcountdown2.setText("" + String.format(String.valueOf(FORMAT),
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+                                TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                //here you can have your logic to set text to edittext
+                nodcountdown3.setText("" + String.format(String.valueOf(FORMAT),
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
+                                TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds
+                                (TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
                 long modulo = millisUntilFinished % 60000;
                 int length = String.valueOf(modulo).length();
-
                 if (length == 3) {
-
                     System.out.println(dateFormat.format(date));
                     multiOfferProgressBar1.setProgress((int) finalTimerBarValue);
-
                     System.out.println(millisUntilFinished);
                     if (x == 0) {
                         String colourBar = "grey";
                         semiCircleProgressBarView.setBitMap(colourBar);
+                        nodSemiCirc1.setBitMap(colourBar);
+                        nodSemiCirc2.setBitMap(colourBar);
+                        nodSemiCirc3.setBitMap(colourBar);
                     } else {
                         x--;
                         if (millisUntilFinished < 360000) {
@@ -3531,89 +3613,89 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             anim.setRepeatCount(Animation.INFINITE);
                             textCountdown1.startAnimation(anim);
                             textCountdown1.setTextColor(Color.parseColor("#ff0000"));
+                            nodcountdown.startAnimation(anim);
+                            nodcountdown.setTextColor(Color.parseColor("#ff0000"));
+                            nodcountdown2.startAnimation(anim);
+                            nodcountdown2.setTextColor(Color.parseColor("#ff0000"));
+                            nodcountdown3.startAnimation(anim);
+                            nodcountdown3.setTextColor(Color.parseColor("#ff0000"));
                             String colourBar = "orange";
                             semiCircleProgressBarView.setBitMap(colourBar);
-
+                            nodSemiCirc1.setBitMap(colourBar);
+                            nodSemiCirc2.setBitMap(colourBar);
+                            nodSemiCirc3.setBitMap(colourBar);
                         } else if (millisUntilFinished < 900000) {
                             String colourBar = "orange";
                             semiCircleProgressBarView.setBitMap(colourBar);
+                            nodSemiCirc1.setBitMap(colourBar);
+                            nodSemiCirc2.setBitMap(colourBar);
+                            nodSemiCirc3.setBitMap(colourBar);
                             multiOfferProgressBar1.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.orange)));
-
-
-//                    timerBar.setImageResource(R.drawable.quartertime);
-
+                            //                    timerBar.setImageResource(R.drawable.quartertime);
                         }
                         if (millisUntilFinished > 900000) {
                             multiOfferProgressBar1.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
-
                         }
-
-
-                    }
-
-                    // 1,200,000 millis is 20 minutes so display three quarter bar
-
-
+                    }                    // 1,200,000 millis is 20 minutes so display three quarter bar
                     // 300,000 millis is 5 minutes so display one quarter bar
                     if (x > 90) {
                         semiCircleProgressBarView.setClipping(90);
-
+                        nodSemiCirc1.setClipping(90);
+                        nodSemiCirc2.setClipping(90);
+                        nodSemiCirc3.setClipping(90);
                     } else {
                         semiCircleProgressBarView.setClipping(x);
+                        nodSemiCirc1.setClipping(x);
+                        nodSemiCirc2.setClipping(x);
+                        nodSemiCirc3.setClipping(x);
                     }
-
                 }
             }
 
             public void onFinish() {
                 textCountdown1.clearAnimation();
-//                timerBar.setImageResource(R.drawable.notime);
-
+                nodcountdown.clearAnimation();
+                //                timerBar.setImageResource(R.drawable.notime);
                 textCountdown1.setTextColor(Color.parseColor("#ff0000"));
                 textCountdown1.setText("Offer has ended");
+                nodcountdown.setTextColor(Color.parseColor("#ff0000"));
+                nodcountdown.setText("Offer has ended");
+                nodcountdown2.setTextColor(Color.parseColor("#ff0000"));
+                nodcountdown2.setText("Offer has ended");
+                nodcountdown3.setTextColor(Color.parseColor("#ff0000"));
+                nodcountdown3.setText("Offer has ended");
                 String colourBar = "grey";
                 semiCircleProgressBarView.setBitMap(colourBar);
-
+                nodSemiCirc1.setBitMap(colourBar);
+                nodSemiCirc2.setBitMap(colourBar);
+                nodSemiCirc3.setBitMap(colourBar);
             }
-
         }.start();
-
         if (offEndTime2 != "offer 2 empty") {
             System.out.println("OFFER 2 AINT EMPTY");
-
-
             System.out.println(offEndTime2);
             Date dateOffr2 = sde.parse(offEndTime2);
             long epochOffr2 = dateOffr2.getTime();
             System.out.println(epochOffr2); // 1055545912454
-
             Date date2Offr2 = sde.parse(offEndTime2);
             long epoch2Offr2 = date2Offr2.getTime();
             System.out.println(epoch2Offr2); // 1055545912454
-
             Date date3Offr2 = sde.parse(timeStamp);
             long epoch3Offr2 = date3Offr2.getTime();
             System.out.println(epoch3Offr2); // 1055545912454
-
             final long epochDifOffr2 = epochOffr2 - epoch3Offr2;
             System.out.println(epochDifOffr2);
-
             Date daterOffr2 = new Date(epochDif);
             DateFormat formatterOffr2 = new SimpleDateFormat("HH:mm:ss:SSS");
             String dateFormattedOffr2 = formatterOffr2.format(daterOffr2);
             System.out.println(dateFormattedOffr2);
             final long timerBarValue2 = epochDifOffr2 / 60000;
-
-
-//        timerBar.setImageResource(R.drawable.threequartertime);
+            //        timerBar.setImageResource(R.drawable.threequartertime);
             semiCircleProgressBarView2 = new SemiCircleProgressBarView(MapsActivity.this, orange);
-
             semiCircleProgressBarView2 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc2);
             semiCircleProgressBarView2.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-
             semiCircleProgressBarView2.setClipping(100);
             long timerBarValue4 = epochDifOffr2 / 60000;
-
             if (epochDifOffr2 == 0 || epochDif < 0) {
                 String colourBar = "grey";
                 timerBarValue = 0;
@@ -3626,18 +3708,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 semiCircleProgressBarView2.setBitMap(colourBar);
             }
             semiCircleProgressBarView2.setClipping(timerBarValue2);
-
-
             multiOfferProgressBar2.setProgress((int) timerBarValue2);
             timer2 = new CountDownTimer(epochDifOffr2, 1000) {
-
                 public void onTick(long millisUntilFinished) {
-
                     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                     Date date = new Date();
                     long x = epochDifOffr2 / 60000;
-
-//here you can have your logic to set text to edittext
+                    //here you can have your logic to set text to edittext
                     textCountdown2.setText("" + String.format(String.valueOf(FORMAT),
                             TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
                                     TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
@@ -3645,12 +3722,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
                     long modulo = millisUntilFinished % 60000;
                     int length = String.valueOf(modulo).length();
-
                     if (length == 3) {
-
                         System.out.println(dateFormat.format(date));
                         multiOfferProgressBar2.setProgress((int) timerBarValue2);
-
                         System.out.println(millisUntilFinished);
                         if (x == 0) {
                             String colourBar = "grey";
@@ -3671,28 +3745,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 String colourBar = "orange";
                                 semiCircleProgressBarView2.setBitMap(colourBar);
                                 multiOfferProgressBar2.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.orange)));
-                                ;
-
-//                    timerBar.setImageResource(R.drawable.quartertime);
-
+                                ;//                    timerBar.setImageResource(R.drawable.quartertime);
                             }
-
-
                         }
-
-
                     }
-
                     // 1,200,000 millis is 20 minutes so display three quarter bar
-
-
                     // 300,000 millis is 5 minutes so display one quarter bar
-
                     semiCircleProgressBarView2.setClipping(x);
-
-
                 }
-
 
                 public void onFinish() {
                     textCountdown2.clearAnimation();
@@ -3701,45 +3761,36 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     semiCircleProgressBarView2.setBitMap(colourBar);
                     textCountdown2.setTextColor(Color.parseColor("#ff0000"));
                     textCountdown2.setText("Offer has ended");
+                    nodcountdown2.setTextColor(Color.parseColor("#ff0000"));
+                    nodcountdown2.setText("Offer has ended");
                 }
-
             }.start();
         }
-
         if (offEndTime3 != "offer 3 empty") {
-
             System.out.println(offEndTime3);
             Date dateOffr3 = sde.parse(offEndTime3);
             long epochOffr3 = dateOffr3.getTime();
             System.out.println(epochOffr3); // 1055545912454
-
             Date date2Offr3 = sde.parse(offEndTime3);
             long epoch2Offr3 = date2Offr3.getTime();
             System.out.println(epoch2Offr3); // 1055545912454
-
             Date date3Offr3 = sde.parse(timeStamp);
             long epoch3Offr3 = date3Offr3.getTime();
-            System.out.println(epoch3Offr3); // 1055545912454
-
+            System.out.println(epoch3Offr3);
+            // 1055545912454
             final long epochDifOffr3 = epochOffr3 - epoch3Offr3;
             System.out.println(epochDifOffr3);
-
             Date daterOffr3 = new Date(epochDif);
             DateFormat formatterOffr3 = new SimpleDateFormat("HH:mm:ss:SSS");
             String dateFormattedOffr3 = formatterOffr3.format(daterOffr3);
             System.out.println(dateFormattedOffr3);
             final long timerBarValue3 = epochDifOffr3 / 60000;
-
-
-//        timerBar.setImageResource(R.drawable.threequartertime);
+            //        timerBar.setImageResource(R.drawable.threequartertime);
             semiCircleProgressBarView3 = new SemiCircleProgressBarView(MapsActivity.this, orange);
-
             semiCircleProgressBarView3 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc3);
             semiCircleProgressBarView3.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-
             semiCircleProgressBarView3.setClipping(100);
             long timerBarValue4 = epochDifOffr3 / 60000;
-
             if (epochDifOffr3 == 0 || epochDif < 0) {
                 String colourBar = "grey";
                 timerBarValue = 0;
@@ -3752,18 +3803,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 semiCircleProgressBarView3.setBitMap(colourBar);
             }
             semiCircleProgressBarView3.setClipping(timerBarValue3);
-
-
             multiOfferProgressBar3.setProgress((int) timerBarValue3);
-
             timer3 = new CountDownTimer(epochDifOffr3, 1000) {
-
                 public void onTick(long millisUntilFinished) {
                     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                     Date date = new Date();
-                    long x = epochDifOffr3 / 60000;
-
-//here you can have your logic to set text to edittext
+                    long x = epochDifOffr3 / 60000;//here you can have your logic to set text to edittext
                     textCountdown3.setText("" + String.format(String.valueOf(FORMAT),
                             TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
                                     TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
@@ -3771,12 +3816,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
                     long modulo = millisUntilFinished % 60000;
                     int length = String.valueOf(modulo).length();
-
                     if (length == 3) {
-
                         System.out.println(dateFormat.format(date));
                         multiOfferProgressBar3.setProgress((int) timerBarValue3);
-
                         System.out.println(millisUntilFinished);
                         if (x == 0) {
                             String colourBar = "grey";
@@ -3791,6 +3833,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 anim.setRepeatCount(Animation.INFINITE);
                                 textCountdown3.startAnimation(anim);
                                 textCountdown3.setTextColor(Color.parseColor("#ff0000"));
+                                nodcountdown3.startAnimation(anim);
+                                nodcountdown3.setTextColor(Color.parseColor("#ff0000"));
                                 String colourBar = "orange";
                                 semiCircleProgressBarView3.setBitMap(colourBar);
                             } else if (millisUntilFinished < 900000) {
@@ -3798,34 +3842,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 multiOfferProgressBar3.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.orange)));
                                 ;
                                 semiCircleProgressBarView3.setBitMap(colourBar);
-
-//                    timerBar.setImageResource(R.drawable.quartertime);
-
+                                //                    timerBar.setImageResource(R.drawable.quartertime);
                             }
-
-
                         }
-
                         // 1,200,000 millis is 20 minutes so display three quarter bar
-
-
                         // 300,000 millis is 5 minutes so display one quarter bar
-
                         semiCircleProgressBarView3.setClipping(x);
-
-
                     }
-
                 }
 
                 public void onFinish() {
                     textCountdown3.clearAnimation();
+                    nodcountdown3.clearAnimation();
                     String colourBar = "grey";
                     semiCircleProgressBarView3.setBitMap(colourBar);
+                    nodSemiCirc3.setBitMap(colourBar);
                     textCountdown3.setTextColor(Color.parseColor("#ff0000"));
                     textCountdown3.setText("Offer has ended");
+                    nodcountdown3.setTextColor(Color.parseColor("#ff0000"));
+                    nodcountdown3.setText("Offer has ended");
                 }
-
             }.start();
         }
     }
@@ -3952,267 +3988,546 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onLocationChanged(Location location) {
-                System.out.println("onLocFired: 1st onCreate");
-                // Each time the location changes, get the users coordinates and move the camera
-                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                timeToRunHash++;
-                int count = 0;
                 ArrayList nearbyRetNames = new ArrayList();
                 final ArrayList offerDesc1 = new ArrayList();
-                ArrayList offerDesc2 = new ArrayList();
-                ArrayList offerDesc3 = new ArrayList();
-                ArrayList nearHashes = getListViewHashes(latLng);
-                if (timeToRunHash % 5 == 0 || timeToRunHash == 0 || timeToRunHash == 1) {
-                    for (int i = 0; i < allOffersArray.size(); i++) {
-                        String retailerHash = allOffersArray.get(i).split(Pattern.quote("|"))[4].substring(3, 10);
+                final ArrayList offerDesc2 = new ArrayList();
+                final ArrayList offerDesc3 = new ArrayList();
+                final ArrayList countdowntime1 = new ArrayList();
+                final ArrayList countdowntime2 = new ArrayList();
+                final ArrayList countdowntime3 = new ArrayList();
+                final ArrayList nodWebsiteyArray = new ArrayList();
 
-                        if (retailerHash.equals(nearHashes.get(0)) || retailerHash.equals(nearHashes.get(1))
-                                || retailerHash.equals(nearHashes.get(2)) ||
-                                retailerHash.equals(nearHashes.get(3)) ||
-                                retailerHash.equals(nearHashes.get(4)) ||
-                                retailerHash.equals(nearHashes.get(5)) ||
-                                retailerHash.equals(nearHashes.get(6)) ||
-                                retailerHash.equals(nearHashes.get(7)) ||
-                                retailerHash.equals(nearHashes.get(8))) {
-                            System.out.println(allOffersArray.get(i));
-                            System.out.println(allOffersArray.size());
+                ImageView nodShare = (ImageView) findViewById(R.id.nodShare);
 
-                            nearbyRetNames.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[2]);
-                            offerDesc1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[8]);
-                            offerDesc2.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[10]);
-                            offerDesc3.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[13]);
+                final FrameLayout nearbyOffer1 = (FrameLayout) findViewById(R.id.nearbyOffer1);
+                final LinearLayout nearbyOffer1Layout = (LinearLayout) findViewById(R.id.nearbyOffer1Layout);
+                final FrameLayout nodCoupOffer1 = (FrameLayout) findViewById(R.id.nodCoupOffer1);
+                final FrameLayout nodCoupOffer2 = (FrameLayout) findViewById(R.id.nodCoupOffer2);
+                final FrameLayout nodCoupOffer3 = (FrameLayout) findViewById(R.id.nodCoupOffer3);
+//                if (nearbyOffer1.getVisibility() == View.GONE && nearbyOffer1Layout.getVisibility() == View.GONE && nodCoupOffer1.getVisibility() == View.GONE && nodCoupOffer2.getVisibility() == View.GONE && nodCoupOffer3.getVisibility() == View.GONE) {
+//                    if (nodShare.getVisibility() == View.GONE) {
+                        System.out.println("onLocFired: 1st onCreate");
+                        // Each time the location changes, get the users coordinates and move the camera
+                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        timeToRunHash++;
+                        int count = 0;
 
-                            count++;
+                        ArrayList nearHashes = getListViewHashes(latLng);
+                        if (timeToRunHash % 5 == 0 || timeToRunHash == 0 || timeToRunHash == 1  ) {
+                            for (int i = 0; i < allOffersArray.size(); i++) {
+                                String retailerHash = allOffersArray.get(i).split(Pattern.quote("|"))[4].substring(3, 10);
 
-                        }
-                    }
+                                if (retailerHash.equals(nearHashes.get(0)) || retailerHash.equals(nearHashes.get(1)) || retailerHash.equals(nearHashes.get(2)) ||
+                                        retailerHash.equals(nearHashes.get(3)) ||
+                                        retailerHash.equals(nearHashes.get(4)) ||
+                                        retailerHash.equals(nearHashes.get(5)) ||
+                                        retailerHash.equals(nearHashes.get(6)) ||
+                                        retailerHash.equals(nearHashes.get(7)) ||
+                                        retailerHash.equals(nearHashes.get(8))) {
+                                    System.out.println(allOffersArray.get(i));
+                                    System.out.println(allOffersArray.size());
+                                    nearbyRetNames.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[2]);
 
-                    final FrameLayout nearbyOffer1 = (FrameLayout) findViewById(R.id.nearbyOffer1);
-                    final FrameLayout nearbyOffer2 = (FrameLayout) findViewById(R.id.nearbyOffer2);
-                    final FrameLayout nearbyOffer3 = (FrameLayout) findViewById(R.id.nearbyOffer3);
-                    final FrameLayout nearbyOffer4 = (FrameLayout) findViewById(R.id.nearbyOffer4);
-                    final FrameLayout nearbyOffer5 = (FrameLayout) findViewById(R.id.nearbyOffer5);
-                    final FrameLayout nearbyOffer6 = (FrameLayout) findViewById(R.id.nearbyOffer6);
-                    final FrameLayout nearbyOffer7 = (FrameLayout) findViewById(R.id.nearbyOffer7);
-                    final FrameLayout nearbyOffer8 = (FrameLayout) findViewById(R.id.nearbyOffer8);
+                                    countdowntime1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[3]);
+                                    countdowntime2.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[14]);
+                                    countdowntime3.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[15]);
+                                    nodWebsiteyArray.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[12]);
+                                    offerDesc1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[8]);
 
-                    final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                                    count++;
 
-                    final FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
-                    final FrameLayout nodCoupOffer1 = (FrameLayout) findViewById(R.id.nodCoupOffer1);
-                    final FrameLayout nodCoupOffer2 = (FrameLayout) findViewById(R.id.nodCoupOffer2);
-                    final FrameLayout nodCoupOffer3 = (FrameLayout) findViewById(R.id.nodCoupOffer3);
+                                }
+                            }
 
-                    final ImageView ofsdSemiCircBg = (ImageView) findViewById(R.id.ofsdSemiCircBg);
-                    final SemiCircleProgressBarView semiCirc = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
-                    final SemiCircleProgressBarView semiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc2);
-                    final SemiCircleProgressBarView semiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc3);
-                    final ImageView starsOverlay = (ImageView) findViewById(R.id.ofsdStarsOverlay);
+                            final FrameLayout nearbyOffer2 = (FrameLayout) findViewById(R.id.nearbyOffer2);
+                            final FrameLayout nearbyOffer3 = (FrameLayout) findViewById(R.id.nearbyOffer3);
+                            final FrameLayout nearbyOffer4 = (FrameLayout) findViewById(R.id.nearbyOffer4);
+                            final FrameLayout nearbyOffer5 = (FrameLayout) findViewById(R.id.nearbyOffer5);
+                            final FrameLayout nearbyOffer6 = (FrameLayout) findViewById(R.id.nearbyOffer6);
+                            final FrameLayout nearbyOffer7 = (FrameLayout) findViewById(R.id.nearbyOffer7);
+                            final FrameLayout nearbyOffer8 = (FrameLayout) findViewById(R.id.nearbyOffer8);
 
-                    ImageView starIcon = (ImageView) findViewById(R.id.ofsdStarsOverlay);
-                    final ImageView multiOffersStars = (ImageView) findViewById(R.id.multiOffersStars);
-                    final ImageView multiOffersStars2 = (ImageView) findViewById(R.id.multiOffersStars2);
-                    final ImageView multiOffersStars3 = (ImageView) findViewById(R.id.multiOffersStars3);
+                            final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
 
-                    final TextView nodSingleCouponOffer1Text = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
-                    final TextView nodSingleCouponOffer2Text = (TextView) findViewById(R.id.nodSingleCouponOffer2Text);
-                    final TextView nodSingleCouponOffer3Text = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+                            final FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
 
-                    final TextView singleCouponOfferText1 = (TextView) findViewById(R.id.singleCouponOfferText1);
-                    final TextView singleCouponOfferText2 = (TextView) findViewById(R.id.singleCouponOfferText2);
-                    final TextView singleCouponOfferText3 = (TextView) findViewById(R.id.singleCouponOfferText3);
 
-                    nodCoupOffer1.setVisibility(View.GONE);
-                    nodCoupOffer2.setVisibility(View.GONE);
-                    nodCoupOffer3.setVisibility(View.GONE);
+                            final ImageView ofsdSemiCircBg = (ImageView) findViewById(R.id.ofsdSemiCircBg);
+                            final SemiCircleProgressBarView semiCirc = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
+                            final SemiCircleProgressBarView semiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc2);
+                            final SemiCircleProgressBarView semiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc3);
+                            final ImageView starsOverlay = (ImageView) findViewById(R.id.ofsdStarsOverlay);
+
+                            ImageView starIcon = (ImageView) findViewById(R.id.ofsdStarsOverlay);
+                            final ImageView multiOffersStars = (ImageView) findViewById(R.id.multiOffersStars);
+                            final ImageView multiOffersStars2 = (ImageView) findViewById(R.id.multiOffersStars2);
+                            final ImageView multiOffersStars3 = (ImageView) findViewById(R.id.multiOffersStars3);
+
+                            final TextView nodSingleCouponOffer1Text = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
+                            final TextView nodSingleCouponOffer2Text = (TextView) findViewById(R.id.nodSingleCouponOffer2Text);
+                            final TextView nodSingleCouponOffer3Text = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+
+                            final TextView singleCouponOfferText1 = (TextView) findViewById(R.id.singleCouponOfferText1);
+                            final TextView singleCouponOfferText2 = (TextView) findViewById(R.id.singleCouponOfferText2);
+                            final TextView singleCouponOfferText3 = (TextView) findViewById(R.id.singleCouponOfferText3);
+
+                            nodCoupOffer1.setVisibility(View.GONE);
+                            nodCoupOffer2.setVisibility(View.GONE);
+                            nodCoupOffer3.setVisibility(View.GONE);
 //                    singleCouponOfferText1.setVisibility(View.GONE);
 //                    singleCouponOfferText2.setVisibility(View.GONE);
 //                    singleCouponOfferText3.setVisibility(View.GONE);
-                    nodSingleCouponOffer3Text.setVisibility(View.GONE);
-                    nodSingleCouponOffer2Text.setVisibility(View.GONE);
-                    nodSingleCouponOffer1Text.setVisibility(View.GONE);
-                    try {
-                        nearbyOffer1RetName.setText(nearbyRetNames.get(0).toString());
+                            nodSingleCouponOffer3Text.setVisibility(View.GONE);
+                            nodSingleCouponOffer2Text.setVisibility(View.GONE);
+                            nodSingleCouponOffer1Text.setVisibility(View.GONE);
+                            try {
+                                nearbyOffer1RetName.setText(nearbyRetNames.get(0).toString());
 
-                        nearbyOffer1.setVisibility(View.VISIBLE);
-                        nodSingleCouponOffer1Text.setText(offerDesc1.get(0).toString());
+                                nearbyOffer1.setVisibility(View.VISIBLE);
+                                nodSingleCouponOffer1Text.setText(offerDesc1.get(0).toString());
+                                ImageView nodPhone = (ImageView) findViewById(R.id.nodPhone);
+                                nodPhone.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        System.out.println("pressed");
+                                        MyPhoneStateListener phoneListener = new MyPhoneStateListener();
+                                        TelephonyManager telephonyManager = (TelephonyManager) MapsActivity.this.getSystemService(Context.TELEPHONY_SERVICE);
+                                        telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+                                        Intent callIntent = new Intent(Intent.ACTION_CALL);
+                                        callIntent.setData(Uri.parse("tel:0377778888"));
+                                        if (ActivityCompat.checkSelfPermission(MapsActivity.this,
+                                                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                            System.out.println("no permission");
+                                            ActivityCompat.requestPermissions(MapsActivity.this,
+                                                    new String[]{Manifest.permission.CALL_PHONE},
+                                                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
+                                            return;
+                                        }
+                                        startActivity(callIntent);
+                                    }
+                                });
+                                nearbyOffer1.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        backStack = true;
+                                        try {
+                                            System.out.println("Printing countdown times");
+                                            final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                            System.out.println(countdowntime1.get(0).toString());
+                                            System.out.println(countdowntime2.get(0).toString());
+                                            System.out.println(countdowntime3.get(0).toString());
+                                            final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+                                            nodWebsitey.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    String url = "http://" + nodWebsiteyArray.get(0).toString();
+                                                    Intent i = new Intent(Intent.ACTION_VIEW);
+                                                    i.setData(Uri.parse(url));
+                                                    startActivity(i);
+                                                }
+                                            });
+                                            ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+                                            nodEmail.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    String website2 = null;
+                                                    TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
+                                                    String message = messagetv.getText().toString();
+                                                    String website = nodWebsiteyArray.get(0).toString();
+                                                    if (website.substring(website.length() - 4, website.length()) == "com") {
+                                                        website2 = website.substring(4, (website.length() - 4));
+                                                        System.out.println(website2);
+                                                    } else {
+                                                        website2 = website.substring(4, website.length() - 6);
+                                                        System.out.println(website2);
+                                                    }
+                                                    Intent intent = new Intent(Intent.ACTION_SEND);
+                                                    intent.setType("message/rfc822");
+                                                    intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                                                    intent.putExtra(Intent.EXTRA_TEXT, message);
+                                                    intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                                                    Intent mailer = Intent.createChooser(intent, null);
+                                                    startActivity(mailer);
+                                                }
+                                            });
+                                            startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+                                        SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+                                        SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+                                        SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
 
-                        nearbyOffer1.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                backStack = true;
-                                ofsdSemiCircBg.setVisibility(View.VISIBLE);
-                                semiCirc.setVisibility(View.VISIBLE);
-                                starsOverlay.setVisibility(View.VISIBLE);
-
-//
-                                semiCirc2.setVisibility(View.GONE);
-                                semiCirc3.setVisibility(View.GONE);
-
+                                        nodSemiCirc1.setVisibility(View.VISIBLE);
+                                        ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+                                        nodSemiCircBg.setVisibility(View.VISIBLE);
+                                        ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+                                        ImageView ofsdIconImage = (ImageView) findViewById(R.id.ofsdIconImage);
+                                        TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                                        nodAddress.setVisibility(View.VISIBLE);
+                                        LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                                        nodContactDets.setVisibility(View.VISIBLE);
+                                        System.out.println("nearby offer 1 category");
+                                        System.out.println(individualOfferDetsArray[0]);
+                                        if (individualOfferDetsArray[0].equals("drinks")) {
+                                        }
+                                        if (individualOfferDetsArray[0].equals("attractions")) {
+                                            nodIconImage.setImageResource(R.drawable.attractions);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("Movies")) {
+                                            nodIconImage.setImageResource(R.drawable.movies);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("accommodation")) {
+                                            nodIconImage.setImageResource(R.drawable.accomodation);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("shopping")) {
+                                            nodIconImage.setImageResource(R.drawable.shopping);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("food/dining")) {
+                                            nodIconImage.setImageResource(R.drawable.fooddining);
+                                        }
+                                        nodSemiCirc1.setVisibility(View.VISIBLE);
+                                        ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                        nodStarsOverlay.setVisibility(View.VISIBLE);
+                                        TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+                                        nodRetailerName.setText(nearbyOffer1RetName.getText().toString());
+                                        semiCirc.setVisibility(View.GONE);
+                                        semiCirc2.setVisibility(View.GONE);
+                                        semiCirc3.setVisibility(View.GONE);
+                                        nodSemiCirc1.setVisibility(View.VISIBLE);
+                                        nodSemiCirc2.setVisibility(View.GONE);
+                                        nodSemiCirc3.setVisibility(View.GONE);
+                                        nearbyOffer1.setVisibility(View.GONE);
+                                        nearbyOffer2.setVisibility(View.GONE);
+                                        nearbyOffer3.setVisibility(View.GONE);
+                                        nearbyOffer4.setVisibility(View.GONE);
+                                        nearbyOffer5.setVisibility(View.GONE);
+                                        nearbyOffer6.setVisibility(View.GONE);
+                                        nearbyOffer7.setVisibility(View.GONE);
+                                        nearbyOffer8.setVisibility(View.GONE);
+                                        nodCoupOffer1.setVisibility(View.VISIBLE);
+                                        nodSingleCouponOffer1Text.setVisibility(View.VISIBLE);
+                                        nodSingleCouponOffer2Text.setVisibility(View.GONE);
+                                        nodSingleCouponOffer3Text.setVisibility(View.GONE);
+                                        nodCoupOffer2.setVisibility(View.GONE);
+                                        nodCoupOffer3.setVisibility(View.GONE);
+                                        System.out.println("multiOffer2");
+                                        System.out.println("Nearby 1");
+                                    }
+                                });
+                            } catch (Exception e) {
+                                System.out.println(e);
                                 nearbyOffer1.setVisibility(View.GONE);
-                                nearbyOffer2.setVisibility(View.GONE);
-                                nearbyOffer3.setVisibility(View.GONE);
-                                nearbyOffer4.setVisibility(View.GONE);
-                                nearbyOffer5.setVisibility(View.GONE);
-                                nearbyOffer6.setVisibility(View.GONE);
-                                nearbyOffer7.setVisibility(View.GONE);
-                                nearbyOffer8.setVisibility(View.GONE);
-                                nodCoupOffer1.setVisibility(View.VISIBLE);
-                                nodSingleCouponOffer1Text.setVisibility(View.VISIBLE);
-                                nodCoupOffer2.setVisibility(View.GONE);
-                                nodCoupOffer3.setVisibility(View.GONE);
-                                System.out.println("multiOffer2");
-                                System.out.println("Nearby 1");
-
-
                             }
-                        });
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer1.setVisibility(View.GONE);
-                    }
-                    try {
-                        nearbyOffer2RetName.setText(nearbyRetNames.get(1).toString());
-                        nearbyOffer2.setVisibility(View.VISIBLE);
-                        singleCouponOfferText2.setText(offerDesc1.get(0).toString());
+                            try {
+                                nearbyOffer2RetName.setText(nearbyRetNames.get(1).toString());
+                                nearbyOffer2.setVisibility(View.VISIBLE);
+                                singleCouponOfferText2.setText(offerDesc1.get(0).toString());
 
-                        nearbyOffer2.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                backStack = true;
-                                ofsdSemiCircBg.setVisibility(View.VISIBLE);
-                                semiCirc.setVisibility(View.VISIBLE);
-                                starsOverlay.setVisibility(View.VISIBLE);
+                                nearbyOffer2.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        backStack = true;
+                                        try {
+                                            System.out.println("Printing countdown times");
+                                            final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                            System.out.println(countdowntime1.get(0).toString());
+                                            System.out.println(countdowntime2.get(0).toString());
+                                            System.out.println(countdowntime3.get(0).toString());
+                                            final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+                                            nodWebsitey.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    String url = "http://" + nodWebsiteyArray.get(0).toString();
+                                                    Intent i = new Intent(Intent.ACTION_VIEW);
+                                                    i.setData(Uri.parse(url));
+                                                    startActivity(i);
+                                                }
+                                            });
+                                            ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+                                            nodEmail.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    String website2 = null;
+                                                    TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
+                                                    String message = messagetv.getText().toString();
+                                                    String website = nodWebsiteyArray.get(0).toString();
+                                                    if (website.substring(website.length() - 4, website.length()) == "com") {
+                                                        website2 = website.substring(4, (website.length() - 4));
+                                                        System.out.println(website2);
+                                                    } else {
+                                                        website2 = website.substring(4, website.length() - 6);
+                                                        System.out.println(website2);
+                                                    }
+                                                    Intent intent = new Intent(Intent.ACTION_SEND);
+                                                    intent.setType("message/rfc822");
+                                                    intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                                                    intent.putExtra(Intent.EXTRA_TEXT, message);
+                                                    intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                                                    Intent mailer = Intent.createChooser(intent, null);
+                                                    startActivity(mailer);
+                                                }
+                                            });
+                                            startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+                                        SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+                                        SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+                                        SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
 
-                                System.out.println("Nearby 2");
-                                semiCirc2.setVisibility(View.GONE);
-                                semiCirc3.setVisibility(View.GONE);
-
-                                nearbyOffer1.setVisibility(View.GONE);
+                                        nodSemiCirc1.setVisibility(View.GONE);
+                                        nodSemiCirc2.setVisibility(View.VISIBLE);
+                                        ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+                                        nodSemiCircBg.setVisibility(View.VISIBLE);
+                                        ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+                                        ImageView ofsdIconImage = (ImageView) findViewById(R.id.ofsdIconImage);
+                                        TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                                        nodAddress.setVisibility(View.VISIBLE);
+                                        LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                                        nodContactDets.setVisibility(View.VISIBLE);
+                                        System.out.println("nearby offer 1 category");
+                                        System.out.println(individualOfferDetsArray[0]);
+                                        if (individualOfferDetsArray[0].equals("drinks")) {
+                                        }
+                                        if (individualOfferDetsArray[0].equals("attractions")) {
+                                            nodIconImage.setImageResource(R.drawable.attractions);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("Movies")) {
+                                            nodIconImage.setImageResource(R.drawable.movies);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("accommodation")) {
+                                            nodIconImage.setImageResource(R.drawable.accomodation);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("shopping")) {
+                                            nodIconImage.setImageResource(R.drawable.shopping);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("food/dining")) {
+                                            nodIconImage.setImageResource(R.drawable.fooddining);
+                                        }
+                                        nodSemiCirc2.setVisibility(View.VISIBLE);
+                                        ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                        nodStarsOverlay.setVisibility(View.VISIBLE);
+                                        TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+                                        nodRetailerName.setText(nearbyOffer2RetName.getText().toString());
+                                        TextView ofsdRetName = (TextView) findViewById(R.id.ofsdRetailerName);
+                                        ofsdRetName.setVisibility(View.GONE);
+                                        semiCirc.setVisibility(View.GONE);
+                                        semiCirc2.setVisibility(View.GONE);
+                                        semiCirc3.setVisibility(View.GONE);
+                                        nodSemiCirc1.setVisibility(View.GONE);
+                                        nodSemiCirc2.setVisibility(View.VISIBLE);
+                                        nodSemiCirc3.setVisibility(View.GONE);
+                                        nearbyOffer1.setVisibility(View.GONE);
+                                        nearbyOffer2.setVisibility(View.GONE);
+                                        nearbyOffer3.setVisibility(View.GONE);
+                                        nearbyOffer4.setVisibility(View.GONE);
+                                        nearbyOffer5.setVisibility(View.GONE);
+                                        nearbyOffer6.setVisibility(View.GONE);
+                                        nearbyOffer7.setVisibility(View.GONE);
+                                        nearbyOffer8.setVisibility(View.GONE);
+                                        nodCoupOffer1.setVisibility(View.VISIBLE);
+                                        nodSingleCouponOffer1Text.setVisibility(View.GONE);
+                                        nodSingleCouponOffer2Text.setVisibility(View.VISIBLE);
+                                        nodSingleCouponOffer3Text.setVisibility(View.GONE);
+                                        nodCoupOffer1.setVisibility(View.GONE);
+                                        nodCoupOffer2.setVisibility(View.VISIBLE);
+                                        nodCoupOffer3.setVisibility(View.GONE);
+                                        System.out.println("multiOffer2");
+                                        System.out.println("Nearby 1");
+                                    }
+                                });
+                            } catch (Exception e) {
+                                System.out.println(e);
                                 nearbyOffer2.setVisibility(View.GONE);
-                                nearbyOffer3.setVisibility(View.GONE);
-                                nearbyOffer4.setVisibility(View.GONE);
-                                nearbyOffer5.setVisibility(View.GONE);
-                                nearbyOffer6.setVisibility(View.GONE);
-                                nearbyOffer7.setVisibility(View.GONE);
-                                nearbyOffer8.setVisibility(View.GONE);
-                                nodCoupOffer1.setVisibility(View.GONE);
-                                nodSingleCouponOffer2Text.setVisibility(View.VISIBLE);
-                                nodCoupOffer2.setVisibility(View.VISIBLE);
-                                nodCoupOffer3.setVisibility(View.GONE);
-                                System.out.println("multiOffer2");
-
-
                             }
-                        });
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer2.setVisibility(View.GONE);
-                    }
-                    try {
-                        nearbyOffer3RetName.setText(nearbyRetNames.get(2).toString());
-                        nearbyOffer3.setVisibility(View.VISIBLE);
-                        singleCouponOfferText3.setText(offerDesc1.get(0).toString());
+                            try {
+                                nearbyOffer3RetName.setText(nearbyRetNames.get(2).toString());
+                                nearbyOffer3.setVisibility(View.VISIBLE);
+                                singleCouponOfferText3.setText(offerDesc1.get(0).toString());
 
-                        nearbyOffer3.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                backStack = true;
-                                ofsdSemiCircBg.setVisibility(View.VISIBLE);
-                                semiCirc.setVisibility(View.VISIBLE);
-                                starsOverlay.setVisibility(View.VISIBLE);
+                                nearbyOffer3.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        backStack = true;
+                                        try {
+                                            System.out.println("Printing countdown times");
+                                            final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                            System.out.println(countdowntime1.get(0).toString());
+                                            System.out.println(countdowntime2.get(0).toString());
+                                            System.out.println(countdowntime3.get(0).toString());
+                                            final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+                                            nodWebsitey.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    String url = "http://" + nodWebsiteyArray.get(0).toString();
+                                                    Intent i = new Intent(Intent.ACTION_VIEW);
+                                                    i.setData(Uri.parse(url));
+                                                    startActivity(i);
+                                                }
+                                            });
+                                            ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+                                            nodEmail.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    String website2 = null;
+                                                    TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+                                                    String message = messagetv.getText().toString();
+                                                    String website = nodWebsiteyArray.get(0).toString();
+                                                    if (website.substring(website.length() - 4, website.length()) == "com") {
+                                                        website2 = website.substring(4, (website.length() - 4));
+                                                        System.out.println(website2);
+                                                    } else {
+                                                        website2 = website.substring(4, website.length() - 6);
+                                                        System.out.println(website2);
+                                                    }
+                                                    Intent intent = new Intent(Intent.ACTION_SEND);
+                                                    intent.setType("message/rfc822");
+                                                    intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                                                    intent.putExtra(Intent.EXTRA_TEXT, message);
+                                                    intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                                                    Intent mailer = Intent.createChooser(intent, null);
+                                                    startActivity(mailer);
+                                                }
+                                            });
+                                            startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+                                        SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+                                        SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+                                        SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
 
-//
-                                semiCirc2.setVisibility(View.GONE);
-                                semiCirc3.setVisibility(View.GONE);
+                                        nodSemiCirc1.setVisibility(View.GONE);
+                                        nodSemiCirc2.setVisibility(View.GONE);
+                                        nodSemiCirc3.setVisibility(View.VISIBLE);
+                                        ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+                                        nodSemiCircBg.setVisibility(View.VISIBLE);
+                                        ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+                                        TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                                        nodAddress.setVisibility(View.VISIBLE);
+                                        LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                                        nodContactDets.setVisibility(View.VISIBLE);
+                                        System.out.println("nearby offer 1 category");
+                                        System.out.println(individualOfferDetsArray[0]);
+                                        if (individualOfferDetsArray[0].equals("drinks")) {
+                                        }
+                                        if (individualOfferDetsArray[0].equals("attractions")) {
+                                            nodIconImage.setImageResource(R.drawable.attractions);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("Movies")) {
+                                            nodIconImage.setImageResource(R.drawable.movies);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("accommodation")) {
+                                            nodIconImage.setImageResource(R.drawable.accomodation);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("shopping")) {
+                                            nodIconImage.setImageResource(R.drawable.shopping);
+                                        }
+                                        if (individualOfferDetsArray[0].equals("food/dining")) {
+                                            nodIconImage.setImageResource(R.drawable.fooddining);
+                                        }
+                                        ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                        nodStarsOverlay.setVisibility(View.VISIBLE);
+                                        TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+                                        nodRetailerName.setText(nearbyOffer3RetName.getText().toString());
+                                        semiCirc.setVisibility(View.GONE);
+                                        semiCirc2.setVisibility(View.GONE);
+                                        semiCirc3.setVisibility(View.GONE);
+                                        nodSemiCirc1.setVisibility(View.GONE);
+                                        nodSemiCirc2.setVisibility(View.GONE);
+                                        nodSemiCirc3.setVisibility(View.VISIBLE);
+                                        nearbyOffer1.setVisibility(View.GONE);
+                                        nearbyOffer2.setVisibility(View.GONE);
+                                        nearbyOffer3.setVisibility(View.GONE);
+                                        nearbyOffer4.setVisibility(View.GONE);
+                                        nearbyOffer5.setVisibility(View.GONE);
+                                        nearbyOffer6.setVisibility(View.GONE);
+                                        nearbyOffer7.setVisibility(View.GONE);
+                                        nearbyOffer8.setVisibility(View.GONE);
+                                        nodCoupOffer1.setVisibility(View.GONE);
+                                        nodCoupOffer2.setVisibility(View.GONE);
+                                        nodCoupOffer3.setVisibility(View.VISIBLE);
+                                        nodSingleCouponOffer1Text.setVisibility(View.GONE);
+                                        nodSingleCouponOffer2Text.setVisibility(View.GONE);
+                                        nodSingleCouponOffer3Text.setVisibility(View.VISIBLE);
+                                        nodCoupOffer1.setVisibility(View.GONE);
+                                        nodCoupOffer2.setVisibility(View.GONE);
+                                        nodCoupOffer3.setVisibility(View.VISIBLE);
 
-                                nearbyOffer1.setVisibility(View.GONE);
-                                nearbyOffer2.setVisibility(View.GONE);
+
+                                    }
+                                });
+
+                            } catch (Exception e) {
+                                System.out.println(e);
                                 nearbyOffer3.setVisibility(View.GONE);
-                                nearbyOffer4.setVisibility(View.GONE);
-                                nearbyOffer5.setVisibility(View.GONE);
-                                nearbyOffer6.setVisibility(View.GONE);
-                                nearbyOffer7.setVisibility(View.GONE);
-                                nearbyOffer8.setVisibility(View.GONE);
-                                nodCoupOffer1.setVisibility(View.GONE);
-                                nodSingleCouponOffer3Text.setVisibility(View.VISIBLE);
-                                nodCoupOffer2.setVisibility(View.GONE);
-                                nodCoupOffer3.setVisibility(View.VISIBLE);
-                                System.out.println("Nearby 3");
-
-
                             }
-                        });
+                            try {
+                                nearbyOffer4RetName.setText(nearbyRetNames.get(3).toString());
+                                nearbyOffer4.setVisibility(View.VISIBLE);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                                nearbyOffer4.setVisibility(View.GONE);
+                            }
+                            try {
+                                nearbyOffer5RetName.setText(nearbyRetNames.get(4).toString());
+                                nearbyOffer5.setVisibility(View.VISIBLE);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                                nearbyOffer5.setVisibility(View.GONE);
+                            }
+                            try {
+                                nearbyOffer6RetName.setText(nearbyRetNames.get(5).toString());
+                                nearbyOffer6.setVisibility(View.VISIBLE);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                                nearbyOffer6.setVisibility(View.GONE);
+                            }
+                            try {
+                                nearbyOffer7RetName.setText(nearbyRetNames.get(6).toString());
+                                nearbyOffer7.setVisibility(View.VISIBLE);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                                nearbyOffer7.setVisibility(View.GONE);
+                            }
+                            try {
+                                nearbyOffer8RetName.setText(nearbyRetNames.get(7).toString());
+                                nearbyOffer8.setVisibility(View.VISIBLE);
+                            } catch (Exception e) {
+                                System.out.println(e);
+                                nearbyOffer8.setVisibility(View.GONE);
+                            }
 
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer3.setVisibility(View.GONE);
-                    }
-                    try {
-                        nearbyOffer4RetName.setText(nearbyRetNames.get(3).toString());
-                        nearbyOffer4.setVisibility(View.VISIBLE);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer4.setVisibility(View.GONE);
-                    }
-                    try {
-                        nearbyOffer5RetName.setText(nearbyRetNames.get(4).toString());
-                        nearbyOffer5.setVisibility(View.VISIBLE);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer5.setVisibility(View.GONE);
-                    }
-                    try {
-                        nearbyOffer6RetName.setText(nearbyRetNames.get(5).toString());
-                        nearbyOffer6.setVisibility(View.VISIBLE);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer6.setVisibility(View.GONE);
-                    }
-                    try {
-                        nearbyOffer7RetName.setText(nearbyRetNames.get(6).toString());
-                        nearbyOffer7.setVisibility(View.VISIBLE);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer7.setVisibility(View.GONE);
-                    }
-                    try {
-                        nearbyOffer8RetName.setText(nearbyRetNames.get(7).toString());
-                        nearbyOffer8.setVisibility(View.VISIBLE);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                        nearbyOffer8.setVisibility(View.GONE);
-                    }
+                            System.out.println(allOffersArray.get(2).split(Pattern.quote("|"))[4].substring(3, 10));
+                            System.out.println(allOffersArray.get(3));
+                            System.out.println(allOffersArray.get(4));
+                            nearbyRetNames.clear();
+                            offerDesc1.clear();
+                            offerDesc2.clear();
+                            offerDesc3.clear();
+                        }
 
-                    System.out.println(allOffersArray.get(2).split(Pattern.quote("|"))[4].substring(3, 10));
-                    System.out.println(allOffersArray.get(3));
-                    System.out.println(allOffersArray.get(4));
-                    nearbyRetNames.clear();
-                    offerDesc1.clear();
-                    offerDesc2.clear();
-                    offerDesc3.clear();
 
-                }
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
+                        // if m
+                        if (myCircle != null) {
+                            myCircle.remove();
+                        }
 
-                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
-                // if m
-                if (myCircle != null) {
-                    myCircle.remove();
-                }
+                        CircleOptions circleOptions = new CircleOptions()
+                                .center(latLng)   //set center
+                                .radius(70)   //set radius in meters
+                                .fillColor(0x551FBED6)  //default
+                                .strokeColor(0x10000000)
+                                .strokeWidth(5);
 
-                CircleOptions circleOptions = new CircleOptions()
-                        .center(latLng)   //set center
-                        .radius(70)   //set radius in meters
-                        .fillColor(0x551FBED6)  //default
-                        .strokeColor(0x10000000)
-                        .strokeWidth(5);
+                        myCircle = mMap.addCircle(circleOptions);
 
-                myCircle = mMap.addCircle(circleOptions);
-
-                if (cameraSet == false) {
-                    mMap.moveCamera(cameraUpdate);
-                }
-                cameraSet = true;
+                        if (cameraSet == false) {
+                            mMap.moveCamera(cameraUpdate);
+                        }
+                        cameraSet = true;
 
 
             }
@@ -4252,7 +4567,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMyLocationEnabled(true);
         // Populate map with markers and their icons, text, titles etc.
 
-            setupOfferMapIcons();
+        setupOfferMapIcons();
 
 
     }
@@ -4310,8 +4625,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void requestData(String uri) {
         System.out.println("req data firing");
+        System.out.println("req data running");
         getOffers task = new getOffers();
         task.execute(uri);
+
 
     }
 
@@ -4330,6 +4647,47 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    public class MyPhoneStateListener extends PhoneStateListener {
+
+        public Boolean phoneRinging = false;
+
+        public void onCallStateChanged(int state, String incomingNumber) {
+
+            switch (state) {
+                case TelephonyManager.CALL_STATE_IDLE:
+                    Log.d("DEBUG", "IDLE");
+                    phoneRinging = false;
+                    break;
+                case TelephonyManager.CALL_STATE_OFFHOOK:
+                    Log.d("DEBUG", "OFFHOOK");
+                    phoneRinging = false;
+                    break;
+                case TelephonyManager.CALL_STATE_RINGING:
+                    Log.d("DEBUG", "RINGING");
+                    phoneRinging = true;
+
+                    break;
+            }
+        }
+
+    }
+
+
+    public class ServiceReceiver extends BroadcastReceiver {
+        TelephonyManager telephony;
+
+        public void onReceive(Context context, Intent intent) {
+            MyPhoneStateListener phoneListener = new MyPhoneStateListener();
+            telephony = (TelephonyManager) context
+                    .getSystemService(Context.TELEPHONY_SERVICE);
+            telephony.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+        }
+
+        public void onDestroy() {
+            telephony.listen(null, PhoneStateListener.LISTEN_NONE);
+        }
+
+    }
 
     public void couponsDashboard() {
         System.out.println("hi");
