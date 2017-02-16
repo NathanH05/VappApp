@@ -4,28 +4,28 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_connecting_19_light.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_connecting_19_light.png"
-    },
-    {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_07_light.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_on_07_light.png"
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/com_auth0_lock_link_sent.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-xhdpi-v4/com_auth0_lock_link_sent.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_connecting_13_dark.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_connecting_13_dark.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/com_auth0_lock_link_sent.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.auth0.android/lock/2.0.0/res/drawable-xhdpi-v4/com_auth0_lock_link_sent.png"
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_07_light.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_on_07_light.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/quantum_ic_pause_circle_filled_white_36.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable-xhdpi-v4/quantum_ic_pause_circle_filled_white_36.png"
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_connecting_19_light.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_connecting_19_light.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_13_dark.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_on_13_dark.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/quantum_ic_pause_circle_filled_white_36.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.6.1/res/drawable-xhdpi-v4/quantum_ic_pause_circle_filled_white_36.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/com_auth0_lock_ic_password.png",
@@ -92,12 +92,12 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/drawable-xhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_connecting_14_dark.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_connecting_14_dark.png"
-    },
-    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/messenger_bubble_small_blue.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.19.0/res/drawable-xhdpi-v4/messenger_bubble_small_blue.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_connecting_14_dark.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_connecting_14_dark.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
@@ -136,12 +136,12 @@
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/drawable-xhdpi-v4/powered_by_google_dark.png"
     },
     {
-        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_01_light.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_on_01_light.png"
-    },
-    {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_disabled_mono_dark.png",
         "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_disabled_mono_dark.png"
+    },
+    {
+        "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_on_01_light.png",
+        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/24.0.0/res/drawable-xhdpi-v4/ic_media_route_on_01_light.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_media_route_connecting_04_dark.png",

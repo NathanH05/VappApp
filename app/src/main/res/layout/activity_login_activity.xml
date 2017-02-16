@@ -172,6 +172,7 @@
                     android:textAllCaps="true"
                     android:textColor="#ffffff"
                     android:textSize="11sp"
+                    android:onClick="openPassReset"
                     android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>

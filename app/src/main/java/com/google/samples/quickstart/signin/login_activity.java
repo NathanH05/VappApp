@@ -480,6 +480,11 @@ Context mContext;
 
         return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
+
+    public void openPassReset(View v){
+        Intent intent = new Intent(login_activity.this,forgotPassword.class);
+        startActivity(intent);
+    }
     public void AWSCreateUser(String userEmail,String password) {
 
         loadingPanel.setVisibility(View.VISIBLE);
@@ -488,6 +493,7 @@ Context mContext;
 
 
         final Boolean j = isValidEmail(userEmail);
+
 
         if (j == true) {
 

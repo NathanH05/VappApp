@@ -1,4 +1,4 @@
-#Wed Feb 15 14:42:22 PST 2017
+#Wed Feb 15 19:34:05 PST 2017
 base.0=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ccf92a28fb38feed069a157e92434485df2dbc26
 renamed.1=classes.dex
 renamed.0=classes2.dex

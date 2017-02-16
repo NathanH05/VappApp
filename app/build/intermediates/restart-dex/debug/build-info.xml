@@ -5,33 +5,93 @@
     density="xxxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="13657202184761"
+    timestamp="35037014398855"
     token="-6401203421281611079"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="1881" />
+        duration="787" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="10" />
     <task
         name="instant-run-transform"
-        duration="1113" />
+        duration="32" />
     <task
         name="verifier"
-        duration="130" />
+        duration="2" />
 
     <artifact
-        location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="13657202184761"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="30988225653560"
+        verifier="MANIFEST_FILE_CHANGE" >
         <artifact
             location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="33498957473253"
+        verifier="CLASS_ADDED" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="34684692812272"
+        verifier="METHOD_ADDED" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="34742867351415"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/builds/debug/34742867351415/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="34838716455940"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/builds/debug/34838716455940/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="34961291494323"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/builds/debug/34961291494323/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="35037014398855"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

@@ -82,8 +82,7 @@
         <activity
             android:name="com.example.myfirstapp.SignInActivity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <!-- Auth0 Lock -->
         <activity
             android:name="com.auth0.android.lock.LockActivity"
@@ -206,6 +205,7 @@
         <activity
             android:name="com.example.myfirstapp.paymentscreen"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.google.samples.quickstart.signin.forgotPassword" />
         <activity android:name="com.wikitude.architect.BrowserActivity" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

@@ -15,7 +15,6 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -53,10 +52,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <activity
             android:name="com.google.samples.quickstart.signin.login_activity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
-
             android:label="@string/title_activity_login_activity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -68,10 +67,7 @@
         <activity
             android:name=".SignInActivity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|uiMode|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <!-- Auth0 Lock -->
         <activity
             android:name="com.auth0.android.lock.LockActivity"
@@ -141,9 +137,8 @@
             android:name="com.google.samples.quickstart.signin.MapsActivity"
             android:configChanges="keyboard|locale|fontScale|screenLayout|screenSize|navigation|touchscreen|keyboardHidden|layoutDirection|smallestScreenSize"
             android:hardwareAccelerated="false"
-
-            android:largeHeap="true"
             android:label="@string/title_activity_maps"
+            android:largeHeap="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <meta-data
@@ -196,7 +191,7 @@
         <activity
             android:name=".paymentscreen"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity android:name="com.google.samples.quickstart.signin.forgotPassword"></activity>
     </application>
 
 </manifest>
