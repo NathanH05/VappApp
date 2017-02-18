@@ -51,7 +51,7 @@ public class forgotPassword extends AppCompatActivity {
                 if (!username.getText().toString().equals("")) {
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                    usernameCheckerImage.setImageResource(R.drawable.tickorange);
+                    usernameCheckerImage.setImageResource(R.drawable.tickgreen);
                 }
                 else{
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -78,20 +78,20 @@ public class forgotPassword extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
                     if(!username.getText().toString().equals("")){
-                        usernameCheckerImage.setImageResource(R.drawable.tickorange);
+                        usernameCheckerImage.setImageResource(R.drawable.tickgreen);
                     }
                     else{
-                        usernameCheckerImage.setImageResource(R.drawable.crossgreen);
+                        usernameCheckerImage.setImageResource(R.drawable.crossorange);
 
                     }
                 } else {
                     System.out.println(username.getText().toString());
 
                     if(!username.getText().toString().equals("")){
-                        usernameCheckerImage.setImageResource(R.drawable.tickorange);
+                        usernameCheckerImage.setImageResource(R.drawable.tickgreen);
                     }
                     else{
-                        usernameCheckerImage.setImageResource(R.drawable.crossgreen);
+                        usernameCheckerImage.setImageResource(R.drawable.crossorange);
 
                     }
                 }
@@ -104,7 +104,7 @@ public class forgotPassword extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE && !username.getText().toString().equals("") && isValidEmail(username.getText())) {
 
-                        usernameCheckerImage.setImageResource(R.drawable.tickorange);
+                    usernameCheckerImage.setImageResource(R.drawable.tickgreen);
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     isValidEmail(username.getText());

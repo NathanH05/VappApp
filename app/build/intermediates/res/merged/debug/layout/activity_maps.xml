@@ -516,26 +516,27 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/phone"
                             android:layout_width="49dp"
                             android:layout_height="49dp"
                             android:layout_gravity="center"
                             android:layout_marginLeft="95dp"
                             android:paddingBottom="7dp"
                             android:paddingTop="14dp"
-                            android:src="@drawable/phone"
-                            android:id="@+id/phone"/>
+                            android:src="@drawable/phone" />
 
                         <ImageView
+                            android:id="@+id/websitey"
                             android:layout_width="46dp"
                             android:layout_height="46dp"
                             android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
                             android:paddingBottom="7dp"
                             android:paddingTop="14dp"
-                            android:src="@drawable/website"
-                            android:id="@+id/websitey"/>
+                            android:src="@drawable/website" />
 
                         <ImageView
+                            android:id="@+id/email"
                             android:layout_width="46dp"
                             android:layout_height="46dp"
                             android:layout_alignParentLeft="true"
@@ -543,8 +544,7 @@
                             android:layout_marginLeft="10dp"
                             android:paddingBottom="7dp"
                             android:paddingTop="14dp"
-                            android:src="@drawable/email"
-                            android:id="@+id/email"/>
+                            android:src="@drawable/email" />
                     </LinearLayout>
 
                     <TextView
@@ -1175,83 +1175,92 @@
                 </RelativeLayout>
 
 
-        <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">  
-        <ImageView
-        android:id="@+id/nodSemiCircBg"
-        android:layout_width="450dp"
-        android:layout_height="155dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/greyoutfulldeal"
-        android:visibility="gone" />  
-        <RelativeLayout
-        android:layout_width="350dp"
-        android:layout_height="150dp">  
-        <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-        android:id="@+id/nodSemiCirc1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="-40dp"
-        android:visibility="gone" />  
-    </RelativeLayout>  
-    <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-    android:id="@+id/nodSemiCirc2"
-    android:layout_width="520dp"
-    android:layout_height="280dp"
-    android:layout_marginLeft="66dp"
-    android:layout_marginTop="-26dp"
-    android:visibility="gone"/>  
-    <com.google.samples.quickstart.signin.SemiCircleProgressBarView
-    android:id="@+id/nodSemiCirc3"
-    android:layout_width="380dp"
-    android:layout_height="200dp"
-    android:layout_marginLeft="75dp"
-    android:layout_marginTop="-26dp"
-    android:visibility="gone" />  
-    <ImageView
-    android:id="@+id/nodIconImage"
-    android:layout_width="120dp"
-    android:layout_height="120dp"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="25dp"
-    android:padding="0dp"
-    android:src="@drawable/drinks" />  
-    <RelativeLayout
-    android:layout_width="273dp"
-    android:layout_height="275dp"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginLeft="2dp"
-    android:layout_marginTop="-52dp">  
-    <ImageView
-    android:id="@+id/nodStarsOverlay"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:adjustViewBounds="true"
-    android:paddingBottom="6dp"
-    android:src="@drawable/starfive"
-    android:visibility="gone"/> 
-</RelativeLayout>
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">  
+
+                    <ImageView
+                        android:id="@+id/nodSemiCircBg"
+                        android:layout_width="450dp"
+                        android:layout_height="155dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="50dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/greyoutfulldeal"
+                        android:visibility="gone" />  
+
+                    <RelativeLayout
+                        android:layout_width="350dp"
+                        android:layout_height="150dp">  
+
+                        <com.google.samples.quickstart.signin.SemiCircleProgressBarView
+                            android:id="@+id/nodSemiCirc1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="33dp"
+                            android:layout_marginTop="-40dp"
+                            android:visibility="gone" />  
+
+
+                    <com.google.samples.quickstart.signin.SemiCircleProgressBarView
+                        android:id="@+id/nodSemiCirc2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="-40dp"
+                        android:visibility="gone" />  
+
+                    <com.google.samples.quickstart.signin.SemiCircleProgressBarView
+                        android:id="@+id/nodSemiCirc3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="33dp"
+                        android:layout_marginTop="-40dp"
+                        android:visibility="gone" />  
+                    </RelativeLayout>
+                      
+                    <ImageView
+                        android:id="@+id/nodIconImage"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="25dp"
+                        android:padding="0dp"
+                        android:src="@drawable/drinks" />  
+
+                    <RelativeLayout
+                        android:layout_width="273dp"
+                        android:layout_height="275dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="-52dp">  
+
+                        <ImageView
+                            android:id="@+id/nodStarsOverlay"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:adjustViewBounds="true"
+                            android:paddingBottom="6dp"
+                            android:src="@drawable/starfive"
+                            android:visibility="gone" /> 
+                    </RelativeLayout>
                 </FrameLayout>
 
                 <TextView
-                android:id="@+id/nodRetailerName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="sans-serif-smallcaps"
-                android:layout_marginTop="-30dp"
-                android:gravity="top"
-                android:paddingTop="10dp"
-                android:text="Roost"
-                android:textAllCaps="true"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                />
+                    android:id="@+id/nodRetailerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-30dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="top"
+                    android:paddingTop="10dp"
+                    android:text="Roost"
+                    android:textAllCaps="true"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
                 <LinearLayout
                     android:id="@+id/nodContactDets"
                     android:layout_width="match_parent"
@@ -1259,26 +1268,27 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/nodPhone"
                         android:layout_width="49dp"
                         android:layout_height="49dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="95dp"
                         android:paddingBottom="7dp"
                         android:paddingTop="14dp"
-                        android:src="@drawable/phone"
-                        android:id="@+id/nodPhone"/>
+                        android:src="@drawable/phone" />
 
                     <ImageView
+                        android:id="@+id/nodWebsitey"
                         android:layout_width="46dp"
                         android:layout_height="46dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:paddingBottom="7dp"
                         android:paddingTop="14dp"
-                        android:src="@drawable/website"
-                        android:id="@+id/nodWebsitey"/>
+                        android:src="@drawable/website" />
 
                     <ImageView
+                        android:id="@+id/nodEmail"
                         android:layout_width="46dp"
                         android:layout_height="46dp"
                         android:layout_alignParentLeft="true"
@@ -1286,8 +1296,7 @@
                         android:layout_marginLeft="10dp"
                         android:paddingBottom="7dp"
                         android:paddingTop="14dp"
-                        android:src="@drawable/email"
-                        android:id="@+id/nodEmail"/>
+                        android:src="@drawable/email" />
                 </LinearLayout>
 
                 <TextView
@@ -1949,155 +1958,169 @@
                             </LinearLayout>
                         </FrameLayout>
 
-        <FrameLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/nodCoupOffer1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="0dp"> 
-        <RelativeLayout
-        android:id="@+id/nodOfferLayout1"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="-80dp"
-        android:background="@drawable/emptycoupon"
-        android:onClick="openQR"
-        android:orientation="vertical">
-        <TextView
-        android:id="@+id/nodSingleCouponOffer1Text"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="center"
-        android:text="Free cupcake with every flatwhite "
-        android:textAlignment="center"
-        android:textColor="#585858"
-        android:textSize="18sp"
-        android:textStyle="bold" />  
-        <TextView
-        android:id="@+id/nodcountdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="135dp"
-        android:gravity="center"
-        android:text="Remaining:\n 05:30"
-        android:textColor="#585858"
-        android:textSize="23sp"
-        android:textStyle="bold" />  
-        <TextView
-        android:id="@+id/nodRedemn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="90dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="TAP TO REDEEM"
-        android:textColor="#585858"
-        android:textSize="21sp"
-        android:textStyle="bold" />  
-        <ImageView
-        android:id="@+id/nodstarrating"
-        android:layout_width="110dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
-        android:src="@drawable/starrating"
-        android:visibility="gone"/> 
-    </RelativeLayout>  
-    <ImageView
-    android:id="@+id/nodShare"
-    android:layout_width="130dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="130dp"
-    android:src="@drawable/sharefbtwitter" /> 
-</FrameLayout>        <FrameLayout
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:id="@+id/nodCoupOffer2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="0dp"> 
-                        <RelativeLayout
-                            android:id="@+id/nodOfferLayout2"
-                            android:layout_width="350dp"
-                            android:layout_height="300dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginTop="-80dp"
-                            android:background="@drawable/emptycoupon"
-                            android:onClick="openQR"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/nodSingleCouponOffer2Text"
-                                android:layout_width="250dp"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="95dp"
-                                android:fontFamily="sans-serif-smallcaps"
-                                android:gravity="center"
-                                android:text="Free cupcake with every flatwhite "
-                                android:textAlignment="center"
-                                android:textColor="#585858"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />  
-                            <TextView
-                                android:id="@+id/nodcountdown2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="135dp"
-                                android:gravity="center"
-                                android:text="Remaining:\n 05:30"
-                                android:textColor="#585858"
-                                android:textSize="23sp"
-                                android:textStyle="bold" />  
-                            <TextView
-                                android:id="@+id/nodRedemn2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginBottom="90dp"
-                                android:fontFamily="sans-serif-smallcaps"
-                                android:text="TAP TO REDEEM"
-                                android:textColor="#585858"
-                                android:textSize="21sp"
-                                android:textStyle="bold" />  
-                            <ImageView
-                                android:id="@+id/nodstarrating2"
-                                android:layout_width="110dp"
-                                android:layout_height="70dp"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginBottom="70dp"
-                                android:src="@drawable/starrating"
-                                android:visibility="gone"/> 
-                        </RelativeLayout>  
-                        <ImageView
-                            android:id="@+id/nodShare2"
-                            android:layout_width="130dp"
+                        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:id="@+id/nodCoupOffer1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="130dp"
-                            android:src="@drawable/sharefbtwitter" /> 
-                    </FrameLayout>
+                            android:layout_gravity="center"
+                            android:padding="0dp"> 
 
-                        <FrameLayout
-                            xmlns:android="http://schemas.android.com/apk/res/android"
+                            <RelativeLayout
+                                android:id="@+id/nodOfferLayout1"
+                                android:layout_width="350dp"
+                                android:layout_height="300dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginTop="-80dp"
+                                android:background="@drawable/emptycoupon"
+                                android:onClick="openQR"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/nodSingleCouponOffer1Text"
+                                    android:layout_width="250dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="95dp"
+                                    android:fontFamily="sans-serif-smallcaps"
+                                    android:gravity="center"
+                                    android:text="Free cupcake with every flatwhite "
+                                    android:textAlignment="center"
+                                    android:textColor="#585858"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />  
+
+                                <TextView
+                                    android:id="@+id/nodcountdown"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="135dp"
+                                    android:gravity="center"
+                                    android:text="Remaining:\n 05:30"
+                                    android:textColor="#585858"
+                                    android:textSize="23sp"
+                                    android:textStyle="bold" />  
+
+                                <TextView
+                                    android:id="@+id/nodRedemn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="90dp"
+                                    android:fontFamily="sans-serif-smallcaps"
+                                    android:text="TAP TO REDEEM"
+                                    android:textColor="#585858"
+                                    android:textSize="21sp"
+                                    android:textStyle="bold" />  
+
+                                <ImageView
+                                    android:id="@+id/nodstarrating"
+                                    android:layout_width="110dp"
+                                    android:layout_height="70dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="70dp"
+                                    android:src="@drawable/starrating"
+                                    android:visibility="gone" /> 
+                            </RelativeLayout>
+                              
+
+                            <ImageView
+                                android:id="@+id/nodShare"
+                                android:layout_width="130dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="130dp"
+                                android:src="@drawable/sharefbtwitter" /> 
+                        </FrameLayout>
+
+                        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:id="@+id/nodCoupOffer2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="0dp"> 
+
+                            <RelativeLayout
+                                android:id="@+id/nodOfferLayout2"
+                                android:layout_width="350dp"
+                                android:layout_height="300dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginTop="-80dp"
+                                android:background="@drawable/emptycoupon"
+                                android:onClick="openQR"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/nodSingleCouponOffer2Text"
+                                    android:layout_width="250dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="95dp"
+                                    android:fontFamily="sans-serif-smallcaps"
+                                    android:gravity="center"
+                                    android:text="Free cupcake with every flatwhite "
+                                    android:textAlignment="center"
+                                    android:textColor="#585858"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />  
+
+                                <TextView
+                                    android:id="@+id/nodcountdown2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="135dp"
+                                    android:gravity="center"
+                                    android:text="Remaining:\n 05:30"
+                                    android:textColor="#585858"
+                                    android:textSize="23sp"
+                                    android:textStyle="bold" />  
+
+                                <TextView
+                                    android:id="@+id/nodRedemn2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="90dp"
+                                    android:fontFamily="sans-serif-smallcaps"
+                                    android:text="TAP TO REDEEM"
+                                    android:textColor="#585858"
+                                    android:textSize="21sp"
+                                    android:textStyle="bold" />  
+
+                                <ImageView
+                                    android:id="@+id/nodstarrating2"
+                                    android:layout_width="110dp"
+                                    android:layout_height="70dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginBottom="70dp"
+                                    android:src="@drawable/starrating"
+                                    android:visibility="gone" /> 
+                            </RelativeLayout>
+                              
+
+                            <ImageView
+                                android:id="@+id/nodShare2"
+                                android:layout_width="130dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="130dp"
+                                android:src="@drawable/sharefbtwitter" /> 
+                        </FrameLayout>
+
+                        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/nodCoupOffer3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="0dp"> 
+
                             <RelativeLayout
                                 android:id="@+id/nodOfferLayout3"
                                 android:layout_width="350dp"
@@ -2108,6 +2131,7 @@
                                 android:background="@drawable/emptycoupon"
                                 android:onClick="openQR"
                                 android:orientation="vertical">
+
                                 <TextView
                                     android:id="@+id/nodSingleCouponOffer3Text"
                                     android:layout_width="250dp"
@@ -2121,6 +2145,7 @@
                                     android:textColor="#585858"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />  
+
                                 <TextView
                                     android:id="@+id/nodcountdown3"
                                     android:layout_width="wrap_content"
@@ -2132,6 +2157,7 @@
                                     android:textColor="#585858"
                                     android:textSize="23sp"
                                     android:textStyle="bold" />  
+
                                 <TextView
                                     android:id="@+id/nodRedemn3"
                                     android:layout_width="wrap_content"
@@ -2144,6 +2170,7 @@
                                     android:textColor="#585858"
                                     android:textSize="21sp"
                                     android:textStyle="bold" />  
+
                                 <ImageView
                                     android:id="@+id/nodstarrating3"
                                     android:layout_width="110dp"
@@ -2152,8 +2179,10 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginBottom="70dp"
                                     android:src="@drawable/starrating"
-                                    android:visibility="gone"/> 
-                            </RelativeLayout>  
+                                    android:visibility="gone" /> 
+                            </RelativeLayout>
+                              
+
                             <ImageView
                                 android:id="@+id/nodShare3"
                                 android:layout_width="130dp"

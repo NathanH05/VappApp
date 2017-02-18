@@ -165,6 +165,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     String dealOffer2Text = "";
     String dealOffer3Text = "";
 
+     static ArrayList offerDesc1 = new ArrayList();
+     static ArrayList offerDesc1Persist = new ArrayList();
+
+
+    String nearbyOffer1Text;
+    String nearbyOffer2Text;
+    String nearbyOffer3Text;
+    String nearbyOffer4Text;
+    String nearbyOffer5Text;
+    String nearbyOffer6Text;
+    String nearbyOffer7Text;
+    String nearbyOffer8Text;
+
+    Boolean multiOfferIsOpen = false;
+
     // Declare the flat progress bars used in the multi offer and nearby list view progress sliding draws
     ProgressBar multiOfferProgressBar1;
     ProgressBar multiOfferProgressBar2;
@@ -860,6 +875,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         // for ActivityCompat#requestPermissions for more details.
                         return;
                     }
+                    ImageView nodStarsOverlay = (ImageView)findViewById(R.id.nodStarsOverlay);
+                    nodStarsOverlay.setVisibility(View.INVISIBLE);
+
+                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView)findViewById(R.id.nodSemiCirc1);
+                    nodSemiCirc1.setVisibility(View.GONE);
+                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView)findViewById(R.id.nodSemiCirc2);
+                    nodSemiCirc2.setVisibility(View.GONE);
+                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView)findViewById(R.id.nodSemiCirc3);
+                    nodSemiCirc3.setVisibility(View.GONE);
+
+                    FrameLayout nearbyOffer1 = (FrameLayout)findViewById(R.id.nearbyOffer1);
+                    nearbyOffer1.setVisibility(View.VISIBLE);
+                    FrameLayout nearbyOffer2 = (FrameLayout)findViewById(R.id.nearbyOffer2);
+                    nearbyOffer2.setVisibility(View.VISIBLE);
+                    FrameLayout nearbyOffer3 = (FrameLayout)findViewById(R.id.nearbyOffer3);
+                    nearbyOffer3.setVisibility(View.VISIBLE);
+                    FrameLayout nearbyOffer4 = (FrameLayout)findViewById(R.id.nearbyOffer4);
+                    nearbyOffer4.setVisibility(View.VISIBLE);
+                    FrameLayout nearbyOffer5 = (FrameLayout)findViewById(R.id.nearbyOffer5);
+                    nearbyOffer5.setVisibility(View.VISIBLE);
+                    FrameLayout nearbyOffer6 = (FrameLayout)findViewById(R.id.nearbyOffer6);
+                    nearbyOffer6.setVisibility(View.VISIBLE);
+                    FrameLayout nearbyOffer7 = (FrameLayout)findViewById(R.id.nearbyOffer7);
+                    nearbyOffer7.setVisibility(View.VISIBLE);
+                    FrameLayout nearbyOffer8 = (FrameLayout)findViewById(R.id.nearbyOffer8);
+                    nearbyOffer8.setVisibility(View.VISIBLE);
+
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
 
                     TextView tv = (TextView) findViewById(R.id.nodRetailerName);
@@ -868,6 +910,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     nodContactDets.setVisibility(View.GONE);
                     TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
                     nodAddress.setVisibility(View.GONE);
+
+                    ScrollView nodScrollView = (ScrollView)findViewById(R.id.nodScrollView);
+                    nodScrollView.setVisibility(View.VISIBLE);
+
 
                     overridePendingTransition(R.anim.slide_left, R.anim.slide_left);
                     // Set this boolean so that when the back button is pressed the drawer will
@@ -2098,7 +2144,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             startActivity(intent);
             overridePendingTransition(R.anim.lefter, R.anim.lefter);
         } else if (id == R.id.coupons) {
-            couponsDashboard();
             Intent intent = new Intent(MapsActivity.this, couponsDash.class);
             startActivity(intent);
         } else if (id == R.id.help) {
@@ -2106,7 +2151,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             Intent intent = new Intent(MapsActivity.this, help.class);
             startActivity(intent);
         } else if (id == R.id.loginlogout) {
-            RelativeLayout mLinearLayout = (RelativeLayout) findViewById(R.id.mapsy);
+            RelativeLayout mLinearLayout = (RelativeLayout) findViewById(R.id.activity_main2);
             Context mContext;
             mContext = getApplicationContext();
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -2119,7 +2164,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     RelativeLayout.LayoutParams.WRAP_CONTENT
             );
 
-            Button remove = (Button) customView.findViewById(R.id.ib_close);
+            Button remove=(Button) customView.findViewById(R.id.ib_close);
 
             remove.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -2143,6 +2188,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 
     @Override
@@ -3989,9 +4035,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onLocationChanged(Location location) {
                 ArrayList nearbyRetNames = new ArrayList();
-                final ArrayList offerDesc1 = new ArrayList();
-                final ArrayList offerDesc2 = new ArrayList();
-                final ArrayList offerDesc3 = new ArrayList();
+
                 final ArrayList countdowntime1 = new ArrayList();
                 final ArrayList countdowntime2 = new ArrayList();
                 final ArrayList countdowntime3 = new ArrayList();
@@ -4006,528 +4050,660 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 final FrameLayout nodCoupOffer3 = (FrameLayout) findViewById(R.id.nodCoupOffer3);
 //                if (nearbyOffer1.getVisibility() == View.GONE && nearbyOffer1Layout.getVisibility() == View.GONE && nodCoupOffer1.getVisibility() == View.GONE && nodCoupOffer2.getVisibility() == View.GONE && nodCoupOffer3.getVisibility() == View.GONE) {
 //                    if (nodShare.getVisibility() == View.GONE) {
-                        System.out.println("onLocFired: 1st onCreate");
-                        // Each time the location changes, get the users coordinates and move the camera
-                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                        timeToRunHash++;
-                        int count = 0;
+                System.out.println("onLocFired: 1st onCreate");
+                // Each time the location changes, get the users coordinates and move the camera
+                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                timeToRunHash++;
+                int count = 0;
 
-                        ArrayList nearHashes = getListViewHashes(latLng);
-                        if (timeToRunHash % 5 == 0 || timeToRunHash == 0 || timeToRunHash == 1  ) {
-                            for (int i = 0; i < allOffersArray.size(); i++) {
-                                String retailerHash = allOffersArray.get(i).split(Pattern.quote("|"))[4].substring(3, 10);
+                ArrayList nearHashes = getListViewHashes(latLng);
+                if (timeToRunHash % 5 == 0 || timeToRunHash == 0 || timeToRunHash == 1) {
+                    if (!multiOfferIsOpen) {
+                        System.out.println("poop");
 
-                                if (retailerHash.equals(nearHashes.get(0)) || retailerHash.equals(nearHashes.get(1)) || retailerHash.equals(nearHashes.get(2)) ||
-                                        retailerHash.equals(nearHashes.get(3)) ||
-                                        retailerHash.equals(nearHashes.get(4)) ||
-                                        retailerHash.equals(nearHashes.get(5)) ||
-                                        retailerHash.equals(nearHashes.get(6)) ||
-                                        retailerHash.equals(nearHashes.get(7)) ||
-                                        retailerHash.equals(nearHashes.get(8))) {
-                                    System.out.println(allOffersArray.get(i));
-                                    System.out.println(allOffersArray.size());
-                                    nearbyRetNames.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[2]);
+                        for (int i = 0; i < allOffersArray.size(); i++) {
+                            String retailerHash = allOffersArray.get(i).split(Pattern.quote("|"))[4].substring(3, 10);
 
-                                    countdowntime1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[3]);
-                                    countdowntime2.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[14]);
-                                    countdowntime3.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[15]);
-                                    nodWebsiteyArray.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[12]);
-                                    offerDesc1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[8]);
+                            if (retailerHash.equals(nearHashes.get(0)) || retailerHash.equals(nearHashes.get(1)) || retailerHash.equals(nearHashes.get(2)) ||
 
-                                    count++;
+                                    retailerHash.equals(nearHashes.get(3)) ||
+                                    retailerHash.equals(nearHashes.get(4)) ||
+                                    retailerHash.equals(nearHashes.get(5)) ||
+                                    retailerHash.equals(nearHashes.get(6)) ||
+                                    retailerHash.equals(nearHashes.get(7)) ||
+                                    retailerHash.equals(nearHashes.get(8))) {
+                                System.out.println(allOffersArray.get(i));
+                                System.out.println(allOffersArray.size());
 
-                                }
+                                nearbyRetNames.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[2]);
+
+                                countdowntime1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[3]);
+                                countdowntime2.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[14]);
+                                countdowntime3.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[15]);
+                                nodWebsiteyArray.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[12]);
+                                offerDesc1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[8]);
+
+                                System.out.println(count);
+                                System.out.println(offerDesc1.size());
+                                System.out.println("hello");
+
+
+                                count++;
+
                             }
+                        }
 
-                            final FrameLayout nearbyOffer2 = (FrameLayout) findViewById(R.id.nearbyOffer2);
-                            final FrameLayout nearbyOffer3 = (FrameLayout) findViewById(R.id.nearbyOffer3);
-                            final FrameLayout nearbyOffer4 = (FrameLayout) findViewById(R.id.nearbyOffer4);
-                            final FrameLayout nearbyOffer5 = (FrameLayout) findViewById(R.id.nearbyOffer5);
-                            final FrameLayout nearbyOffer6 = (FrameLayout) findViewById(R.id.nearbyOffer6);
-                            final FrameLayout nearbyOffer7 = (FrameLayout) findViewById(R.id.nearbyOffer7);
-                            final FrameLayout nearbyOffer8 = (FrameLayout) findViewById(R.id.nearbyOffer8);
+                        final FrameLayout nearbyOffer2 = (FrameLayout) findViewById(R.id.nearbyOffer2);
+                        final FrameLayout nearbyOffer3 = (FrameLayout) findViewById(R.id.nearbyOffer3);
+                        final FrameLayout nearbyOffer4 = (FrameLayout) findViewById(R.id.nearbyOffer4);
+                        final FrameLayout nearbyOffer5 = (FrameLayout) findViewById(R.id.nearbyOffer5);
+                        final FrameLayout nearbyOffer6 = (FrameLayout) findViewById(R.id.nearbyOffer6);
+                        final FrameLayout nearbyOffer7 = (FrameLayout) findViewById(R.id.nearbyOffer7);
+                        final FrameLayout nearbyOffer8 = (FrameLayout) findViewById(R.id.nearbyOffer8);
 
-                            final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                        final FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
 
-                            final FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+                        final FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
 
 
-                            final ImageView ofsdSemiCircBg = (ImageView) findViewById(R.id.ofsdSemiCircBg);
-                            final SemiCircleProgressBarView semiCirc = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
-                            final SemiCircleProgressBarView semiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc2);
-                            final SemiCircleProgressBarView semiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc3);
-                            final ImageView starsOverlay = (ImageView) findViewById(R.id.ofsdStarsOverlay);
+                        final ImageView ofsdSemiCircBg = (ImageView) findViewById(R.id.ofsdSemiCircBg);
+                        final SemiCircleProgressBarView semiCirc = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
+                        final SemiCircleProgressBarView semiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc2);
+                        final SemiCircleProgressBarView semiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc3);
+                        final ImageView starsOverlay = (ImageView) findViewById(R.id.ofsdStarsOverlay);
 
-                            ImageView starIcon = (ImageView) findViewById(R.id.ofsdStarsOverlay);
-                            final ImageView multiOffersStars = (ImageView) findViewById(R.id.multiOffersStars);
-                            final ImageView multiOffersStars2 = (ImageView) findViewById(R.id.multiOffersStars2);
-                            final ImageView multiOffersStars3 = (ImageView) findViewById(R.id.multiOffersStars3);
+                        ImageView starIcon = (ImageView) findViewById(R.id.ofsdStarsOverlay);
+                        final ImageView multiOffersStars = (ImageView) findViewById(R.id.multiOffersStars);
+                        final ImageView multiOffersStars2 = (ImageView) findViewById(R.id.multiOffersStars2);
+                        final ImageView multiOffersStars3 = (ImageView) findViewById(R.id.multiOffersStars3);
 
-                            final TextView nodSingleCouponOffer1Text = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
-                            final TextView nodSingleCouponOffer2Text = (TextView) findViewById(R.id.nodSingleCouponOffer2Text);
-                            final TextView nodSingleCouponOffer3Text = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+                        final TextView nodSingleCouponOffer1Text = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
+                        final TextView nodSingleCouponOffer2Text = (TextView) findViewById(R.id.nodSingleCouponOffer2Text);
+                        final TextView nodSingleCouponOffer3Text = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+                        final TextView nodSingleCouponOffer4Text = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
 
-                            final TextView singleCouponOfferText1 = (TextView) findViewById(R.id.singleCouponOfferText1);
-                            final TextView singleCouponOfferText2 = (TextView) findViewById(R.id.singleCouponOfferText2);
-                            final TextView singleCouponOfferText3 = (TextView) findViewById(R.id.singleCouponOfferText3);
+                        final TextView singleCouponOfferText1 = (TextView) findViewById(R.id.singleCouponOfferText1);
+                        final TextView singleCouponOfferText2 = (TextView) findViewById(R.id.singleCouponOfferText2);
+                        final TextView singleCouponOfferText3 = (TextView) findViewById(R.id.singleCouponOfferText3);
 
-                            nodCoupOffer1.setVisibility(View.GONE);
-                            nodCoupOffer2.setVisibility(View.GONE);
-                            nodCoupOffer3.setVisibility(View.GONE);
+                        nodCoupOffer1.setVisibility(View.GONE);
+                        nodCoupOffer2.setVisibility(View.GONE);
+                        nodCoupOffer3.setVisibility(View.GONE);
 //                    singleCouponOfferText1.setVisibility(View.GONE);
 //                    singleCouponOfferText2.setVisibility(View.GONE);
 //                    singleCouponOfferText3.setVisibility(View.GONE);
-                            nodSingleCouponOffer3Text.setVisibility(View.GONE);
-                            nodSingleCouponOffer2Text.setVisibility(View.GONE);
-                            nodSingleCouponOffer1Text.setVisibility(View.GONE);
-                            try {
-                                nearbyOffer1RetName.setText(nearbyRetNames.get(0).toString());
+                        nodSingleCouponOffer3Text.setVisibility(View.GONE);
+                        nodSingleCouponOffer2Text.setVisibility(View.GONE);
+                        nodSingleCouponOffer1Text.setVisibility(View.GONE);
+                        try {
+                            nearbyOffer1RetName.setText(nearbyRetNames.get(0).toString());
 
-                                nearbyOffer1.setVisibility(View.VISIBLE);
-                                nodSingleCouponOffer1Text.setText(offerDesc1.get(0).toString());
-                                ImageView nodPhone = (ImageView) findViewById(R.id.nodPhone);
-                                nodPhone.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        System.out.println("pressed");
-                                        MyPhoneStateListener phoneListener = new MyPhoneStateListener();
-                                        TelephonyManager telephonyManager = (TelephonyManager) MapsActivity.this.getSystemService(Context.TELEPHONY_SERVICE);
-                                        telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-                                        Intent callIntent = new Intent(Intent.ACTION_CALL);
-                                        callIntent.setData(Uri.parse("tel:0377778888"));
-                                        if (ActivityCompat.checkSelfPermission(MapsActivity.this,
-                                                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                                            System.out.println("no permission");
-                                            ActivityCompat.requestPermissions(MapsActivity.this,
-                                                    new String[]{Manifest.permission.CALL_PHONE},
-                                                    MY_PERMISSIONS_REQUEST_CALL_PHONE);
-                                            return;
-                                        }
-                                        startActivity(callIntent);
+                            nearbyOffer1.setVisibility(View.VISIBLE);
+                            nodSingleCouponOffer1Text.setText(offerDesc1.get(0).toString());
+                            ImageView nodPhone = (ImageView) findViewById(R.id.nodPhone);
+                            nodPhone.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    System.out.println("pressed");
+                                    MyPhoneStateListener phoneListener = new MyPhoneStateListener();
+                                    TelephonyManager telephonyManager = (TelephonyManager) MapsActivity.this.getSystemService(Context.TELEPHONY_SERVICE);
+                                    telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+                                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                                    callIntent.setData(Uri.parse("tel:0377778888"));
+                                    if (ActivityCompat.checkSelfPermission(MapsActivity.this,
+                                            Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                        System.out.println("no permission");
+                                        ActivityCompat.requestPermissions(MapsActivity.this,
+                                                new String[]{Manifest.permission.CALL_PHONE},
+                                                MY_PERMISSIONS_REQUEST_CALL_PHONE);
+                                        return;
                                     }
-                                });
-                                nearbyOffer1.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        backStack = true;
-                                        try {
-                                            System.out.println("Printing countdown times");
-                                            final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-                                            System.out.println(countdowntime1.get(0).toString());
-                                            System.out.println(countdowntime2.get(0).toString());
-                                            System.out.println(countdowntime3.get(0).toString());
-                                            final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
-                                            nodWebsitey.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    String url = "http://" + nodWebsiteyArray.get(0).toString();
-                                                    Intent i = new Intent(Intent.ACTION_VIEW);
-                                                    i.setData(Uri.parse(url));
-                                                    startActivity(i);
+                                    startActivity(callIntent);
+                                }
+                            });
+                            nearbyOffer1.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    backStack = true;
+                                    multiOfferIsOpen = true;
+                                    try {
+                                        System.out.println("Printing countdown times");
+                                        final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                        System.out.println(countdowntime1.get(0).toString());
+                                        System.out.println(countdowntime2.get(0).toString());
+                                        System.out.println(countdowntime3.get(0).toString());
+                                        final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+                                        nodWebsitey.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String url = "http://" + nodWebsiteyArray.get(0).toString();
+                                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                                i.setData(Uri.parse(url));
+                                                startActivity(i);
+                                            }
+                                        });
+                                        ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+                                        nodEmail.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String website2 = null;
+                                                TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
+                                                String message = messagetv.getText().toString();
+                                                String website = nodWebsiteyArray.get(0).toString();
+                                                if (website.substring(website.length() - 4, website.length()) == "com") {
+                                                    website2 = website.substring(4, (website.length() - 4));
+                                                    System.out.println(website2);
+                                                } else {
+                                                    website2 = website.substring(4, website.length() - 6);
+                                                    System.out.println(website2);
                                                 }
-                                            });
-                                            ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
-                                            nodEmail.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    String website2 = null;
-                                                    TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
-                                                    String message = messagetv.getText().toString();
-                                                    String website = nodWebsiteyArray.get(0).toString();
-                                                    if (website.substring(website.length() - 4, website.length()) == "com") {
-                                                        website2 = website.substring(4, (website.length() - 4));
-                                                        System.out.println(website2);
-                                                    } else {
-                                                        website2 = website.substring(4, website.length() - 6);
-                                                        System.out.println(website2);
-                                                    }
-                                                    Intent intent = new Intent(Intent.ACTION_SEND);
-                                                    intent.setType("message/rfc822");
-                                                    intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
-                                                    intent.putExtra(Intent.EXTRA_TEXT, message);
-                                                    intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
-                                                    Intent mailer = Intent.createChooser(intent, null);
-                                                    startActivity(mailer);
-                                                }
-                                            });
-                                            startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
-                                        SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
-                                        SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
-
-                                        nodSemiCirc1.setVisibility(View.VISIBLE);
-                                        ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
-                                        nodSemiCircBg.setVisibility(View.VISIBLE);
-                                        ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
-                                        ImageView ofsdIconImage = (ImageView) findViewById(R.id.ofsdIconImage);
-                                        TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
-                                        nodAddress.setVisibility(View.VISIBLE);
-                                        LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
-                                        nodContactDets.setVisibility(View.VISIBLE);
-                                        System.out.println("nearby offer 1 category");
-                                        System.out.println(individualOfferDetsArray[0]);
-                                        if (individualOfferDetsArray[0].equals("drinks")) {
-                                        }
-                                        if (individualOfferDetsArray[0].equals("attractions")) {
-                                            nodIconImage.setImageResource(R.drawable.attractions);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("Movies")) {
-                                            nodIconImage.setImageResource(R.drawable.movies);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("accommodation")) {
-                                            nodIconImage.setImageResource(R.drawable.accomodation);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("shopping")) {
-                                            nodIconImage.setImageResource(R.drawable.shopping);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("food/dining")) {
-                                            nodIconImage.setImageResource(R.drawable.fooddining);
-                                        }
-                                        nodSemiCirc1.setVisibility(View.VISIBLE);
-                                        ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-                                        nodStarsOverlay.setVisibility(View.VISIBLE);
-                                        TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
-                                        nodRetailerName.setText(nearbyOffer1RetName.getText().toString());
-                                        semiCirc.setVisibility(View.GONE);
-                                        semiCirc2.setVisibility(View.GONE);
-                                        semiCirc3.setVisibility(View.GONE);
-                                        nodSemiCirc1.setVisibility(View.VISIBLE);
-                                        nodSemiCirc2.setVisibility(View.GONE);
-                                        nodSemiCirc3.setVisibility(View.GONE);
-                                        nearbyOffer1.setVisibility(View.GONE);
-                                        nearbyOffer2.setVisibility(View.GONE);
-                                        nearbyOffer3.setVisibility(View.GONE);
-                                        nearbyOffer4.setVisibility(View.GONE);
-                                        nearbyOffer5.setVisibility(View.GONE);
-                                        nearbyOffer6.setVisibility(View.GONE);
-                                        nearbyOffer7.setVisibility(View.GONE);
-                                        nearbyOffer8.setVisibility(View.GONE);
-                                        nodCoupOffer1.setVisibility(View.VISIBLE);
-                                        nodSingleCouponOffer1Text.setVisibility(View.VISIBLE);
-                                        nodSingleCouponOffer2Text.setVisibility(View.GONE);
-                                        nodSingleCouponOffer3Text.setVisibility(View.GONE);
-                                        nodCoupOffer2.setVisibility(View.GONE);
-                                        nodCoupOffer3.setVisibility(View.GONE);
-                                        System.out.println("multiOffer2");
-                                        System.out.println("Nearby 1");
+                                                Intent intent = new Intent(Intent.ACTION_SEND);
+                                                intent.setType("message/rfc822");
+                                                intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                                                intent.putExtra(Intent.EXTRA_TEXT, message);
+                                                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                                                Intent mailer = Intent.createChooser(intent, null);
+                                                startActivity(mailer);
+                                            }
+                                        });
+                                        startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
                                     }
-                                });
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer1.setVisibility(View.GONE);
-                            }
-                            try {
-                                nearbyOffer2RetName.setText(nearbyRetNames.get(1).toString());
-                                nearbyOffer2.setVisibility(View.VISIBLE);
-                                singleCouponOfferText2.setText(offerDesc1.get(0).toString());
+                                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+                                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+                                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
 
-                                nearbyOffer2.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        backStack = true;
-                                        try {
-                                            System.out.println("Printing countdown times");
-                                            final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-                                            System.out.println(countdowntime1.get(0).toString());
-                                            System.out.println(countdowntime2.get(0).toString());
-                                            System.out.println(countdowntime3.get(0).toString());
-                                            final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
-                                            nodWebsitey.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    String url = "http://" + nodWebsiteyArray.get(0).toString();
-                                                    Intent i = new Intent(Intent.ACTION_VIEW);
-                                                    i.setData(Uri.parse(url));
-                                                    startActivity(i);
-                                                }
-                                            });
-                                            ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
-                                            nodEmail.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    String website2 = null;
-                                                    TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
-                                                    String message = messagetv.getText().toString();
-                                                    String website = nodWebsiteyArray.get(0).toString();
-                                                    if (website.substring(website.length() - 4, website.length()) == "com") {
-                                                        website2 = website.substring(4, (website.length() - 4));
-                                                        System.out.println(website2);
-                                                    } else {
-                                                        website2 = website.substring(4, website.length() - 6);
-                                                        System.out.println(website2);
-                                                    }
-                                                    Intent intent = new Intent(Intent.ACTION_SEND);
-                                                    intent.setType("message/rfc822");
-                                                    intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
-                                                    intent.putExtra(Intent.EXTRA_TEXT, message);
-                                                    intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
-                                                    Intent mailer = Intent.createChooser(intent, null);
-                                                    startActivity(mailer);
-                                                }
-                                            });
-                                            startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
-                                        SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
-                                        SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
-
-                                        nodSemiCirc1.setVisibility(View.GONE);
-                                        nodSemiCirc2.setVisibility(View.VISIBLE);
-                                        ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
-                                        nodSemiCircBg.setVisibility(View.VISIBLE);
-                                        ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
-                                        ImageView ofsdIconImage = (ImageView) findViewById(R.id.ofsdIconImage);
-                                        TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
-                                        nodAddress.setVisibility(View.VISIBLE);
-                                        LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
-                                        nodContactDets.setVisibility(View.VISIBLE);
-                                        System.out.println("nearby offer 1 category");
-                                        System.out.println(individualOfferDetsArray[0]);
-                                        if (individualOfferDetsArray[0].equals("drinks")) {
-                                        }
-                                        if (individualOfferDetsArray[0].equals("attractions")) {
-                                            nodIconImage.setImageResource(R.drawable.attractions);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("Movies")) {
-                                            nodIconImage.setImageResource(R.drawable.movies);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("accommodation")) {
-                                            nodIconImage.setImageResource(R.drawable.accomodation);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("shopping")) {
-                                            nodIconImage.setImageResource(R.drawable.shopping);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("food/dining")) {
-                                            nodIconImage.setImageResource(R.drawable.fooddining);
-                                        }
-                                        nodSemiCirc2.setVisibility(View.VISIBLE);
-                                        ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-                                        nodStarsOverlay.setVisibility(View.VISIBLE);
-                                        TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
-                                        nodRetailerName.setText(nearbyOffer2RetName.getText().toString());
-                                        TextView ofsdRetName = (TextView) findViewById(R.id.ofsdRetailerName);
-                                        ofsdRetName.setVisibility(View.GONE);
-                                        semiCirc.setVisibility(View.GONE);
-                                        semiCirc2.setVisibility(View.GONE);
-                                        semiCirc3.setVisibility(View.GONE);
-                                        nodSemiCirc1.setVisibility(View.GONE);
-                                        nodSemiCirc2.setVisibility(View.VISIBLE);
-                                        nodSemiCirc3.setVisibility(View.GONE);
-                                        nearbyOffer1.setVisibility(View.GONE);
-                                        nearbyOffer2.setVisibility(View.GONE);
-                                        nearbyOffer3.setVisibility(View.GONE);
-                                        nearbyOffer4.setVisibility(View.GONE);
-                                        nearbyOffer5.setVisibility(View.GONE);
-                                        nearbyOffer6.setVisibility(View.GONE);
-                                        nearbyOffer7.setVisibility(View.GONE);
-                                        nearbyOffer8.setVisibility(View.GONE);
-                                        nodCoupOffer1.setVisibility(View.VISIBLE);
-                                        nodSingleCouponOffer1Text.setVisibility(View.GONE);
-                                        nodSingleCouponOffer2Text.setVisibility(View.VISIBLE);
-                                        nodSingleCouponOffer3Text.setVisibility(View.GONE);
-                                        nodCoupOffer1.setVisibility(View.GONE);
-                                        nodCoupOffer2.setVisibility(View.VISIBLE);
-                                        nodCoupOffer3.setVisibility(View.GONE);
-                                        System.out.println("multiOffer2");
-                                        System.out.println("Nearby 1");
+                                    nodSemiCirc1.setVisibility(View.VISIBLE);
+                                    ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+                                    nodSemiCircBg.setVisibility(View.VISIBLE);
+                                    ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+                                    ImageView ofsdIconImage = (ImageView) findViewById(R.id.ofsdIconImage);
+                                    TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                                    nodAddress.setVisibility(View.VISIBLE);
+                                    LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                                    nodContactDets.setVisibility(View.VISIBLE);
+                                    System.out.println("nearby offer 1 category");
+                                    System.out.println(individualOfferDetsArray[0]);
+                                    if (individualOfferDetsArray[0].equals("drinks")) {
                                     }
-                                });
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer2.setVisibility(View.GONE);
-                            }
-                            try {
-                                nearbyOffer3RetName.setText(nearbyRetNames.get(2).toString());
-                                nearbyOffer3.setVisibility(View.VISIBLE);
-                                singleCouponOfferText3.setText(offerDesc1.get(0).toString());
-
-                                nearbyOffer3.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        backStack = true;
-                                        try {
-                                            System.out.println("Printing countdown times");
-                                            final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-                                            System.out.println(countdowntime1.get(0).toString());
-                                            System.out.println(countdowntime2.get(0).toString());
-                                            System.out.println(countdowntime3.get(0).toString());
-                                            final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
-                                            nodWebsitey.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    String url = "http://" + nodWebsiteyArray.get(0).toString();
-                                                    Intent i = new Intent(Intent.ACTION_VIEW);
-                                                    i.setData(Uri.parse(url));
-                                                    startActivity(i);
-                                                }
-                                            });
-                                            ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
-                                            nodEmail.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    String website2 = null;
-                                                    TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
-                                                    String message = messagetv.getText().toString();
-                                                    String website = nodWebsiteyArray.get(0).toString();
-                                                    if (website.substring(website.length() - 4, website.length()) == "com") {
-                                                        website2 = website.substring(4, (website.length() - 4));
-                                                        System.out.println(website2);
-                                                    } else {
-                                                        website2 = website.substring(4, website.length() - 6);
-                                                        System.out.println(website2);
-                                                    }
-                                                    Intent intent = new Intent(Intent.ACTION_SEND);
-                                                    intent.setType("message/rfc822");
-                                                    intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
-                                                    intent.putExtra(Intent.EXTRA_TEXT, message);
-                                                    intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
-                                                    Intent mailer = Intent.createChooser(intent, null);
-                                                    startActivity(mailer);
-                                                }
-                                            });
-                                            startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-                                        SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
-                                        SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
-                                        SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
-
-                                        nodSemiCirc1.setVisibility(View.GONE);
-                                        nodSemiCirc2.setVisibility(View.GONE);
-                                        nodSemiCirc3.setVisibility(View.VISIBLE);
-                                        ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
-                                        nodSemiCircBg.setVisibility(View.VISIBLE);
-                                        ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
-                                        TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
-                                        nodAddress.setVisibility(View.VISIBLE);
-                                        LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
-                                        nodContactDets.setVisibility(View.VISIBLE);
-                                        System.out.println("nearby offer 1 category");
-                                        System.out.println(individualOfferDetsArray[0]);
-                                        if (individualOfferDetsArray[0].equals("drinks")) {
-                                        }
-                                        if (individualOfferDetsArray[0].equals("attractions")) {
-                                            nodIconImage.setImageResource(R.drawable.attractions);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("Movies")) {
-                                            nodIconImage.setImageResource(R.drawable.movies);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("accommodation")) {
-                                            nodIconImage.setImageResource(R.drawable.accomodation);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("shopping")) {
-                                            nodIconImage.setImageResource(R.drawable.shopping);
-                                        }
-                                        if (individualOfferDetsArray[0].equals("food/dining")) {
-                                            nodIconImage.setImageResource(R.drawable.fooddining);
-                                        }
-                                        ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-                                        nodStarsOverlay.setVisibility(View.VISIBLE);
-                                        TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
-                                        nodRetailerName.setText(nearbyOffer3RetName.getText().toString());
-                                        semiCirc.setVisibility(View.GONE);
-                                        semiCirc2.setVisibility(View.GONE);
-                                        semiCirc3.setVisibility(View.GONE);
-                                        nodSemiCirc1.setVisibility(View.GONE);
-                                        nodSemiCirc2.setVisibility(View.GONE);
-                                        nodSemiCirc3.setVisibility(View.VISIBLE);
-                                        nearbyOffer1.setVisibility(View.GONE);
-                                        nearbyOffer2.setVisibility(View.GONE);
-                                        nearbyOffer3.setVisibility(View.GONE);
-                                        nearbyOffer4.setVisibility(View.GONE);
-                                        nearbyOffer5.setVisibility(View.GONE);
-                                        nearbyOffer6.setVisibility(View.GONE);
-                                        nearbyOffer7.setVisibility(View.GONE);
-                                        nearbyOffer8.setVisibility(View.GONE);
-                                        nodCoupOffer1.setVisibility(View.GONE);
-                                        nodCoupOffer2.setVisibility(View.GONE);
-                                        nodCoupOffer3.setVisibility(View.VISIBLE);
-                                        nodSingleCouponOffer1Text.setVisibility(View.GONE);
-                                        nodSingleCouponOffer2Text.setVisibility(View.GONE);
-                                        nodSingleCouponOffer3Text.setVisibility(View.VISIBLE);
-                                        nodCoupOffer1.setVisibility(View.GONE);
-                                        nodCoupOffer2.setVisibility(View.GONE);
-                                        nodCoupOffer3.setVisibility(View.VISIBLE);
-
-
+                                    if (individualOfferDetsArray[0].equals("attractions")) {
+                                        nodIconImage.setImageResource(R.drawable.attractions);
                                     }
-                                });
+                                    if (individualOfferDetsArray[0].equals("Movies")) {
+                                        nodIconImage.setImageResource(R.drawable.movies);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("accommodation")) {
+                                        nodIconImage.setImageResource(R.drawable.accomodation);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("shopping")) {
+                                        nodIconImage.setImageResource(R.drawable.shopping);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("food/dining")) {
+                                        nodIconImage.setImageResource(R.drawable.fooddining);
+                                    }
+                                    nodSemiCirc1.setVisibility(View.VISIBLE);
+                                    ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                    nodStarsOverlay.setVisibility(View.VISIBLE);
+                                    TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+                                    nodRetailerName.setText(nearbyOffer1RetName.getText().toString());
+                                    semiCirc.setVisibility(View.GONE);
+                                    semiCirc2.setVisibility(View.GONE);
+                                    semiCirc3.setVisibility(View.GONE);
+                                    nodSemiCirc1.setVisibility(View.VISIBLE);
+                                    nodSemiCirc2.setVisibility(View.GONE);
+                                    nodSemiCirc3.setVisibility(View.GONE);
+                                    nearbyOffer1.setVisibility(View.GONE);
+                                    nearbyOffer2.setVisibility(View.GONE);
+                                    nearbyOffer3.setVisibility(View.GONE);
+                                    nearbyOffer4.setVisibility(View.GONE);
+                                    nearbyOffer5.setVisibility(View.GONE);
+                                    nearbyOffer6.setVisibility(View.GONE);
+                                    nearbyOffer7.setVisibility(View.GONE);
+                                    nearbyOffer8.setVisibility(View.GONE);
+                                    nodCoupOffer1.setVisibility(View.VISIBLE);
+                                    nodSingleCouponOffer1Text.setVisibility(View.VISIBLE);
+                                    nodSingleCouponOffer2Text.setVisibility(View.GONE);
+                                    nodSingleCouponOffer3Text.setVisibility(View.GONE);
+                                    nodCoupOffer2.setVisibility(View.GONE);
+                                    nodCoupOffer3.setVisibility(View.GONE);
+                                    System.out.println("multiOffer2");
+                                    System.out.println("Nearby 1");
+                                }
+                            });
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer1.setVisibility(View.GONE);
+                        }
+                        try {
+                            nearbyOffer2RetName.setText(nearbyRetNames.get(1).toString());
+                            nearbyOffer2.setVisibility(View.VISIBLE);
+                            singleCouponOfferText2.setText(offerDesc1.get(1).toString());
 
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer3.setVisibility(View.GONE);
-                            }
-                            try {
-                                nearbyOffer4RetName.setText(nearbyRetNames.get(3).toString());
-                                nearbyOffer4.setVisibility(View.VISIBLE);
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer4.setVisibility(View.GONE);
-                            }
-                            try {
-                                nearbyOffer5RetName.setText(nearbyRetNames.get(4).toString());
-                                nearbyOffer5.setVisibility(View.VISIBLE);
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer5.setVisibility(View.GONE);
-                            }
-                            try {
-                                nearbyOffer6RetName.setText(nearbyRetNames.get(5).toString());
-                                nearbyOffer6.setVisibility(View.VISIBLE);
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer6.setVisibility(View.GONE);
-                            }
-                            try {
-                                nearbyOffer7RetName.setText(nearbyRetNames.get(6).toString());
-                                nearbyOffer7.setVisibility(View.VISIBLE);
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer7.setVisibility(View.GONE);
-                            }
-                            try {
-                                nearbyOffer8RetName.setText(nearbyRetNames.get(7).toString());
-                                nearbyOffer8.setVisibility(View.VISIBLE);
-                            } catch (Exception e) {
-                                System.out.println(e);
-                                nearbyOffer8.setVisibility(View.GONE);
-                            }
+                            nearbyOffer2.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    backStack = true;
+                                    multiOfferIsOpen = true;
 
-                            System.out.println(allOffersArray.get(2).split(Pattern.quote("|"))[4].substring(3, 10));
-                            System.out.println(allOffersArray.get(3));
-                            System.out.println(allOffersArray.get(4));
-                            nearbyRetNames.clear();
-                            offerDesc1.clear();
-                            offerDesc2.clear();
-                            offerDesc3.clear();
+                                    try {
+                                        System.out.println("Printing countdown times");
+                                        final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                        System.out.println(countdowntime1.get(0).toString());
+                                        System.out.println(countdowntime2.get(0).toString());
+                                        System.out.println(countdowntime3.get(0).toString());
+                                        final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+                                        nodWebsitey.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String url = "http://" + nodWebsiteyArray.get(1).toString();
+                                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                                i.setData(Uri.parse(url));
+                                                startActivity(i);
+                                            }
+                                        });
+                                        ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+                                        nodEmail.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String website2 = null;
+                                                TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer2Text);
+                                                String message = messagetv.getText().toString();
+                                                String website = nodWebsiteyArray.get(0).toString();
+                                                if (website.substring(website.length() - 4, website.length()) == "com") {
+                                                    website2 = website.substring(4, (website.length() - 4));
+                                                    System.out.println(website2);
+                                                } else {
+                                                    website2 = website.substring(4, website.length() - 6);
+                                                    System.out.println(website2);
+                                                }
+                                                Intent intent = new Intent(Intent.ACTION_SEND);
+                                                intent.setType("message/rfc822");
+                                                intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                                                intent.putExtra(Intent.EXTRA_TEXT, message);
+                                                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                                                Intent mailer = Intent.createChooser(intent, null);
+                                                startActivity(mailer);
+                                            }
+                                        });
+                                        startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                    }
+                                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+                                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+                                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
+
+                                    nodSemiCirc1.setVisibility(View.GONE);
+                                    nodSemiCirc2.setVisibility(View.VISIBLE);
+                                    ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+                                    nodSemiCircBg.setVisibility(View.VISIBLE);
+                                    ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+                                    ImageView ofsdIconImage = (ImageView) findViewById(R.id.ofsdIconImage);
+                                    TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                                    nodAddress.setVisibility(View.VISIBLE);
+                                    LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                                    nodContactDets.setVisibility(View.VISIBLE);
+                                    System.out.println("nearby offer 1 category");
+                                    System.out.println(individualOfferDetsArray[0]);
+                                    if (individualOfferDetsArray[0].equals("drinks")) {
+                                    }
+                                    if (individualOfferDetsArray[0].equals("attractions")) {
+                                        nodIconImage.setImageResource(R.drawable.attractions);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("Movies")) {
+                                        nodIconImage.setImageResource(R.drawable.movies);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("accommodation")) {
+                                        nodIconImage.setImageResource(R.drawable.accomodation);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("shopping")) {
+                                        nodIconImage.setImageResource(R.drawable.shopping);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("food/dining")) {
+                                        nodIconImage.setImageResource(R.drawable.fooddining);
+                                    }
+                                    nodSemiCirc2.setVisibility(View.VISIBLE);
+                                    ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                    nodStarsOverlay.setVisibility(View.VISIBLE);
+                                    TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+                                    nodRetailerName.setText(nearbyOffer2RetName.getText().toString());
+                                    TextView ofsdRetName = (TextView) findViewById(R.id.ofsdRetailerName);
+                                    ofsdRetName.setVisibility(View.GONE);
+                                    semiCirc.setVisibility(View.GONE);
+                                    semiCirc2.setVisibility(View.GONE);
+                                    semiCirc3.setVisibility(View.GONE);
+                                    nodSemiCirc1.setVisibility(View.GONE);
+                                    nodSemiCirc2.setVisibility(View.VISIBLE);
+                                    nodSemiCirc3.setVisibility(View.GONE);
+                                    nearbyOffer1.setVisibility(View.GONE);
+                                    nearbyOffer2.setVisibility(View.GONE);
+                                    nearbyOffer3.setVisibility(View.GONE);
+                                    nearbyOffer4.setVisibility(View.GONE);
+                                    nearbyOffer5.setVisibility(View.GONE);
+                                    nearbyOffer6.setVisibility(View.GONE);
+                                    nearbyOffer7.setVisibility(View.GONE);
+                                    nearbyOffer8.setVisibility(View.GONE);
+                                    nodCoupOffer1.setVisibility(View.VISIBLE);
+                                    nodSingleCouponOffer1Text.setVisibility(View.GONE);
+                                    nodSingleCouponOffer2Text.setVisibility(View.VISIBLE);
+
+                                    System.out.println(offerDesc1.size());
+                                    nodSingleCouponOffer2Text.setText(offerDesc1.get(1).toString());
+                                    nodSingleCouponOffer3Text.setVisibility(View.GONE);
+                                    nodCoupOffer1.setVisibility(View.GONE);
+                                    nodCoupOffer2.setVisibility(View.VISIBLE);
+                                    nodCoupOffer3.setVisibility(View.GONE);
+                                    System.out.println("multiOffer2");
+                                    System.out.println("Nearby 1");
+                                }
+                            });
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer2.setVisibility(View.GONE);
+                        }
+                        try {
+                            nearbyOffer3RetName.setText(nearbyRetNames.get(2).toString());
+                            nearbyOffer3.setVisibility(View.VISIBLE);
+                            singleCouponOfferText3.setText(offerDesc1.get(2).toString());
+
+                            nearbyOffer3.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    backStack = true;
+                                    multiOfferIsOpen = true;
+
+                                    try {
+                                        System.out.println("Printing countdown times");
+                                        final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                        System.out.println(countdowntime1.get(0).toString());
+                                        System.out.println(countdowntime2.get(0).toString());
+                                        System.out.println(countdowntime3.get(0).toString());
+                                        final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+                                        nodWebsitey.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String url = "http://" + nodWebsiteyArray.get(2).toString();
+                                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                                i.setData(Uri.parse(url));
+                                                startActivity(i);
+                                            }
+                                        });
+                                        ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+                                        nodEmail.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String website2 = null;
+                                                TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+                                                String message = messagetv.getText().toString();
+                                                String website = nodWebsiteyArray.get(0).toString();
+                                                if (website.substring(website.length() - 4, website.length()) == "com") {
+                                                    website2 = website.substring(4, (website.length() - 4));
+                                                    System.out.println(website2);
+                                                } else {
+                                                    website2 = website.substring(4, website.length() - 6);
+                                                    System.out.println(website2);
+                                                }
+                                                Intent intent = new Intent(Intent.ACTION_SEND);
+                                                intent.setType("message/rfc822");
+                                                intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                                                intent.putExtra(Intent.EXTRA_TEXT, message);
+                                                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                                                Intent mailer = Intent.createChooser(intent, null);
+                                                startActivity(mailer);
+                                            }
+                                        });
+                                        startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                    }
+                                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+                                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+                                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
+
+                                    nodSemiCirc1.setVisibility(View.GONE);
+                                    nodSemiCirc2.setVisibility(View.GONE);
+                                    nodSemiCirc3.setVisibility(View.VISIBLE);
+                                    ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+                                    nodSemiCircBg.setVisibility(View.VISIBLE);
+                                    ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+                                    TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                                    nodAddress.setVisibility(View.VISIBLE);
+                                    LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                                    nodContactDets.setVisibility(View.VISIBLE);
+                                    System.out.println("nearby offer 1 category");
+                                    System.out.println(individualOfferDetsArray[0]);
+                                    if (individualOfferDetsArray[0].equals("drinks")) {
+                                    }
+                                    if (individualOfferDetsArray[0].equals("attractions")) {
+                                        nodIconImage.setImageResource(R.drawable.attractions);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("Movies")) {
+                                        nodIconImage.setImageResource(R.drawable.movies);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("accommodation")) {
+                                        nodIconImage.setImageResource(R.drawable.accomodation);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("shopping")) {
+                                        nodIconImage.setImageResource(R.drawable.shopping);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("food/dining")) {
+                                        nodIconImage.setImageResource(R.drawable.fooddining);
+                                    }
+                                    ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                    nodStarsOverlay.setVisibility(View.VISIBLE);
+                                    TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+                                    nodRetailerName.setText(nearbyOffer3RetName.getText().toString());
+                                    semiCirc.setVisibility(View.GONE);
+                                    semiCirc2.setVisibility(View.GONE);
+                                    semiCirc3.setVisibility(View.GONE);
+                                    nodSemiCirc1.setVisibility(View.GONE);
+                                    nodSemiCirc2.setVisibility(View.GONE);
+                                    nodSemiCirc3.setVisibility(View.VISIBLE);
+                                    nearbyOffer1.setVisibility(View.GONE);
+                                    nearbyOffer2.setVisibility(View.GONE);
+                                    nearbyOffer3.setVisibility(View.GONE);
+                                    nearbyOffer4.setVisibility(View.GONE);
+                                    nearbyOffer5.setVisibility(View.GONE);
+                                    nearbyOffer6.setVisibility(View.GONE);
+                                    nearbyOffer7.setVisibility(View.GONE);
+                                    nearbyOffer8.setVisibility(View.GONE);
+                                    nodCoupOffer1.setVisibility(View.GONE);
+                                    nodCoupOffer2.setVisibility(View.GONE);
+                                    nodCoupOffer3.setVisibility(View.VISIBLE);
+                                    nodSingleCouponOffer3Text.setText(offerDesc1.get(2).toString());
+                                    nodSingleCouponOffer1Text.setVisibility(View.GONE);
+                                    nodSingleCouponOffer2Text.setVisibility(View.GONE);
+                                    nodSingleCouponOffer3Text.setVisibility(View.VISIBLE);
+                                    nodCoupOffer1.setVisibility(View.GONE);
+                                    nodCoupOffer2.setVisibility(View.GONE);
+                                    nodCoupOffer3.setVisibility(View.VISIBLE);
+
+
+                                }
+                            });
+
+                            nearbyOffer4.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    backStack = true;
+                                    multiOfferIsOpen = true;
+
+                                    try {
+                                        final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+
+                                        final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+                                        nodWebsitey.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String url = "http://" + nodWebsiteyArray.get(4).toString();
+                                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                                i.setData(Uri.parse(url));
+                                                startActivity(i);
+                                            }
+                                        });
+                                        ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+                                        nodEmail.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                String website2 = null;
+                                                TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+                                                String message = messagetv.getText().toString();
+                                                String website = nodWebsiteyArray.get(0).toString();
+                                                if (website.substring(website.length() - 4, website.length()) == "com") {
+                                                    website2 = website.substring(4, (website.length() - 4));
+                                                    System.out.println(website2);
+                                                } else {
+                                                    website2 = website.substring(4, website.length() - 6);
+                                                    System.out.println(website2);
+                                                }
+                                                Intent intent = new Intent(Intent.ACTION_SEND);
+                                                intent.setType("message/rfc822");
+                                                intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                                                intent.putExtra(Intent.EXTRA_TEXT, message);
+                                                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                                                Intent mailer = Intent.createChooser(intent, null);
+                                                startActivity(mailer);
+                                            }
+                                        });
+                                        startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                    }
+                                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+                                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+                                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
+
+                                    nodSemiCirc1.setVisibility(View.GONE);
+                                    nodSemiCirc2.setVisibility(View.GONE);
+                                    nodSemiCirc3.setVisibility(View.VISIBLE);
+                                    ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+                                    nodSemiCircBg.setVisibility(View.VISIBLE);
+                                    ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+                                    TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+                                    nodAddress.setVisibility(View.VISIBLE);
+                                    LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+                                    nodContactDets.setVisibility(View.VISIBLE);
+                                    System.out.println("nearby offer 1 category");
+                                    System.out.println(individualOfferDetsArray[0]);
+                                    if (individualOfferDetsArray[0].equals("drinks")) {
+                                    }
+                                    if (individualOfferDetsArray[0].equals("attractions")) {
+                                        nodIconImage.setImageResource(R.drawable.attractions);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("Movies")) {
+                                        nodIconImage.setImageResource(R.drawable.movies);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("accommodation")) {
+                                        nodIconImage.setImageResource(R.drawable.accomodation);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("shopping")) {
+                                        nodIconImage.setImageResource(R.drawable.shopping);
+                                    }
+                                    if (individualOfferDetsArray[0].equals("food/dining")) {
+                                        nodIconImage.setImageResource(R.drawable.fooddining);
+                                    }
+                                    ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+                                    nodStarsOverlay.setVisibility(View.VISIBLE);
+                                    TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+                                    nodRetailerName.setText(nearbyOffer3RetName.getText().toString());
+                                    semiCirc.setVisibility(View.GONE);
+                                    semiCirc2.setVisibility(View.GONE);
+                                    semiCirc3.setVisibility(View.GONE);
+                                    nodSemiCirc1.setVisibility(View.GONE);
+                                    nodSemiCirc2.setVisibility(View.GONE);
+                                    nodSemiCirc3.setVisibility(View.VISIBLE);
+                                    nearbyOffer1.setVisibility(View.GONE);
+                                    nearbyOffer2.setVisibility(View.GONE);
+                                    nearbyOffer3.setVisibility(View.GONE);
+                                    nearbyOffer4.setVisibility(View.GONE);
+                                    nearbyOffer5.setVisibility(View.GONE);
+                                    nearbyOffer6.setVisibility(View.GONE);
+                                    nearbyOffer7.setVisibility(View.GONE);
+                                    nearbyOffer8.setVisibility(View.GONE);
+                                    nodCoupOffer1.setVisibility(View.GONE);
+                                    nodCoupOffer2.setVisibility(View.GONE);
+                                    nodCoupOffer3.setVisibility(View.VISIBLE);
+                                    nodSingleCouponOffer1Text.setVisibility(View.GONE);
+                                    nodSingleCouponOffer2Text.setVisibility(View.GONE);
+                                    nodSingleCouponOffer3Text.setVisibility(View.VISIBLE);
+                                    nodSingleCouponOffer4Text.setText(offerDesc1.get(3).toString());
+                                    nodCoupOffer1.setVisibility(View.GONE);
+                                    nodCoupOffer2.setVisibility(View.GONE);
+                                    nodCoupOffer3.setVisibility(View.VISIBLE);
+
+
+                                }
+                            });
+
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer3.setVisibility(View.GONE);
+                        }
+                        try {
+                            nearbyOffer4RetName.setText(nearbyRetNames.get(3).toString());
+                            nearbyOffer4.setVisibility(View.VISIBLE);
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer4.setVisibility(View.GONE);
+                        }
+                        try {
+                            nearbyOffer5RetName.setText(nearbyRetNames.get(4).toString());
+                            nearbyOffer5.setVisibility(View.VISIBLE);
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer5.setVisibility(View.GONE);
+                        }
+                        try {
+                            nearbyOffer6RetName.setText(nearbyRetNames.get(5).toString());
+                            nearbyOffer6.setVisibility(View.VISIBLE);
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer6.setVisibility(View.GONE);
+                        }
+                        try {
+                            nearbyOffer7RetName.setText(nearbyRetNames.get(6).toString());
+                            nearbyOffer7.setVisibility(View.VISIBLE);
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer7.setVisibility(View.GONE);
+                        }
+                        try {
+                            nearbyOffer8RetName.setText(nearbyRetNames.get(7).toString());
+                            nearbyOffer8.setVisibility(View.VISIBLE);
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            nearbyOffer8.setVisibility(View.GONE);
                         }
 
+                        System.out.println(allOffersArray.get(2).split(Pattern.quote("|"))[4].substring(3, 10));
+                        System.out.println(allOffersArray.get(3));
+                        System.out.println(allOffersArray.get(4));
+                        nearbyRetNames.clear();
 
-                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
-                        // if m
-                        if (myCircle != null) {
-                            myCircle.remove();
-                        }
+                    }
+                }
 
-                        CircleOptions circleOptions = new CircleOptions()
-                                .center(latLng)   //set center
-                                .radius(70)   //set radius in meters
-                                .fillColor(0x551FBED6)  //default
-                                .strokeColor(0x10000000)
-                                .strokeWidth(5);
 
-                        myCircle = mMap.addCircle(circleOptions);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
+                // if m
+                if (myCircle != null) {
+                    myCircle.remove();
+                }
 
-                        if (cameraSet == false) {
-                            mMap.moveCamera(cameraUpdate);
-                        }
-                        cameraSet = true;
+                CircleOptions circleOptions = new CircleOptions()
+                        .center(latLng)   //set center
+                        .radius(70)   //set radius in meters
+                        .fillColor(0x551FBED6)  //default
+                        .strokeColor(0x10000000)
+                        .strokeWidth(5);
+
+                myCircle = mMap.addCircle(circleOptions);
+
+                if (cameraSet == false) {
+                    mMap.moveCamera(cameraUpdate);
+                }
+                cameraSet = true;
 
 
             }

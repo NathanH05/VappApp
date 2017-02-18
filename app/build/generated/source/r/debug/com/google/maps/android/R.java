@@ -90,9 +90,9 @@ public final class R {
 		public static final int satellite = 0x7f10005f;
 		public static final int standard = 0x7f100071;
 		public static final int terrain = 0x7f100060;
-		public static final int webview = 0x7f100209;
+		public static final int webview = 0x7f100207;
 		public static final int wide = 0x7f100072;
-		public static final int window = 0x7f100208;
+		public static final int window = 0x7f100206;
 	}
 	public static final class integer {
 		public static final int google_play_services_version = 0x7f0d0007;

@@ -96,6 +96,7 @@ Context mContext;
     String passw="";
     String streetName ="";
     String strtName ="";
+    Boolean retailerOrUser = false;
 
     StringBuffer response = new StringBuffer();
     static final int MY_PERMISSIONS_REQUEST_FINELOC =1;
@@ -213,6 +214,29 @@ Context mContext;
 
         setContentView(R.layout.activity_login_activity);
 //
+        final TextView retailerUserLogin = (TextView)findViewById(R.id.retailerUserLogin);
+        final TextView createAccount = (TextView)findViewById(R.id.createAccount);
+        final EditText username = (EditText) findViewById(R.id.username);
+        retailerUserLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(retailerOrUser == false)
+                {
+                    retailerUserLogin.setText("User Login >");
+                    retailerOrUser = true;
+                    username.setHint("retailer username");
+                    createAccount.setText("New Here? Create An Account Here >");
+
+
+                }
+                else{
+                    retailerUserLogin.setText("Retailer Login >");
+                    retailerOrUser = false;
+                    username.setHint("retailer username");
+                    createAccount.setText("New Here? Create A Retailer Account Here >");
+                }
+            }
+        });
         loadingPanel = (RelativeLayout)findViewById(R.id.loadingPanel);
          mContext = getApplicationContext();
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -226,14 +250,15 @@ Context mContext;
             public void onClick(View v) {
                 System.out.println("CLICKED");
                 mContext = getApplicationContext();
-                LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
-
-                // Inflate the custom layout/view
-                final View customView = inflater.inflate(R.layout.email_layout, null);
-
-
                 final EditText email = (EditText) customView.findViewById(R.id.email);
-                email.clearFocus();
+                final EditText password1 = (EditText) customView.findViewById(R.id.password);
+                final String password = password1.getText().toString();
+                // Create data variable for sent values to server
+                final String userEmail = email.getText().toString();
+
+
+
+
                 email.setOnClickListener(new View.OnClickListener() {
 
                     @Override
@@ -242,14 +267,13 @@ Context mContext;
                         imm.showSoftInput(email, InputMethodManager.SHOW_IMPLICIT);
                     }
                 });
-                final EditText password = (EditText) customView.findViewById(R.id.password);
-                password.clearFocus();
-                password.setOnClickListener(new View.OnClickListener() {
+                password1.clearFocus();
+                password1.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
                         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.showSoftInput(password, InputMethodManager.SHOW_IMPLICIT);
+                        imm.showSoftInput(password1, InputMethodManager.SHOW_IMPLICIT);
                     }
                 });
 
@@ -282,16 +306,15 @@ Context mContext;
                         loadingPanel.setVisibility(View.VISIBLE);
                         mContext = getApplicationContext();
 
-                        EditText email = (EditText) customView.findViewById(R.id.email);
-                        EditText password1 = (EditText) customView.findViewById(R.id.password);
-                        String password = password1.getText().toString();
-                        // Create data variable for sent values to server
-                        String userEmail = email.getText().toString();
+
                         System.out.println();
+                        if (retailerOrUser == true) {
+                            AWSCreateRetailer(userEmail,password);
 
+                        } else {
 
-                        AWSCreateUser(userEmail,password);
-
+                            AWSCreateUser(userEmail, password);
+                        }
                     }
                 });
                 mLinearLayout = (RelativeLayout) findViewById(R.id.login_activity);
@@ -300,7 +323,8 @@ Context mContext;
                 mPopupWindow.update(1300, 1000);
                 mPopupWindow.setFocusable(true);
                 mPopupWindow.update();
-            }
+
+        }
         });
         final EditText textPassword = (EditText) findViewById(R.id.textPassword);
 
@@ -308,7 +332,11 @@ Context mContext;
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
+
                     loadingPanel.setVisibility(View.VISIBLE);
+                    ImageView passwordCheckerImage = (ImageView)findViewById(R.id.passwordCheckerImage);
+                    passwordCheckerImage.setImageResource(R.drawable.tickgreen);
+
                     runOnUiThread(new Runnable() {
 
                         @Override
@@ -336,7 +364,6 @@ Context mContext;
 
         });
 
-        final EditText username = (EditText) findViewById(R.id.username);
         @ColorInt final int GREEN1 = 0xFF91a832;
         @ColorInt final int GREEN2 = 0xFF91a832;
 
@@ -376,10 +403,10 @@ Context mContext;
                     textPassword.getBackground().clearColorFilter();
                     username.getBackground().setColorFilter(GREEN2, PorterDuff.Mode.SRC_OUT);
                     if(!username.getText().toString().equals("")){
-                        usernameCheckerImage.setImageResource(R.drawable.tickorange);
+                        usernameCheckerImage.setImageResource(R.drawable.tickgreen);
                     }
                     else{
-                        usernameCheckerImage.setImageResource(R.drawable.crossgreen);
+                        usernameCheckerImage.setImageResource(R.drawable.crossorange);
 
                     }
                 } else {
@@ -388,10 +415,10 @@ Context mContext;
                     System.out.println(username.getText().toString());
 
                     if(!username.getText().toString().equals("")){
-                        usernameCheckerImage.setImageResource(R.drawable.tickorange);
+                        usernameCheckerImage.setImageResource(R.drawable.tickgreen);
                     }
                     else{
-                        usernameCheckerImage.setImageResource(R.drawable.crossgreen);
+                        usernameCheckerImage.setImageResource(R.drawable.crossorange);
 
                     }
                 }
@@ -407,10 +434,10 @@ Context mContext;
                     System.out.println(textPassword.getText().toString());
 
                     if(!textPassword.getText().toString().equals("")){
-                        passwordCheckerImage.setImageResource(R.drawable.tickorange);
+                        passwordCheckerImage.setImageResource(R.drawable.tickgreen);
                     }
                     else{
-                        passwordCheckerImage.setImageResource(R.drawable.crossgreen);
+                        passwordCheckerImage.setImageResource(R.drawable.crossorange);
 
                     }
                 }}
@@ -486,6 +513,149 @@ Context mContext;
         startActivity(intent);
     }
     public void AWSCreateUser(String userEmail,String password) {
+
+        loadingPanel.setVisibility(View.VISIBLE);
+
+        System.out.println(userEmail);
+
+
+        final Boolean j = isValidEmail(userEmail);
+
+
+        if (j == true) {
+
+            System.out.println(userEmail);
+            String userPassword = password;
+            System.out.println(password);
+            String data = null;
+
+
+            try {
+                data = "";
+                data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
+                        + "\"" + userEmail + "\"";
+                System.out.println("ha");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
+                        + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
+                System.out.println("ho");
+                System.out.println(data);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            String text = "";
+            BufferedReader reader = null;
+
+            // Send data
+            try {
+
+                // Defined URL  where to send data
+                URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/create-registered-user");
+
+                // Send POST data request
+
+                URLConnection conn = url.openConnection();
+                conn.setDoOutput(true);
+                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                wr.write(data);
+                wr.flush();
+
+                // Get the server response
+
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String line = null;
+
+                line = reader.readLine();
+                // Append server response in string
+                sb.append(line + "\n");
+                String f = line;
+                g = f.replace("\\", "").trim();
+
+
+            } catch (Exception ex) {
+
+            } finally {
+                try {
+                    reader.close();
+                } catch (Exception ex) {
+                }
+            }
+            System.out.println(g);
+            System.out.println(g);
+
+            Gson gson = new Gson();
+
+            JsonParser jsonParser = new JsonParser();
+            JsonElement my_json;
+
+
+            try {
+                my_json = jsonParser.parse(g);
+                JSONObject obj = new JSONObject(g);
+                emailString = obj.getString("email");
+                exists = obj.getBoolean("exists");
+                passw = obj.getString("password");
+
+
+                System.out.println(emailString);
+                System.out.println(exists);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            if (exists != false) {
+                loadingPanel.setVisibility(View.GONE);
+
+
+//                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+//
+//                            // Inflate the custom layout/view
+//                            View customView = inflater.inflate(R.layout.email_layout, null);
+                if(!passw.equals(userPassword)){
+                    TextView validator = (TextView) findViewById(R.id.validator);
+                    validator.setVisibility(View.VISIBLE);
+                    System.out.println(passw);
+                    System.out.println(userPassword);
+                    mPopupWindow.dismiss();
+                }
+                else {
+                    mPopupWindow.dismiss();
+
+                    Toast.makeText(login_activity.this,"You are already registered, please login or use 'Forget Password",Toast.LENGTH_LONG).show();
+                    mPopupWindow.dismiss();
+
+
+//                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
+//                    rl4.setVisibility(View.GONE);
+//                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
+//                    rl5.setVisibility(View.VISIBLE);
+
+//                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
+//                            startActivity(intent);
+
+                }
+            } else {
+                Toast.makeText(login_activity.this,"Thanks for joining, please login as "+userEmail,Toast.LENGTH_LONG).show();
+                loadingPanel.setVisibility(View.GONE);
+
+                mPopupWindow.dismiss();
+
+
+            }
+
+
+        }
+        else{
+            Toast.makeText(login_activity.this,"Please enter a valid email address",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void AWSCreateRetailer(String userEmail,String password) {
 
         loadingPanel.setVisibility(View.VISIBLE);
 

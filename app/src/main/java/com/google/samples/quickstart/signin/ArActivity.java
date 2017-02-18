@@ -132,6 +132,8 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
     SemiCircleProgressBarView semiCircleProgressBarView;
     long epochDif;
     int counter = 0;
+    String website ="";
+    String deal ="";
 
     @Override
     public boolean urlWasInvoked(String s) {
@@ -280,11 +282,11 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
 
 
     public void openRetailerSite(View view) {
-        TextView website = (TextView) findViewById(R.id.website);
-        String url = "http://" + website.getText().toString();
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
+//        TextView website = (TextView) findViewById(R.id.website);
+//        String url = "http://" + website.getText().toString();
+//        Intent i = new Intent(Intent.ACTION_VIEW);
+//        i.setData(Uri.parse(url));
+//        startActivity(i);
     }
 
 
@@ -299,11 +301,11 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
                 if(!uriString.split(Pattern.quote("|"))[1].equals("worldclicked")){
                     System.out.println(invokedUri);
                     String retailerName = uriString.split(Pattern.quote("|"))[1];
-                    String deal = uriString.split(Pattern.quote("|"))[2];
+                    deal = uriString.split(Pattern.quote("|"))[2];
                     String category = uriString.split(Pattern.quote("|"))[3];
                     String endTme = uriString.split(Pattern.quote("|"))[4];
                     String duration = uriString.split(Pattern.quote("|"))[5];
-                    String website = uriString.split(Pattern.quote("|"))[6];
+                     website = uriString.split(Pattern.quote("|"))[6];
                     String offerDescription2 = uriString.split(Pattern.quote("|"))[7];
                     String offerDescription3 = uriString.split(Pattern.quote("|"))[8];
                     String rating = uriString.split(Pattern.quote("|"))[9];
@@ -311,7 +313,7 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
                     String offerEndTime2 = uriString.split(Pattern.quote("|"))[10];
                     String offerEndTime3 = uriString.split(Pattern.quote("|"))[11];
 
-                    ImageView iconImage = (ImageView)findViewById(R.id.iconImage);
+                    ImageView iconImage = (ImageView)findViewById(R.id.ofsdIconImage);
                     if( category.equals("drinks")){
                         iconImage.setImageResource(R.drawable.drinks);
 
@@ -349,46 +351,46 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
                     tv.setText(retailerName);
                     TextView tvr = (TextView) findViewById(R.id.retailerNamesy);
                     tvr.setText(deal);
-                    TextView tvm = (TextView) findViewById(R.id.retailerNamesz);
-                    tvm.setText(offerDescription2);
-                    TextView tvn = (TextView) findViewById(R.id.retailerNamesd);
-                    tvn.setText(offerDescription3);
-                    ImageView stars = (ImageView) findViewById(R.id.stars);
-                    if (rating.equals("1")) {
-                        stars.setImageResource(R.drawable.onestar);
-                    }
-                    if (rating.equals("2")) {
-                        stars.setImageResource(R.drawable.twostar);
-                    }
-                    if (rating.equals("3")) {
-                        stars.setImageResource(R.drawable.threestar);
-                    }
-                    if (rating.equals("4")) {
-                        stars.setImageResource(R.drawable.fourstar);
-                    }
-                    if (rating.equals("5")) {
-                        stars.setImageResource(R.drawable.fivestar);
-                    }
+//                    TextView tvm = (TextView) findViewById(R.id.retailerNamesz);
+//                    tvm.setText(offerDescription2);
+//                    TextView tvn = (TextView) findViewById(R.id.retailerNamesd);
+//                    tvn.setText(offerDescription3);
+//                    ImageView stars = (ImageView) findViewById(R.id.stars);
+//                    if (rating.equals("1")) {
+//                        stars.setImageResource(R.drawable.onestar);
+//                    }
+//                    if (rating.equals("2")) {
+//                        stars.setImageResource(R.drawable.twostar);
+//                    }
+//                    if (rating.equals("3")) {
+//                        stars.setImageResource(R.drawable.threestar);
+//                    }
+//                    if (rating.equals("4")) {
+//                        stars.setImageResource(R.drawable.fourstar);
+//                    }
+//                    if (rating.equals("5")) {
+//                        stars.setImageResource(R.drawable.fivestar);
+//                    }
 
-                    TextView websiteTV = (TextView) findViewById(R.id.website);
-                    websiteTV.setText(website);
+//                    TextView websiteTV = (TextView) findViewById(R.id.website);
+//                    websiteTV.setText(website);
+//
+//                    FrameLayout offerBox2 = (FrameLayout) findViewById(R.id.content2z);
+//                    FrameLayout offerBox3 = (FrameLayout) findViewById(R.id.content2d);
 
-                    FrameLayout offerBox2 = (FrameLayout) findViewById(R.id.content2z);
-                    FrameLayout offerBox3 = (FrameLayout) findViewById(R.id.content2d);
-
-                    if (offerDescription2.equals("offer 2 empty")) {
-                        System.out.println("true2");
-                        offerBox2.setVisibility(FrameLayout.GONE);
-                    } else {
-                        offerBox2.setVisibility(FrameLayout.VISIBLE);
-                    }
-
-                    if (offerDescription3.equals("offer 3 empty")) {
-                        System.out.println("true3");
-                        offerBox3.setVisibility(FrameLayout.GONE);
-                    } else {
-                        offerBox3.setVisibility(FrameLayout.VISIBLE);
-                    }
+//                    if (offerDescription2.equals("offer 2 empty")) {
+//                        System.out.println("true2");
+//                        offerBox2.setVisibility(FrameLayout.GONE);
+//                    } else {
+//                        offerBox2.setVisibility(FrameLayout.VISIBLE);
+//                    }
+//
+//                    if (offerDescription3.equals("offer 3 empty")) {
+//                        System.out.println("true3");
+//                        offerBox3.setVisibility(FrameLayout.GONE);
+//                    } else {
+//                        offerBox3.setVisibility(FrameLayout.VISIBLE);
+//                    }
 
 
 //                System.out.println(marker.getSnippet().split(Pattern.quote("|"))[2]);
@@ -508,6 +510,63 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main2);
+        ImageView nodPhone = (ImageView) findViewById(R.id.nodPhone);
+        nodPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+64273581288"));
+                if (ActivityCompat.checkSelfPermission(ArActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                startActivity(intent);
+
+            }
+        });
+
+        ImageView email = (ImageView) findViewById(R.id.nodEmail);
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String website2 = null;
+                TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer1Text);
+                String message = deal;
+
+                if (website.substring(website.length() - 4, website.length()) == "com") {
+                    website2 = website.substring(4, (website.length() - 4));
+                    System.out.println(website2);
+                } else {
+                    website2 = website.substring(4, website.length() - 6);
+                    System.out.println(website2);
+                }
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+                intent.putExtra(Intent.EXTRA_TEXT, message);
+                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+                Intent mailer = Intent.createChooser(intent, null);
+                startActivity(mailer);
+            }
+        });
+        final ImageView websitey = (ImageView) findViewById(R.id.nodWebsitey);
+        websitey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = "http://" + website;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+
+            }
+        });
 
         View myView = findViewById(R.id.toolbar2);
         myView.setOnTouchListener(new OnSwipeTouchListener(this) {
@@ -546,30 +605,30 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
             }
         });
 
-        ImageView shareButton = (ImageView) findViewById(R.id.share);
+        ImageView shareButton = (ImageView) findViewById(R.id.nodShare);
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView tvy = (TextView) findViewById(R.id.retailerNamesy);
-                TextView tvz = (TextView) findViewById(R.id.retailerNamesz);
-                TextView tvd = (TextView) findViewById(R.id.retailerNamesd);
+//                TextView tvz = (TextView) findViewById(R.id.retailerNamesz);
+//                TextView tvd = (TextView) findViewById(R.id.retailerNamesd);
                 TextView retName = (TextView) findViewById(R.id.retailerName);
                 String offer2 = null;
                 String offer3 = null;
-                if (tvz.getText().toString().equals("offer 2 empty")) {
-                    offer2 = "";
+//                if (tvz.getText().toString().equals("offer 2 empty")) {
+//                    offer2 = "";
+//
+//                } else {
+//                    offer2 = tvz.getText().toString();
+//
+//                }
+//                if (tvd.getText().toString().equals("offer 3 empty")) {
+//                    offer3 = "";
+//
+//                } else {
+//                    offer3 = tvd.getText().toString();
 
-                } else {
-                    offer2 = tvz.getText().toString();
-
-                }
-                if (tvd.getText().toString().equals("offer 3 empty")) {
-                    offer3 = "";
-
-                } else {
-                    offer3 = tvd.getText().toString();
-
-                }
+//                }
 
                 Resources resources = getResources();
 
@@ -1213,7 +1272,11 @@ public class ArActivity extends AppCompatActivity implements Animation.Animation
 //        timerBar.setImageResource(R.drawable.threequartertime);
         semiCircleProgressBarView = new SemiCircleProgressBarView(ArActivity.this, orange);
 
-        semiCircleProgressBarView = (SemiCircleProgressBarView) findViewById(R.id.iconImageBg3);
+        semiCircleProgressBarView = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
+        semiCircleProgressBarView.setVisibility(View.VISIBLE);
+
+        ImageView ofsdSemiCircBg = (ImageView)findViewById(R.id.ofsdSemiCircBg);
+        ofsdSemiCircBg.setVisibility(View.VISIBLE);
         semiCircleProgressBarView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         semiCircleProgressBarView.setClipping(100);
