@@ -5,36 +5,50 @@
     density="xxxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="129344343622735"
+    timestamp="311429901809770"
     token="-6401203421281611079"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="912" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="47" />
+        duration="0" />
     <task
         name="verifier"
-        duration="2" />
+        duration="0" />
 
     <artifact
         location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
         type="DEX" />
 
     <build
-        timestamp="126804446153363"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="303127042907254"
+        verifier="JAVA_RESOURCES_CHANGED" >
         <artifact
             location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="129344343622735"
+        timestamp="311228511092464"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/builds/debug/311228511092464/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="311328203159422"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/builds/debug/311328203159422/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="311429901809770"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"

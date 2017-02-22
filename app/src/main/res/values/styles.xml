@@ -83,6 +83,11 @@
         <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
         <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
     </style>
+    <style name="editTextTheme" parent="AppTheme.NoActionBar">
+        <item name="colorControlNormal">#a4b92d</item>
+        <item name="colorControlActivated">#a4b92d</item>
+        <item name="colorControlHighlight">#a4b92d</item>
+    </style>
 
 
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">

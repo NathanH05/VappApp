@@ -206,6 +206,9 @@
             android:name="com.example.myfirstapp.paymentscreen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.google.samples.quickstart.signin.forgotPassword" />
+        <activity
+            android:name="com.example.myfirstapp.create_retail_user"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.wikitude.architect.BrowserActivity" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

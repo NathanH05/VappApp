@@ -61,6 +61,7 @@ import java.nio.charset.Charset;
 import java.util.UUID;
 
 import ch.hsr.geohash.GeoHash;
+import io.fabric.sdk.android.services.concurrency.AsyncTask;
 
 public class retailerSignUpLogin extends AppCompatActivity {
 
@@ -72,6 +73,9 @@ public class retailerSignUpLogin extends AppCompatActivity {
 
     Boolean exists = false;
     int year;
+
+    YourTask mTask;
+    RelativeLayout loadingPanel;
 
     int month;
     int day;
@@ -1999,5 +2003,30 @@ RelativeLayout rl2 = (RelativeLayout)findViewById(R.id.activity_retailer_post_of
         }
 
     }
+    class YourTask extends AsyncTask<String, Void, String> {
 
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+            loadingPanel.setVisibility(View.VISIBLE);
+
+            //Things should do in, until progress bar close
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            loadingPanel.setVisibility(View.GONE);
+        }
+    }
 }

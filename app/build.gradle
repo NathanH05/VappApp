@@ -1,29 +1,8 @@
 apply plugin: 'com.android.application'
 
-android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
-    defaultConfig {
-        applicationId "com.google.samples.quickstart.signin"
-        minSdkVersion 23
-        targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            debuggable true
-        }
-    }
-    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jniLibs'] } }
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:design:24.0.1'
+    compile 'com.android.support:design:25.1.1'
     compile(name: 'wikitudesdk', ext: 'aar')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -32,7 +11,12 @@ dependencies {
     compile('com.twitter.sdk.android:twitter-core:1.6.3@aar') {
         transitive = true;
 
+
     }
+//compile 'org.apache.httpcomponents:httpclient:4.4'
+    compile 'org.apache.httpcomponents:httpclient:4.5.2'
+    compile 'com.amazonaws:aws-android-sdk-core:2.3.9'
+    compile 'com.amazonaws:aws-android-sdk-ses:2.3.9'
     compile 'com.auth0.android:lock:2.0.0'
     compile 'com.google.android.gms:play-services:9.6.1'
     compile 'com.google.android.gms:play-services-auth:9.6.1'
@@ -45,7 +29,50 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.maps.android:android-maps-utils:0.4.4'
     compile 'com.cedarsoft.commons:swing:7.2.0'
+    compile 'org.apache:apache:18'
+    compile 'org.web3j:core-android:1.0.8'
+    compile 'com.sun.mail:android-mail:1.5.5'
+    compile 'com.sun.mail:android-activation:1.5.5'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.7'
 }
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "2048M"
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.google.samples.quickstart.signin"
+        minSdkVersion 23
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        packagingOptions {
+            exclude 'META-INF/DEPENDENCIES'
+            exclude 'META-INF/NOTICE'
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/NOTICE.txt'
+            exclude 'META-INF/javamail.providers'
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+        }
+    }
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jniLibs'] } }
+}
+
+
 
 repositories {
     flatDir {

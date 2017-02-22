@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':aws-java-sdk-1.11.93', ':aws-java-sdk-1.11.93-sources'

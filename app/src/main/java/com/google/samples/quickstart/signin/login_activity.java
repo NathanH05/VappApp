@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myfirstapp.R;
+import com.example.myfirstapp.create_retail_user;
 import com.example.myfirstapp.retailerSignUpLogin;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -71,9 +72,10 @@ import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
 import io.fabric.sdk.android.Fabric;
+import io.fabric.sdk.android.services.concurrency.AsyncTask;
 
 public class login_activity extends AppCompatActivity {
-
+    public createRegisteredUser mTask;
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
     private GoogleApiClient mGoogleApiClient;
@@ -85,22 +87,22 @@ public class login_activity extends AppCompatActivity {
     private TwitterLoginButton loginButton2;
     PopupWindow mPopupWindow;
     View mLinearLayout;
-    String lat ="";
-    String lng ="";
+    String lat = "";
+    String lng = "";
     RelativeLayout loadingPanel;
-    String g ="";
-    String emailString ="";
+    String g = "";
+    String emailString = "";
     Boolean exists = null;
     StringBuilder sb = new StringBuilder();
-Context mContext;
-    String passw="";
-    String streetName ="";
-    String strtName ="";
+    Context mContext;
+    String passw = "";
+    String streetName = "";
+    String strtName = "";
     Boolean retailerOrUser = false;
 
     StringBuffer response = new StringBuffer();
-    static final int MY_PERMISSIONS_REQUEST_FINELOC =1;
-    static final int MY_PERMISSIONS_REQUEST_CAMERA =2;
+    static final int MY_PERMISSIONS_REQUEST_FINELOC = 1;
+    static final int MY_PERMISSIONS_REQUEST_CAMERA = 2;
 
 
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
@@ -134,11 +136,11 @@ Context mContext;
                 }
                 return;
             }
-            case MY_PERMISSIONS_REQUEST_CAMERA:{
+            case MY_PERMISSIONS_REQUEST_CAMERA: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                }  else{
+                } else {
 
                 }
                 return;
@@ -196,7 +198,7 @@ Context mContext;
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         ActivityCompat.requestPermissions(login_activity.this,
-                new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA},
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA},
                 MY_PERMISSIONS_REQUEST_FINELOC);
         if (Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -208,40 +210,67 @@ Context mContext;
 
         Fabric.with(this, new TwitterCore(authConfig));
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
         setContentView(R.layout.activity_login_activity);
+//        AWSCredentials credentials = new BasicAWSCredentials("AKIAJHWQUGHGUY6WSZWQ","KCu768lIlz6D5NpUddPmRHIpcKVRPgbVb8Yl2vba");
+//        AmazonSimpleEmailServiceClient sesClient = new AmazonSimpleEmailServiceClient( credentials );
 //
-        final TextView retailerUserLogin = (TextView)findViewById(R.id.retailerUserLogin);
-        final TextView createAccount = (TextView)findViewById(R.id.createAccount);
-        final EditText username = (EditText) findViewById(R.id.username);
-        retailerUserLogin.setOnClickListener(new View.OnClickListener() {
+//        String subjectText = "Feedback from " + "nathan";
+//        Content subjectContent = new Content(subjectText);
+//        String bodyText = "Rating: " + "4" + "\nComments\n";
+//        Body messageBody = new Body(new Content(bodyText));
+//        Message feedbackMessage = new Message(subjectContent,messageBody);
+//        String email = "nathan.hampshire5@gmail.com";
+//        Destination destination = new Destination().withToAddresses(email);
+//
+//        SendEmailRequest request = new SendEmailRequest(email,destination,feedbackMessage);
+//        SendEmailResult result = sesClient.sendEmail(request);
+//
+
+
+
+        final RelativeLayout login_activity = (RelativeLayout) findViewById(R.id.login_activity);
+        login_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(retailerOrUser == false)
-                {
-                    retailerUserLogin.setText("User Login >");
-                    retailerOrUser = true;
-                    username.setHint("retailer username");
-                    createAccount.setText("New Here? Create An Account Here >");
 
+                View view = login_activity.this.getCurrentFocus();
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-                }
-                else{
-                    retailerUserLogin.setText("Retailer Login >");
-                    retailerOrUser = false;
-                    username.setHint("retailer username");
-                    createAccount.setText("New Here? Create A Retailer Account Here >");
                 }
             }
         });
-        loadingPanel = (RelativeLayout)findViewById(R.id.loadingPanel);
-         mContext = getApplicationContext();
+//
+        final TextView retailerUserLogin = (TextView) findViewById(R.id.retailerUserLogin);
+        final TextView createAccount = (TextView) findViewById(R.id.createAccount);
+        final EditText username = (EditText) findViewById(R.id.username);
+        final EditText textPassword = (EditText) findViewById(R.id.textPassword);
+        retailerUserLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (retailerOrUser == false) {
+                    retailerUserLogin.setText("User Login >");
+                    retailerOrUser = true;
+                    textPassword.setText("");
+                    username.setText("");
+                    username.setHint("retailer username");
+                    createAccount.setText("New Here? Create A Retailer Account Here >");
+                } else {
+                    retailerUserLogin.setText("Retailer Login >");
+                    retailerOrUser = false;
+                    username.setHint("username");
+                    username.setText("");
+                    textPassword.setText("");
+                    createAccount.setText("New Here? Create An Account Here >");
+                }
+            }
+        });
+        loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+        mContext = getApplicationContext();
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
         final View customView = inflater.inflate(R.layout.email_layout, null);
-        final EditText email = (EditText) customView.findViewById(R.id.email);
         final TextView createAccountButton = (TextView) findViewById(R.id.createAccount);
 
 
@@ -255,78 +284,77 @@ Context mContext;
                 final String password = password1.getText().toString();
                 // Create data variable for sent values to server
                 final String userEmail = email.getText().toString();
+                if (retailerOrUser == true) {
+                    AWSCreateRetailer(userEmail, password);
+                } else {
 
 
+                    email.setOnClickListener(new View.OnClickListener() {
 
+                        @Override
+                        public void onClick(View v) {
+                            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.showSoftInput(email, InputMethodManager.SHOW_IMPLICIT);
+                        }
+                    });
+                    password1.clearFocus();
+                    password1.setOnClickListener(new View.OnClickListener() {
 
-                email.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.showSoftInput(email, InputMethodManager.SHOW_IMPLICIT);
-                    }
-                });
-                password1.clearFocus();
-                password1.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.showSoftInput(password1, InputMethodManager.SHOW_IMPLICIT);
-                    }
-                });
+                        @Override
+                        public void onClick(View v) {
+                            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.showSoftInput(password1, InputMethodManager.SHOW_IMPLICIT);
+                        }
+                    });
 
 
 //                    EditText email= (EditText) findViewById(R.id.email);
 //                    InputMethodManager imm2 = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 //                    imm2.showSoftInput(email, InputMethodManager.SHOW_IMPLICIT);
 
-                // Initialize a new instance of popup window
-                mPopupWindow = new PopupWindow(
-                        customView,
-                        RelativeLayout.LayoutParams.WRAP_CONTENT,
-                        RelativeLayout.LayoutParams.WRAP_CONTENT
-                );
+                    // Initialize a new instance of popup window
+                    mPopupWindow = new PopupWindow(
+                            customView,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT
+                    );
 
-                // Set an elevation value for popup window
-                // Call requires API level 21
-                if (Build.VERSION.SDK_INT >= 21) {
-                    mPopupWindow.setElevation(5.0f);
-                }
+                    // Set an elevation value for popup window
+                    // Call requires API level 21
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        mPopupWindow.setElevation(5.0f);
+                    }
 
-                // Get a reference for the custom view close button
-                Button closeButton = (Button) customView.findViewById(R.id.ib_close);
-
-
-                // Set a click listener for the popup window close button
-                closeButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        loadingPanel.setVisibility(View.VISIBLE);
-                        mContext = getApplicationContext();
+                    // Get a reference for the custom view close button
+                    Button closeButton = (Button) customView.findViewById(R.id.ib_close);
 
 
-                        System.out.println();
-                        if (retailerOrUser == true) {
-                            AWSCreateRetailer(userEmail,password);
+                    // Set a click listener for the popup window close button
+                    closeButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
 
-                        } else {
+
+                            mContext = getApplicationContext();
+
+
+                            System.out.println();
+
 
                             AWSCreateUser(userEmail, password);
+
                         }
-                    }
-                });
-                mLinearLayout = (RelativeLayout) findViewById(R.id.login_activity);
+                    });
+                    mLinearLayout = (RelativeLayout) findViewById(R.id.login_activity);
 
-                mPopupWindow.showAtLocation(mLinearLayout, Gravity.CENTER, 0, 0);
-                mPopupWindow.update(1300, 1000);
-                mPopupWindow.setFocusable(true);
-                mPopupWindow.update();
+                    mPopupWindow.showAtLocation(mLinearLayout, Gravity.CENTER, 0, 0);
+                    mPopupWindow.update(1300, 1000);
+                    mPopupWindow.setFocusable(true);
+                    mPopupWindow.update();
 
-        }
+                }
+            }
         });
-        final EditText textPassword = (EditText) findViewById(R.id.textPassword);
 
         textPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -334,7 +362,13 @@ Context mContext;
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
 
                     loadingPanel.setVisibility(View.VISIBLE);
-                    ImageView passwordCheckerImage = (ImageView)findViewById(R.id.passwordCheckerImage);
+                    // Check if no view has focus:
+                    View view = login_activity.this.getCurrentFocus();
+                    if (view != null) {
+                        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    }
+                    ImageView passwordCheckerImage = (ImageView) findViewById(R.id.passwordCheckerImage);
                     passwordCheckerImage.setImageResource(R.drawable.tickgreen);
 
                     runOnUiThread(new Runnable() {
@@ -346,7 +380,11 @@ Context mContext;
                                 @Override
                                 public void run() {
                                     //add your code here
-                                    AWSlogin();
+                                    if (!retailerOrUser) {
+                                        AWSlogin();
+                                    } else {
+                                        AWSretailerLogin();
+                                    }
                                 }
                             }, 1000);
 
@@ -354,12 +392,10 @@ Context mContext;
                     });
 
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
             }
-
 
 
         });
@@ -392,8 +428,8 @@ Context mContext;
 
 
 //        editText.setTextColor(0xffffff);
-        final ImageView usernameCheckerImage = (ImageView)findViewById(R.id.usernameCheckerImage);
-        final ImageView passwordCheckerImage = (ImageView)findViewById(R.id.passwordCheckerImage);
+        final ImageView usernameCheckerImage = (ImageView) findViewById(R.id.usernameCheckerImage);
+        final ImageView passwordCheckerImage = (ImageView) findViewById(R.id.passwordCheckerImage);
 
         username.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -402,10 +438,9 @@ Context mContext;
                     username.getBackground().clearColorFilter();
                     textPassword.getBackground().clearColorFilter();
                     username.getBackground().setColorFilter(GREEN2, PorterDuff.Mode.SRC_OUT);
-                    if(!username.getText().toString().equals("")){
+                    if (!username.getText().toString().equals("")) {
                         usernameCheckerImage.setImageResource(R.drawable.tickgreen);
-                    }
-                    else{
+                    } else {
                         usernameCheckerImage.setImageResource(R.drawable.crossorange);
 
                     }
@@ -414,10 +449,9 @@ Context mContext;
                     textPassword.getBackground().setColorFilter(GREEN2, PorterDuff.Mode.SRC_OUT);
                     System.out.println(username.getText().toString());
 
-                    if(!username.getText().toString().equals("")){
+                    if (!username.getText().toString().equals("")) {
                         usernameCheckerImage.setImageResource(R.drawable.tickgreen);
-                    }
-                    else{
+                    } else {
                         usernameCheckerImage.setImageResource(R.drawable.crossorange);
 
                     }
@@ -426,25 +460,24 @@ Context mContext;
         });
 
         textPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                }
-                else{
-                    System.out.println(textPassword.getText().toString());
+                                                  @Override
+                                                  public void onFocusChange(View v, boolean hasFocus) {
+                                                      if (hasFocus) {
+                                                      } else {
+                                                          System.out.println(textPassword.getText().toString());
 
-                    if(!textPassword.getText().toString().equals("")){
-                        passwordCheckerImage.setImageResource(R.drawable.tickgreen);
-                    }
-                    else{
-                        passwordCheckerImage.setImageResource(R.drawable.crossorange);
+                                                          if (!textPassword.getText().toString().equals("")) {
+                                                              passwordCheckerImage.setImageResource(R.drawable.tickgreen);
+                                                          } else {
+                                                              passwordCheckerImage.setImageResource(R.drawable.crossorange);
 
-                    }
-                }}
-        }
+                                                          }
+                                                      }
+                                                  }
+                                              }
         );
 
-                final LoginButton fb = (LoginButton) findViewById(R.id.fb);
+        final LoginButton fb = (LoginButton) findViewById(R.id.fb);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
@@ -482,8 +515,7 @@ Context mContext;
     }
 
 
-
-    public void googleLogin(View v){
+    public void googleLogin(View v) {
         Intent intent = new Intent(this, login_activity.class);
         startActivity(intent);
     }
@@ -501,6 +533,7 @@ Context mContext;
         loginButton2.onActivityResult(requestCode, resultCode, data);
 
     }
+
     public final static boolean isValidEmail(CharSequence target) {
         if (target == null)
             return false;
@@ -508,421 +541,298 @@ Context mContext;
         return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
-    public void openPassReset(View v){
-        Intent intent = new Intent(login_activity.this,forgotPassword.class);
+    public void openPassReset(View v) {
+        Intent intent = new Intent(login_activity.this, forgotPassword.class);
         startActivity(intent);
     }
-    public void AWSCreateUser(String userEmail,String password) {
 
-        loadingPanel.setVisibility(View.VISIBLE);
+    public void AWSCreateUser(String userEmail, String password) {
 
-        System.out.println(userEmail);
-
-
-        final Boolean j = isValidEmail(userEmail);
-
-
-        if (j == true) {
-
-            System.out.println(userEmail);
-            String userPassword = password;
-            System.out.println(password);
-            String data = null;
-
-
-            try {
-                data = "";
-                data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
-                        + "\"" + userEmail + "\"";
-                System.out.println("ha");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
-                        + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
-                System.out.println("ho");
-                System.out.println(data);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-            String text = "";
-            BufferedReader reader = null;
-
-            // Send data
-            try {
-
-                // Defined URL  where to send data
-                URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/create-registered-user");
-
-                // Send POST data request
-
-                URLConnection conn = url.openConnection();
-                conn.setDoOutput(true);
-                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-                wr.write(data);
-                wr.flush();
-
-                // Get the server response
-
-                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                String line = null;
-
-                line = reader.readLine();
-                // Append server response in string
-                sb.append(line + "\n");
-                String f = line;
-                g = f.replace("\\", "").trim();
-
-
-            } catch (Exception ex) {
-
-            } finally {
-                try {
-                    reader.close();
-                } catch (Exception ex) {
-                }
-            }
-            System.out.println(g);
-            System.out.println(g);
-
-            Gson gson = new Gson();
-
-            JsonParser jsonParser = new JsonParser();
-            JsonElement my_json;
-
-
-            try {
-                my_json = jsonParser.parse(g);
-                JSONObject obj = new JSONObject(g);
-                emailString = obj.getString("email");
-                exists = obj.getBoolean("exists");
-                passw = obj.getString("password");
-
-
-                System.out.println(emailString);
-                System.out.println(exists);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            if (exists != false) {
-                loadingPanel.setVisibility(View.GONE);
-
-
-//                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
-//
-//                            // Inflate the custom layout/view
-//                            View customView = inflater.inflate(R.layout.email_layout, null);
-                if(!passw.equals(userPassword)){
-                    TextView validator = (TextView) findViewById(R.id.validator);
-                    validator.setVisibility(View.VISIBLE);
-                    System.out.println(passw);
-                    System.out.println(userPassword);
-                    mPopupWindow.dismiss();
-                }
-                else {
-                    mPopupWindow.dismiss();
-
-                    Toast.makeText(login_activity.this,"You are already registered, please login or use 'Forget Password",Toast.LENGTH_LONG).show();
-                    mPopupWindow.dismiss();
-
-
-//                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
-//                    rl4.setVisibility(View.GONE);
-//                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
-//                    rl5.setVisibility(View.VISIBLE);
-
-//                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
-//                            startActivity(intent);
-
-                }
-            } else {
-                Toast.makeText(login_activity.this,"Thanks for joining, please login as "+userEmail,Toast.LENGTH_LONG).show();
-                loadingPanel.setVisibility(View.GONE);
-
-                mPopupWindow.dismiss();
-
-
-            }
-
-
-        }
-        else{
-            Toast.makeText(login_activity.this,"Please enter a valid email address",Toast.LENGTH_LONG).show();
-        }
+        createRegisteredUser mTask = new createRegisteredUser();
+        mTask.execute();
     }
 
-    public void AWSCreateRetailer(String userEmail,String password) {
+    public void AWSCreateRetailer(String userEmail, String password) {
+        Intent intent = new Intent(login_activity.this, create_retail_user.class);
+        startActivity(intent);
 
-        loadingPanel.setVisibility(View.VISIBLE);
-
-        System.out.println(userEmail);
-
-
-        final Boolean j = isValidEmail(userEmail);
-
-
-        if (j == true) {
-
-            System.out.println(userEmail);
-            String userPassword = password;
-            System.out.println(password);
-            String data = null;
-
-
-            try {
-                data = "";
-                data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
-                        + "\"" + userEmail + "\"";
-                System.out.println("ha");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
-                        + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
-                System.out.println("ho");
-                System.out.println(data);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-            String text = "";
-            BufferedReader reader = null;
-
-            // Send data
-            try {
-
-                // Defined URL  where to send data
-                URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/create-registered-user");
-
-                // Send POST data request
-
-                URLConnection conn = url.openConnection();
-                conn.setDoOutput(true);
-                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-                wr.write(data);
-                wr.flush();
-
-                // Get the server response
-
-                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                String line = null;
-
-                line = reader.readLine();
-                // Append server response in string
-                sb.append(line + "\n");
-                String f = line;
-                g = f.replace("\\", "").trim();
-
-
-            } catch (Exception ex) {
-
-            } finally {
-                try {
-                    reader.close();
-                } catch (Exception ex) {
-                }
-            }
-            System.out.println(g);
-            System.out.println(g);
-
-            Gson gson = new Gson();
-
-            JsonParser jsonParser = new JsonParser();
-            JsonElement my_json;
-
-
-            try {
-                my_json = jsonParser.parse(g);
-                JSONObject obj = new JSONObject(g);
-                emailString = obj.getString("email");
-                exists = obj.getBoolean("exists");
-                passw = obj.getString("password");
-
-
-                System.out.println(emailString);
-                System.out.println(exists);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            if (exists != false) {
-                loadingPanel.setVisibility(View.GONE);
-
-
-//                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+//        loadingPanel.setVisibility(View.VISIBLE);
 //
-//                            // Inflate the custom layout/view
-//                            View customView = inflater.inflate(R.layout.email_layout, null);
-                if(!passw.equals(userPassword)){
-                    TextView validator = (TextView) findViewById(R.id.validator);
-                    validator.setVisibility(View.VISIBLE);
-                    System.out.println(passw);
-                    System.out.println(userPassword);
-                    mPopupWindow.dismiss();
-                }
-                else {
-                    mPopupWindow.dismiss();
-
-                    Toast.makeText(login_activity.this,"You are already registered, please login or use 'Forget Password",Toast.LENGTH_LONG).show();
-                    mPopupWindow.dismiss();
-
-
-//                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
-//                    rl4.setVisibility(View.GONE);
-//                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
-//                    rl5.setVisibility(View.VISIBLE);
-
-//                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
-//                            startActivity(intent);
-
-                }
-            } else {
-                Toast.makeText(login_activity.this,"Thanks for joining, please login as "+userEmail,Toast.LENGTH_LONG).show();
-                loadingPanel.setVisibility(View.GONE);
-
-                mPopupWindow.dismiss();
-
-
-            }
-
-
-        }
-        else{
-            Toast.makeText(login_activity.this,"Please enter a valid email address",Toast.LENGTH_LONG).show();
-        }
+//        System.out.println(userEmail);
+//
+//
+//        final Boolean j = isValidEmail(userEmail);
+//
+//
+//        if (j == true) {
+//
+//            System.out.println(userEmail);
+//            String userPassword = password;
+//            System.out.println(password);
+//            String data = null;
+//
+//
+//            try {
+//                data = "";
+//                data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
+//                        + "\"" + userEmail + "\"";
+//                System.out.println("ha");
+//            } catch (UnsupportedEncodingException e) {
+//                e.printStackTrace();
+//            }
+//
+//            try {
+//                data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
+//                        + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
+//                System.out.println("ho");
+//                System.out.println(data);
+//            } catch (UnsupportedEncodingException e) {
+//                e.printStackTrace();
+//            }
+//
+//            String text = "";
+//            BufferedReader reader = null;
+//
+//            // Send data
+//            try {
+//
+//                // Defined URL  where to send data
+//                URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/create-registered-user");
+//
+//                // Send POST data request
+//
+//                URLConnection conn = url.openConnection();
+//                conn.setDoOutput(true);
+//                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+//                wr.write(data);
+//                wr.flush();
+//
+//                // Get the server response
+//
+//                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//                String line = null;
+//
+//                line = reader.readLine();
+//                // Append server response in string
+//                sb.append(line + "\n");
+//                String f = line;
+//                g = f.replace("\\", "").trim();
+//
+//
+//            } catch (Exception ex) {
+//
+//            } finally {
+//                try {
+//                    reader.close();
+//                } catch (Exception ex) {
+//                }
+//            }
+//            System.out.println(g);
+//            System.out.println(g);
+//
+//            Gson gson = new Gson();
+//
+//            JsonParser jsonParser = new JsonParser();
+//            JsonElement my_json;
+//
+//
+//            try {
+//                my_json = jsonParser.parse(g);
+//                JSONObject obj = new JSONObject(g);
+//                emailString = obj.getString("email");
+//                exists = obj.getBoolean("exists");
+//                passw = obj.getString("password");
+//
+//
+//                System.out.println(emailString);
+//                System.out.println(exists);
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//
+//            if (exists != false) {
+//                loadingPanel.setVisibility(View.GONE);
+//
+//
+////                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+////
+////                            // Inflate the custom layout/view
+////                            View customView = inflater.inflate(R.layout.email_layout, null);
+//                if(!passw.equals(userPassword)){
+//                    TextView validator = (TextView) findViewById(R.id.validator);
+//                    validator.setVisibility(View.VISIBLE);
+//                    System.out.println(passw);
+//                    System.out.println(userPassword);
+//                    mPopupWindow.dismiss();
+//                }
+//                else {
+//                    mPopupWindow.dismiss();
+//
+//                    Toast.makeText(login_activity.this,"You are already registered, please login or use 'Forget Password",Toast.LENGTH_LONG).show();
+//                    mPopupWindow.dismiss();
+//
+//
+////                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
+////                    rl4.setVisibility(View.GONE);
+////                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
+////                    rl5.setVisibility(View.VISIBLE);
+//
+////                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
+////                            startActivity(intent);
+//
+//                }
+//            } else {
+//                Toast.makeText(login_activity.this,"Thanks for joining, please login as "+userEmail,Toast.LENGTH_LONG).show();
+//                loadingPanel.setVisibility(View.GONE);
+//
+//                mPopupWindow.dismiss();
+//
+//
+//            }
+//
+//
+//        }
+//        else{
+//            Toast.makeText(login_activity.this,"Please enter a valid email address",Toast.LENGTH_LONG).show();
+//        }
     }
 
     public void AWSlogin() {
+        userLogin userLogin = new userLogin();
+        userLogin.execute();
+    }
 
-        loadingPanel.setVisibility(View.VISIBLE);
-        mContext = getApplicationContext();
-        final EditText email = (EditText) findViewById(R.id.username);
+    public void AWSretailerLogin() {
+        loginRetailUser loginRetailUser = new loginRetailUser();
+        loginRetailUser.execute();
+    }
 
-        final Boolean j = isValidEmail(email.getText().toString());
+    // Async Task to access the web
+    class createRegisteredUser extends AsyncTask<String, Void, String> {
 
-        if (j == true) {
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            RelativeLayout loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+            loadingPanel.setVisibility(View.VISIBLE);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            final EditText userEmail = (EditText) findViewById(R.id.username);
             EditText password = (EditText) findViewById(R.id.textPassword);
-            // Create data variable for sent values to server
-            String userEmail = email.getText().toString();
+
             System.out.println(userEmail);
-            String userPassword = password.getText().toString();
-            System.out.println(password.getText().toString());
-            System.out.println(password.getText().toString());
-            String data = null;
 
-            try {
-                data = "";
-                data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
-                        + "\"" + userEmail + "\"";
-                System.out.println("ha");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
-                        + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
-                System.out.println("ho");
-                System.out.println(data);
-            } catch (UnsupportedEncodingException e) {
-                System.out.println("Error");
-                e.printStackTrace();
-            }
-            System.out.println("Error2");
-
-            String text = "";
-            BufferedReader reader = null;
-
-            // Send data
-            try {
-
-                // Defined URL  where to send data
-                URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/standard-user-login");
-
-                // Send POST data request
-                System.out.println("Error3");
-
-                URLConnection conn = url.openConnection();
-                conn.setDoOutput(true);
-                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-                wr.write(data);
-                wr.flush();
-                System.out.println("Error4");
-
-                // Get the server response
-
-                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                String line = null;
-                System.out.println("Error5");
+            final Boolean j = isValidEmail(userEmail.getText().toString());
 
 
-                line = reader.readLine();
-                // Append server response in string
-                sb.append(line + "\n");
-                String f = line;
-                g = f.replace("\\", "").trim();
+            if (j) {
 
-            } catch (Exception ex) {
+                System.out.println(userEmail);
+                String userPassword = password.getText().toString();
+                System.out.println(password);
+                String data = null;
 
-            } finally {
+
+                try {
+                    data = "";
+                    data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
+                            + "\"" + userEmail.getText().toString() + "\"";
+                    System.out.println("ha");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
+                            + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
+                    System.out.println("ho");
+                    System.out.println(data);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                String text = "";
+                BufferedReader reader = null;
+
+                // Send data
                 try {
 
-                    reader.close();
+                    // Defined URL  where to send data
+                    URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/create-registered-user");
+
+                    // Send POST data request
+
+                    URLConnection conn = url.openConnection();
+                    conn.setDoOutput(true);
+                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                    wr.write(data);
+                    wr.flush();
+
+                    // Get the server response
+
+                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line = null;
+
+                    line = reader.readLine();
+                    // Append server response in string
+                    sb.append(line + "\n");
+                    String f = line;
+                    g = f.replace("\\", "").trim();
+
+
                 } catch (Exception ex) {
+
+                } finally {
+                    try {
+                        reader.close();
+                    } catch (Exception ex) {
+                    }
                 }
-            }
-            System.out.println(g);
-            System.out.println(g);
+                System.out.println(g);
+                System.out.println(g);
 
-            Gson gson = new Gson();
+                Gson gson = new Gson();
 
-            JsonParser jsonParser = new JsonParser();
-            JsonElement my_json;
+                JsonParser jsonParser = new JsonParser();
+                JsonElement my_json;
 
 
-            try {
-                my_json = jsonParser.parse(g);
-                JSONObject obj = new JSONObject(g);
-                emailString = obj.getString("email");
-                exists = obj.getBoolean("exists");
-                passw = obj.getString("password");
-                System.out.println(emailString);
-                System.out.println(exists);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+                try {
+                    my_json = jsonParser.parse(g);
+                    JSONObject obj = new JSONObject(g);
+                    emailString = obj.getString("email");
+                    exists = obj.getBoolean("exists");
+                    passw = obj.getString("password");
 
-            if (exists != false) {
-                loadingPanel.setVisibility(View.GONE);
 
+                    System.out.println(emailString);
+                    System.out.println(exists);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if (exists != false) {
 
 //                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
 //
 //                            // Inflate the custom layout/view
 //                            View customView = inflater.inflate(R.layout.email_layout, null);
-                if(!passw.equals(userPassword)){
-                    TextView validator = (TextView) findViewById(R.id.validator);
-                    validator.setVisibility(View.VISIBLE);
+                    if (!passw.equals(userPassword)) {
+                        TextView validator = (TextView) findViewById(R.id.validator);
+                        validator.setVisibility(View.VISIBLE);
+                        System.out.println(passw);
+                        System.out.println(userPassword);
+                        mPopupWindow.dismiss();
+                    } else {
+                        mPopupWindow.dismiss();
 
-                    System.out.println(passw);
-                    System.out.println(userPassword);
-                }
-                else {
+                        Toast.makeText(login_activity.this, "You are already registered, please login or use 'Forget Password", Toast.LENGTH_LONG).show();
+                        mPopupWindow.dismiss();
 
 
-                    loadingPanel.setVisibility(View.GONE);
-                    TextView validator = (TextView) findViewById(R.id.validator);
-                    validator.setVisibility(View.GONE);
-                    Intent intent = new Intent(login_activity.this, MapsActivity.class);
-                    startActivity(intent);
-                    Toast.makeText(login_activity.this,"You are now logged in as "+email.getText().toString(),Toast.LENGTH_LONG).show();
-                    email.setText("");
 //                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
 //                    rl4.setVisibility(View.GONE);
 //                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
@@ -931,21 +841,617 @@ Context mContext;
 //                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
 //                            startActivity(intent);
 
+                    }
+                } else {
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mPopupWindow.dismiss();
+                            Toast.makeText(login_activity.this, "Thanks for joining, please login as " + userEmail.getText().toString(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                 }
+
+
             } else {
-                TextView validator = (TextView) findViewById(R.id.validator);
-                validator.setVisibility(View.VISIBLE);
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        mPopupWindow.dismiss();
+                        Toast.makeText(login_activity.this, "Please enter a valid email address", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
+            //Things should do in, until progress bar close
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            loadingPanel.setVisibility(View.GONE);
+        }
+    }
+
+    // Async Task to access the web
+    class loginRetailUser extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            RelativeLayout loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+            loadingPanel.setVisibility(View.VISIBLE);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            final EditText userEmail = (EditText) findViewById(R.id.username);
+            EditText password = (EditText) findViewById(R.id.textPassword);
+
+            System.out.println(userEmail);
+
+            final Boolean j = isValidEmail(userEmail.getText().toString());
+
+
+            loadingPanel.setVisibility(View.VISIBLE);
+            mContext = getApplicationContext();
+            final EditText email = (EditText) findViewById(R.id.username);
+
+
+            if (j) {
+
+                System.out.println(userEmail);
+                String userPassword = password.getText().toString();
+                System.out.println(password.getText().toString());
+                System.out.println(password.getText().toString());
+                String data = null;
+
+                try {
+                    data = "";
+                    data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
+                            + "\"" + userEmail.getText().toString() + "\"";
+                    System.out.println("ha");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
+                            + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
+                    System.out.println("ho");
+                    System.out.println(data);
+                } catch (UnsupportedEncodingException e) {
+                    System.out.println("Error");
+                    e.printStackTrace();
+                }
+                System.out.println("Error2");
+
+                String text = "";
+                BufferedReader reader = null;
+
+                // Send data
+                try {
+
+                    // Defined URL  where to send data
+                    URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/geo-email-login");
+
+                    // Send POST data request
+                    System.out.println("Error3");
+
+                    URLConnection conn = url.openConnection();
+                    conn.setDoOutput(true);
+                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                    wr.write(data);
+                    wr.flush();
+                    System.out.println("Error4");
+
+                    // Get the server response
+
+                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line = null;
+                    System.out.println("Error5");
+
+
+                    line = reader.readLine();
+                    // Append server response in string
+                    sb.append(line + "\n");
+                    String f = line;
+                    g = f.replace("\\", "").trim();
+
+                } catch (Exception ex) {
+
+                } finally {
+                    try {
+
+                        reader.close();
+                    } catch (Exception ex) {
+                    }
+                }
+                System.out.println(g);
+                System.out.println(g);
+
+                Gson gson = new Gson();
+
+                JsonParser jsonParser = new JsonParser();
+                JsonElement my_json;
+
+
+                try {
+                    my_json = jsonParser.parse(g);
+                    JSONObject obj = new JSONObject(g);
+                    emailString = obj.getString("email");
+                    exists = obj.getBoolean("exists");
+                    passw = obj.getString("password");
+                    System.out.println(emailString);
+                    System.out.println(exists);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if (exists != false) {
+
+//                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+//
+//                            // Inflate the custom layout/view
+//                            View customView = inflater.inflate(R.layout.email_layout, null);
+                    if (!passw.equals(userPassword)) {
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                TextView validator = (TextView) findViewById(R.id.validator);
+                                validator.setVisibility(View.VISIBLE);
+                            }
+                        });
+
+                    } else {
+
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                TextView validator = (TextView) findViewById(R.id.validator);
+                                validator.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(login_activity.this, MapsActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(login_activity.this, "You are now logged in as " + email.getText().toString(), Toast.LENGTH_LONG).show();
+                                email.setText("");
+                            }
+                        });
+
+
+
+//                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
+//                    rl4.setVisibility(View.GONE);
+//                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
+//                    rl5.setVisibility(View.VISIBLE);
+
+//                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
+//                            startActivity(intent);
+
+                    }
+                } else {
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            TextView validator = (TextView) findViewById(R.id.validator);
+                            validator.setVisibility(View.VISIBLE);
+                        }
+                    });
+
 //                TextView validator = (TextView) findViewById(R.id.validator);
 //                validator.setVisibility(View.VISIBLE);
 
+                }
+
+
+            } else {
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        mPopupWindow.dismiss();
+                        email.setText("");
+                        Toast.makeText(login_activity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
+            //Things should do in, until progress bar close
+            return null;
 
         }
-        else{
-            Toast.makeText(login_activity.this,"Please enter a valid email address",Toast.LENGTH_SHORT).show();
+
+        @Override
+        protected void onPostExecute(String result) {
+
             loadingPanel.setVisibility(View.GONE);
-            email.setText("");
+        }
+    }
+
+    // Async Task to access the web
+    class createUser extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            RelativeLayout loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+            loadingPanel.setVisibility(View.VISIBLE);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            final EditText userEmail = (EditText) findViewById(R.id.username);
+            EditText password = (EditText) findViewById(R.id.textPassword);
+
+            System.out.println(userEmail);
+
+            final Boolean j = isValidEmail(userEmail.getText().toString());
+
+
+            if (j) {
+
+                System.out.println(userEmail);
+                String userPassword = password.getText().toString();
+                System.out.println(password);
+                String data = null;
+
+
+                try {
+                    data = "";
+                    data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
+                            + "\"" + userEmail.getText().toString() + "\"";
+                    System.out.println("ha");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
+                            + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
+                    System.out.println("ho");
+                    System.out.println(data);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                String text = "";
+                BufferedReader reader = null;
+
+                // Send data
+                try {
+
+                    // Defined URL  where to send data
+                    URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/create-registered-user");
+
+                    // Send POST data request
+
+                    URLConnection conn = url.openConnection();
+                    conn.setDoOutput(true);
+                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                    wr.write(data);
+                    wr.flush();
+
+                    // Get the server response
+
+                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line = null;
+
+                    line = reader.readLine();
+                    // Append server response in string
+                    sb.append(line + "\n");
+                    String f = line;
+                    g = f.replace("\\", "").trim();
+
+
+                } catch (Exception ex) {
+
+                } finally {
+                    try {
+                        reader.close();
+                    } catch (Exception ex) {
+                    }
+                }
+                System.out.println(g);
+                System.out.println(g);
+
+                Gson gson = new Gson();
+
+                JsonParser jsonParser = new JsonParser();
+                JsonElement my_json;
+
+
+                try {
+                    my_json = jsonParser.parse(g);
+                    JSONObject obj = new JSONObject(g);
+                    emailString = obj.getString("email");
+                    exists = obj.getBoolean("exists");
+                    passw = obj.getString("password");
+
+
+                    System.out.println(emailString);
+                    System.out.println(exists);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if (exists != false) {
+
+//                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+//
+//                            // Inflate the custom layout/view
+//                            View customView = inflater.inflate(R.layout.email_layout, null);
+                    if (!passw.equals(userPassword)) {
+                        TextView validator = (TextView) findViewById(R.id.validator);
+                        validator.setVisibility(View.VISIBLE);
+                        System.out.println(passw);
+                        System.out.println(userPassword);
+                        mPopupWindow.dismiss();
+                    } else {
+                        mPopupWindow.dismiss();
+
+                        Toast.makeText(login_activity.this, "You are already registered, please login or use 'Forget Password", Toast.LENGTH_LONG).show();
+                        mPopupWindow.dismiss();
+
+
+//                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
+//                    rl4.setVisibility(View.GONE);
+//                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
+//                    rl5.setVisibility(View.VISIBLE);
+
+//                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
+//                            startActivity(intent);
+
+                    }
+                } else {
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mPopupWindow.dismiss();
+                            Toast.makeText(login_activity.this, "Thanks for joining, please login as " + userEmail.getText().toString(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+
+
+            } else {
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        mPopupWindow.dismiss();
+                        Toast.makeText(login_activity.this, "Please enter a valid email address", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
+            //Things should do in, until progress bar close
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            loadingPanel.setVisibility(View.GONE);
+        }
+    }
+
+    // Async Task to access the web
+    class userLogin extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            RelativeLayout loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+            loadingPanel.setVisibility(View.VISIBLE);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            final EditText userEmail = (EditText) findViewById(R.id.username);
+            EditText password = (EditText) findViewById(R.id.textPassword);
+
+            System.out.println(userEmail);
+
+            final Boolean j = isValidEmail(userEmail.getText().toString());
+
+
+            loadingPanel.setVisibility(View.VISIBLE);
+            mContext = getApplicationContext();
+
+            if (j == true) {
+                // Create data variable for sent values to server
+                System.out.println(userEmail);
+                String userPassword = password.getText().toString();
+                System.out.println(password.getText().toString());
+                System.out.println(password.getText().toString());
+                String data = null;
+
+                try {
+                    data = "";
+                    data += "{\"" + URLEncoder.encode("email", "UTF-8") + "\"" + ":"
+                            + "\"" + userEmail.getText().toString() + "\"";
+                    System.out.println("ha");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    data += "," + "\"" + URLEncoder.encode("password", "UTF-8") + "\""
+                            + ":" + "\"" + URLEncoder.encode(userPassword, "UTF-8") + "\"" + "}";
+                    System.out.println("ho");
+                    System.out.println(data);
+                } catch (UnsupportedEncodingException e) {
+                    System.out.println("Error");
+                    e.printStackTrace();
+                }
+                System.out.println("Error2");
+
+                String text = "";
+                BufferedReader reader = null;
+
+                // Send data
+                try {
+
+                    // Defined URL  where to send data
+                    URL url = new URL("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/standard-user-login");
+
+                    // Send POST data request
+                    System.out.println("Error3");
+
+                    URLConnection conn = url.openConnection();
+                    conn.setDoOutput(true);
+                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+                    wr.write(data);
+                    wr.flush();
+                    System.out.println("Error4");
+
+                    // Get the server response
+
+                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String line = null;
+                    System.out.println("Error5");
+
+
+                    line = reader.readLine();
+                    // Append server response in string
+                    sb.append(line + "\n");
+                    String f = line;
+                    g = f.replace("\\", "").trim();
+
+                } catch (Exception ex) {
+
+                } finally {
+                    try {
+
+                        reader.close();
+                    } catch (Exception ex) {
+                    }
+                }
+                System.out.println(g);
+                System.out.println(g);
+
+                Gson gson = new Gson();
+
+                JsonParser jsonParser = new JsonParser();
+                JsonElement my_json;
+
+
+                try {
+                    my_json = jsonParser.parse(g);
+                    JSONObject obj = new JSONObject(g);
+                    emailString = obj.getString("email");
+                    exists = obj.getBoolean("exists");
+                    passw = obj.getString("password");
+                    System.out.println(emailString);
+                    System.out.println(exists);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if (exists != false) {
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            loadingPanel.setVisibility(View.GONE);
+                        }
+                    });
+
+
+//                            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+//
+//                            // Inflate the custom layout/view
+//                            View customView = inflater.inflate(R.layout.email_layout, null);
+                    if (!passw.equals(userPassword)) {
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                TextView validator = (TextView) findViewById(R.id.validator);
+                                validator.setVisibility(View.VISIBLE);
+                                loadingPanel.setVisibility(View.GONE);
+                                System.out.println(passw);
+                            }
+                        });
+
+                    } else {
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                TextView validator = (TextView) findViewById(R.id.validator);
+                                validator.setVisibility(View.VISIBLE);
+                                System.out.println(passw);
+                                validator.setVisibility(View.GONE);
+                                Intent intent = new Intent(login_activity.this, MapsActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(login_activity.this, "You are now logged in as " + userEmail.getText().toString(), Toast.LENGTH_LONG).show();
+                                userEmail.setText("");
+                            }
+                        });
+
+
+//                    RelativeLayout rl4 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer);
+//                    rl4.setVisibility(View.GONE);
+//                    RelativeLayout rl5 = (RelativeLayout) findViewById(R.id.activity_retailer_post_offer2);
+//                    rl5.setVisibility(View.VISIBLE);
+
+//                            Intent intent = new Intent(retailerSignUpLogin.this, retailerPostOffer.class);
+//                            startActivity(intent);
+
+                    }
+                } else {
+
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            TextView validator = (TextView) findViewById(R.id.validator);
+                            validator.setVisibility(View.VISIBLE);
+
+                        }
+                    });
+
+//                TextView validator = (TextView) findViewById(R.id.validator);
+//                validator.setVisibility(View.VISIBLE);
+
+                }
+
+
+            } else {
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        Toast.makeText(login_activity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+                        userEmail.setText("");
+                    }
+                });
+
+
+            }
+            //Things should do in, until progress bar close
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            loadingPanel.setVisibility(View.GONE);
         }
     }
 }

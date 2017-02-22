@@ -34,6 +34,24 @@
             map:cameraTilt="67.5"
             map:cameraZoom="15.5"
             tools:context="com.google.samples.quickstart.signin.MapsActivity" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/loadingPanel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true" />
+            </RelativeLayout>
+
+
 
         <!--&lt;!&ndash;    <ImageView-->
         <!--android:layout_width="40dp"-->
@@ -128,7 +146,7 @@
             layout="@layout/app_bar_main3"
             android:layout_width="350dp"
             android:layout_height="60dp" />
-
+        </FrameLayout>
         <android.support.v7.widget.Toolbar
             android:id="@+id/nearbyOffersToolbar"
             android:layout_width="345dp"
@@ -554,7 +572,7 @@
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="sans-serif-smallcaps"
                         android:paddingBottom="15dp"
-                        android:text="42 Franklin Road, Ponsonby, Auckland"
+                        android:text="The Auckland Domain, Parnell, Auckland"
                         android:textAlignment="center"
                         android:textAllCaps="true"
                         android:textColor="#ffffff"

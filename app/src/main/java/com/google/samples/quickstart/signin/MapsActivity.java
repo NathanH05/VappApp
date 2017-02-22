@@ -132,12 +132,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     TextView nearbyOffer6RetName;
     TextView nearbyOffer7RetName;
     TextView nearbyOffer8RetName;
+    String streetname;
 
     Collection<Marker> markers;
     GoogleMap mMap;
     Boolean isKeyboardOpen;
     String OfferCat = null;
-    String[] individualOfferDetsArray = new String[15];
+    String[] individualOfferDetsArray = new String[16];
     ArrayList<String> allOffersArray = new ArrayList<>();
     CountDownTimer timer;
     CountDownTimer timer2;
@@ -193,6 +194,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     ProgressBar nearbyOfferProgressBar7;
     ProgressBar nearbyOfferProgressBar8;
     ClusterManager<AppClusterItem> mClusterManager;
+
+    RelativeLayout loadingPanel;
+    ArrayList ofsdAddresses = new ArrayList();
 
     private GoogleApiClient mGoogleApiClient;
     private static final int ERROR_DIALOG_REQUEST = 9001;
@@ -338,6 +342,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (servicesOK()) {
             //Define the main layout for this activity
             setContentView(R.layout.activity_maps);
+             loadingPanel = (RelativeLayout)findViewById(R.id.loadingPanel);
 
             ImageView phone = (ImageView) findViewById(R.id.phone);
             phone.setOnClickListener(new View.OnClickListener() {
@@ -376,6 +381,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 }
             });
+
             ImageView websitey = (ImageView) findViewById(R.id.websitey);
             websitey.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1345,7 +1351,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
                     }
                     try {
-                        singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|" + "ooo";
+                        singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[16]  + "|" + "ooo";
 
                     } catch (Exception er) {
                         singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
@@ -2255,6 +2261,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     individualOfferDetsArray[8] = objectCategory.getString("duration");
                     individualOfferDetsArray[10] = objectCategory.getString("rating");
                     individualOfferDetsArray[11] = objectCategory.getString("website");
+                    individualOfferDetsArray[15] = objectCategory.getString("streetname");
+
 
                     if (!objectCategory.has("offerDescription2")) {
                         System.out.println("offd2 does not exist");
@@ -2283,7 +2291,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                     // Seperate each array element with a pipe so we can later identify the different attributesfor a unique offer
-                    allOffersArray.add("|" + individualOfferDetsArray[0] + "|" + individualOfferDetsArray[1] + "|" + individualOfferDetsArray[2] + "|" + individualOfferDetsArray[3] + "|" + individualOfferDetsArray[4] + "|" + individualOfferDetsArray[5] + "|" + individualOfferDetsArray[6] + "|" + individualOfferDetsArray[7] + "|" + individualOfferDetsArray[8] + "|" + individualOfferDetsArray[9] + "|" + individualOfferDetsArray[10] + "|" + individualOfferDetsArray[11] + "|" + individualOfferDetsArray[12] + "|" + individualOfferDetsArray[13] + "|" + individualOfferDetsArray[14]);
+                    allOffersArray.add("|" + individualOfferDetsArray[0] + "|" + individualOfferDetsArray[1] + "|" + individualOfferDetsArray[2] + "|" + individualOfferDetsArray[3] + "|" + individualOfferDetsArray[4] + "|" + individualOfferDetsArray[5] + "|" + individualOfferDetsArray[6] + "|" + individualOfferDetsArray[7] + "|" + individualOfferDetsArray[8] + "|" + individualOfferDetsArray[9] + "|" + individualOfferDetsArray[10] + "|" + individualOfferDetsArray[11] + "|" + individualOfferDetsArray[12] + "|" + individualOfferDetsArray[13] + "|" + individualOfferDetsArray[14]+ "|" + individualOfferDetsArray[15]);
 
                     System.out.println(allOffersArray.get(i));
                     String[] ert = (allOffersArray.get(i)).split(Pattern.quote("|"));
@@ -2324,6 +2332,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     // for us to use in our app
     @Override
     public void onMapReady(final GoogleMap googleMap) {
+        // Initiate the GET request to AWS to retrieve our offers for loading into the app
+        requestData("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/geooffers");
+
         MapStyleOptions style;
         mMap = googleMap;
         style = new MapStyleOptions(("[" +
@@ -2340,8 +2351,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap.getUiSettings().setMapToolbarEnabled(false);
         mMap.setMapStyle(style);
-        // Initiate the GET request to AWS to retrieve our offers for loading into the app
-        requestData("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/geooffers");
 
         Toast toast = Toast.makeText(MapsActivity.this, "Be careful crossing the road with Vapp App", Toast.LENGTH_SHORT);
         toast.show();
@@ -2406,7 +2415,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
             }
             try {
-                singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|" + "ooo";
+                singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + allOffersArray.get(i).split(Pattern.quote("|"))[16]  + "|" + "ooo";
 
             } catch (Exception er) {
                 singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
@@ -2622,6 +2631,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         System.out.println(allOffersArray.get(0).split(Pattern.quote("|"))[11]);
 //                    System.out.println(marker.getSnippet().split(Pattern.quote("|"))[2]);
 
+                        TextView ofsdAddress = (TextView)findViewById(R.id.ofsdAddress);
+                        ofsdAddress.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[10]);
+
 
                         if (appClusterItem.mSnippet.split(Pattern.quote("|"))[2].equals("1")) {
                             starIcon.setImageResource(R.drawable.starone);
@@ -2720,6 +2732,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             multiOffer3.setVisibility(View.GONE);
                             tvn.setVisibility(View.VISIBLE);
                             tvn.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
+
 
                             ofsdCoupOffer1.setVisibility(View.VISIBLE);
                             ofsdCoupOffer2.setVisibility(View.GONE);
@@ -3047,9 +3060,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //            mClusterManager.addItem(new ClusterMarkerLocation(new LatLng(Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[7])), Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[6])))));
         }
 
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+        mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
             @Override
-            public void onMapClick(LatLng point) {
+            public void onMapLoaded() {
                 final SearchView searchView = (SearchView) findViewById(R.id.searchView);
                 searchView.setVisibility(View.GONE);
 
@@ -3074,7 +3087,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
                         }
                         try {
-                            singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|" + "ooo";
+                            singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|"  + allOffersArray.get(i).split(Pattern.quote("|"))[16] + "|" + "ooo";
 
                         } catch (Exception er) {
                             singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
@@ -3303,6 +3316,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     public void setupOfferMapIcons() throws IOException, ParseException {
+        loadingPanel.setVisibility(View.VISIBLE);
         setUpClustering();
         int height = 140;
         int width = 140;
@@ -3315,29 +3329,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         BitmapDrawable bitmapdraw3 = (BitmapDrawable) getResources().getDrawable(R.drawable.fooddining);
         Bitmap d = bitmapdraw3.getBitmap();
-        Bitmap smallMarker3 = Bitmap.createScaledBitmap(d, width, height, false);
 
 
         BitmapDrawable bitmapdraw5 = (BitmapDrawable) getResources().getDrawable(R.drawable.movies);
         Bitmap e = bitmapdraw5.getBitmap();
-        Bitmap smallMarker5 = Bitmap.createScaledBitmap(e, width, height, false);
 
         // Load all our marker image assets
         BitmapDrawable bitmapdraw7 = (BitmapDrawable) getResources().getDrawable(R.drawable.drinks);
         Bitmap g = bitmapdraw7.getBitmap();
-        Bitmap smallMarker7 = Bitmap.createScaledBitmap(g, width, height, false);
 
         BitmapDrawable bitmapdraw8 = (BitmapDrawable) getResources().getDrawable(R.drawable.activities);
         Bitmap h = bitmapdraw8.getBitmap();
-        Bitmap smallMarker8 = Bitmap.createScaledBitmap(h, width, height, false);
 
         BitmapDrawable bitmapdraw9 = (BitmapDrawable) getResources().getDrawable(R.drawable.accomodation);
         Bitmap j = bitmapdraw9.getBitmap();
-        Bitmap smallMarker9 = Bitmap.createScaledBitmap(j, width, height, false);
-        Bitmap markerIcon = smallMarker;
-        String category = null;
-        for (int i = 0; i < allOffersArray.size(); i++) {
 
+        for (int i = 0; i < allOffersArray.size(); i++) {
 
             System.out.println("MARKERS about to print");
             System.out.println((allOffersArray.get(i)).split(Pattern.quote("|"))[14]);
@@ -4041,6 +4048,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 final ArrayList countdowntime3 = new ArrayList();
                 final ArrayList nodWebsiteyArray = new ArrayList();
 
+
                 ImageView nodShare = (ImageView) findViewById(R.id.nodShare);
 
                 final FrameLayout nearbyOffer1 = (FrameLayout) findViewById(R.id.nearbyOffer1);
@@ -4081,7 +4089,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 countdowntime2.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[14]);
                                 countdowntime3.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[15]);
                                 nodWebsiteyArray.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[12]);
+                                ofsdAddresses.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[16]);
                                 offerDesc1.add(count, allOffersArray.get(i).split(Pattern.quote("|"))[8]);
+
 
                                 System.out.println(count);
                                 System.out.println(offerDesc1.size());
@@ -4210,6 +4220,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     } catch (ParseException e) {
                                         e.printStackTrace();
                                     }
+
+
                                     SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
                                     SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
                                     SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
@@ -4682,7 +4694,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         nearbyRetNames.clear();
 
                     }
-                }
+
 
 
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
@@ -4705,7 +4717,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 cameraSet = true;
 
-
+                loadingPanel.setVisibility(View.GONE);
+                }
             }
 
             public void onStatusChanged(String s, int i, Bundle bundle) {
