@@ -40,9 +40,9 @@ import javax.mail.internet.MimeMultipart;
 public class ComposeAndSendMIMEEmail {
 
     // IMPORTANT: To successfully send an email, you must replace the values of the strings below with your own values.
-    private static String EMAIL_FROM      = "nathan.hampshire5@gmail.com";    // Replace with the sender's address. This address must be verified with Amazon SES.
+    private static String EMAIL_FROM      = "findmydealnz@gmail.com";    // Replace with the sender's address. This address must be verified with Amazon SES.
     private static String EMAIL_REPLY_TO  = "nathan.hampshire5@gmail.com";  // Replace with the address replies should go to. This address must be verified with Amazon SES.
-    private static String EMAIL_RECIPIENT = "nathan.hampshire5@gmail.com"; // Replace with a recipient address. If your account is still in the sandbox,
+    private static String EMAIL_RECIPIENT = "findmydealnz@gmail.com"; // Replace with a recipient address. If your account is still in the sandbox,
     // this address must be verified with Amazon SES.
     private static String EMAIL_ATTACHMENTS = "file://~/share.png"; // Replace with the path of an attachment. Must be a valid path or this project will not build.
     // Remember to use two slashes in place of each slash.

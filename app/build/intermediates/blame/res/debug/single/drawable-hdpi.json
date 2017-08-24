@@ -5,7 +5,7 @@
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/tw__ic_logo_default.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/res/drawable-hdpi/tw__ic_logo_default.png"
+        "source": "/Users/nathanhampshire/.android/build-cache/c996abebd6729146edfaf542aecf74f2ae58cfab/output/res/drawable-hdpi/tw__ic_logo_default.png"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_name.png",
@@ -29,6 +29,6 @@
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/drawable-hdpi/tw__share_email_header.png",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/res/drawable-hdpi/tw__share_email_header.png"
+        "source": "/Users/nathanhampshire/.android/build-cache/c996abebd6729146edfaf542aecf74f2ae58cfab/output/res/drawable-hdpi/tw__share_email_header.png"
     }
 ]

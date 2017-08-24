@@ -1,7 +1,7 @@
-#Tue Feb 21 18:44:09 PST 2017
-base.0=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ccf92a28fb38feed069a157e92434485df2dbc26
+#Wed Aug 23 16:58:59 PDT 2017
+base.0=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f296b695290d57adda3a40de479749ad2a9b5e60
 renamed.1=classes.dex
 renamed.0=classes2.dex
-file.1=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f296b695290d57adda3a40de479749ad2a9b5e60/classes.dex
-base.1=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f296b695290d57adda3a40de479749ad2a9b5e60
-file.0=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ccf92a28fb38feed069a157e92434485df2dbc26/classes.dex
+file.1=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ccf92a28fb38feed069a157e92434485df2dbc26/classes.dex
+base.1=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ccf92a28fb38feed069a157e92434485df2dbc26
+file.0=/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f296b695290d57adda3a40de479749ad2a9b5e60/classes.dex

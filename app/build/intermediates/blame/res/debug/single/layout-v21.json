@@ -1,22 +1,22 @@
 [
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout-v21/place_autocomplete_fragment.xml",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.6.1/res/layout-v21/place_autocomplete_fragment.xml"
+        "source": "/Users/nathanhampshire/.android/build-cache/49f78174d32954eba84bd264283908d3ae03642e/output/res/layout-v21/place_autocomplete_fragment.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action_tombstone.xml"
+        "source": "/Users/nathanhampshire/.android/build-cache/ed7df931400b5fb9b2f6860db5eb7cb6cd6354fe/output/res/layout-v21/notification_action_tombstone.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_custom_big.xml"
+        "source": "/Users/nathanhampshire/.android/build-cache/ed7df931400b5fb9b2f6860db5eb7cb6cd6354fe/output/res/layout-v21/notification_template_custom_big.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_template_icon_group.xml"
+        "source": "/Users/nathanhampshire/.android/build-cache/ed7df931400b5fb9b2f6860db5eb7cb6cd6354fe/output/res/layout-v21/notification_template_icon_group.xml"
     },
     {
         "merged": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
-        "source": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/res/layout-v21/notification_action.xml"
+        "source": "/Users/nathanhampshire/.android/build-cache/ed7df931400b5fb9b2f6860db5eb7cb6cd6354fe/output/res/layout-v21/notification_action.xml"
     }
 ]

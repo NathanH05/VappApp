@@ -11,7 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/res/values/values.xml",
+                    "file": "/Users/nathanhampshire/.android/build-cache/727d94b97a8f7397dd0da379d41c1af0f0bda58c/output/res/values/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

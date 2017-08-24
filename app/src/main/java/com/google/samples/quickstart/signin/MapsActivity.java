@@ -1,11 +1,13 @@
 package com.google.samples.quickstart.signin;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.LabeledIntent;
 import android.content.pm.PackageManager;
@@ -30,6 +32,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Looper;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -43,6 +47,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -95,12 +100,23 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.MarkerManager;
 import com.google.maps.android.clustering.ClusterManager;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.math.RoundingMode;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -114,6 +130,7 @@ import java.util.regex.Pattern;
 
 import ch.hsr.geohash.GeoHash;
 
+import static com.example.myfirstapp.R.id.filterSlideDrawer;
 import static com.example.myfirstapp.R.id.map;
 import static com.example.myfirstapp.R.layout.loggedout;
 
@@ -123,6 +140,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     Sensor sensor;
     Boolean firstSubmit;
     String cat = "";
+    Boolean loadedSurrounds = false;
+    Boolean locationAlreadyCalled = false;
     MarkerManager markerManager;
     TextView nearbyOffer1RetName;
     TextView nearbyOffer2RetName;
@@ -132,7 +151,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     TextView nearbyOffer6RetName;
     TextView nearbyOffer7RetName;
     TextView nearbyOffer8RetName;
+    InputStream in;
     String streetname;
+    long timerBarValue;
+    long timerBarValue2;
+    long timerBarValue3;
+    int[] multiOfferStarsArray = new int[3];
+    String[] multiOfferDealsArray = new String[3];
 
     Collection<Marker> markers;
     GoogleMap mMap;
@@ -166,8 +191,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     String dealOffer2Text = "";
     String dealOffer3Text = "";
 
-     static ArrayList offerDesc1 = new ArrayList();
-     static ArrayList offerDesc1Persist = new ArrayList();
+    static ArrayList offerDesc1 = new ArrayList();
+    static ArrayList offerDesc1Persist = new ArrayList();
 
 
     String nearbyOffer1Text;
@@ -342,8 +367,245 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (servicesOK()) {
             //Define the main layout for this activity
             setContentView(R.layout.activity_maps);
-             loadingPanel = (RelativeLayout)findViewById(R.id.loadingPanel);
+            loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+            final ImageView refineDropdown = (ImageView) findViewById(R.id.refineDropdown);
+            final ImageView sortDropdown = (ImageView) findViewById(R.id.sortDropdown);
 
+            TextView sort = (TextView) findViewById(R.id.sort);
+            sort.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sortDropdown.setVisibility(View.VISIBLE);
+                    TextView alphabetical = (TextView) findViewById(R.id.alphabetical);
+                    TextView nearby = (TextView) findViewById(R.id.nearby);
+                    TextView dealtime = (TextView) findViewById(R.id.dealtime);
+                    TextView starratinng = (TextView) findViewById(R.id.starratinng);
+
+                    alphabetical.setVisibility(View.VISIBLE);
+                    nearby.setVisibility(View.VISIBLE);
+                    dealtime.setVisibility(View.VISIBLE);
+                    starratinng.setVisibility(View.VISIBLE);
+                    refineDropdown.setVisibility(View.GONE);
+
+                }
+            });
+            TextView refine = (TextView) findViewById(R.id.refine);
+            refine.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sortDropdown.setVisibility(View.GONE);
+                    refineDropdown.setVisibility(View.VISIBLE);
+                    final TextView alphabetical = (TextView) findViewById(R.id.alphabetical);
+                    TextView nearby = (TextView) findViewById(R.id.nearby);
+                    TextView dealtime = (TextView) findViewById(R.id.dealtime);
+                    final TextView starratinng = (TextView) findViewById(R.id.starratinng);
+                    final TextView distance = (TextView) findViewById(R.id.distance);
+                    final TextView category = (TextView) findViewById(R.id.category);
+                    final TextView starratingg = (TextView) findViewById(R.id.starratingg);
+                    final TextView timeremaining = (TextView) findViewById(R.id.timeremaining);
+
+                    final LinearLayout allOffers = (LinearLayout) findViewById(R.id.allOffers);
+
+
+                    distance.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            refineDropdown.setVisibility(View.GONE);
+                            distance.setVisibility(View.GONE);
+                            starratingg.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            category.setVisibility(View.GONE);
+                            starratinng.setVisibility(View.GONE);
+                            alphabetical.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            category.setVisibility(View.GONE);
+                            FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
+                            FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                            FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+
+                            Resources r = getResources();
+
+                            float pxTopTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -35, r.getDisplayMetrics());
+                            float pxBottomTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, r.getDisplayMetrics());
+
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(multiOffer1.getLayoutParams().width, multiOffer1.getLayoutParams().height);
+                            params.setMargins(0, (int) pxTopTextView, 0, (int) pxBottomTextView);
+                            float pxTopTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -80, r.getDisplayMetrics());
+                            float pxBottomTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -30, r.getDisplayMetrics());
+
+                            LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(multiOffer2.getLayoutParams().width, multiOffer2.getLayoutParams().height);
+                            params2.setMargins(0, 0, 0, 0);
+
+
+                            allOffers.removeAllViews();
+                            allOffers.addView(multiOffer2, 0, params2);
+                            allOffers.addView(multiOffer1, 1, params);
+                            allOffers.addView(multiOffer3, 2);
+
+                        }
+                    });
+
+                    starratingg.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            refineDropdown.setVisibility(View.GONE);
+                            distance.setVisibility(View.GONE);
+                            starratingg.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            category.setVisibility(View.GONE);
+                            starratinng.setVisibility(View.GONE);
+                            alphabetical.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            category.setVisibility(View.GONE);
+                            if (multiOfferStarsArray[0] < multiOfferStarsArray[1]) {
+
+                                TextView multiOfferRet1Name = (TextView) findViewById(R.id.multiOfferRet1Name);
+                                FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
+                                FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                                FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+
+                                Resources r = getResources();
+
+                                allOffers.removeView(multiOffer1);
+                                allOffers.removeView(multiOffer2);
+                                allOffers.removeView(multiOffer3);
+                                allOffers.addView(multiOffer1, 0);
+                                allOffers.addView(multiOffer2, 1);
+                                allOffers.addView(multiOffer3, 2);
+
+                            } else if (multiOfferStarsArray[0] > multiOfferStarsArray[1]) {
+
+                                FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
+                                FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                                FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+
+                                Resources r = getResources();
+
+                                float pxTopTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -35, r.getDisplayMetrics());
+                                float pxBottomTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, r.getDisplayMetrics());
+
+                                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(multiOffer1.getLayoutParams().width, multiOffer1.getLayoutParams().height);
+                                params.setMargins(0, (int) pxTopTextView, 0, (int) pxBottomTextView);
+                                float pxTopTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -80, r.getDisplayMetrics());
+                                float pxBottomTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -30, r.getDisplayMetrics());
+
+                                LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(multiOffer2.getLayoutParams().width, multiOffer2.getLayoutParams().height);
+                                params2.setMargins(0, 0, 0, 0);
+
+
+                                allOffers.removeAllViews();
+                                allOffers.addView(multiOffer2, 0, params2);
+                                allOffers.addView(multiOffer1, 1, params);
+                                allOffers.addView(multiOffer3, 2);
+                            }
+
+                            refineDropdown.setVisibility(View.GONE);
+                        }
+                    });
+
+                    timeremaining.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            refineDropdown.setVisibility(View.GONE);
+                            distance.setVisibility(View.GONE);
+                            starratingg.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            category.setVisibility(View.GONE);
+                            starratinng.setVisibility(View.GONE);
+                            alphabetical.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            if (timerBarValue < timerBarValue2) {
+                                FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
+                                FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                                FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+                                Resources r = getResources();
+
+                                float pxTopTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -35, r.getDisplayMetrics());
+                                float pxBottomTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -30, r.getDisplayMetrics());
+
+                                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(multiOffer1.getLayoutParams().width, multiOffer1.getLayoutParams().height);
+                                params.setMargins(0, 0, 0, 0);
+
+                                float pxTopTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -35, r.getDisplayMetrics());
+
+                                LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(multiOffer2.getLayoutParams().width, multiOffer2.getLayoutParams().height);
+                                params2.setMargins(0, (int) pxTopTextView2, 0, 0);
+
+                                allOffers.removeView(multiOffer1);
+                                allOffers.removeView(multiOffer2);
+                                allOffers.removeView(multiOffer3);
+                                allOffers.addView(multiOffer1, 0, params);
+                                allOffers.addView(multiOffer2, 1, params2);
+                                allOffers.addView(multiOffer3, 2);
+                            } else {
+                                FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
+                                FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                                FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+
+                                Resources r = getResources();
+
+                                float pxTopTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -35, r.getDisplayMetrics());
+                                float pxBottomTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, r.getDisplayMetrics());
+
+                                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(multiOffer1.getLayoutParams().width, multiOffer1.getLayoutParams().height);
+                                params.setMargins(0, (int) pxTopTextView, 0, (int) pxBottomTextView);
+                                float pxTopTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -80, r.getDisplayMetrics());
+                                float pxBottomTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -30, r.getDisplayMetrics());
+
+                                LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(multiOffer2.getLayoutParams().width, multiOffer2.getLayoutParams().height);
+                                params2.setMargins(0, 0, 0, 0);
+
+
+                                allOffers.removeAllViews();
+                                allOffers.addView(multiOffer2, 0, params2);
+                                allOffers.addView(multiOffer1, 1, params);
+                                allOffers.addView(multiOffer3, 2);
+                            }
+
+                        }
+                    });
+
+                    category.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            refineDropdown.setVisibility(View.GONE);
+                            distance.setVisibility(View.GONE);
+                            starratingg.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            category.setVisibility(View.GONE);
+                            starratinng.setVisibility(View.GONE);
+                            alphabetical.setVisibility(View.GONE);
+                            timeremaining.setVisibility(View.GONE);
+                            TextView multiOfferRet1Name = (TextView) findViewById(R.id.multiOfferRet1Name);
+                            FrameLayout multiOffer1 = (FrameLayout) findViewById(R.id.multiOffer1);
+                            FrameLayout multiOffer2 = (FrameLayout) findViewById(R.id.multiOffer2);
+                            FrameLayout multiOffer3 = (FrameLayout) findViewById(R.id.multiOffer3);
+
+                            Resources r = getResources();
+
+                            float pxTopTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, r.getDisplayMetrics());
+                            float pxBottomTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -30, r.getDisplayMetrics());
+
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(multiOffer2.getLayoutParams().width, multiOffer2.getLayoutParams().height);
+                            params.setMargins(0, (int) pxTopTextView, 0, (int) pxBottomTextView);
+                            multiOffer2.setLayoutParams(params);
+
+                            allOffers.removeView(multiOffer1);
+                            allOffers.removeView(multiOffer2);
+                            allOffers.removeView(multiOffer3);
+                            allOffers.addView(multiOffer2, 0, params);
+                            allOffers.addView(multiOffer1, 1);
+                            allOffers.addView(multiOffer3, 2);
+
+
+                        }
+                    });
+                    distance.setVisibility(View.VISIBLE);
+                    category.setVisibility(View.VISIBLE);
+                    starratingg.setVisibility(View.VISIBLE);
+                    timeremaining.setVisibility(View.VISIBLE);
+                }
+            });
             ImageView phone = (ImageView) findViewById(R.id.phone);
             phone.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -413,12 +675,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             multiOfferProgressBar1 = (ProgressBar) findViewById(R.id.multiOfferProgressBar1);
             //make the progress bar visible
             multiOfferProgressBar1.setVisibility(View.VISIBLE);
+            ImageView speechbubb = (ImageView) findViewById(R.id.speechbubb);
+            speechbubb.setVisibility(View.VISIBLE);
+            ImageView speechbubb2 = (ImageView) findViewById(R.id.speechbubb);
+            speechbubb2.setVisibility(View.VISIBLE);
             multiOfferProgressBar1.setMax(100);
             LinearLayout lino = (LinearLayout) findViewById(R.id.multiOffer1Layout);
             multiOfferProgressBar1.setProgress(10);
             multiOfferProgressBar1.setMinimumWidth(lino.getWidth());
             //Set the initial/default colour of the progress bar
             multiOfferProgressBar1.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
+
 
             // Initiate the second progress bar that displays in the multi offer popup view
             multiOfferProgressBar2 = (ProgressBar) findViewById(R.id.multiOfferProgressBar2);
@@ -881,31 +1148,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         // for ActivityCompat#requestPermissions for more details.
                         return;
                     }
-                    ImageView nodStarsOverlay = (ImageView)findViewById(R.id.nodStarsOverlay);
+                    ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
                     nodStarsOverlay.setVisibility(View.INVISIBLE);
 
-                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView)findViewById(R.id.nodSemiCirc1);
+                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
                     nodSemiCirc1.setVisibility(View.GONE);
-                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView)findViewById(R.id.nodSemiCirc2);
+                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
                     nodSemiCirc2.setVisibility(View.GONE);
-                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView)findViewById(R.id.nodSemiCirc3);
+                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
                     nodSemiCirc3.setVisibility(View.GONE);
 
-                    FrameLayout nearbyOffer1 = (FrameLayout)findViewById(R.id.nearbyOffer1);
+                    FrameLayout nearbyOffer1 = (FrameLayout) findViewById(R.id.nearbyOffer1);
                     nearbyOffer1.setVisibility(View.VISIBLE);
-                    FrameLayout nearbyOffer2 = (FrameLayout)findViewById(R.id.nearbyOffer2);
+                    FrameLayout nearbyOffer2 = (FrameLayout) findViewById(R.id.nearbyOffer2);
                     nearbyOffer2.setVisibility(View.VISIBLE);
-                    FrameLayout nearbyOffer3 = (FrameLayout)findViewById(R.id.nearbyOffer3);
+                    FrameLayout nearbyOffer3 = (FrameLayout) findViewById(R.id.nearbyOffer3);
                     nearbyOffer3.setVisibility(View.VISIBLE);
-                    FrameLayout nearbyOffer4 = (FrameLayout)findViewById(R.id.nearbyOffer4);
+                    FrameLayout nearbyOffer4 = (FrameLayout) findViewById(R.id.nearbyOffer4);
                     nearbyOffer4.setVisibility(View.VISIBLE);
-                    FrameLayout nearbyOffer5 = (FrameLayout)findViewById(R.id.nearbyOffer5);
+                    FrameLayout nearbyOffer5 = (FrameLayout) findViewById(R.id.nearbyOffer5);
                     nearbyOffer5.setVisibility(View.VISIBLE);
-                    FrameLayout nearbyOffer6 = (FrameLayout)findViewById(R.id.nearbyOffer6);
+                    FrameLayout nearbyOffer6 = (FrameLayout) findViewById(R.id.nearbyOffer6);
                     nearbyOffer6.setVisibility(View.VISIBLE);
-                    FrameLayout nearbyOffer7 = (FrameLayout)findViewById(R.id.nearbyOffer7);
+                    FrameLayout nearbyOffer7 = (FrameLayout) findViewById(R.id.nearbyOffer7);
                     nearbyOffer7.setVisibility(View.VISIBLE);
-                    FrameLayout nearbyOffer8 = (FrameLayout)findViewById(R.id.nearbyOffer8);
+                    FrameLayout nearbyOffer8 = (FrameLayout) findViewById(R.id.nearbyOffer8);
                     nearbyOffer8.setVisibility(View.VISIBLE);
 
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
@@ -917,7 +1184,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
                     nodAddress.setVisibility(View.GONE);
 
-                    ScrollView nodScrollView = (ScrollView)findViewById(R.id.nodScrollView);
+                    ScrollView nodScrollView = (ScrollView) findViewById(R.id.nodScrollView);
                     nodScrollView.setVisibility(View.VISIBLE);
 
 
@@ -941,8 +1208,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     // The scroll view is dislpayed at 180 degs, i.e upside down in slidedrawers so ensure the focus
                     // is down so it displays the offers at the top first
-                    ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
-                    scroll.fullScroll(View.FOCUS_DOWN);
+//                    ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
+//                    scroll.fullScroll(View.FOCUS_DOWN);
                 }
 
                 public void onSwipeLeft() {
@@ -1089,6 +1356,35 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             // Set swipe actions from the right to left to switch to AR, this is mostly redundant as exchanged for nav circles
             // and due to maps taking up whole view, the swipe does not work
             View va = (View) findViewById(R.id.mapsy);
+            LinearLayout offerSlideDrawer = (LinearLayout) findViewById(R.id.offerSlideDrawer);
+            offerSlideDrawer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImageView sortDropdown = (ImageView) findViewById(R.id.sortDropdown);
+                    ImageView refineDropdown = (ImageView) findViewById(R.id.refineDropdown);
+                    TextView alphabetical = (TextView) findViewById(R.id.alphabetical);
+                    TextView nearby = (TextView) findViewById(R.id.nearby);
+                    TextView dealtime = (TextView) findViewById(R.id.dealtime);
+                    TextView starratinng = (TextView) findViewById(R.id.starratinng);
+                    TextView distance = (TextView) findViewById(R.id.distance);
+                    TextView category = (TextView) findViewById(R.id.category);
+                    TextView starratingg = (TextView) findViewById(R.id.starratingg);
+                    TextView timeremaining = (TextView) findViewById(R.id.timeremaining);
+
+                    distance.setVisibility(View.GONE);
+                    category.setVisibility(View.GONE);
+                    starratingg.setVisibility(View.GONE);
+                    timeremaining.setVisibility(View.GONE);
+
+                    alphabetical.setVisibility(View.GONE);
+                    nearby.setVisibility(View.GONE);
+                    dealtime.setVisibility(View.GONE);
+                    starratinng.setVisibility(View.GONE);
+
+                    sortDropdown.setVisibility(View.GONE);
+                    refineDropdown.setVisibility(View.GONE);
+                }
+            });
             va.setOnTouchListener(new OnSwipeTouchListener(MapsActivity.this) {
                 public void onSwipeTop() {
                 }
@@ -1324,7 +1620,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 if (parent.get(i)[1] == "food/dining" && foodDiningIsClicked == true) {
                     mClusterManager.addItem(offsetItem);
-                } else if (parent.get(i)[1] == "accomodation" && accomodationIsClicked == true) {
+                } else if (parent.get(i)[1] == "accommodation" && accomodationIsClicked == true) {
                     mClusterManager.addItem(offsetItem);
                 } else if (parent.get(i)[1] == "attractions" && attractionsIsClicked == true) {
                     mClusterManager.addItem(offsetItem);
@@ -1351,7 +1647,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
                     }
                     try {
-                        singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[16]  + "|" + "ooo";
+                        singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[16] + "|" + "ooo";
 
                     } catch (Exception er) {
                         singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
@@ -1500,7 +1796,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 }
                 AppClusterItem offsetItem = new AppClusterItem((Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[7]))), Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[6])), "title " + i + 1, singleOfferString);
-                if (parent.get(i)[1] == "accomodation") {
+                if (parent.get(i)[1] == "accommodation") {
                     mClusterManager.addItem(offsetItem);
                 }
                 if (parent.get(i)[1] == "shopping" && shoppingIsClicked == true) {
@@ -2081,6 +2377,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             ofsdAddress.setVisibility(View.GONE);
             nodStarsOverlay.setVisibility(View.GONE);
             multiOffer1.setVisibility(View.VISIBLE);
+            TextView ofsdRetName = (TextView) findViewById(R.id.ofsdRetailerName);
+            TextView multiRetName = (TextView) findViewById(R.id.multiRetName);
+            ofsdRetName.setVisibility(View.GONE);
+//            multiRetName.setVisibility(View.VISIBLE);
+            Resources r = getResources();
+//            float topMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -600, r.getDisplayMetrics());
+////
+////        if(marginLeft<16){
+////            px = ;
+////            pxTextView = ;
+////
+////        }
+//            FrameLayout.LayoutParams paramsTextView2 = new FrameLayout.LayoutParams(200,200);
+//
+//
+//            paramsTextView2.setMargins(0,(int) topMargin,0,0);
+//            retNameMultiOffers.setLayoutParams(paramsTextView2);
             multiOffer2.setVisibility(View.VISIBLE);
             multiOffer3.setVisibility(View.VISIBLE);
             LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
@@ -2170,7 +2483,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     RelativeLayout.LayoutParams.WRAP_CONTENT
             );
 
-            Button remove=(Button) customView.findViewById(R.id.ib_close);
+            Button remove = (Button) customView.findViewById(R.id.ib_close);
 
             remove.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -2196,12 +2509,72 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
         super.onPrepareOptionsMenu(menu);
         return true;
+    }
+
+    //getOffers is called in the onRequestData method and passes it the url of our AWS GET request API
+    private class loadSurroundingOffers extends AsyncTask<LatLng, Void, Void> {
+
+        // Send our GET request to AWS using the Java Http Manager class
+        @Override
+        protected Void doInBackground(LatLng... pParams) {
+            final LatLng latLng = pParams[0];
+
+            Thread t = new Thread() {
+
+                public void run() {
+                    Looper.prepare(); //For Preparing Message Pool for the child Thread
+                    HttpClient client = new DefaultHttpClient();
+                    HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000); //Timeout Limit
+                    HttpResponse response;
+                    JSONObject json = new JSONObject();
+
+                    try {
+                        System.out.println("THE LAT AND LON ARE:");
+                        System.out.println(latLng.latitude);
+                        System.out.println(latLng.longitude);
+                        HttpPost post = new HttpPost("https://ffemuvnzx6.execute-api.us-west-2.amazonaws.com/test/vappapp-mock-offers");
+                        json.put("latitude", latLng.latitude);
+                        json.put("longitude", latLng.longitude);
+                        StringEntity se = new StringEntity(json.toString());
+                        se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+                        post.setEntity(se);
+                        response = client.execute(post);
+
+                    /*Checking response */
+                        if (response != null) {
+                            in = response.getEntity().getContent(); //Get the data in the entity
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.out.println("Error Cannot Estabilish Connection");
+                    }
+
+                    Looper.loop(); //Loop in the message queue
+                }
+            };
+
+            t.start();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+            System.out.println("Sleeping");
+            SystemClock.sleep(3000);
+            System.out.println("Sleeping finished");
+            requestData("https://ffemuvnzx6.execute-api.us-west-2.amazonaws.com/test/vappappoffersapi");
+
+        }
+
+        protected void onProgressUpdate(String... values) {
+            System.out.println(values[0]);
+        }
     }
 
     //getOffers is called in the onRequestData method and passes it the url of our AWS GET request API
@@ -2240,8 +2613,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // Put our JSON string of offers returned from the GET request into a JSON array
                 // where each element in the array is an offer
                 JSONArray array = new JSONArray(result);
-                System.out.println(array.getJSONObject(1).toString());
-                System.out.println(array.length());
+//                System.out.println(array.getJSONObject(1).toString());
+//                System.out.println(array.length());
 
 
                 // Loop through every offer (element in the array) and assign the attributes of each
@@ -2291,7 +2664,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                     // Seperate each array element with a pipe so we can later identify the different attributesfor a unique offer
-                    allOffersArray.add("|" + individualOfferDetsArray[0] + "|" + individualOfferDetsArray[1] + "|" + individualOfferDetsArray[2] + "|" + individualOfferDetsArray[3] + "|" + individualOfferDetsArray[4] + "|" + individualOfferDetsArray[5] + "|" + individualOfferDetsArray[6] + "|" + individualOfferDetsArray[7] + "|" + individualOfferDetsArray[8] + "|" + individualOfferDetsArray[9] + "|" + individualOfferDetsArray[10] + "|" + individualOfferDetsArray[11] + "|" + individualOfferDetsArray[12] + "|" + individualOfferDetsArray[13] + "|" + individualOfferDetsArray[14]+ "|" + individualOfferDetsArray[15]);
+                    allOffersArray.add("|" + individualOfferDetsArray[0] + "|" + individualOfferDetsArray[1] + "|" + individualOfferDetsArray[2] + "|" + individualOfferDetsArray[3] + "|" + individualOfferDetsArray[4] + "|" + individualOfferDetsArray[5] + "|" + individualOfferDetsArray[6] + "|" + individualOfferDetsArray[7] + "|" + individualOfferDetsArray[8] + "|" + individualOfferDetsArray[9] + "|" + individualOfferDetsArray[10] + "|" + individualOfferDetsArray[11] + "|" + individualOfferDetsArray[12] + "|" + individualOfferDetsArray[13] + "|" + individualOfferDetsArray[14] + "|" + individualOfferDetsArray[15]);
 
                     System.out.println(allOffersArray.get(i));
                     String[] ert = (allOffersArray.get(i)).split(Pattern.quote("|"));
@@ -2333,32 +2706,101 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         // Initiate the GET request to AWS to retrieve our offers for loading into the app
-        requestData("https://9ex1ark3n8.execute-api.us-west-2.amazonaws.com/test/geooffers");
+//        requestData("https://ffemuvnzx6.execute-api.us-west-2.amazonaws.com/test/vappappoffersapi");
+        // Load the 4 mock nearby retailer offers ONLY on the first location info received
+        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        MapStyleOptions style;
-        mMap = googleMap;
-        style = new MapStyleOptions(("[" +
-                "  {" +
-                "    \"featureType\":\"all\"," +
-                "    \"elementType\":\"all\"," +
-                "    \"stylers\":[" +
-                "      {" +
-                "        \"saturation\":\"-100\"" +
-                "      }" +
-                "    ]" +
-                "  }" +
-                "]"));
+        // Check the user is connected to the internet before kicking off the map
+        if (mWifi.isConnected()) {
+            if (loadedSurrounds) {
 
-        mMap.getUiSettings().setMapToolbarEnabled(false);
-        mMap.setMapStyle(style);
+            } else {
+                final loadSurroundingOffers task2 = new loadSurroundingOffers();
 
-        Toast toast = Toast.makeText(MapsActivity.this, "Be careful crossing the road with Vapp App", Toast.LENGTH_SHORT);
-        toast.show();
-        System.out.println("On Map Ready running");
-        System.out.println("Map started");
+                locationListener = new LocationListener() {
 
-        mMap.setPadding(0, 250, 0, 0);
+                    @Override
+                    public void onLocationChanged(Location location) {
+                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        if (locationAlreadyCalled){
+                        }
+                        else{
+                            locationAlreadyCalled = true;
+                            task2.execute(latLng);
+                        }
+                    }
 
+                    @Override
+                    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                    }
+
+                    @Override
+                    public void onProviderEnabled(String provider) {
+
+                    }
+
+                    @Override
+                    public void onProviderDisabled(String provider) {
+
+                    }
+                };
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, locationListener);
+
+
+
+            }
+            MapStyleOptions style;
+            mMap = googleMap;
+            style = new MapStyleOptions(("[" +
+                    "  {" +
+                    "    \"featureType\":\"all\"," +
+                    "    \"elementType\":\"all\"," +
+                    "    \"stylers\":[" +
+                    "      {" +
+                    "        \"saturation\":\"-100\"" +
+                    "      }" +
+                    "    ]" +
+                    "  }" +
+                    "]"));
+
+            mMap.getUiSettings().setMapToolbarEnabled(false);
+            mMap.setMapStyle(style);
+
+            Toast toast = Toast.makeText(MapsActivity.this, "Be careful crossing the road with Vapp App", Toast.LENGTH_SHORT);
+            toast.show();
+            System.out.println("On Map Ready running");
+            System.out.println("Map started");
+
+            mMap.setPadding(0, 250, 0, 0);
+        }
+        // If the user is not connected, create a dialog box to inform them of this
+        else{
+
+            AlertDialog.Builder builder;
+            builder = new AlertDialog.Builder(MapsActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+
+            builder.setTitle("No Connection")
+                    .setMessage("No internet connection, please connect before login")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
 
     }
 
@@ -2402,8 +2844,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Bitmap h = bitmapdraw8.getBitmap();
         final Bitmap smallMarker8 = Bitmap.createScaledBitmap(h, width, height, false);
 
+        BitmapDrawable bitmapdraw9 = (BitmapDrawable) getResources().getDrawable(R.drawable.accommodation);
+        Bitmap j = bitmapdraw9.getBitmap();
+        final Bitmap smallMarker9 = Bitmap.createScaledBitmap(h, width, height, false);
 
-        final Bitmap[] markerIcon = {smallMarker10};
+
+        final Bitmap[] markerIcon = {smallMarker8};
         String category = null;
 
         for (int i = 0; i < allOffersArray.size(); i++) {
@@ -2429,25 +2875,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 markerIcon[0] = smallMarker8;
                 category = "attractions";
 
-                System.out.println("True");
-            } else if ("fastfoods".equals((allOffersArray.get(i)).split(Pattern.quote("|"))[1])) {
-                markerIcon[0] = smallMarker3;
-                category = "fastfoods";
+                System.out.println("attractions");
+            } else if ("accommodation".equals((allOffersArray.get(i)).split(Pattern.quote("|"))[1])) {
+                markerIcon[0] = smallMarker9;
+                category = "accommodation";
 
-                System.out.println("True");
+                System.out.println("accommodation");
             } else if ("food/dining".equals((allOffersArray.get(i)).split(Pattern.quote("|"))[1])) {
                 markerIcon[0] = smallMarker3;
                 category = "food/dining";
 
-                System.out.println("True");
+                System.out.println("Food/dining");
             } else if ("drinks".equals(((allOffersArray.get(i)).split(Pattern.quote("|"))[1]))) {
                 markerIcon[0] = smallMarker7;
                 category = "drinks";
-                System.out.println("True");
+                System.out.println("Drinks");
+
             } else if ("movies".equals(((allOffersArray.get(i)).split(Pattern.quote("|"))[1]))) {
                 markerIcon[0] = smallMarker5;
                 category = "movies";
-                System.out.println("True");
+                System.out.println("Movies");
             }
 
 
@@ -2520,16 +2967,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         final int finalI = i;
 
 
-                        ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
-
-                        scroll.fullScroll(View.FOCUS_DOWN);
+//                        ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
+//
+//                        scroll.fullScroll(View.FOCUS_DOWN);
 
                         System.out.println(appClusterItem.mSnippet);
                         System.out.println(allOffersArray.get(finalI));
                         TextView tv = (TextView) findViewById(R.id.ofsdRetailerName);
+                        TextView multiRetName = (TextView) findViewById(R.id.multiRetName);
                         tv.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[9]);
+                        tv.setVisibility(View.GONE);
+                        multiRetName.setVisibility(View.VISIBLE);
+                        multiRetName.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[9]);
                         TextView multiOfferRet1Name = (TextView) findViewById(R.id.multiOfferRet1Name);
                         multiOfferRet1Name.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
+                        multiOfferDealsArray[0] = appClusterItem.mSnippet.split(Pattern.quote("|"))[0];
 
                         System.out.println("onClusterItemClicked");
                         System.out.println(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
@@ -2542,6 +2994,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         TextView tvj = (TextView) findViewById(R.id.multiOfferRet2Name);
                         tvj.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[1]);
+                        multiOfferDealsArray[1] = appClusterItem.mSnippet.split(Pattern.quote("|"))[1];
 
 
                         TextView tvx = (TextView) findViewById(R.id.singleCouponOfferText2);
@@ -2549,8 +3002,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         TextView tvd = (TextView) findViewById(R.id.singleCouponOfferText3);
                         tvd.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[4]);
+
                         TextView tvk = (TextView) findViewById(R.id.multiOfferRet3Name);
-                        tvk.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[4]);
+                        if(tvk!=null){
+                            tvk.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[4]);
+                            multiOfferDealsArray[2] = appClusterItem.mSnippet.split(Pattern.quote("|"))[1];
+
+                        }
 
                         ImageView starIcon = (ImageView) findViewById(R.id.ofsdStarsOverlay);
                         final ImageView multiOffersStars = (ImageView) findViewById(R.id.multiOffersStars);
@@ -2558,13 +3016,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         final ImageView multiOffersStars3 = (ImageView) findViewById(R.id.multiOffersStars3);
                         System.out.println("RATINGS");
                         multiOffersStars2.setTag("five");
-                        multiOffersStars3.setTag("five");
+                        if(multiOffersStars3!=null){
+                            multiOffersStars3.setTag("five");
+
+                        }
 
 
                         if (singleOfferString.split(Pattern.quote("|"))[2].equals("1")) {
                             starIcon.setImageResource(R.drawable.starone);
                             multiOffersStars.setImageResource(R.drawable.onestr);
                             multiOffersStars.setTag("one");
+
+                            multiOfferStarsArray[0] = 1;
 
                             multiOffersStars2.setImageResource(R.drawable.fivestr);
                             multiOffersStars3.setImageResource(R.drawable.fivestr);
@@ -2576,6 +3039,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             multiOffersStars.setImageResource(R.drawable.twostr);
                             multiOffersStars2.setImageResource(R.drawable.fivestr);
                             multiOffersStars3.setImageResource(R.drawable.fivestr);
+                            multiOfferStarsArray[0] = 2;
+
 
                             multiOffersStars.setTag("two");
 
@@ -2583,8 +3048,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         }
                         if (singleOfferString.split(Pattern.quote("|"))[2].equals("3")) {
-                            starIcon.setImageResource(R.drawable.starthree);
+                            starIcon.setImageResource(R.drawable.starthreee);
                             multiOffersStars.setTag("three");
+                            multiOfferStarsArray[0] = 3;
 
                             System.out.println("goo");
                             android.view.ViewGroup.LayoutParams layoutParams = multiOffersStars.getLayoutParams();
@@ -2595,12 +3061,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                             multiOffersStars.setImageResource(R.drawable.threestr);
                             multiOffersStars2.setImageResource(R.drawable.fivestr);
-                            multiOffersStars3.setImageResource(R.drawable.fivestr);
+                            if(multiOffersStars3!=null){
+
+                                multiOffersStars3.setImageResource(R.drawable.fivestr);
+                            }
 
                         }
                         if (singleOfferString.split(Pattern.quote("|"))[2].equals("4")) {
                             starIcon.setImageResource(R.drawable.starfour);
                             multiOffersStars.setImageResource(R.drawable.fourstr);
+                            multiOfferStarsArray[0] = 4;
                             multiOffersStars.setTag("four");
                             starIcon.setMaxWidth(100);
                             starIcon.getLayoutParams().width = 10;
@@ -2611,6 +3081,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
                         if (singleOfferString.split(Pattern.quote("|"))[2].equals("5")) {
                             starIcon.setImageResource(R.drawable.starfive);
+                            multiOfferStarsArray[0] = 5;
                             multiOffersStars.setImageResource(R.drawable.fivestr);
                             multiOffersStars2.setImageResource(R.drawable.fivestr);
                             multiOffersStars3.setImageResource(R.drawable.fivestr);
@@ -2619,6 +3090,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             System.out.println("goo");
 
                         }
+
+                        multiOfferStarsArray[1] = 5;
+                        multiOfferStarsArray[2] = 5;
 
                         final FrameLayout lin = (FrameLayout) findViewById(R.id.multiOffer1);
                         FrameLayout lin2 = (FrameLayout) findViewById(R.id.ofsdCoupOffer2);
@@ -2644,7 +3118,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             System.out.println("goo");
                         }
                         if (appClusterItem.mSnippet.split(Pattern.quote("|"))[2].equals("3")) {
-                            starIcon.setImageResource(R.drawable.starthree);
+                            starIcon.setImageResource(R.drawable.starthreee);
                             System.out.println("goo");
                         }
                         if (appClusterItem.mSnippet.split(Pattern.quote("|"))[2].equals("4")) {
@@ -2667,7 +3141,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         }
                         if (appClusterItem.mSnippet.split(Pattern.quote("|"))[8].equals("accommodation")) {
-                            catIcon.setImageResource(R.drawable.accomodation);
+                            catIcon.setImageResource(R.drawable.accommodationcopy);
                             System.out.println("GAAAAAA");
 
                         }
@@ -2732,6 +3206,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             multiOffer3.setVisibility(View.GONE);
                             tvn.setVisibility(View.VISIBLE);
                             tvn.setText(appClusterItem.mSnippet.split(Pattern.quote("|"))[0]);
+                            LinearLayout sortrefine = (LinearLayout)findViewById(R.id.sortrefinebar);
+                            sortrefine.setVisibility(View.GONE);
+
+                            View seperator = (View)findViewById(R.id.separator);
+                            seperator.setVisibility(View.GONE);
+
+                            TextView retailerName = (TextView)findViewById(R.id.ofsdRetailerName);
+                            Resources r = getResources();
+
+                            float marginLeft2 = 12;
+                            float px2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginLeft2, r.getDisplayMetrics());
+                            float pxTop2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -15, r.getDisplayMetrics());
+//                            System.out.println((int)px);
+
+                            FrameLayout.LayoutParams params2 = new FrameLayout.LayoutParams(200,200);
+                            params2.setMargins(((int) px2), (int) pxTop2,0,0);
+//                            speechbubb2.setLayoutParams(params2);
 
 
                             ofsdCoupOffer1.setVisibility(View.VISIBLE);
@@ -2739,6 +3230,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             System.out.println("offer2 is empty");
                             ofsdSemiCircBg.setVisibility(View.VISIBLE);
                             semiCirc.setVisibility(View.VISIBLE);
+                            semiCirc2.setVisibility(View.GONE);
+                            semiCirc3.setVisibility(View.GONE);
                             starsOverlay.setVisibility(View.VISIBLE);
                         }
                         if (!appClusterItem.mSnippet.split(Pattern.quote("|"))[1].equals("offer 2 empty")) {
@@ -2770,7 +3263,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             semiCirc.setVisibility(View.GONE);
 
                             semiCirc2.setVisibility(View.GONE);
-                            semiCirc3.setVisibility(View.GONE);
+                            semiCirc3.setVisibility(View.VISIBLE);
                         }
                         final TextView singleCouponOfferText1 = (TextView) findViewById(R.id.singleCouponOfferText1);
                         final TextView singleCouponOfferText2 = (TextView) findViewById(R.id.singleCouponOfferText2);
@@ -2811,7 +3304,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     System.out.println("one");
                                 }
                                 if (multiOffersStars.getTag().equals("three")) {
-                                    starsOverlay.setImageResource(R.drawable.starthree);
+                                    starsOverlay.setImageResource(R.drawable.starthreee);
                                     System.out.println("one");
                                 }
                                 if (multiOffersStars.getTag().equals("four")) {
@@ -2848,7 +3341,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     System.out.println("one");
                                 }
                                 if (multiOffersStars2.getTag().equals("three")) {
-                                    starsOverlay.setImageResource(R.drawable.starthree);
+                                    starsOverlay.setImageResource(R.drawable.starthreee);
                                     System.out.println("one");
                                 }
                                 if (multiOffersStars2.getTag().equals("four")) {
@@ -2909,7 +3402,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     System.out.println("one");
                                 }
                                 if (multiOffersStars3.getTag().equals("three")) {
-                                    starsOverlay.setImageResource(R.drawable.starthree);
+                                    starsOverlay.setImageResource(R.drawable.starthreee);
                                     System.out.println("one");
                                 }
                                 if (multiOffersStars3.getTag().equals("four")) {
@@ -2947,7 +3440,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //                                    R.anim.slid_down);
 //                    animation2.setAnimationListener
 //                            (new GameAnimationListener(MapsActivity.this));
-                        ViewGroup offerSlideDrawer = (ViewGroup) findViewById(R.id.filterSlideDrawer);
+                        ViewGroup offerSlideDrawer = (ViewGroup) findViewById(filterSlideDrawer);
                         if (offerSlideDrawer.getVisibility() == View.VISIBLE) {
 
                             Animation bottomDown = AnimationUtils.loadAnimation(MapsActivity.this,
@@ -3068,7 +3561,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 Animation bottomDown = AnimationUtils.loadAnimation(MapsActivity.this,
                         R.anim.bottom_down);
-                ViewGroup hiddenPanel = (ViewGroup) findViewById(R.id.filterSlideDrawer);
+                ViewGroup hiddenPanel = (ViewGroup) findViewById(filterSlideDrawer);
                 if (hiddenPanel.getVisibility() == View.VISIBLE) {
                     hiddenPanel.startAnimation(bottomDown);
                     hiddenPanel.setVisibility(View.GONE);
@@ -3104,14 +3597,59 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
 
         });
+        final ViewGroup filterSlideDrawer = (ViewGroup) findViewById(R.id.filterSlideDrawer);
+
+        // Hide our filter pop up whenever the user taps the map. We also already close it in another function when user presses back button
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+        {
+            @Override
+            public void onMapClick(LatLng arg0)
+            {
+                if (filterSlideDrawer.getVisibility() == View.VISIBLE){
+                    // Slide the filter draw up from the bottom
+                    Animation bottomUp = AnimationUtils.loadAnimation(MapsActivity.this,
+                            R.anim.bottom_up);
+                    filterSlideDrawer.setVisibility(View.GONE);
+                    overridePendingTransition(R.anim.slid_up, R.anim.slide_out);
+
+                    mClusterManager.clearItems();
+                    markers = mClusterManager.getMarkerCollection().getMarkers();
+    //            ArrayList markers2 = new ArrayList(markers);
+    //            System.out.println(markers2.get(1).toString());
+
+                    for (int i = 0; i < allOffersArray.size(); i++) {
+                        try {
+                            singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12];
+
+                        } catch (Exception er) {
+                            singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
+                            singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
+                        }
+                        try {
+                            singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[10] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[11] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[12] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[13] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[3] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[14] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[15] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[1] + "|" + (allOffersArray.get(i)).split(Pattern.quote("|"))[2] + "|" + allOffersArray.get(i).split(Pattern.quote("|"))[0] + "|" + "ooo";
+
+                        } catch (Exception er) {
+                            singleOfferString = (allOffersArray.get(i)).split(Pattern.quote("|"))[8];
+
+                        }
+
+                        AppClusterItem offsetItem = new AppClusterItem((Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[7]))), Double.parseDouble(((allOffersArray.get(i)).split(Pattern.quote("|"))[6])), "title " + i + 1, singleOfferString);
+                        mClusterManager.addItem(offsetItem);
+
+                    }
+                    mClusterManager.cluster();
+
+                }
+            }
+        });
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
 
             @Override
             public boolean onMarkerClick(Marker marker) {
 
-                ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
-
-                scroll.fullScroll(View.FOCUS_DOWN);
+//                ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
+//
+//                scroll.fullScroll(View.FOCUS_DOWN);
                 Animation bottomDown = AnimationUtils.loadAnimation(MapsActivity.this,
                         R.anim.bottom_down);
                 ViewGroup hiddenPanel = (ViewGroup) findViewById(R.id.offerSlideDrawer);
@@ -3321,28 +3859,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         int height = 140;
         int width = 140;
 
-        // Load all our marker image assets
-        BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.shopping);
-        Bitmap b = bitmapdraw.getBitmap();
-        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
-
-
-        BitmapDrawable bitmapdraw3 = (BitmapDrawable) getResources().getDrawable(R.drawable.fooddining);
-        Bitmap d = bitmapdraw3.getBitmap();
-
-
-        BitmapDrawable bitmapdraw5 = (BitmapDrawable) getResources().getDrawable(R.drawable.movies);
-        Bitmap e = bitmapdraw5.getBitmap();
-
-        // Load all our marker image assets
-        BitmapDrawable bitmapdraw7 = (BitmapDrawable) getResources().getDrawable(R.drawable.drinks);
-        Bitmap g = bitmapdraw7.getBitmap();
-
-        BitmapDrawable bitmapdraw8 = (BitmapDrawable) getResources().getDrawable(R.drawable.activities);
-        Bitmap h = bitmapdraw8.getBitmap();
-
-        BitmapDrawable bitmapdraw9 = (BitmapDrawable) getResources().getDrawable(R.drawable.accomodation);
-        Bitmap j = bitmapdraw9.getBitmap();
 
         for (int i = 0; i < allOffersArray.size(); i++) {
 
@@ -3378,9 +3894,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 @Override
                 public boolean onMarkerClick(Marker marker) {
 
-                    ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
-
-                    scroll.fullScroll(View.FOCUS_DOWN);
+//                    ScrollView scroll = (ScrollView) findViewById(R.id.ofsdScroll);
+//
+//                    scroll.fullScroll(View.FOCUS_DOWN);
 
                     System.out.println(marker.getSnippet());
                     System.out.println(allOffersArray.get(finalI));
@@ -3413,7 +3929,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     }
                     if (marker.getSnippet().split(Pattern.quote("|"))[9].equals("3")) {
-                        starIcon.setImageResource(R.drawable.starthree);
+                        starIcon.setImageResource(R.drawable.starthreee);
                         System.out.println("goo");
 
                     }
@@ -3559,9 +4075,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         final SemiCircleProgressBarView nodSemiCirc2;
         final SemiCircleProgressBarView nodSemiCirc3;//        timerBar.setImageResource(R.drawable.threequartertime);
         semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
-        semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
-        semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
-        semiCircleProgressBarView = new SemiCircleProgressBarView(MapsActivity.this, orange);
+        semiCircleProgressBarView1 = new SemiCircleProgressBarView(MapsActivity.this, orange);
+        semiCircleProgressBarView2 = new SemiCircleProgressBarView(MapsActivity.this, orange);
+        semiCircleProgressBarView3 = new SemiCircleProgressBarView(MapsActivity.this, orange);
         semiCircleProgressBarView = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc1);
         semiCircleProgressBarView1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
         semiCircleProgressBarView2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
@@ -3571,7 +4087,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
         semiCircleProgressBarView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         semiCircleProgressBarView.setClipping(100);
-        long timerBarValue = epochDif / 60000;
+         timerBarValue = epochDif / 60000;
         if (epochDif == 0 || epochDif < 0) {
             String colourBar = "grey";
             timerBarValue = 0;
@@ -3614,8 +4130,63 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             nodSemiCirc3.setClipping(timerBarValue);
         }
         multiOfferProgressBar1.setProgress((int) timerBarValue);
+        TextView timerLabel1 = (TextView)findViewById(R.id.timerLabel1);
+        if(timerBarValue<0){
+            timerLabel1.setText("0 mins");
+
+        }
+        else {
+            timerLabel1.setText(String.valueOf(timerBarValue)+" mins");
+        }
+        if (timerBarValue >59){
+            timerLabel1.setText("1 hour");
+
+        }
         final long finalTimerBarValue = timerBarValue;
         final long finalTimerBarValue1 = timerBarValue;
+
+        double marginLeftDblImage = 12 + (2.9 * finalTimerBarValue);
+        double marginLeftDblText = 18 + (2.9 * finalTimerBarValue);
+
+        DecimalFormat df = new DecimalFormat("#");
+        df.setRoundingMode(RoundingMode.CEILING);
+        System.out.println("marg left");
+        System.out.println(marginLeftDblImage);
+        float marginLeft = (float)Math.round(marginLeftDblImage);
+        float marginLeftTextView = (float)Math.round(marginLeftDblText);
+        System.out.println(marginLeft);
+
+        if(finalTimerBarValue>100){
+            marginLeft = 300;
+            marginLeftTextView = 306;
+        }
+
+        Resources r = getResources();
+        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginLeft, r.getDisplayMetrics());
+        float pxTop = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -15, r.getDisplayMetrics());
+        float pxBottom = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -80, r.getDisplayMetrics());
+        System.out.println((int)px);
+        ImageView speechbubb = (ImageView)findViewById(R.id.speechbubb);
+        ImageView speechbubb2 = (ImageView)findViewById(R.id.speechbubb2);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(200,200);
+        params.setMargins(((int) px), (int) pxTop, (int) pxTop,0);
+        speechbubb.setLayoutParams(params);
+        speechbubb2.setLayoutParams(params);
+
+        float pxTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginLeftTextView, r.getDisplayMetrics());
+        float pxTopTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 6, r.getDisplayMetrics());
+        float pxBottomTextView = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -80, r.getDisplayMetrics());
+        System.out.println((int)px);
+
+
+        TextView timerLabel1Text = (TextView)findViewById(R.id.timerLabel1);
+        TextView timerLabel2Text = (TextView)findViewById(R.id.timerLabel2);
+        FrameLayout.LayoutParams paramsTextView = new FrameLayout.LayoutParams(200,200);
+        paramsTextView.setMargins(((int) pxTextView),(int) pxTopTextView,(int) pxBottomTextView,0);
+        timerLabel1Text.setLayoutParams(paramsTextView);
+        timerLabel2Text.setLayoutParams(paramsTextView);
+
+
         timer = new CountDownTimer(epochDif, 1000) {
             public void onTick(long millisUntilFinished) {
                 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -3648,7 +4219,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 int length = String.valueOf(modulo).length();
                 if (length == 3) {
                     System.out.println(dateFormat.format(date));
-                    multiOfferProgressBar1.setProgress((int) finalTimerBarValue);
+                    multiOfferProgressBar1.setProgress((int) timerBarValue);
+                    TextView timerLabel1 = (TextView)findViewById(R.id.timerLabel1);
+                    timerLabel1.setText(String.valueOf(finalTimerBarValue)+" mins");
+//                    timerLabel1.setLeft
+
+
                     System.out.println(millisUntilFinished);
                     if (x == 0) {
                         String colourBar = "grey";
@@ -3742,7 +4318,85 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             DateFormat formatterOffr2 = new SimpleDateFormat("HH:mm:ss:SSS");
             String dateFormattedOffr2 = formatterOffr2.format(daterOffr2);
             System.out.println(dateFormattedOffr2);
-            final long timerBarValue2 = epochDifOffr2 / 60000;
+            timerBarValue2 = epochDifOffr2 / 60000;
+            TextView timerLabel2 = (TextView)findViewById(R.id.timerLabel2);
+
+            if(timerBarValue2<0){
+                timerLabel2.setText("0 mins");
+                float marginLeft2 = 12;
+                float marginLeftTextView2 = 18;
+
+
+
+                System.out.println(marginLeft2);
+                float px2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginLeft2, r.getDisplayMetrics());
+                float pxTop2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -15, r.getDisplayMetrics());
+                System.out.println((int)px);
+
+                FrameLayout.LayoutParams params2 = new FrameLayout.LayoutParams(200,200);
+                params2.setMargins(((int) px2), (int) pxTop2,0,0);
+                speechbubb2.setLayoutParams(params2);
+
+                float pxTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginLeftTextView2, r.getDisplayMetrics());
+                float pxTopTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 6, r.getDisplayMetrics());
+                System.out.println((int)px2);
+//
+//        if(marginLeft<16){
+//            px = ;
+//            pxTextView = ;
+//
+//        }
+                FrameLayout.LayoutParams paramsTextView2 = new FrameLayout.LayoutParams(200,200);
+
+
+                paramsTextView2.setMargins(((int) pxTextView2),(int) pxTopTextView2,0,0);
+                timerLabel2Text.setLayoutParams(paramsTextView2);
+            }
+
+            else {
+                timerLabel2.setText(String.valueOf(timerBarValue2)+" mins");
+                if (timerBarValue2 >59){
+                    timerLabel2.setText("1 hour");
+
+                }
+                double marginLeftDblImage2 = 12 + (2.9 * timerBarValue2);
+                double marginLeftDblText2 = 18 + (2.9 * timerBarValue2);
+                if(timerBarValue2>100){
+                    marginLeftDblImage2 = 300;
+                    marginLeftDblText2 = 306;
+                }
+                System.out.println("marg left");
+                System.out.println(marginLeftDblImage2);
+                float marginLeft2 = (float)Math.round(marginLeftDblImage2);
+                float marginLeftTextView2 = (float)Math.round(marginLeftDblText2);
+                System.out.println(marginLeft2);
+                float px2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginLeft2, r.getDisplayMetrics());
+                float pxTop2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -15, r.getDisplayMetrics());
+                System.out.println((int)px);
+
+                FrameLayout.LayoutParams params2 = new FrameLayout.LayoutParams(200,200);
+                params2.setMargins(((int) px2), (int) pxTop2,0,0);
+                speechbubb2.setLayoutParams(params2);
+
+                float pxTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginLeftTextView2, r.getDisplayMetrics());
+                float pxTopTextView2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 6, r.getDisplayMetrics());
+                System.out.println((int)px2);
+//
+//        if(marginLeft<16){
+//            px = ;
+//            pxTextView = ;
+//
+//        }
+                FrameLayout.LayoutParams paramsTextView2 = new FrameLayout.LayoutParams(200,200);
+
+
+                paramsTextView2.setMargins(((int) pxTextView2),(int) pxTopTextView2,0,0);
+                timerLabel2Text.setLayoutParams(paramsTextView2);
+
+            }
+
+
+
             //        timerBar.setImageResource(R.drawable.threequartertime);
             semiCircleProgressBarView2 = new SemiCircleProgressBarView(MapsActivity.this, orange);
             semiCircleProgressBarView2 = (SemiCircleProgressBarView) findViewById(R.id.ofsdSemiCirc2);
@@ -4061,6 +4715,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 System.out.println("onLocFired: 1st onCreate");
                 // Each time the location changes, get the users coordinates and move the camera
                 LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+
                 timeToRunHash++;
                 int count = 0;
 
@@ -4068,10 +4724,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (timeToRunHash % 5 == 0 || timeToRunHash == 0 || timeToRunHash == 1) {
                     if (!multiOfferIsOpen) {
                         System.out.println("poop");
+                        System.out.println(allOffersArray.size());
+//                        System.out.println(allOffersArray.get(1));
 
                         for (int i = 0; i < allOffersArray.size(); i++) {
-                            String retailerHash = allOffersArray.get(i).split(Pattern.quote("|"))[4].substring(3, 10);
-
+                            String retailerHash = allOffersArray.get(i).split(Pattern.quote("|"))[4];
+                            System.out.println(retailerHash);
                             if (retailerHash.equals(nearHashes.get(0)) || retailerHash.equals(nearHashes.get(1)) || retailerHash.equals(nearHashes.get(2)) ||
 
                                     retailerHash.equals(nearHashes.get(3)) ||
@@ -4171,6 +4829,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     startActivity(callIntent);
                                 }
                             });
+
                             nearbyOffer1.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -4246,7 +4905,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                         nodIconImage.setImageResource(R.drawable.movies);
                                     }
                                     if (individualOfferDetsArray[0].equals("accommodation")) {
-                                        nodIconImage.setImageResource(R.drawable.accomodation);
+                                        nodIconImage.setImageResource(R.drawable.accommodationcopy);
                                     }
                                     if (individualOfferDetsArray[0].equals("shopping")) {
                                         nodIconImage.setImageResource(R.drawable.shopping);
@@ -4367,7 +5026,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                         nodIconImage.setImageResource(R.drawable.movies);
                                     }
                                     if (individualOfferDetsArray[0].equals("accommodation")) {
-                                        nodIconImage.setImageResource(R.drawable.accomodation);
+                                        nodIconImage.setImageResource(R.drawable.accommodationcopy);
                                     }
                                     if (individualOfferDetsArray[0].equals("shopping")) {
                                         nodIconImage.setImageResource(R.drawable.shopping);
@@ -4494,7 +5153,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                         nodIconImage.setImageResource(R.drawable.movies);
                                     }
                                     if (individualOfferDetsArray[0].equals("accommodation")) {
-                                        nodIconImage.setImageResource(R.drawable.accomodation);
+                                        nodIconImage.setImageResource(R.drawable.accommodationcopy);
                                     }
                                     if (individualOfferDetsArray[0].equals("shopping")) {
                                         nodIconImage.setImageResource(R.drawable.shopping);
@@ -4535,118 +5194,118 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 }
                             });
 
-                            nearbyOffer4.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    backStack = true;
-                                    multiOfferIsOpen = true;
-
-                                    try {
-                                        final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-
-                                        final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
-                                        nodWebsitey.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                String url = "http://" + nodWebsiteyArray.get(4).toString();
-                                                Intent i = new Intent(Intent.ACTION_VIEW);
-                                                i.setData(Uri.parse(url));
-                                                startActivity(i);
-                                            }
-                                        });
-                                        ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
-                                        nodEmail.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                String website2 = null;
-                                                TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
-                                                String message = messagetv.getText().toString();
-                                                String website = nodWebsiteyArray.get(0).toString();
-                                                if (website.substring(website.length() - 4, website.length()) == "com") {
-                                                    website2 = website.substring(4, (website.length() - 4));
-                                                    System.out.println(website2);
-                                                } else {
-                                                    website2 = website.substring(4, website.length() - 6);
-                                                    System.out.println(website2);
-                                                }
-                                                Intent intent = new Intent(Intent.ACTION_SEND);
-                                                intent.setType("message/rfc822");
-                                                intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
-                                                intent.putExtra(Intent.EXTRA_TEXT, message);
-                                                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
-                                                Intent mailer = Intent.createChooser(intent, null);
-                                                startActivity(mailer);
-                                            }
-                                        });
-                                        startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
-                                    } catch (ParseException e) {
-                                        e.printStackTrace();
-                                    }
-                                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
-                                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
-                                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
-
-                                    nodSemiCirc1.setVisibility(View.GONE);
-                                    nodSemiCirc2.setVisibility(View.GONE);
-                                    nodSemiCirc3.setVisibility(View.VISIBLE);
-                                    ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
-                                    nodSemiCircBg.setVisibility(View.VISIBLE);
-                                    ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
-                                    TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
-                                    nodAddress.setVisibility(View.VISIBLE);
-                                    LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
-                                    nodContactDets.setVisibility(View.VISIBLE);
-                                    System.out.println("nearby offer 1 category");
-                                    System.out.println(individualOfferDetsArray[0]);
-                                    if (individualOfferDetsArray[0].equals("drinks")) {
-                                    }
-                                    if (individualOfferDetsArray[0].equals("attractions")) {
-                                        nodIconImage.setImageResource(R.drawable.attractions);
-                                    }
-                                    if (individualOfferDetsArray[0].equals("Movies")) {
-                                        nodIconImage.setImageResource(R.drawable.movies);
-                                    }
-                                    if (individualOfferDetsArray[0].equals("accommodation")) {
-                                        nodIconImage.setImageResource(R.drawable.accomodation);
-                                    }
-                                    if (individualOfferDetsArray[0].equals("shopping")) {
-                                        nodIconImage.setImageResource(R.drawable.shopping);
-                                    }
-                                    if (individualOfferDetsArray[0].equals("food/dining")) {
-                                        nodIconImage.setImageResource(R.drawable.fooddining);
-                                    }
-                                    ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
-                                    nodStarsOverlay.setVisibility(View.VISIBLE);
-                                    TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
-                                    nodRetailerName.setText(nearbyOffer3RetName.getText().toString());
-                                    semiCirc.setVisibility(View.GONE);
-                                    semiCirc2.setVisibility(View.GONE);
-                                    semiCirc3.setVisibility(View.GONE);
-                                    nodSemiCirc1.setVisibility(View.GONE);
-                                    nodSemiCirc2.setVisibility(View.GONE);
-                                    nodSemiCirc3.setVisibility(View.VISIBLE);
-                                    nearbyOffer1.setVisibility(View.GONE);
-                                    nearbyOffer2.setVisibility(View.GONE);
-                                    nearbyOffer3.setVisibility(View.GONE);
-                                    nearbyOffer4.setVisibility(View.GONE);
-                                    nearbyOffer5.setVisibility(View.GONE);
-                                    nearbyOffer6.setVisibility(View.GONE);
-                                    nearbyOffer7.setVisibility(View.GONE);
-                                    nearbyOffer8.setVisibility(View.GONE);
-                                    nodCoupOffer1.setVisibility(View.GONE);
-                                    nodCoupOffer2.setVisibility(View.GONE);
-                                    nodCoupOffer3.setVisibility(View.VISIBLE);
-                                    nodSingleCouponOffer1Text.setVisibility(View.GONE);
-                                    nodSingleCouponOffer2Text.setVisibility(View.GONE);
-                                    nodSingleCouponOffer3Text.setVisibility(View.VISIBLE);
-                                    nodSingleCouponOffer4Text.setText(offerDesc1.get(3).toString());
-                                    nodCoupOffer1.setVisibility(View.GONE);
-                                    nodCoupOffer2.setVisibility(View.GONE);
-                                    nodCoupOffer3.setVisibility(View.VISIBLE);
-
-
-                                }
-                            });
+//                            nearbyOffer4.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    backStack = true;
+//                                    multiOfferIsOpen = true;
+//
+//                                    try {
+//                                        final ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+//
+//                                        final ImageView nodWebsitey = (ImageView) findViewById(R.id.nodWebsitey);
+//                                        nodWebsitey.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                String url = "http://" + nodWebsiteyArray.get(4).toString();
+//                                                Intent i = new Intent(Intent.ACTION_VIEW);
+//                                                i.setData(Uri.parse(url));
+//                                                startActivity(i);
+//                                            }
+//                                        });
+//                                        ImageView nodEmail = (ImageView) findViewById(R.id.nodEmail);
+//                                        nodEmail.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                String website2 = null;
+//                                                TextView messagetv = (TextView) findViewById(R.id.nodSingleCouponOffer3Text);
+//                                                String message = messagetv.getText().toString();
+//                                                String website = nodWebsiteyArray.get(0).toString();
+//                                                if (website.substring(website.length() - 4, website.length()) == "com") {
+//                                                    website2 = website.substring(4, (website.length() - 4));
+//                                                    System.out.println(website2);
+//                                                } else {
+//                                                    website2 = website.substring(4, website.length() - 6);
+//                                                    System.out.println(website2);
+//                                                }
+//                                                Intent intent = new Intent(Intent.ACTION_SEND);
+//                                                intent.setType("message/rfc822");
+//                                                intent.putExtra(Intent.EXTRA_SUBJECT, "Find My Deal, Special Offer");
+//                                                intent.putExtra(Intent.EXTRA_TEXT, message);
+//                                                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{website2 + "@gmail.com"});
+//                                                Intent mailer = Intent.createChooser(intent, null);
+//                                                startActivity(mailer);
+//                                            }
+//                                        });
+//                                        startTimers(countdowntime1.get(0).toString(), countdowntime2.get(0).toString(), countdowntime3.get(0).toString());
+//                                    } catch (ParseException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                    SemiCircleProgressBarView nodSemiCirc1 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc1);
+//                                    SemiCircleProgressBarView nodSemiCirc2 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc2);
+//                                    SemiCircleProgressBarView nodSemiCirc3 = (SemiCircleProgressBarView) findViewById(R.id.nodSemiCirc3);
+//
+//                                    nodSemiCirc1.setVisibility(View.GONE);
+//                                    nodSemiCirc2.setVisibility(View.GONE);
+//                                    nodSemiCirc3.setVisibility(View.VISIBLE);
+//                                    ImageView nodSemiCircBg = (ImageView) findViewById(R.id.nodSemiCircBg);
+//                                    nodSemiCircBg.setVisibility(View.VISIBLE);
+//                                    ImageView nodIconImage = (ImageView) findViewById(R.id.nodIconImage);
+//                                    TextView nodAddress = (TextView) findViewById(R.id.nodAddress);
+//                                    nodAddress.setVisibility(View.VISIBLE);
+//                                    LinearLayout nodContactDets = (LinearLayout) findViewById(R.id.nodContactDets);
+//                                    nodContactDets.setVisibility(View.VISIBLE);
+//                                    System.out.println("nearby offer 1 category");
+//                                    System.out.println(individualOfferDetsArray[0]);
+//                                    if (individualOfferDetsArray[0].equals("drinks")) {
+//                                    }
+//                                    if (individualOfferDetsArray[0].equals("attractions")) {
+//                                        nodIconImage.setImageResource(R.drawable.attractions);
+//                                    }
+//                                    if (individualOfferDetsArray[0].equals("Movies")) {
+//                                        nodIconImage.setImageResource(R.drawable.movies);
+//                                    }
+//                                    if (individualOfferDetsArray[0].equals("accommodation")) {
+//                                        nodIconImage.setImageResource(R.drawable.accomodation);
+//                                    }
+//                                    if (individualOfferDetsArray[0].equals("shopping")) {
+//                                        nodIconImage.setImageResource(R.drawable.shopping);
+//                                    }
+//                                    if (individualOfferDetsArray[0].equals("food/dining")) {
+//                                        nodIconImage.setImageResource(R.drawable.fooddining);
+//                                    }
+//                                    ImageView nodStarsOverlay = (ImageView) findViewById(R.id.nodStarsOverlay);
+//                                    nodStarsOverlay.setVisibility(View.VISIBLE);
+//                                    TextView nodRetailerName = (TextView) findViewById(R.id.nodRetailerName);
+//                                    nodRetailerName.setText(nearbyOffer3RetName.getText().toString());
+//                                    semiCirc.setVisibility(View.GONE);
+//                                    semiCirc2.setVisibility(View.GONE);
+//                                    semiCirc3.setVisibility(View.GONE);
+//                                    nodSemiCirc1.setVisibility(View.GONE);
+//                                    nodSemiCirc2.setVisibility(View.GONE);
+//                                    nodSemiCirc3.setVisibility(View.VISIBLE);
+//                                    nearbyOffer1.setVisibility(View.GONE);
+//                                    nearbyOffer2.setVisibility(View.GONE);
+//                                    nearbyOffer3.setVisibility(View.GONE);
+//                                    nearbyOffer4.setVisibility(View.GONE);
+//                                    nearbyOffer5.setVisibility(View.GONE);
+//                                    nearbyOffer6.setVisibility(View.GONE);
+//                                    nearbyOffer7.setVisibility(View.GONE);
+//                                    nearbyOffer8.setVisibility(View.GONE);
+//                                    nodCoupOffer1.setVisibility(View.GONE);
+//                                    nodCoupOffer2.setVisibility(View.GONE);
+//                                    nodCoupOffer3.setVisibility(View.VISIBLE);
+//                                    nodSingleCouponOffer1Text.setVisibility(View.GONE);
+//                                    nodSingleCouponOffer2Text.setVisibility(View.GONE);
+//                                    nodSingleCouponOffer3Text.setVisibility(View.VISIBLE);
+//                                    nodSingleCouponOffer4Text.setText(offerDesc1.get(3).toString());
+//                                    nodCoupOffer1.setVisibility(View.GONE);
+//                                    nodCoupOffer2.setVisibility(View.GONE);
+//                                    nodCoupOffer3.setVisibility(View.VISIBLE);
+//
+//
+//                                }
+//                            });
 
                         } catch (Exception e) {
                             System.out.println(e);
@@ -4688,13 +5347,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             nearbyOffer8.setVisibility(View.GONE);
                         }
 
-                        System.out.println(allOffersArray.get(2).split(Pattern.quote("|"))[4].substring(3, 10));
-                        System.out.println(allOffersArray.get(3));
-                        System.out.println(allOffersArray.get(4));
+//                        System.out.println(allOffersArray.get(2).sg
                         nearbyRetNames.clear();
 
                     }
-
 
 
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
@@ -4816,8 +5472,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         System.out.println("req data firing");
         System.out.println("req data running");
         getOffers task = new getOffers();
-        task.execute(uri);
 
+        task.execute(uri);
 
     }
 

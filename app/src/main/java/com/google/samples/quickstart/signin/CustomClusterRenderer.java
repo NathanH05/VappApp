@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
-import android.view.View;
 
 import com.example.myfirstapp.R;
 import com.google.android.gms.maps.GoogleMap;
@@ -71,6 +70,10 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<AppClusterItem
         System.out.println(markerOptions.getSnippet());
 
 
+        BitmapDrawable bitmapdraw9 = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.accommodation);
+        Bitmap j = bitmapdraw9.getBitmap();
+        Bitmap smallMarker9 = Bitmap.createScaledBitmap(j, width, height, false);
+
 
         BitmapDrawable bitmapdraw = (BitmapDrawable)mContext.getResources().getDrawable(R.drawable.shopping);
         Bitmap b = bitmapdraw.getBitmap();
@@ -96,12 +99,6 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<AppClusterItem
         Bitmap h = bitmapdraw8.getBitmap();
         Bitmap smallMarker8 = Bitmap.createScaledBitmap(h, width, height, false);
 
-        BitmapDrawable bitmapdraw9 = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.accomodation);
-        Bitmap j = bitmapdraw9.getBitmap();
-        Bitmap smallMarker9 = Bitmap.createScaledBitmap(j, width, height, false);
-
-
-//            System.out.println(cat);
 
             if ("shopping".equals(x[8])) {
                 markerIcon = smallMarker;
@@ -112,9 +109,9 @@ public class CustomClusterRenderer extends DefaultClusterRenderer<AppClusterItem
                 category = "attractions";
 
                 System.out.println("True");
-            } else if ("accomodation".equals(x[8])) {
+            } else if ("accommodation".equals(x[8])) {
                 markerIcon = smallMarker9;
-                category = "accomodation";
+                category = "accommodation";
 
                 System.out.println("True");
             }  else if ("food/dining".equals(x[8])) {

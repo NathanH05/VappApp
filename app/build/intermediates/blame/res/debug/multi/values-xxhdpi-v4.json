@@ -11,7 +11,7 @@
                     "endOffset": 105
                 },
                 "from": {
-                    "file": "/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.6.3/res/values-xxhdpi/values-xxhdpi.xml",
+                    "file": "/Users/nathanhampshire/.android/build-cache/c996abebd6729146edfaf542aecf74f2ae58cfab/output/res/values-xxhdpi/values-xxhdpi.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

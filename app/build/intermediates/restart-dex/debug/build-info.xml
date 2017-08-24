@@ -1,58 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="23"
+    api-level="24"
+    build-mode="COLD"
     density="xxxhdpi"
-    format="8"
-    plugin-version="2.2.3"
-    timestamp="311429901809770"
+    format="10"
+    plugin-version="2.3.3"
+    timestamp="1503534807726"
     token="-6401203421281611079"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="2648" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="127" />
     <task
         name="verifier"
-        duration="0" />
+        duration="21" />
 
     <artifact
-        location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
-        type="DEX" />
+        location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
 
     <build
-        timestamp="303127042907254"
-        verifier="JAVA_RESOURCES_CHANGED" >
+        build-mode="FULL"
+        timestamp="1503528416156"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
         <artifact
             location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/outputs/apk/app-debug.apk"
-            type="MAIN" />
+            type="SPLIT_MAIN" />
     </build>
     <build
-        timestamp="311228511092464"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/builds/debug/311228511092464/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="311328203159422"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/builds/debug/311328203159422/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="311429901809770"
+        build-mode="COLD"
+        timestamp="1503532697495"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
-            type="DEX" />
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/outputs/apk/app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1503534807726"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/nathanhampshire/AndroidStudioProjects/VappAppAndroid/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

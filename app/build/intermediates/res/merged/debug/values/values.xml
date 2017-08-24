@@ -651,9 +651,39 @@
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
     <declare-styleable name="WalletFragmentOptions"><attr format="enum" name="appTheme"><enum name="holo_dark" value="0"/><enum name="holo_light" value="1"/></attr><attr format="enum" name="environment"><enum name="production" value="1"/><enum name="test" value="3"/><enum name="sandbox" value="0"/><enum name="strict_sandbox" value="2"/></attr><attr format="reference" name="fragmentStyle"/><attr format="enum" name="fragmentMode"><enum name="buyButton" value="1"/><enum name="selectionDetails" value="2"/></attr></declare-styleable>
     <declare-styleable name="WalletFragmentStyle"><attr format="dimension" name="buyButtonHeight"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="dimension" name="buyButtonWidth"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="enum" name="buyButtonText"><enum name="buy_with" value="5"/><enum name="logo_only" value="6"/><enum name="donate_with" value="7"/><enum name="buy_with_google" value="1"/><enum name="buy_now" value="2"/><enum name="book_now" value="3"/><enum name="donate_with_google" value="4"/></attr><attr format="enum" name="buyButtonAppearance"><enum name="google_wallet_classic" value="1"/><enum name="google_wallet_grayscale" value="2"/><enum name="google_wallet_monochrome" value="3"/><enum name="android_pay_dark" value="4"/><enum name="android_pay_light" value="5"/><enum name="android_pay_light_with_border" value="6"/><enum name="classic" value="1"/><enum name="grayscale" value="2"/><enum name="monochrome" value="3"/></attr><attr format="reference" name="maskedWalletDetailsTextAppearance"/><attr format="reference" name="maskedWalletDetailsHeaderTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsBackground"/><attr format="reference" name="maskedWalletDetailsButtonTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsButtonBackground"/><attr format="color" name="maskedWalletDetailsLogoTextColor"/><attr format="enum" name="maskedWalletDetailsLogoImageType"><enum name="google_wallet_classic" value="1"/><enum name="google_wallet_monochrome" value="2"/><enum name="android_pay" value="3"/><enum name="classic" value="1"/><enum name="monochrome" value="2"/></attr></declare-styleable>
-    <declare-styleable name="com_facebook_like_view"><attr format="color" name="com_facebook_foreground_color"/><attr format="string" name="com_facebook_object_id"/><attr name="com_facebook_object_type"><enum name="unknown" value="0"/><enum name="open_graph" value="1"/><enum name="page" value="2"/></attr><attr name="com_facebook_style"><enum name="standard" value="0"/><enum name="button" value="1"/><enum name="box_count" value="2"/></attr><attr name="com_facebook_auxiliary_view_position"><enum name="bottom" value="0"/><enum name="inline" value="1"/><enum name="top" value="2"/></attr><attr name="com_facebook_horizontal_alignment"><enum name="center" value="0"/><enum name="left" value="1"/><enum name="right" value="2"/></attr></declare-styleable>
-    <declare-styleable name="com_facebook_login_view"><attr format="boolean" name="com_facebook_confirm_logout"/><attr format="string" name="com_facebook_login_text"/><attr format="string" name="com_facebook_logout_text"/><attr name="com_facebook_tooltip_mode"><enum name="automatic" value="0"/><enum name="display_always" value="1"/><enum name="never_display" value="2"/></attr></declare-styleable>
-    <declare-styleable name="com_facebook_profile_picture_view"><attr name="com_facebook_preset_size"><enum name="small" value="-2"/><enum name="normal" value="-3"/><enum name="large" value="-4"/></attr><attr format="boolean" name="com_facebook_is_cropped"/></declare-styleable>
+    <declare-styleable name="com_facebook_like_view"><attr format="color" name="com_facebook_foreground_color"/><attr format="string" name="com_facebook_object_id"/><attr name="com_facebook_object_type">
+            
+            <enum name="unknown" value="0"/>
+            <enum name="open_graph" value="1"/>
+            <enum name="page" value="2"/>
+        </attr><attr name="com_facebook_style">
+            
+            <enum name="standard" value="0"/>
+            <enum name="button" value="1"/>
+            <enum name="box_count" value="2"/>
+        </attr><attr name="com_facebook_auxiliary_view_position">
+            
+            <enum name="bottom" value="0"/>
+            <enum name="inline" value="1"/>
+            <enum name="top" value="2"/>
+        </attr><attr name="com_facebook_horizontal_alignment">
+            
+            <enum name="center" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+        </attr></declare-styleable>
+    <declare-styleable name="com_facebook_login_view"><attr format="boolean" name="com_facebook_confirm_logout"/><attr format="string" name="com_facebook_login_text"/><attr format="string" name="com_facebook_logout_text"/><attr name="com_facebook_tooltip_mode">
+            
+            <enum name="automatic" value="0"/>
+            <enum name="display_always" value="1"/>
+            <enum name="never_display" value="2"/>
+        </attr></declare-styleable>
+    <declare-styleable name="com_facebook_profile_picture_view"><attr name="com_facebook_preset_size">
+            
+            <enum name="small" value="-2"/>
+            <enum name="normal" value="-3"/>
+            <enum name="large" value="-4"/>
+        </attr><attr format="boolean" name="com_facebook_is_cropped"/></declare-styleable>
     <declare-styleable name="tw__AspectRatioImageView"><attr format="float" name="tw__image_aspect_ratio"/><attr format="enum" name="tw__image_dimension_to_adjust"><enum name="height" value="0"/><enum name="width" value="1"/></attr></declare-styleable>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
@@ -1185,7 +1215,7 @@
     <string name="com_auth0_webauth_permission_missing_description">Some permissions required by this provider were not granted. You can try to authenticate again or go to the application\'s permission screen in the phone settings and grant them. The missing permissions are:\n%s</string>
     <string name="com_auth0_webauth_permission_missing_title">Missing permissions</string>
     <string name="com_auth0_webauth_webview_loading_retry">Retry</string>
-    <string name="com_facebook_device_auth_instructions">Visit &lt;b>facebook.com/device&lt;/b> and enter your code.</string>
+    <string name="com_facebook_device_auth_instructions">Visit &lt;b>facebook.com/device&lt;/b> and enter the code shown above.</string>
     <string name="com_facebook_image_download_unknown_error">Unexpected error while downloading an image.</string>
     <string name="com_facebook_internet_permission_error_message">WebView login requires INTERNET permission</string>
     <string name="com_facebook_internet_permission_error_title">AndroidManifest Error</string>
@@ -1198,17 +1228,14 @@
     <string name="com_facebook_loginview_log_in_button_long">Log in with Facebook</string>
     <string name="com_facebook_loginview_log_out_action">Log out</string>
     <string name="com_facebook_loginview_log_out_button">Log out</string>
-    <string name="com_facebook_loginview_logged_in_as">Logged in as: %1$s</string>
+    <string name="com_facebook_loginview_logged_in_as">Logged in as: <ns1:g id="user name">%1$s</ns1:g></string>
     <string name="com_facebook_loginview_logged_in_using_facebook">Logged in using Facebook</string>
     <string name="com_facebook_send_button_text">Send</string>
     <string name="com_facebook_share_button_text">Share</string>
-    <string name="com_facebook_smart_device_instructions_0">Confirm your code on Facebook.</string>
-    <string name="com_facebook_smart_device_instructions_1">1.\tGo to the Menu</string>
-    <string name="com_facebook_smart_device_instructions_2">2.\tSelect Device Requests</string>
-    <string name="com_facebook_smart_device_instructions_3">3.\tConfirm code.</string>
+    <string name="com_facebook_smart_device_instructions">To connect your account, open the Facebook app on your mobile device and check for notifications.</string>
     <string name="com_facebook_smart_device_instructions_or">- OR -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Not you?</string>
-    <string name="com_facebook_smart_login_confirmation_continue_as">Continue as %1$s</string>
+    <string name="com_facebook_smart_login_confirmation_continue_as">Continue as <ns1:g id="user name">%1$s</ns1:g></string>
     <string name="com_facebook_smart_login_confirmation_title">Confirm Login</string>
     <string name="com_facebook_tooltip_default">You\'re in control - choose what info you want to share with apps.</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>

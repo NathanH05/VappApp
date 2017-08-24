@@ -43,7 +43,7 @@ android {
         javaMaxHeapSize "2048M"
     }
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.google.samples.quickstart.signin"
         minSdkVersion 23
